@@ -1,5 +1,6 @@
 <script setup>
 defineProps({
+  //TODO : Textes interface depuis JSON.
   msg: {
     type: String,
     required: false,
@@ -24,12 +25,14 @@ gsap.from(document.getElementById("de"), {opacity:0, duration:4, delay:1})
 
 <template>
   <div class="language-screen">
-  <h1>Le métier du figuriniste</h1>
+    <!-- TODO : Textes interface depuis JSON. -->
+  <h1>Le métier du figuriniste</h1> 
   <div class="flags-row">
     <div class="flag" id="fr"><img src="../../assets/fr.png" alt=""></div>
     <div class="flag" id="en"><img src="../../assets/en.png" alt=""></div>
     <div class="flag" id="de"><img src="../../assets/de.png" alt=""></div>
   </div>
+    <!-- TODO : Textes interface depuis JSON. -->
   <div class="paraph-lang"><span>Choisissez votre langue</span></br>
     <span>Choose your language</span> </br>
     <span>Wählen Sie Ihre Sprache</span> </br>
