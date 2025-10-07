@@ -1,0 +1,44 @@
+[
+  {
+    "étape": "Intro",
+    "no": 0,
+    "texte-FR": "Les gestes du figuriniste",
+    "texte-EN": "Les gestes du figuriniste",
+    "texte-DE": "Les gestes du figuriniste"
+  },
+  {
+    "étape": "Intro",
+    "no": 1,
+    "texte-FR": "The gestures of the figurine maker",
+    "texte-EN": "The gestures of the figurine maker",
+    "texte-DE": "The gestures of the figurine maker"
+  },
+  {
+    "étape": "Intro",
+    "no": 2,
+    "texte-FR": "Die Gesten des Figurenmachers",
+    "texte-EN": "Die Gesten des Figurenmachers",
+    "texte-DE": "Die Gesten des Figurenmachers"
+  },
+  {
+    "étape": "Intro",
+    "no": 3,
+    "texte-FR": "Choisissez votre langue",
+    "texte-EN": "Choisissez votre langue",
+    "texte-DE": "Choisissez votre langue"
+  },
+  {
+    "étape": "Intro",
+    "no": 4,
+    "texte-FR": "Choose your language",
+    "texte-EN": "Choose your language",
+    "texte-DE": "Choose your language"
+  },
+  {
+    "étape": "Intro",
+    "no": 5,
+    "texte-FR": "Wählen Sie Ihre Sprache",
+    "texte-EN": "Wählen Sie Ihre Sprache",
+    "texte-DE": "Wählen Sie Ihre Sprache"
+  }
+]
