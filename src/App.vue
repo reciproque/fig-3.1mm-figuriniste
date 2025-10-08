@@ -1,10 +1,12 @@
 <script setup>
 import LanguageScreen from './components/LanguageScreen.vue'
+import VideoPlayer from './components/VideoPlayer.vue'
 </script>
 
 <template>
   <div class="screen">
-    <LanguageScreen/>
+    <!-- <LanguageScreen/> -->
+    <VideoPlayer/>
 
   </div>
 </template>
@@ -31,6 +33,23 @@ import LanguageScreen from './components/LanguageScreen.vue'
   top: 0;
   left: 0;
   color: #493C38;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 80px;
+  font-family: 'Gotham-Black';
+  text-transform: uppercase;
+  font-weight: 800;
+  padding-top: 120px;
+
+}
+
+h2 {
+  font-size: 50px;
+  font-family: 'Gotham-Black';
+  text-transform: uppercase;
+  font-weight: 800;
 }
 
 </style>

@@ -1,0 +1,29 @@
+[
+  {
+    "étape": "Dessin",
+    "no": 0,
+    "timecode-start": 0,
+    "timecode-end": 5000,
+    "type": "dialogue",
+    "texte-FR": "Bonjour !\n\nMerci d’être venu m’assister dans la réalisation de cette figurine de Richard Cœur de Lion.",
+    "texte-EN": "Hello!\n\nThank you for helping me make this Richard the Lionheart figurine."
+  },
+  {
+    "étape": "Dessin",
+    "no": 1,
+    "timecode-start": 6000,
+    "timecode-end": 13000,
+    "type": "dialogue",
+    "texte-FR": "Commençons par la première étape.\nNous devons dessiner la figurine sous tous les angles afin de pouvoir en fabriquer un moule.",
+    "texte-EN": "Let's start with the first step.\nWe need to draw the figure from all angles so we can make a mold."
+  },
+  {
+    "étape": "Dessin",
+    "no": 2,
+    "timecode-start": 13000,
+    "timecode-end": 20000,
+    "type": "dialogue",
+    "texte-FR": "Pourriez-vous, s'il vous plait, me passer l’outil qui nous permettra de dessiner un modèle de la figurine ?",
+    "texte-EN": "Could you please pass me the tool that will allow us to draw a model of the figurine?"
+  }
+]

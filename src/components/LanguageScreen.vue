@@ -1,10 +1,6 @@
 <script setup>
 defineProps({
-  //TODO : Textes interface depuis JSON.
-  msg: {
-    type: String,
-    required: false,
-  },
+
 })
 
 import texts from '../../assets/interface.json'
@@ -65,23 +61,6 @@ onMounted(() => {
   justify-content: center;
 }
 
-h1 {
-  font-size: 80px;
-  font-family: 'Gotham-Black';
-  text-transform: uppercase;
-  font-weight: 800;
-  padding-top: 180px;
-
-}
-
-
-h2 {
-  font-size: 50px;
-  font-family: 'Gotham-Black';
-  text-transform: uppercase;
-  font-weight: 800;
-}
-
 .flag {
   cursor: pointer;
 }
@@ -89,7 +68,7 @@ h2 {
 .flags-row {
   display: flex;
   flex-direction: row;
-  padding-top: 160px;
+  padding-top: 80px;
   padding-bottom: 80px;
   gap: 96px;
 }
