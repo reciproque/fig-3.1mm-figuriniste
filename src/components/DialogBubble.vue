@@ -53,6 +53,7 @@ onMounted(() => {
     width: 110px;
     margin-bottom: -10px;
 }
+
 .bubble-box {
     font-size: 28px;
     font-weight: 700;

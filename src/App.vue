@@ -1,17 +1,29 @@
 <script setup>
+
+import { ref } from 'vue'
 import LanguageScreen from './components/LanguageScreen.vue'
 import VideoPlayer from './components/VideoPlayer.vue'
+
+const selectedLanguage = ref(null)
+
+function onLanguageSelected(lang) {
+  selectedLanguage.value = lang
+}
+
 </script>
 
 <template>
   <div class="screen">
-    <!-- <LanguageScreen/> -->
-    <VideoPlayer/>
+
+    <LanguageScreen v-if="!selectedLanguage" @language-selected="onLanguageSelected" />
+
+    <VideoPlayer v-else :language="selectedLanguage" />
 
   </div>
 </template>
 
 <style>
+
 @font-face {
   font-family: 'Gotham-Black';
   src: url('../assets/Gotham-Black.otf') format("opentype");

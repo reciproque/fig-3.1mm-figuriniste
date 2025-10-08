@@ -40,5 +40,12 @@
     "texte-FR": "Wählen Sie Ihre Sprache",
     "texte-EN": "Wählen Sie Ihre Sprache",
     "texte-DE": "Wählen Sie Ihre Sprache"
+  },
+  {
+    "étape": "Dessin",
+    "no": 6,
+    "texte-FR": "Touchez l’outil correspondant à la demande du figuriniste.",
+    "texte-EN": "Touch the tool corresponding to the figurine maker's request.",
+    "texte-DE": "Berühren Sie das Werkzeug, das der Anfrage des Figurenherstellers entspricht."
   }
 ]

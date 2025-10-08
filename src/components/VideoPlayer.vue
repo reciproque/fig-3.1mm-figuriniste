@@ -2,15 +2,15 @@
 
 import DialogBubble from './DialogBubble.vue';
 
-defineProps({
-
-    msg: {
+const { language } = defineProps({
+    language: {
         type: String,
-        required: false,
-    },
+        required: true
+    }
 })
 
-import texts from '../../assets/dialogues-01-dessin.json'
+import texts from '../../texts/interface.json'
+import dialogs from '../../texts/dialogues-01-dessin.json'
 
 import { gsap } from 'gsap';
 
@@ -22,17 +22,24 @@ function getText(n, lang) {
     if (lang == "DE") return texts[n]["texte-DE"];
 }
 
+function getDialog(n, lang) {
+    if (lang == "FR") return dialogs[n]["texte-FR"];
+    if (lang == "EN") return dialogs[n]["texte-EN"];
+    if (lang == "DE") return dialogs[n]["texte-DE"];
+}
+
 function getTimecodeStart(n) {
-   return texts[n]["timecode-start"];
+    return dialogs[n]["timecode-start"];
 }
 
 function getTimecodeEnd(n) {
-   return texts[n]["timecode-end"];
+    return dialogs[n]["timecode-end"];
 }
 
 
-let lang = "FR";
-let dialogContent = getText(0, lang)
+//TODO : Dynamique selon l'étape
+let dialogContent = getDialog(0, language)
+let nbBubbles = 3;
 
 const showBubble = ref(true)
 
@@ -52,23 +59,27 @@ function nextBubble(end, nextStart, n) {
     // Fin bubble n (1000 entre fin de l'anim et disparition)
     setTimeout(() => {
         showBubble.value = false
-    }, end+1000)
+    }, end + 1000)
 
     // Début bubble n + 1 (1000 entre fin de l'anim et apparition)
     setTimeout(() => {
         showBubble.value = true
-        dialogContent = getText(n + 1, lang);
+        dialogContent = getDialog(n + 1, language);
+        if (n + 1 == nbBubbles - 1) {
+            document.querySelector(".choix").style.display = "flex";
+            gsap.from(document.querySelector(".scrim"), { opacity: 0, duration: 0.5 })
+            gsap.to(document.querySelector("video"), { opacity: 0, duration: 0.5 })
+        }
+
     }, nextStart)
 }
 
 onMounted(() => {
     const bubble = document.querySelector(".dialog-bubble")
-    for (let i=0; i<2; i++) {
-        nextBubble(getTimecodeEnd(i), getTimecodeStart(i+1), i);
-
+    for (let i = 0; i < nbBubbles - 1; i++) {
+        nextBubble(getTimecodeEnd(i), getTimecodeStart(i + 1), i);
     }
-    // nextBubble(getTimecodeEnd(0), getTimecodeStart(1), 0);
-    // nextBubble(getTimecodeEnd(1),  getTimecodeStart(2), 1);
+
 })
 
 </script>
@@ -77,12 +88,59 @@ onMounted(() => {
 
     <div class="video-screen"> <video muted autoplay src="../../assets/sample-video.mp4" class="main-video"></video>
         <DialogBubble v-if="showBubble" ref="dialogBubble" class="dialog-bubble" :dialogContent="dialogContent" />
-    </div>
 
+        <!-- TODO : dans un component ? -->
+        <div class="choix">
+            <div class="instruction">{{ getText(6, language) }}</div>
+            <div class="arrow-row">
+                <img src="../../assets/choix-fleche.png" alt="" id="choix-fleche-1">
+                <img src="../../assets/choix-fleche.png" alt="" id="choix-fleche-2">
+                <img src="../../assets/choix-fleche.png" alt="" id="choix-fleche-3">
+                <img src="../../assets/choix-fleche.png" alt="" id="choix-fleche-4">
+                <img src="../../assets/choix-fleche.png" alt="" id="choix-fleche-5">
+                <img src="../../assets/choix-fleche.png" alt="" id="choix-fleche-6">
+            </div>
+            <div class="scrim"><img src="../../assets/choix-scrim.svg" alt=""></div>
+        </div>
+
+    </div>
 
 </template>
 
 <style scoped>
+.choix {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    gap: 30px;
+}
+
+.scrim {
+    height: fit-content;
+    margin: 0;
+    vertical-align: bottom;
+    margin-bottom: -10px;
+}
+
+.arrow-row {
+    display: flex;
+    flex-direction: row;
+    gap: 150px;
+}
+
+
+.instruction {
+    font-size: 50px;
+    color: white;
+    font-family: 'Gotham';
+    font-weight: 700;
+    filter: drop-shadow(0 0 29px rgba(0, 0, 0, 0.5));
+    text-align: center;
+}
 
 .dialog-bubble {
     position: absolute;
@@ -115,7 +173,6 @@ onMounted(() => {
 
 video {
     outline: none;
-
 }
 
 .main-video {
@@ -126,5 +183,6 @@ video {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0;
 }
 </style>
