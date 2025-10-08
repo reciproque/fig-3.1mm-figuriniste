@@ -9,7 +9,7 @@ const { language, step } = defineProps({
     },
     step: {
         type: String,
-        required:false,
+        required: false,
     }
 })
 
@@ -19,11 +19,9 @@ import dialogs from '../../texts/dialogs.json'
 
 
 const allDialogs = dialogs.reduce((acc, obj) => {
-  return {...acc, [obj.étape]: [...acc[obj.étape] || [], obj]}
+    return { ...acc, [obj.étape]: [...acc[obj.étape] || [], obj] }
 }, {})
 
-
-console.log(allDialogs[step][0]["texte-FR"])
 
 import { gsap } from 'gsap';
 
@@ -87,22 +85,22 @@ function nextBubble(end, nextStart, n) {
 
 function beginChoiceListening() {
     document.addEventListener('keydown', function (e) {
-        if (e.key==="1" || e.key==="2" || e.key==="3" || e.key==="4" || e.key==="5" || e.key==="6") document.getElementById("choix-fleche-"+e.key).style.filter="invert()";
+        if (e.key === "1" || e.key === "2" || e.key === "3" || e.key === "4" || e.key === "5" || e.key === "6") document.getElementById("choix-fleche-" + e.key).style.filter = "invert()";
     });
     document.addEventListener('keyup', function (e) {
         console.log(e.key)
-        if (e.key==="1" || e.key==="2" || e.key==="3" || e.key==="4" || e.key==="5" || e.key==="6") document.getElementById("choix-fleche-"+e.key).style.filter="none";
+        if (e.key === "1" || e.key === "2" || e.key === "3" || e.key === "4" || e.key === "5" || e.key === "6") document.getElementById("choix-fleche-" + e.key).style.filter = "none";
     });
 }
 
 onMounted(() => {
-    gsap.from(document.querySelector(".video-screen"),{ opacity: 0, duration: 1})
+    gsap.from(document.querySelector(".video-screen"), { opacity: 0, duration: 1 })
     const bubble = document.querySelector(".dialog-bubble")
-    setTimeout(()=>showBubble.value = true, getTimecodeStart(0))
+    setTimeout(() => showBubble.value = true, getTimecodeStart(0))
     for (let i = 0; i < nbBubbles - 1; i++) {
         nextBubble(getTimecodeEnd(i), getTimecodeStart(i + 1), i);
     }
-        beginChoiceListening();
+    beginChoiceListening();
 
 })
 

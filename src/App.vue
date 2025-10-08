@@ -23,7 +23,6 @@ function onLanguageSelected(lang) {
 </template>
 
 <style>
-
 @font-face {
   font-family: 'Gotham-Black';
   src: url('../assets/Gotham-Black.otf') format("opentype");
@@ -63,5 +62,4 @@ h2 {
   text-transform: uppercase;
   font-weight: 800;
 }
-
 </style>

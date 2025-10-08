@@ -55,7 +55,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-
 .language-screen {
   display: flex;
   flex-direction: column;
@@ -84,5 +83,4 @@ onMounted(() => {
   justify-content: center;
   font-size: 32px;
 }
-
 </style>
