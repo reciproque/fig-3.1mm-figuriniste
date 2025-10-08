@@ -2,15 +2,28 @@
 
 import DialogBubble from './DialogBubble.vue';
 
-const { language } = defineProps({
+const { language, step } = defineProps({
     language: {
         type: String,
         required: true
+    },
+    step: {
+        type: String,
+        required:false,
     }
 })
 
 import texts from '../../texts/interface.json'
-import dialogs from '../../texts/dialogues-01-dessin.json'
+
+import dialogs from '../../texts/dialogs.json'
+
+
+const allDialogs = dialogs.reduce((acc, obj) => {
+  return {...acc, [obj.étape]: [...acc[obj.étape] || [], obj]}
+}, {})
+
+
+console.log(allDialogs[step][0]["texte-FR"])
 
 import { gsap } from 'gsap';
 
@@ -23,25 +36,24 @@ function getText(n, lang) {
 }
 
 function getDialog(n, lang) {
-    if (lang == "FR") return dialogs[n]["texte-FR"];
-    if (lang == "EN") return dialogs[n]["texte-EN"];
-    if (lang == "DE") return dialogs[n]["texte-DE"];
+    if (lang == "FR") return allDialogs[step][n]["texte-FR"];
+    if (lang == "EN") return allDialogs[step][n]["texte-EN"];
+    if (lang == "DE") return allDialogs[step][n]["texte-DE"];
 }
 
 function getTimecodeStart(n) {
-    return dialogs[n]["timecode-start"];
+    return allDialogs[step][n]["timecode-start"];
 }
 
 function getTimecodeEnd(n) {
-    return dialogs[n]["timecode-end"];
+    return allDialogs[step][n]["timecode-end"];
 }
 
+let nbBubbles = allDialogs[step].length;
 
-//TODO : Dynamique selon l'étape
 let dialogContent = getDialog(0, language)
-let nbBubbles = 3;
 
-const showBubble = ref(true)
+const showBubble = ref(false)
 
 function animateBubbleOut() {
     const bubble = document.querySelector(".dialog-bubble")
@@ -70,15 +82,27 @@ function nextBubble(end, nextStart, n) {
             gsap.from(document.querySelector(".scrim"), { opacity: 0, duration: 0.5 })
             gsap.to(document.querySelector("video"), { opacity: 0, duration: 0.5 })
         }
-
     }, nextStart)
 }
 
+function beginChoiceListening() {
+    document.addEventListener('keydown', function (e) {
+        if (e.key==="1" || e.key==="2" || e.key==="3" || e.key==="4" || e.key==="5" || e.key==="6") document.getElementById("choix-fleche-"+e.key).style.filter="invert()";
+    });
+    document.addEventListener('keyup', function (e) {
+        console.log(e.key)
+        if (e.key==="1" || e.key==="2" || e.key==="3" || e.key==="4" || e.key==="5" || e.key==="6") document.getElementById("choix-fleche-"+e.key).style.filter="none";
+    });
+}
+
 onMounted(() => {
+    gsap.from(document.querySelector(".video-screen"),{ opacity: 0, duration: 1})
     const bubble = document.querySelector(".dialog-bubble")
+    setTimeout(()=>showBubble.value = true, getTimecodeStart(0))
     for (let i = 0; i < nbBubbles - 1; i++) {
         nextBubble(getTimecodeEnd(i), getTimecodeStart(i + 1), i);
     }
+        beginChoiceListening();
 
 })
 

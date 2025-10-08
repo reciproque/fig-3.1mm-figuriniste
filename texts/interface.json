@@ -3,49 +3,126 @@
     "étape": "Intro",
     "no": 0,
     "texte-FR": "Les gestes du figuriniste",
-    "texte-EN": "Les gestes du figuriniste",
-    "texte-DE": "Les gestes du figuriniste"
+    "texte-EN": "-",
+    "texte-DE": "-"
   },
   {
     "étape": "Intro",
     "no": 1,
     "texte-FR": "The gestures of the figurine maker",
-    "texte-EN": "The gestures of the figurine maker",
-    "texte-DE": "The gestures of the figurine maker"
+    "texte-EN": "-",
+    "texte-DE": "-"
   },
   {
     "étape": "Intro",
     "no": 2,
     "texte-FR": "Die Gesten des Figurenmachers",
-    "texte-EN": "Die Gesten des Figurenmachers",
-    "texte-DE": "Die Gesten des Figurenmachers"
+    "texte-EN": "-",
+    "texte-DE": "-"
   },
   {
     "étape": "Intro",
     "no": 3,
     "texte-FR": "Choisissez votre langue",
-    "texte-EN": "Choisissez votre langue",
-    "texte-DE": "Choisissez votre langue"
+    "texte-EN": "-",
+    "texte-DE": "-"
   },
   {
     "étape": "Intro",
     "no": 4,
     "texte-FR": "Choose your language",
-    "texte-EN": "Choose your language",
-    "texte-DE": "Choose your language"
+    "texte-EN": "-",
+    "texte-DE": "-"
   },
   {
     "étape": "Intro",
     "no": 5,
     "texte-FR": "Wählen Sie Ihre Sprache",
-    "texte-EN": "Wählen Sie Ihre Sprache",
-    "texte-DE": "Wählen Sie Ihre Sprache"
+    "texte-EN": "-",
+    "texte-DE": "-"
   },
   {
-    "étape": "Dessin",
+    "étape": "Dessin 1",
     "no": 6,
     "texte-FR": "Touchez l’outil correspondant à la demande du figuriniste.",
     "texte-EN": "Touch the tool corresponding to the figurine maker's request.",
     "texte-DE": "Berühren Sie das Werkzeug, das der Anfrage des Figurenherstellers entspricht."
+  },
+  {
+    "étape": "Ebarbage 1",
+    "no": 7,
+    "texte-FR": "Touchez l’outil correspondant à la demande du figuriniste.",
+    "texte-EN": "Touch the tool corresponding to the figurine maker's request.",
+    "texte-DE": "Berühren Sie das Werkzeug, das der Anfrage des Figurenherstellers entspricht."
+  },
+  {
+    "étape": "Assemblage",
+    "no": 8,
+    "texte-FR": "Placez le bras de votre choix sur la figurine et soudons le tout",
+    "texte-EN": "Place the arm of your choice on the figurine and let's weld it all together",
+    "texte-DE": "Platzieren Sie den Arm Ihrer Wahl auf der Figur und lassen Sie uns alles zusammenschweißen"
+  },
+  {
+    "étape": "Assemblage",
+    "no": 9,
+    "texte-FR": "Non merci, je préfère que vous vous en occupiez",
+    "texte-EN": "No thanks, I'd rather you take care of it.",
+    "texte-DE": "Nein danke, ich möchte lieber, dass Sie sich darum kümmern."
+  },
+  {
+    "étape": "Assemblage",
+    "no": 10,
+    "texte-FR": "PASSER L’ÉTAPE",
+    "texte-EN": "SKIP THE STEP",
+    "texte-DE": "ÜBERSPRINGEN SIE DEN SCHRITT"
+  },
+  {
+    "étape": "Peinture",
+    "no": 11,
+    "texte-FR": "Non merci, pouvez-vous vous occuper de la peinture ?",
+    "texte-EN": "No thanks, can you take care of the painting?",
+    "texte-DE": "Nein danke, können Sie sich um das Gemälde kümmern?"
+  },
+  {
+    "étape": "Peinture",
+    "no": 12,
+    "texte-FR": "PASSER L’ÉTAPE",
+    "texte-EN": "SKIP THE STEP",
+    "texte-DE": "ÜBERSPRINGEN SIE DEN SCHRITT"
+  },
+  {
+    "étape": "Peinture",
+    "no": 13,
+    "texte-FR": "Choisissez la couleur de la peau",
+    "texte-EN": "Choose skin color",
+    "texte-DE": "Wählen Sie die Hautfarbe"
+  },
+  {
+    "étape": "Peinture",
+    "no": 14,
+    "texte-FR": "Choisissez la couleur des cheveux",
+    "texte-EN": "Choose hair color",
+    "texte-DE": "Wählen Sie die Haarfarbe"
+  },
+  {
+    "étape": "Peinture",
+    "no": 15,
+    "texte-FR": "Choisissez la couleur de la robe et du bouclier",
+    "texte-EN": "Choose the color of the dress and shield",
+    "texte-DE": "Wählen Sie die Farbe des Kleides und des Schildes"
+  },
+  {
+    "étape": "Peinture",
+    "no": 16,
+    "texte-FR": "Choisissez la couleur de la cotte de maille et des armoiries",
+    "texte-EN": "Choose the color of the chainmail and the coat of arms",
+    "texte-DE": "Wählen Sie die Farbe des Kettenhemds und des Wappens"
+  },
+  {
+    "étape": "QR-code",
+    "no": 17,
+    "texte-FR": "À l'aide de votre téléphone portable, scanner le QR-code",
+    "texte-EN": "Using your mobile phone, scan the QR code",
+    "texte-DE": "Scannen Sie mit Ihrem Mobiltelefon den QR-Code"
   }
 ]

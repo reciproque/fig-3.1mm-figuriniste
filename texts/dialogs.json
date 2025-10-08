@@ -1,0 +1,101 @@
+[
+  {
+    "étape": "Dessin 1",
+    "no": 0,
+    "timecode-start": 0,
+    "timecode-end": 5000,
+    "texte-FR": "Bonjour !\n\nMerci d’être venu·e m’assister dans la réalisation de cette figurine de Richard Cœur de Lion.",
+    "texte-EN": "Hello!\n\nThank you for helping me make this Richard the Lionheart figurine.",
+    "texte-DE": "Hallo!\n\nVielen Dank für deine Hilfe bei der Herstellung dieser Richard Löwenherz-Figur."
+  },
+  {
+    "étape": "Dessin 1",
+    "no": 1,
+    "timecode-start": 6000,
+    "timecode-end": 13000,
+    "texte-FR": "Commençons par la première étape.\nNous devons dessiner la figurine sous tous les angles afin de pouvoir en fabriquer un moule.",
+    "texte-EN": "Let's start with the first step.\nWe need to draw the figure from all angles so we can make a mold.",
+    "texte-DE": "Beginnen wir mit dem ersten Schritt.\nWir müssen die Figur aus allen Winkeln zeichnen, damit wir eine Form erstellen können."
+  },
+  {
+    "étape": "Dessin 1",
+    "no": 2,
+    "timecode-start": 14000,
+    "timecode-end": 20000,
+    "texte-FR": "Pourriez-vous, s'il vous plait, me passer l’outil qui nous permettra de dessiner un modèle de la figurine ?",
+    "texte-EN": "Could you please pass me the tool that will allow us to draw a model of the figurine?",
+    "texte-DE": "Könnten Sie mir bitte das Tool geben, mit dem wir ein Modell der Figur zeichnen können?"
+  },
+  {
+    "étape": "Dessin 2",
+    "no": 0,
+    "timecode-start": 0,
+    "timecode-end": 4000,
+    "texte-FR": "En êtes-vous sûr·e ?",
+    "texte-EN": "Are you sure?",
+    "texte-DE": "Bist du sicher?"
+  },
+  {
+    "étape": "Dessin 2",
+    "no": 1,
+    "timecode-start": 5000,
+    "timecode-end": 10000,
+    "texte-FR": "Oh, cet outil ne nous servira pas pour dessiner. Essayons autre chose.",
+    "texte-EN": "Oh, this tool won't be useful for drawing. Let's try something else.",
+    "texte-DE": "Oh, dieses Werkzeug ist zum Zeichnen nicht nützlich. Versuchen wir etwas anderes."
+  },
+  {
+    "étape": "Dessin 3",
+    "no": 0,
+    "timecode-start": 0,
+    "timecode-end": 3000,
+    "texte-FR": "Bien vu !",
+    "texte-EN": "Well seen!",
+    "texte-DE": "Gut gesehen!"
+  },
+  {
+    "étape": "Dessin 3",
+    "no": 1,
+    "timecode-start": 4000,
+    "timecode-end": 6000,
+    "texte-FR": "Parfait ! Avec ce criterium nous allons pouvoir dessiner notre figurine.",
+    "texte-EN": "Perfect! With this criterion we will be able to draw our figurine.",
+    "texte-DE": "Perfekt! Mit diesem Kriterium können wir unsere Figur zeichnen."
+  },
+  {
+    "étape": "Dessin 3",
+    "no": 2,
+    "timecode-start": 7000,
+    "timecode-end": 10000,
+    "texte-FR": "Il nous faut également une feuille.",
+    "texte-EN": "We also need a sheet.",
+    "texte-DE": "Wir brauchen außerdem ein Blatt."
+  },
+  {
+    "étape": "Dessin 3",
+    "no": 3,
+    "timecode-start": 11000,
+    "timecode-end": 15000,
+    "texte-FR": "Mais avant de se mettre à dessiner, il faut s'assurer que notre figurine soit fidèle au personnage qu'elle représente !",
+    "texte-EN": "But before we start drawing, we have to make sure that our figurine is faithful to the character it represents!",
+    "texte-DE": "Aber bevor wir mit dem Zeichnen beginnen, müssen wir sicherstellen, dass unsere Figur der Figur, die sie darstellt, treu bleibt!"
+  },
+  {
+    "étape": "Dessin 3",
+    "no": 4,
+    "timecode-start": 16000,
+    "timecode-end": 18000,
+    "texte-FR": "J’ai pour cela réuni de la documentation sur Richard Cœur de Lion.",
+    "texte-EN": "For this purpose, I have gathered documentation on Richard the Lionheart.",
+    "texte-DE": "Zu diesem Zweck habe ich Unterlagen zu Richard Löwenherz zusammengetragen."
+  },
+  {
+    "étape": "Dessin 3",
+    "no": 5,
+    "timecode-start": 19000,
+    "timecode-end": 25000,
+    "texte-FR": "Je peux ainsi dessiner la future figurine vue de face, de profil et de dos.",
+    "texte-EN": "I can thus draw the future figurine seen from the front, from the side and from the back.",
+    "texte-DE": "So kann ich die zukünftige Figur von vorne, von der Seite und von hinten zeichnen."
+  }
+]

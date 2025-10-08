@@ -17,7 +17,7 @@ function onLanguageSelected(lang) {
 
     <LanguageScreen v-if="!selectedLanguage" @language-selected="onLanguageSelected" />
 
-    <VideoPlayer v-else :language="selectedLanguage" />
+    <VideoPlayer v-else :language="selectedLanguage" step="Dessin 1" />
 
   </div>
 </template>
