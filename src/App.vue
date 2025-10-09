@@ -3,6 +3,7 @@
 import { ref } from 'vue'
 import LanguageScreen from './components/LanguageScreen.vue'
 import VideoPlayer from './components/VideoPlayer.vue'
+import EbarbageStep from './components/EbarbageStep.vue'
 
 const selectedLanguage = ref(null)
 
@@ -15,9 +16,10 @@ function onLanguageSelected(lang) {
 <template>
   <div class="screen">
 
-    <LanguageScreen v-if="!selectedLanguage" @language-selected="onLanguageSelected" />
+    <!-- <LanguageScreen v-if="!selectedLanguage" @language-selected="onLanguageSelected" />
+    <VideoPlayer v-else :language="selectedLanguage" step="Dessin 1" /> -->
 
-    <VideoPlayer v-else :language="selectedLanguage" step="Dessin 1" />
+    <EbarbageStep/>
 
   </div>
 </template>
@@ -36,8 +38,8 @@ function onLanguageSelected(lang) {
 .screen {
   background-image: url('../assets/background.png');
   background-size: cover;
-  width: 100vw;
-  height: 100vh;
+  width: 1920px;
+  height: 1080px;
   margin: 0;
   padding: 0;
   position: absolute;
@@ -62,4 +64,14 @@ h2 {
   text-transform: uppercase;
   font-weight: 800;
 }
+
+.instruction {
+    font-size: 50px;
+    color: white;
+    font-family: 'Gotham';
+    font-weight: 700;
+    filter: drop-shadow(0 0 29px rgba(0, 0, 0, 0.5));
+    text-align: center;
+}
+
 </style>

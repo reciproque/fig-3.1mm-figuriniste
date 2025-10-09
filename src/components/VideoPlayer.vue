@@ -154,16 +154,6 @@ onMounted(() => {
     gap: 150px;
 }
 
-
-.instruction {
-    font-size: 50px;
-    color: white;
-    font-family: 'Gotham';
-    font-weight: 700;
-    filter: drop-shadow(0 0 29px rgba(0, 0, 0, 0.5));
-    text-align: center;
-}
-
 .dialog-bubble {
     position: absolute;
     top: 10px;
