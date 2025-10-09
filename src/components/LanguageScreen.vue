@@ -19,20 +19,20 @@ const emit = defineEmits(['language-selected'])
 
 function selectLanguage(lang) {
   gsap.from(document.getElementById(lang), { scale: 0.9, duration: 1, ease: "bounce.out" })
+  //TODO : ne pas pouvoir cliquer 2 fois sur un bouton (peut casser le gsap/changer la langue...)
   setTimeout(() => emit('language-selected', lang), 800);
 }
 
+// Animation de début (fade in)
 onMounted(() => {
   gsap.from(document.querySelector("h1"), { opacity: 0, duration: 3 })
   gsap.from(document.querySelectorAll("h2"), { opacity: 0, duration: 3 })
-
   gsap.from(document.querySelector(".paraph-lang"), { opacity: 0, duration: 3, delay: 1 })
   gsap.from(document.getElementById("FR"), { opacity: 0, duration: 4, delay: 0.5 })
   gsap.from(document.getElementById("EN"), { opacity: 0, duration: 4, delay: 0.75 })
   gsap.from(document.getElementById("DE"), { opacity: 0, duration: 4, delay: 1 })
 
 })
-
 
 </script>
 

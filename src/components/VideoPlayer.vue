@@ -17,11 +17,9 @@ import texts from '../../texts/interface.json'
 
 import dialogs from '../../texts/dialogs.json'
 
-
 const allDialogs = dialogs.reduce((acc, obj) => {
     return { ...acc, [obj.étape]: [...acc[obj.étape] || [], obj] }
 }, {})
-
 
 import { gsap } from 'gsap';
 
@@ -108,10 +106,12 @@ onMounted(() => {
 
 <template>
 
+    <!-- TODO : gérer la src de la video selon la step. 1 step = 1 bulle = 1 vidéo ? -->
     <div class="video-screen"> <video muted autoplay src="../../assets/sample-video.mp4" class="main-video"></video>
         <DialogBubble v-if="showBubble" ref="dialogBubble" class="dialog-bubble" :dialogContent="dialogContent" />
 
         <!-- TODO : dans un component ? -->
+        <!-- TODO : gérer le passage à une séquence "choisis un outil" un param json. "Stop" ou "Continue" ? -->
         <div class="choix">
             <div class="instruction">{{ getText(6, language) }}</div>
             <div class="arrow-row">
