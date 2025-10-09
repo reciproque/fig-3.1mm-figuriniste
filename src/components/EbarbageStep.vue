@@ -1,6 +1,11 @@
 <script setup>
 import texts from '../../texts/interface.json'
 
+import { gsap } from 'gsap';
+
+import { onMounted } from 'vue';
+
+
 const { language = "FR", step } = defineProps({
     language: {
         type: String,
@@ -18,12 +23,27 @@ function getText(n, lang) {
     if (lang == "DE") return texts[n]["texte-DE"];
 }
 
+function selectArms(n) {
+    console.log(n);
+    gsap.to(document.getElementById("circle-"+n), {opacity:0, duration:0.2})
+    if(n==1) gsap.to(document.getElementById("arms-"+n), {x:500,y:80, duration:0.2})
+    if(n==2) gsap.to(document.getElementById("arms-"+n), {x:-700,y:220, duration:0.2})
+    if(n==3) gsap.to(document.getElementById("arms-"+n), {x:-500,y:-220, duration:0.2})
+
+}
+
+onMounted(() => {
+    gsap.from(document.querySelector(".ebarbage-screen"), { opacity: 0, duration: 1})
+
+
+})
+
 </script>
 
 <template>
     <div class="ebarbage-screen">
         <div class="instruction">{{ getText(8, language) }}</div>
-        <div class="randomizer-box">{{ getText(9, language) }}
+        <div class="randomizer-box" @click="selectArms(Math.floor(Math.random() * 3 +1))">{{ getText(9, language) }}
             <br>
             <em>{{ getText(10, language) }}</em>
         </div>
@@ -33,19 +53,19 @@ function getText(n, lang) {
     <img src="../../assets/sample-armless-richard.png" alt="" class="richard">
 
     <div class="arms-choice" id="arms-choice-1">
-        <img src="../../assets/circle-choice.svg" alt="" class="circle-choice">
+        <img src="../../assets/circle-choice.svg" alt="" class="circle-choice" @click="selectArms(1)" id="circle-1">
         <img src="../../assets/sample-arm1.png" alt="" class="arms" id="arms-1">
     </div>
 
     <div class="arms-choice" id="arms-choice-2">
-        <img src="../../assets/circle-choice.svg" alt="" class="circle-choice">
-        <img src="../../assets/sample-arm1.png" alt="" class="arms" id="arms-2">
+        <img src="../../assets/circle-choice.svg" alt="" class="circle-choice" @click="selectArms(2)" id="circle-2">
+        <img src="../../assets/sample-arm2.png" alt="" class="arms" id="arms-2">
     </div>
 
 
     <div class="arms-choice" id="arms-choice-3">
-        <img src="../../assets/circle-choice.svg" alt="" class="circle-choice">
-        <img src="../../assets/sample-arm1.png" alt="" class="arms" id="arms-3">
+        <img src="../../assets/circle-choice.svg" alt="" class="circle-choice" @click="selectArms(3)" id="circle-3">
+        <img src="../../assets/sample-arm3.png" alt="" class="arms" id="arms-3">
     </div>
 
 
@@ -101,7 +121,7 @@ function getText(n, lang) {
 
 #arms-choice-1 {
     top: 300px;
-    left: 200px;
+    right: 1700px;
 }
 
 #arms-choice-2 {
@@ -110,7 +130,7 @@ function getText(n, lang) {
 }
 
 #arms-choice-3 {
-    bottom: 480px;
+    top: 600px;
     right: 700px;
 }
 
