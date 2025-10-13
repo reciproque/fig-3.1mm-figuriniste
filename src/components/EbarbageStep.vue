@@ -6,7 +6,7 @@ import { gsap } from 'gsap';
 import { onMounted } from 'vue';
 
 
-const { language = "FR", step } = defineProps({
+const { language = "FR" } = defineProps({
     language: {
         type: String,
         required: true

@@ -2,24 +2,15 @@
 
 import DialogBubble from './DialogBubble.vue';
 
-const { language, step="Dessin 1" } = defineProps({
+const { language} = defineProps({
     language: {
         type: String,
         required: true
-    },
-    step: {
-        type: String,
-        required: false,
     }
 })
 
 import texts from '../../texts/interface.json'
-
 import dialogs from '../../texts/dialogs.json'
-
-// const allDialogs = dialogs.reduce((acc, obj) => {
-//     return { ...acc, [obj.étape]: [...acc[obj.étape] || [], obj] }
-// }, {})
 
 import { gsap } from 'gsap';
 
@@ -46,7 +37,13 @@ function getTimecodeEnd(n) {
 }
 
 let nbVideos = 39;
-let currentVideo = 0;
+
+let currentVideo = 1;
+
+// Timer pour debug
+const timer = ref(0);
+let timerInterval = null;
+
 
 let dialogContent = getDialog(0, language)
 
@@ -59,67 +56,23 @@ function animateBubbleOut() {
     }
 }
 
-// function nextVideo(n) {
-
-//     console.log(n);
-
-//     // Désaffiche bulle n 
-//     setTimeout(() => {
-//         animateBubbleOut()
-//     }, getTimecodeEnd(n) - getTimecodeStart(n))
-
-//     setTimeout(() => {
-//         showBubble.value = false
-//     }, getTimecodeEnd(n) - getTimecodeStart(n) + 1000)
-
-//     // Affiche la bulle n+1 
-//     setTimeout(() => {
-//         showBubble.value = true
-//         dialogContent = getDialog(n + 1, language);
-//     }, getTimecodeEnd(n) + getTimecodeStart(n+1) + 1000)
-// }
-
-// function nextBubble(end, nextStart, n) {
-//     // Anim fin bubble n
-//     setTimeout(() => {
-//         animateBubbleOut()
-//     }, end)
-
-//     // Fin bubble n (1000 entre fin de l'anim et disparition)
-//     setTimeout(() => {
-//         showBubble.value = false
-//     }, end + 1000)
-
-//     // Début bubble n + 1 (1000 entre fin de l'anim et apparition)
-//     setTimeout(() => {
-//         showBubble.value = true
-//         dialogContent = getDialog(n + 1, language);
-
-//         // // si étape "choix"
-//         // if (n + 1 == nbVideos - 1) {
-//         //     document.querySelector(".choix").style.display = "flex";
-//         //     gsap.from(document.querySelector(".scrim"), { opacity: 0, duration: 0.5 })
-//         //     gsap.to(document.querySelector("video"), { opacity: 0, duration: 0.5 })
-//         // }
-//     }, nextStart)
-// }
-
-// Debug : touche 1-6 invert flèche 1-6
-
-
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 async function playSequence() {
-    for (let i = 0; i < nbVideos - 1; i++) {
+    for (let i = 0; i < nbVideos; i++) {
+        currentVideo = i+1;
         await playVideo(i);
+        // TODO : play next video si end='skip', pauser et afficher séquence choix si end='choix-...'
     }
 }
 
 // Fonction pour une "étape" de bulle
 async function playVideo(n) {
-    console.log(n);
+
+    //TODO: pas de modulo quand on aura toutes les vidéos
+    document.querySelector("video").src = `../../assets/video-${n%4}.mp4`;
 
     // Affiche la bulle n
     showBubble.value = true;
@@ -127,8 +80,17 @@ async function playVideo(n) {
 
     const duration = getTimecodeEnd(n) - getTimecodeStart(n);
 
+    // Timer pour debug
+    timer.value = 1;
+    timerInterval = setInterval(() => {
+        timer.value++;
+    }, 1000);
+
     // Attends la durée d'affichage de la bulle
     await delay(duration);
+
+    // Timer pour debug
+    clearInterval(timerInterval);
 
     // Lance animation de sortie
     animateBubbleOut();
@@ -140,7 +102,7 @@ async function playVideo(n) {
     showBubble.value = false;
 
     // Petite pause avant la suivante (optionnel)
-    await delay(500);
+    //await delay(500);
 }
 
 onMounted(() => {
@@ -181,8 +143,10 @@ function beginChoiceListening() {
 
 <template>
 
-    <!-- TODO : gérer la src de la video selon la step. 1 step = 1 bulle = 1 vidéo ? -->
-    <div class="video-screen"> <video loop muted autoplay src="../../assets/sample-video.mp4" class="main-video"></video>
+    <div class="bubble-debug">video  n° {{ currentVideo }} <br> <span class="timer">{{ timer }}</span><br> start : {{ getTimecodeStart(currentVideo) }} <br> end : {{ getTimecodeEnd(currentVideo) }} </div>
+
+    <div class="video-screen"> 
+        <video loop muted autoplay src="../../assets/video-0.mp4" class="main-video"></video>
         <DialogBubble v-if="showBubble" ref="dialogBubble" class="dialog-bubble" :dialogContent="dialogContent" />
 
         <!-- TODO : dans un component ? -->
@@ -271,5 +235,19 @@ video {
     align-items: center;
     justify-content: center;
     margin: 0;
+}
+
+.bubble-debug {
+    position: absolute;
+    top:100px;
+    right: 100px;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+
+}
+
+.timer {
+    font-size: xx-large;
+    font-weight: 700;
 }
 </style>
