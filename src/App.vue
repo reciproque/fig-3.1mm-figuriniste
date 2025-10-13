@@ -3,7 +3,7 @@
 import { ref } from 'vue'
 import LanguageScreen from './components/LanguageScreen.vue'
 import VideoPlayer from './components/VideoPlayer.vue'
-import EbarbageStep from './components/EbarbageStep.vue'
+import AssemblageStep from './components/AssemblageStep.vue'
 
 
 // Langue globale du programme
@@ -19,11 +19,11 @@ function onLanguageSelected(lang) {
   <div class="screen">
 
     <!-- TODO : gérer le passage d'une step à l'autre + étapes interactives -->
-    <!-- <LanguageScreen v-if="!selectedLanguage" @language-selected="onLanguageSelected" />
-    <VideoPlayer v-else :language="selectedLanguage" /> -->
-    <!-- <EbarbageStep/> -->
+    <LanguageScreen v-if="!selectedLanguage" @language-selected="onLanguageSelected" />
+    <VideoPlayer v-else :language="selectedLanguage" />
+    <!-- <AssemblageStep/> -->
 
-    <VideoPlayer :language='"FR"' />
+    <!-- <VideoPlayer :language='"FR"' /> -->
 
   </div>
 </template>

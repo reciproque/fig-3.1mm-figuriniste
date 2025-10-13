@@ -33,7 +33,7 @@ function selectArms(n) {
 }
 
 onMounted(() => {
-    gsap.from(document.querySelector(".ebarbage-screen"), { opacity: 0, duration: 1})
+    gsap.from(document.querySelector(".assemblage-screen"), { opacity: 0, duration: 1})
 
 
 })
@@ -41,7 +41,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="ebarbage-screen">
+    <div class="assemblage-screen">
         <div class="instruction">{{ getText(8, language) }}</div>
         <div class="randomizer-box" @click="selectArms(1)">{{ getText(9, language) }}
             <br>
@@ -72,7 +72,7 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.ebarbage-screen {
+.assemblage-screen {
     display: flex;
     flex-direction: column;
     align-items: center;
