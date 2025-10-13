@@ -3,9 +3,11 @@ import texts from '../../texts/interface.json'
 
 import { gsap } from 'gsap';
 
-import { onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 
-let step = 1;
+const step = ref(0);
+
+const paintColors = ref(["black", "yellow", "white"]);
 
 let peau = 1;
 let cheveux = 1;
@@ -25,10 +27,35 @@ defineProps({
 
 
 function selectColor(n) {
-    console.log(n);
+
     gsap.from(document.getElementById("color-choice-"+n), { scale: 0.5, duration: 0.2, ease: "bounce.out" })
-    peau = n;
-    document.querySelector(".peinture-debug").innerHTML = `ETAPE : ${step} 
+    
+    if (step.value==0) peau = n;
+    if (step.value==1) cheveux = n;
+    if (step.value==2) robe = n;
+    if (step.value==3) armoiries = n;
+    
+    step.value++;
+    nextStep();
+
+    document.querySelector(".peinture-debug").innerHTML = `ETAPE : ${step.value} 
+    <br> Peau : ${peau} 
+    <br> Cheveux : ${cheveux} 
+    <br> Robe/Bouclier : ${robe} 
+    <br> Cote de maille/Armoiries : ${armoiries} 
+    `;
+
+}
+
+function nextStep() {
+    
+    setTimeout(() => {
+        gsap.from(document.querySelector(".palette"), { x: 200, rotateZ: 20, duration: 1 })}, 
+    
+        500);
+
+
+    document.querySelector(".peinture-debug").innerHTML = `ETAPE : ${step.value} 
     <br> Peau : ${peau} 
     <br> Cheveux : ${cheveux} 
     <br> Robe/Bouclier : ${robe} 
@@ -53,7 +80,7 @@ onMounted(() => {
     <br> Cote de maille/Armoiries : {{ armoiries }}</div>
     <div class="assemblage-screen">
         <div class="instruction">{{ instructions[step] }}</div>
-        <div class="randomizer-box" @click="selectColor(1)">{{ skipText[0] }}
+        <div v-if="step==0" class="randomizer-box" @click="selectColor(1)">{{ skipText[0] }}
             <br>
             <em>{{ skipText[1] }}</em>
         </div>
