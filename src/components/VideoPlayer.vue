@@ -3,7 +3,7 @@
 import DialogBubble from './DialogBubble.vue';
 import ChooseToolScreen from './ChooseToolScreen.vue'
 import AssemblageStep from './AssemblageStep.vue';
-
+import PeintureStep from './PeintureStep.vue';
 
 const { language } = defineProps({
     language: {
@@ -132,11 +132,15 @@ function beginChoiceListening() {
     <div class="bubble-debug">video  n° {{ currentVideo }} <br> <span class="timer">{{ timer }}</span><br> PLAY <br> </br>start : {{ getTimecodeStart(currentVideo) }} <br> end : {{ getTimecodeEnd(currentVideo) }} </div>
 
     <div class="video-screen"> 
+
         <!-- <video loop muted autoplay src="../../assets/video-0.mp4" class="main-video"></video> -->
         <DialogBubble v-if="showBubble" ref="dialogBubble" class="dialog-bubble" :dialogContent="dialogContent" />
-        
+       
         <!-- <ChooseToolScreen :choiceInstruction="getText(6, language)" :goodAnswer='6'/> -->
-         <!-- <AssemblageStep /> -->
+                
+        <!-- <AssemblageStep :instruction="getText(8, language)" :skipText="[getText(9, language), getText(10, language)]" />      -->
+
+        <PeintureStep :instructions="[getText(13, language), getText(14, language), getText(15, language), getText(16, language)]" :skipText="[getText(11, language), getText(12, language)]"/>
 
     </div>
 

@@ -17,10 +17,10 @@ function onLanguageSelected(lang) {
   <div class="screen">
 
     <!-- TODO : gérer le passage d'une step à l'autre + étapes interactives -->
-    <LanguageScreen v-if="!selectedLanguage" @language-selected="onLanguageSelected" />
-    <VideoPlayer v-else :language="selectedLanguage" />
+    <!-- <LanguageScreen v-if="!selectedLanguage" @language-selected="onLanguageSelected" />
+    <VideoPlayer v-else :language="selectedLanguage" /> -->
 
-    <!-- <VideoPlayer :language='"FR"' /> -->
+    <VideoPlayer :language='"FR"' />
 
 
 
