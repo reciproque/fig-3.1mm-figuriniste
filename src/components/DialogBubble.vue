@@ -57,7 +57,7 @@ onMounted(() => {
 .bubble-box {
     font-size: 28px;
     font-weight: 700;
-    font-family: 'Gotham';
+    font-family: 'Gotham-Book';
     text-align: center;
     background-color: #FBF9F5;
     border-radius: 40px;

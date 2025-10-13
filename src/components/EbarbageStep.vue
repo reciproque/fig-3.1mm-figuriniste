@@ -43,7 +43,7 @@ onMounted(() => {
 <template>
     <div class="ebarbage-screen">
         <div class="instruction">{{ getText(8, language) }}</div>
-        <div class="randomizer-box" @click="selectArms(Math.floor(Math.random() * 3 +1))">{{ getText(9, language) }}
+        <div class="randomizer-box" @click="selectArms(1)">{{ getText(9, language) }}
             <br>
             <em>{{ getText(10, language) }}</em>
         </div>
@@ -159,7 +159,7 @@ onMounted(() => {
 }
 
 em {
-    font-family: 'Gotham';
+    font-family: 'Gotham-Book';
     font-style: normal;
     font-size: 22px;
     font-weight: 500;

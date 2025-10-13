@@ -2,7 +2,7 @@
 
 import DialogBubble from './DialogBubble.vue';
 
-const { language, step } = defineProps({
+const { language, step="Dessin 1" } = defineProps({
     language: {
         type: String,
         required: true
@@ -17,9 +17,9 @@ import texts from '../../texts/interface.json'
 
 import dialogs from '../../texts/dialogs.json'
 
-const allDialogs = dialogs.reduce((acc, obj) => {
-    return { ...acc, [obj.étape]: [...acc[obj.étape] || [], obj] }
-}, {})
+// const allDialogs = dialogs.reduce((acc, obj) => {
+//     return { ...acc, [obj.étape]: [...acc[obj.étape] || [], obj] }
+// }, {})
 
 import { gsap } from 'gsap';
 
@@ -32,20 +32,21 @@ function getText(n, lang) {
 }
 
 function getDialog(n, lang) {
-    if (lang == "FR") return allDialogs[step][n]["texte-FR"];
-    if (lang == "EN") return allDialogs[step][n]["texte-EN"];
-    if (lang == "DE") return allDialogs[step][n]["texte-DE"];
+    if (lang == "FR") return dialogs[n]["texte-FR"];
+    if (lang == "EN") return dialogs[n]["texte-EN"];
+    if (lang == "DE") return dialogs[n]["texte-DE"];
 }
 
 function getTimecodeStart(n) {
-    return allDialogs[step][n]["timecode-start"];
+    return dialogs[n]["timecode-start"]*1000;
 }
 
 function getTimecodeEnd(n) {
-    return allDialogs[step][n]["timecode-end"];
+    return dialogs[n]["timecode-end"]*1000;
 }
 
-let nbBubbles = allDialogs[step].length;
+let nbVideos = 39;
+let currentVideo = 0;
 
 let dialogContent = getDialog(0, language)
 
@@ -58,56 +59,130 @@ function animateBubbleOut() {
     }
 }
 
-function nextBubble(end, nextStart, n) {
-    // Anim fin bubble n
-    setTimeout(() => {
-        animateBubbleOut()
-    }, end)
+// function nextVideo(n) {
 
-    // Fin bubble n (1000 entre fin de l'anim et disparition)
-    setTimeout(() => {
-        showBubble.value = false
-    }, end + 1000)
+//     console.log(n);
 
-    // Début bubble n + 1 (1000 entre fin de l'anim et apparition)
-    setTimeout(() => {
-        showBubble.value = true
-        dialogContent = getDialog(n + 1, language);
-        if (n + 1 == nbBubbles - 1) {
-            document.querySelector(".choix").style.display = "flex";
-            gsap.from(document.querySelector(".scrim"), { opacity: 0, duration: 0.5 })
-            gsap.to(document.querySelector("video"), { opacity: 0, duration: 0.5 })
-        }
-    }, nextStart)
+//     // Désaffiche bulle n 
+//     setTimeout(() => {
+//         animateBubbleOut()
+//     }, getTimecodeEnd(n) - getTimecodeStart(n))
+
+//     setTimeout(() => {
+//         showBubble.value = false
+//     }, getTimecodeEnd(n) - getTimecodeStart(n) + 1000)
+
+//     // Affiche la bulle n+1 
+//     setTimeout(() => {
+//         showBubble.value = true
+//         dialogContent = getDialog(n + 1, language);
+//     }, getTimecodeEnd(n) + getTimecodeStart(n+1) + 1000)
+// }
+
+// function nextBubble(end, nextStart, n) {
+//     // Anim fin bubble n
+//     setTimeout(() => {
+//         animateBubbleOut()
+//     }, end)
+
+//     // Fin bubble n (1000 entre fin de l'anim et disparition)
+//     setTimeout(() => {
+//         showBubble.value = false
+//     }, end + 1000)
+
+//     // Début bubble n + 1 (1000 entre fin de l'anim et apparition)
+//     setTimeout(() => {
+//         showBubble.value = true
+//         dialogContent = getDialog(n + 1, language);
+
+//         // // si étape "choix"
+//         // if (n + 1 == nbVideos - 1) {
+//         //     document.querySelector(".choix").style.display = "flex";
+//         //     gsap.from(document.querySelector(".scrim"), { opacity: 0, duration: 0.5 })
+//         //     gsap.to(document.querySelector("video"), { opacity: 0, duration: 0.5 })
+//         // }
+//     }, nextStart)
+// }
+
+// Debug : touche 1-6 invert flèche 1-6
+
+
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+async function playSequence() {
+    for (let i = 0; i < nbVideos - 1; i++) {
+        await playVideo(i);
+    }
+}
+
+// Fonction pour une "étape" de bulle
+async function playVideo(n) {
+    console.log(n);
+
+    // Affiche la bulle n
+    showBubble.value = true;
+    dialogContent = getDialog(n, language);
+
+    const duration = getTimecodeEnd(n) - getTimecodeStart(n);
+
+    // Attends la durée d'affichage de la bulle
+    await delay(duration);
+
+    // Lance animation de sortie
+    animateBubbleOut();
+
+    // Attends la fin de l'animation de sortie (ex: 1s)
+    await delay(1000);
+
+    // Cache la bulle
+    showBubble.value = false;
+
+    // Petite pause avant la suivante (optionnel)
+    await delay(500);
+}
+
+onMounted(() => {
+    gsap.from(document.querySelector(".video-screen"), { opacity: 0, duration: 1 });
+
+    // Démarre la séquence
+    playSequence();
+});
+
+
 
 function beginChoiceListening() {
     document.addEventListener('keydown', function (e) {
         if (e.key === "1" || e.key === "2" || e.key === "3" || e.key === "4" || e.key === "5" || e.key === "6") document.getElementById("choix-fleche-" + e.key).style.filter = "invert()";
     });
     document.addEventListener('keyup', function (e) {
-        console.log(e.key)
         if (e.key === "1" || e.key === "2" || e.key === "3" || e.key === "4" || e.key === "5" || e.key === "6") document.getElementById("choix-fleche-" + e.key).style.filter = "none";
     });
 }
 
-onMounted(() => {
-    gsap.from(document.querySelector(".video-screen"), { opacity: 0, duration: 1 })
-    const bubble = document.querySelector(".dialog-bubble")
-    setTimeout(() => showBubble.value = true, getTimecodeStart(0))
-    for (let i = 0; i < nbBubbles - 1; i++) {
-        nextBubble(getTimecodeEnd(i), getTimecodeStart(i + 1), i);
-    }
-    beginChoiceListening();
 
-})
+
+// onMounted(() => {
+//     gsap.from(document.querySelector(".video-screen"), { opacity: 0, duration: 1 })
+//     const bubble = document.querySelector(".dialog-bubble")
+    
+//     setTimeout(() => showBubble.value = true, getTimecodeStart(0))
+
+//     for (let i = 0; i < nbVideos - 1 ; i++) {
+//         nextVideo(i)
+//     }
+
+//     beginChoiceListening();
+
+// })
 
 </script>
 
 <template>
 
     <!-- TODO : gérer la src de la video selon la step. 1 step = 1 bulle = 1 vidéo ? -->
-    <div class="video-screen"> <video muted autoplay src="../../assets/sample-video.mp4" class="main-video"></video>
+    <div class="video-screen"> <video loop muted autoplay src="../../assets/sample-video.mp4" class="main-video"></video>
         <DialogBubble v-if="showBubble" ref="dialogBubble" class="dialog-bubble" :dialogContent="dialogContent" />
 
         <!-- TODO : dans un component ? -->
