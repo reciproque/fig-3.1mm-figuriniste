@@ -6,14 +6,14 @@ import { gsap } from 'gsap';
 import { onMounted } from 'vue';
 
 
-const { language = "FR" } = defineProps({
-    language: {
+defineProps({
+    instruction: {
         type: String,
-        required: true
+        required: false
     },
-    selectedArms: {
-        type: Number,
-        required: false,
+    skipText: {
+        type: Object,
+        required: false
     }
 })
 
@@ -41,11 +41,12 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="assemblage-screen">
-        <div class="instruction">{{ getText(8, language) }}</div>
-        <div class="randomizer-box" @click="selectArms(1)">{{ getText(9, language) }}
+    <div class="assemblage-screen">     
+        <!-- // TODO : passer plutôt les 3 textes en props plutôt que la langue -->
+        <div class="instruction">{{ instruction }}</div>
+        <div class="randomizer-box" @click="selectArms(1)">{{ skipText[0] }}
             <br>
-            <em>{{ getText(10, language) }}</em>
+            <em>{{  skipText[1] }}</em>
         </div>
 
     </div>
@@ -159,7 +160,7 @@ onMounted(() => {
 }
 
 em {
-    font-family: 'Gotham-Book';
+    font-family: 'Gotham-Black';
     font-style: normal;
     font-size: 22px;
     font-weight: 500;
