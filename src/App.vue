@@ -3,8 +3,6 @@
 import { ref } from 'vue'
 import LanguageScreen from './components/LanguageScreen.vue'
 import VideoPlayer from './components/VideoPlayer.vue'
-import AssemblageStep from './components/AssemblageStep.vue'
-
 
 // Langue globale du programme
 const selectedLanguage = ref(null)
@@ -21,9 +19,10 @@ function onLanguageSelected(lang) {
     <!-- TODO : gérer le passage d'une step à l'autre + étapes interactives -->
     <LanguageScreen v-if="!selectedLanguage" @language-selected="onLanguageSelected" />
     <VideoPlayer v-else :language="selectedLanguage" />
-    <!-- <AssemblageStep/> -->
 
     <!-- <VideoPlayer :language='"FR"' /> -->
+
+
 
   </div>
 </template>
@@ -72,8 +71,8 @@ h2 {
 .instruction {
   font-size: 50px;
   color: white;
-  font-family: 'Gotham';
-  font-weight: 700;
+  font-family: 'Gotham-Black';
+  font-weight: 300;
   filter: drop-shadow(0 0 29px rgba(0, 0, 0, 0.5));
   text-align: center;
 }

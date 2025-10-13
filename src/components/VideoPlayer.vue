@@ -1,8 +1,11 @@
 <script setup>
 
 import DialogBubble from './DialogBubble.vue';
+import ChooseToolScreen from './ChooseToolScreen.vue'
+import AssemblageStep from './AssemblageStep.vue';
 
-const { language} = defineProps({
+
+const { language } = defineProps({
     language: {
         type: String,
         required: true
@@ -64,7 +67,7 @@ async function playSequence() {
     for (let i = 0; i < nbVideos; i++) {
         currentVideo = i+1;
         await playVideo(i);
-        // TODO : play next video si end='skip', pauser et afficher séquence choix si end='choix-...'
+        // TODO : play next video si end='skip', pauser et générer le bon component si end='pause'
     }
 }
 
@@ -101,15 +104,13 @@ async function playVideo(n) {
     // Cache la bulle
     showBubble.value = false;
 
-    // Petite pause avant la suivante (optionnel)
-    //await delay(500);
 }
 
 onMounted(() => {
-    gsap.from(document.querySelector(".video-screen"), { opacity: 0, duration: 1 });
+    //gsap.from(document.querySelector(".video-screen"), { opacity: 0, duration: 1 });
 
     // Démarre la séquence
-    playSequence();
+    //playSequence();
 });
 
 
@@ -124,74 +125,24 @@ function beginChoiceListening() {
 }
 
 
-
-// onMounted(() => {
-//     gsap.from(document.querySelector(".video-screen"), { opacity: 0, duration: 1 })
-//     const bubble = document.querySelector(".dialog-bubble")
-    
-//     setTimeout(() => showBubble.value = true, getTimecodeStart(0))
-
-//     for (let i = 0; i < nbVideos - 1 ; i++) {
-//         nextVideo(i)
-//     }
-
-//     beginChoiceListening();
-
-// })
-
 </script>
 
 <template>
 
-    <div class="bubble-debug">video  n° {{ currentVideo }} <br> <span class="timer">{{ timer }}</span><br> start : {{ getTimecodeStart(currentVideo) }} <br> end : {{ getTimecodeEnd(currentVideo) }} </div>
+    <div class="bubble-debug">video  n° {{ currentVideo }} <br> <span class="timer">{{ timer }}</span><br> PLAY <br> </br>start : {{ getTimecodeStart(currentVideo) }} <br> end : {{ getTimecodeEnd(currentVideo) }} </div>
 
     <div class="video-screen"> 
-        <video loop muted autoplay src="../../assets/video-0.mp4" class="main-video"></video>
+        <!-- <video loop muted autoplay src="../../assets/video-0.mp4" class="main-video"></video> -->
         <DialogBubble v-if="showBubble" ref="dialogBubble" class="dialog-bubble" :dialogContent="dialogContent" />
-
-        <!-- TODO : dans un component ? -->
-        <!-- TODO : gérer le passage à une séquence "choisis un outil" un param json. "Stop" ou "Continue" ? -->
-        <div class="choix">
-            <div class="instruction">{{ getText(6, language) }}</div>
-            <div class="arrow-row">
-                <img src="../../assets/choix-fleche.png" alt="" id="choix-fleche-1">
-                <img src="../../assets/choix-fleche.png" alt="" id="choix-fleche-2">
-                <img src="../../assets/choix-fleche.png" alt="" id="choix-fleche-3">
-                <img src="../../assets/choix-fleche.png" alt="" id="choix-fleche-4">
-                <img src="../../assets/choix-fleche.png" alt="" id="choix-fleche-5">
-                <img src="../../assets/choix-fleche.png" alt="" id="choix-fleche-6">
-            </div>
-            <div class="scrim"><img src="../../assets/choix-scrim.svg" alt=""></div>
-        </div>
+        
+        <!-- <ChooseToolScreen :choiceInstruction="getText(6, language)" :goodAnswer='6'/> -->
+         <!-- <AssemblageStep /> -->
 
     </div>
 
 </template>
 
 <style scoped>
-.choix {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    bottom: 0;
-    margin: 0;
-    gap: 30px;
-}
-
-.scrim {
-    height: fit-content;
-    margin: 0;
-    vertical-align: bottom;
-    margin-bottom: -10px;
-}
-
-.arrow-row {
-    display: flex;
-    flex-direction: row;
-    gap: 150px;
-}
 
 .dialog-bubble {
     position: absolute;
@@ -239,11 +190,10 @@ video {
 
 .bubble-debug {
     position: absolute;
-    top:100px;
-    right: 100px;
-    background-color: rgba(255, 255, 255, 0.3);
+    top:0px;
+    right:0px;
+    background-color: rgba(255, 0, 0, 0.3);
     padding: 10px;
-
 }
 
 .timer {
