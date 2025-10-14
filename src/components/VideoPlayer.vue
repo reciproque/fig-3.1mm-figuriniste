@@ -31,17 +31,23 @@ function getDialog(n, lang) {
     if (lang == "DE") return dialogs[n]["texte-DE"];
 }
 
+function getDuration(n) {
+    return dialogs[n]["duration"];
+}
+
 function getTimecodeStart(n) {
-    return dialogs[n]["timecode-start"]*1000;
+    return dialogs[n]["timecode-start"] * 1000;
 }
 
 function getTimecodeEnd(n) {
-    return dialogs[n]["timecode-end"]*1000;
+    return dialogs[n]["timecode-end"] * 1000;
 }
 
-let nbVideos = 39;
+let nbVideos = Object.keys(dialogs).length;
 
-let currentVideo = 1;
+let currentVideo = 0;
+
+const isPlaying = ref(true);
 
 // Timer pour debug
 const timer = ref(0);
@@ -63,90 +69,131 @@ function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+async function resume() {
+    isPlaying.value = true;
+
+    animateBubbleOut();
+    await delay(1000);
+    showBubble.value = false;
+
+    currentVideo++;          // avance bien à la vidéo suivante
+
+    playSequence();          // c’est playVideo() qui jouera la vidéo
+}
+
+
 async function playSequence() {
-    for (let i = 0; i < nbVideos; i++) {
-        currentVideo = i+1;
+    for (let i = currentVideo; i < nbVideos; i++) {
+        currentVideo = i;
         await playVideo(i);
-        // TODO : play next video si end='skip', pauser et générer le bon component si end='pause'
+
+        if (dialogs[i]["end"] == "skip") {
+            isPlaying.value = true;
+
+        }
+        else if (dialogs[i]["end"] == "pause") {
+            isPlaying.value = false;
+            if (currentVideo == nbVideos - 1) {
+                isPlaying.value = true;
+                break
+            }
+            pauseVideoPlayer();
+            break;
+        }
     }
 }
+function playVideoPlayer() {
+    document.getElementById("main-video").play();
+}
+
+function pauseVideoPlayer() {
+    document.getElementById("main-video").pause();
+}
+
 
 // Fonction pour une "étape" de bulle
 async function playVideo(n) {
+    const video = document.getElementById("main-video");
 
-    //TODO: pas de modulo quand on aura toutes les vidéos
-    document.querySelector("video").src = `../../assets/video-${n%4}.mp4`;
+    // Change la source
+    //video.src = `../../assets/video-${n % 4}.mp4`;
+    video.src = "../../assets/sample-video.mp4"
 
-    // Affiche la bulle n
+    // Recharge et joue la vidéo (important !)
+    await video.load();
+    await video.play();
+
+    await delay(getTimecodeStart(n));
+
+    // Affiche la bulle
     showBubble.value = true;
     dialogContent = getDialog(n, language);
 
+
     const duration = getTimecodeEnd(n) - getTimecodeStart(n);
 
-    // Timer pour debug
+    // Timer debug
     timer.value = 1;
     timerInterval = setInterval(() => {
         timer.value++;
     }, 1000);
 
-    // Attends la durée d'affichage de la bulle
     await delay(duration);
 
-    // Timer pour debug
     clearInterval(timerInterval);
 
-    // Lance animation de sortie
-    animateBubbleOut();
-
-    // Attends la fin de l'animation de sortie (ex: 1s)
-    await delay(1000);
-
-    // Cache la bulle
-    showBubble.value = false;
-
+    // NE ferme la bulle QUE si pas une pause
+    if (dialogs[n]["end"] !== "pause") {
+        animateBubbleOut();
+        await delay(1000);
+        showBubble.value = false;
+    }
 }
+
 
 onMounted(() => {
     //gsap.from(document.querySelector(".video-screen"), { opacity: 0, duration: 1 });
 
+
     // Démarre la séquence
-    //playSequence();
+    playSequence();
 });
-
-
-
-function beginChoiceListening() {
-    document.addEventListener('keydown', function (e) {
-        if (e.key === "1" || e.key === "2" || e.key === "3" || e.key === "4" || e.key === "5" || e.key === "6") document.getElementById("choix-fleche-" + e.key).style.filter = "invert()";
-    });
-    document.addEventListener('keyup', function (e) {
-        if (e.key === "1" || e.key === "2" || e.key === "3" || e.key === "4" || e.key === "5" || e.key === "6") document.getElementById("choix-fleche-" + e.key).style.filter = "none";
-    });
-}
 
 
 </script>
 
 <template>
 
-    <div class="bubble-debug">video  n° {{ currentVideo }} <br> <span class="timer">{{ timer }}</span><br> PLAY <br> </br>start : {{ getTimecodeStart(currentVideo) }} <br> end : {{ getTimecodeEnd(currentVideo) }} </div>
 
-    <div class="video-screen"> 
+    <div class="bubble-debug">video n° {{ currentVideo }} <br> <span class="timer">{{ timer }}</span><br> isPlaying : {{
+        isPlaying }} ({{ dialogs[currentVideo]["end"] }}) <br> durée : {{ getDuration(currentVideo) }} <br>
+        timecode-start : {{ getTimecodeStart(currentVideo) / 1000 }} <br> timecode-end : {{
+            getTimecodeEnd(currentVideo) /1000 }} </div>
 
-        <!-- <video loop muted autoplay src="../../assets/video-0.mp4" class="main-video"></video> -->
+
+    <div class="video-screen">
+        <button v-if="!isPlaying" id="play" @click="resume()">Continuer</button>
+
+        <video loop muted autoplay src="../../assets/sample-video.mp4" class="main-video" id="main-video"></video>
+
         <DialogBubble v-if="showBubble" ref="dialogBubble" class="dialog-bubble" :dialogContent="dialogContent" />
-       
+
         <!-- <ChooseToolScreen :choiceInstruction="getText(6, language)" :goodAnswer='6'/> -->
-                
+
         <!-- <AssemblageStep :instruction="getText(8, language)" :skipText="[getText(9, language), getText(10, language)]" />      -->
 
-        <PeintureStep :instructions="[getText(13, language), getText(14, language), getText(15, language), getText(16, language)]" :skipText="[getText(11, language), getText(12, language)]"/>
+        <!-- <PeintureStep :instructions="[getText(13, language), getText(14, language), getText(15, language), getText(16, language)]" :skipText="[getText(11, language), getText(12, language)]"/> -->
 
     </div>
 
 </template>
 
 <style scoped>
+#play {
+    z-index: 100;
+    position: absolute;
+    font-size: xx-large;
+}
 
 .dialog-bubble {
     position: absolute;
@@ -194,8 +241,8 @@ video {
 
 .bubble-debug {
     position: absolute;
-    top:0px;
-    right:0px;
+    top: 0px;
+    right: 0px;
     background-color: rgba(255, 0, 0, 0.3);
     padding: 10px;
 }

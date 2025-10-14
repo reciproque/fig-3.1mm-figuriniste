@@ -15,20 +15,20 @@ onMounted(() => {
     gsap.from(".bubble", { scale: 0.5, duration: 0.5 })
 
     let animatedText = document.querySelector(".bubble-box");
-        animatedText.innerHTML = animatedText.textContent
+    animatedText.innerHTML = animatedText.textContent
         .split("")
         .map((char) => {
             if (char === "\n") return "<br>";
             return `<span>${char}</span>`;
         })
         .join("");
-  
-        gsap.from(animatedText.querySelectorAll("span"), {
-          opacity: 0,
-          y: 50,
-          duration: 0.1,
-          stagger: 0.02,
-        });
+
+    gsap.from(animatedText.querySelectorAll("span"), {
+        opacity: 0,
+        y: 50,
+        duration: 0.1,
+        stagger: 0.02,
+    });
 })
 
 </script>
@@ -42,7 +42,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-
 .bubble {
     display: flex;
     flex-direction: column;
@@ -53,6 +52,8 @@ onMounted(() => {
     width: 110px;
     margin-bottom: -10px;
 }
+
+/* TODO : taille de la bulle adaptée au texte */
 
 .bubble-box {
     font-size: 28px;
