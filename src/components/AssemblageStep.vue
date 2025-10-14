@@ -42,11 +42,10 @@ onMounted(() => {
 
 <template>
     <div class="assemblage-screen">     
-        <!-- // TODO : passer plutôt les 3 textes en props plutôt que la langue -->
         <div class="instruction">{{ instruction }}</div>
         <div class="randomizer-box" @click="selectArms(1)">{{ skipText[0] }}
             <br>
-            <em>{{  skipText[1] }}</em>
+            <em>{{ skipText[1] }}</em>
         </div>
 
     </div>

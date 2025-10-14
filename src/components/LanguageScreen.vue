@@ -19,6 +19,7 @@ const emit = defineEmits(['language-selected'])
 
 function selectLanguage(lang) {
   gsap.from(document.getElementById(lang), { scale: 0.9, duration: 1, ease: "bounce.out" })
+
   //TODO : ne pas pouvoir cliquer 2 fois sur un bouton (peut casser le gsap/changer la langue...)
   setTimeout(() => emit('language-selected', lang), 800);
 }

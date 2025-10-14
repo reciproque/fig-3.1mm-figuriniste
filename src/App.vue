@@ -20,9 +20,8 @@ function onLanguageSelected(lang) {
     <!-- <LanguageScreen v-if="!selectedLanguage" @language-selected="onLanguageSelected" />
     <VideoPlayer v-else :language="selectedLanguage" /> -->
 
+    <!-- TODO : modale inactivité et reload -->
     <VideoPlayer :language='"FR"' />
-
-
 
   </div>
 </template>
