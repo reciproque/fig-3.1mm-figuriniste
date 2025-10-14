@@ -43,14 +43,14 @@ onMounted(() => { beginChoiceListening()})
     <div class="choix">
         <div class="instruction">{{choiceInstruction}}</div>
         <div class="arrow-row">
-            <img src="../../assets/choix-fleche.png" alt="" id="choix-fleche-1">
-            <img src="../../assets/choix-fleche.png" alt="" id="choix-fleche-2">
-            <img src="../../assets/choix-fleche.png" alt="" id="choix-fleche-3">
-            <img src="../../assets/choix-fleche.png" alt="" id="choix-fleche-4">
-            <img src="../../assets/choix-fleche.png" alt="" id="choix-fleche-5">
-            <img src="../../assets/choix-fleche.png" alt="" id="choix-fleche-6">
+            <img src="/assets/choix-fleche.png" alt="" id="choix-fleche-1">
+            <img src="/assets/choix-fleche.png" alt="" id="choix-fleche-2">
+            <img src="/assets/choix-fleche.png" alt="" id="choix-fleche-3">
+            <img src="/assets/choix-fleche.png" alt="" id="choix-fleche-4">
+            <img src="/assets/choix-fleche.png" alt="" id="choix-fleche-5">
+            <img src="/assets/choix-fleche.png" alt="" id="choix-fleche-6">
         </div>
-        <div class="scrim"><img src="../../assets/choix-scrim.svg" alt=""></div>
+        <div class="scrim"><img src="/assets/choix-scrim.svg" alt=""></div>
     </div>
 
 </template>

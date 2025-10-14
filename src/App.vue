@@ -17,11 +17,11 @@ function onLanguageSelected(lang) {
   <div class="screen">
 
     <!-- TODO : gérer le passage d'une step à l'autre + étapes interactives -->
-    <!-- <LanguageScreen v-if="!selectedLanguage" @language-selected="onLanguageSelected" />
-    <VideoPlayer v-else :language="selectedLanguage" /> -->
+    <LanguageScreen v-if="!selectedLanguage" @language-selected="onLanguageSelected" />
+    <VideoPlayer v-else :language="selectedLanguage" />
 
     <!-- TODO : modale inactivité et reload -->
-    <VideoPlayer :language='"FR"' />
+    <!-- <VideoPlayer :language='"FR"' /> -->
 
   </div>
 </template>
@@ -29,16 +29,16 @@ function onLanguageSelected(lang) {
 <style>
 @font-face {
   font-family: 'Gotham-Black';
-  src: url('../assets/Gotham-Black.otf') format("opentype");
+  src: url('/assets/Gotham-Black.otf') format("opentype");
 }
 
 @font-face {
   font-family: 'Gotham-Book';
-  src: url('../assets/Gotham-Book.otf') format("opentype");
+  src: url('/assets/Gotham-Book.otf') format("opentype");
 }
 
 .screen {
-  background-image: url('../assets/background.png');
+  background-image: url('/assets/background.png');
   background-size: cover;
   width: 1920px;
   height: 1080px;

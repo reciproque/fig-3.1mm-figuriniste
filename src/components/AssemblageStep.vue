@@ -49,23 +49,23 @@ onMounted(() => {
         </div>
 
     </div>
-    <img src="../../assets/circle-head.svg" alt="" class="circle-head">
-    <img src="../../assets/sample-armless-richard.png" alt="" class="richard">
+    <img src="/assets/circle-head.svg" alt="" class="circle-head">
+    <img src="/assets/sample-armless-richard.png" alt="" class="richard">
 
     <div class="arms-choice" id="arms-choice-1">
-        <img src="../../assets/circle-choice.svg" alt="" class="circle-choice" @click="selectArms(1)" id="circle-1">
-        <img src="../../assets/sample-arm1.png" alt="" class="arms" id="arms-1">
+        <img src="/assets/circle-choice.svg" alt="" class="circle-choice" @click="selectArms(1)" id="circle-1">
+        <img src="/assets/sample-arm1.png" alt="" class="arms" id="arms-1">
     </div>
 
     <div class="arms-choice" id="arms-choice-2">
-        <img src="../../assets/circle-choice.svg" alt="" class="circle-choice" @click="selectArms(2)" id="circle-2">
-        <img src="../../assets/sample-arm2.png" alt="" class="arms" id="arms-2">
+        <img src="/assets/circle-choice.svg" alt="" class="circle-choice" @click="selectArms(2)" id="circle-2">
+        <img src="/assets/sample-arm2.png" alt="" class="arms" id="arms-2">
     </div>
 
 
     <div class="arms-choice" id="arms-choice-3">
-        <img src="../../assets/circle-choice.svg" alt="" class="circle-choice" @click="selectArms(3)" id="circle-3">
-        <img src="../../assets/sample-arm3.png" alt="" class="arms" id="arms-3">
+        <img src="/assets/circle-choice.svg" alt="" class="circle-choice" @click="selectArms(3)" id="circle-3">
+        <img src="/assets/sample-arm3.png" alt="" class="arms" id="arms-3">
     </div>
 
 

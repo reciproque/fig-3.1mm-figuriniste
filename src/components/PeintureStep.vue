@@ -86,23 +86,23 @@ onMounted(() => {
         </div>
 
         <div class="palette">
-            <img src="../../assets/palette.png" alt="">
+            <img src="/assets/palette.png" alt="">
             <div class="color-choice" id="color-choice-1">
-                <img src="../../assets/circle-choice-paint.svg" alt="" class="circle-choice" @click="selectColor(1)"
+                <img src="/assets/circle-choice-paint.svg" alt="" class="circle-choice" @click="selectColor(1)"
                     id="circle-1">
-                <img src="../../assets/paint-black.png" alt="" class="color" id="color-1">
+                <img src="/assets/paint-black.png" alt="" class="color" id="color-1">
             </div>
 
             <div class="color-choice" id="color-choice-2">
-                <img src="../../assets/circle-choice-paint.svg" alt="" class="circle-choice" @click="selectColor(2)"
+                <img src="/assets/circle-choice-paint.svg" alt="" class="circle-choice" @click="selectColor(2)"
                     id="circle-2">
-                <img src="../../assets/paint-yellow.png" alt="" class="color" id="color-2">
+                <img src="/assets/paint-yellow.png" alt="" class="color" id="color-2">
             </div>
 
             <div class="color-choice" id="color-choice-3">
-                <img src="../../assets/circle-choice-paint.svg" alt="" class="circle-choice" @click="selectColor(3)"
+                <img src="/assets/circle-choice-paint.svg" alt="" class="circle-choice" @click="selectColor(3)"
                     id="circle-3">
-                <img src="../../assets/paint-white.png" alt="" class="color" id="color-3">
+                <img src="/assets/paint-white.png" alt="" class="color" id="color-3">
             </div>
 
 
@@ -110,8 +110,8 @@ onMounted(() => {
         </div>
     </div>
 
-    <img src="../../assets/circle-head.svg" alt="" class="circle-head">
-    <img src="../../assets/sample-white-richard.png" alt="" class="richard">
+    <img src="/assets/circle-head.svg" alt="" class="circle-head">
+    <img src="/assets/sample-white-richard.png" alt="" class="richard">
 
 
 

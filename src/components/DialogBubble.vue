@@ -35,7 +35,7 @@ onMounted(() => {
 
 <template>
 
-    <div class="bubble"><img src="../../assets/bubble-arrow.svg" alt="" class="bubble-arrow">
+    <div class="bubble"><img src="/assets/bubble-arrow.svg" alt="" class="bubble-arrow">
         <div class="bubble-box">{{ dialogContent }}</div>
     </div>
 

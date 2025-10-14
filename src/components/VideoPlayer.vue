@@ -110,14 +110,18 @@ function pauseVideoPlayer() {
     document.getElementById("main-video").pause();
 }
 
+let videoSrc = import.meta.env.BASE_URL + 'assets/sample-video.mp4';
+
 
 // Fonction pour une "étape" de bulle
 async function playVideo(n) {
     const video = document.getElementById("main-video");
 
     // Change la source
-    //video.src = `../../assets/video-${n % 4}.mp4`;
-    video.src = "../../assets/sample-video.mp4"
+    //video.src = `/assets/video-${n % 4}.mp4`;
+    //video.src = "/figuriniste-staging/assets/sample-video.mp4"
+
+    videoSrc = import.meta.env.BASE_URL + 'assets/sample-video.mp4';
 
     // Recharge et joue la vidéo (important !)
     await video.load();
@@ -174,7 +178,7 @@ onMounted(() => {
     <div class="video-screen">
         <button v-if="!isPlaying" id="play" @click="resume()">Continuer</button>
 
-        <video loop muted autoplay src="../../assets/sample-video.mp4" class="main-video" id="main-video"></video>
+        <video loop muted autoplay :src="videoSrc" class="main-video" id="main-video"></video>
 
         <DialogBubble v-if="showBubble" ref="dialogBubble" class="dialog-bubble" :dialogContent="dialogContent" />
 

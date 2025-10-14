@@ -43,9 +43,9 @@ onMounted(() => {
     <h2>{{ getText(1, "FR") }}</h2> <br>
     <h2>{{ getText(2, "FR") }}</h2>
     <div class="flags-row">
-      <div class="flag" id="FR"><img src="../../assets/fr.png" alt="" @click="selectLanguage('FR')"></div>
-      <div class="flag" id="EN"><img src="../../assets/en.png" alt="" @click="selectLanguage('EN')"></div>
-      <div class="flag" id="DE"><img src="../../assets/de.png" alt="" @click="selectLanguage('DE')"></div>
+      <div class="flag" id="FR"><img src="/assets/fr.png" alt="" @click="selectLanguage('FR')"></div>
+      <div class="flag" id="EN"><img src="/assets/en.png" alt="" @click="selectLanguage('EN')"></div>
+      <div class="flag" id="DE"><img src="/assets/de.png" alt="" @click="selectLanguage('DE')"></div>
     </div>
     <div class="paraph-lang"><span>{{ getText(3, "FR") }}</span></br>
       <span>{{ getText(4, "FR") }}</span> </br>
