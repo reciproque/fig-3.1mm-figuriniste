@@ -50,7 +50,7 @@ function getTimecodeEnd(n) {
     return dialogs[n]["timecode-end"] * 1000;
 }
 
-let nbVideos = Object.keys(dialogs).length;
+let nbVideos = Object.keys(dialogs).length -1;
 
 let currentVideo = 0;
 
