@@ -121,8 +121,50 @@
   {
     "étape": "QR-code",
     "no": 17,
-    "texte-FR": "À l'aide de votre téléphone portable, scanner le QR-code",
+    "texte-FR": "À l'aide de votre téléphone portable, scannez le QR-code",
     "texte-EN": "Using your mobile phone, scan the QR code",
     "texte-DE": "Scannen Sie mit Ihrem Mobiltelefon den QR-Code"
+  },
+  {
+    "étape": "Outils-choix",
+    "no": 18,
+    "texte-FR": "cette lime",
+    "texte-EN": "this file",
+    "texte-DE": "diese Datei"
+  },
+  {
+    "étape": "Outils-choix",
+    "no": 19,
+    "texte-FR": "cette palette",
+    "texte-EN": "this palette",
+    "texte-DE": "diese Palette"
+  },
+  {
+    "étape": "Outils-choix",
+    "no": 20,
+    "texte-FR": "cette louche",
+    "texte-EN": "this ladle",
+    "texte-DE": "diese Schöpfkelle"
+  },
+  {
+    "étape": "Outils-choix",
+    "no": 21,
+    "texte-FR": "ce critérium",
+    "texte-EN": "this criterion",
+    "texte-DE": "dieses Kriterium"
+  },
+  {
+    "étape": "Outils-choix",
+    "no": 22,
+    "texte-FR": "",
+    "texte-EN": "",
+    "texte-DE": ""
+  },
+  {
+    "étape": "NUMERO-VERSION",
+    "no": 23,
+    "texte-FR": "17/10/2025 14:37:46",
+    "texte-EN": "17/10/2025 14:37:46",
+    "texte-DE": "17/10/2025 14:37:46"
   }
 ]

@@ -12,8 +12,10 @@ const { language } = defineProps({
     }
 })
 
-import texts from '../../texts/interface.json'
-import dialogs from '../../texts/dialogs.json'
+const currentVideoId = ref(1);
+
+import texts from '../../public/texts/interface.json'
+import dialogs from '../../public/texts/dialogs.json'
 
 import { gsap } from 'gsap';
 
@@ -29,6 +31,11 @@ function getDialog(n, lang) {
     if (lang == "FR") return dialogs[n]["texte-FR"];
     if (lang == "EN") return dialogs[n]["texte-EN"];
     if (lang == "DE") return dialogs[n]["texte-DE"];
+}
+
+function getVideo(n) {
+    return dialogs[n]["nomenclature-video"];
+
 }
 
 function getDuration(n) {
@@ -76,32 +83,38 @@ async function resume() {
     await delay(1000);
     showBubble.value = false;
 
-    currentVideo++;          // avance bien à la vidéo suivante
+    currentVideo++;          
 
-    playSequence();          // c’est playVideo() qui jouera la vidéo
+    await playSequence();          
 }
 
 
 async function playSequence() {
-    for (let i = currentVideo; i < nbVideos; i++) {
-        currentVideo = i;
-        await playVideo(i);
+  for (let i = currentVideo; i < nbVideos; i++) {
+    currentVideo = i;
 
-        if (dialogs[i]["end"] == "skip") {
-            isPlaying.value = true;
-
-        }
-        else if (dialogs[i]["end"] == "pause") {
-            isPlaying.value = false;
-            if (currentVideo == nbVideos - 1) {
-                isPlaying.value = true;
-                break
-            }
-            pauseVideoPlayer();
-            break;
-        }
+    // Précharge la vidéo suivante si elle existe
+    if (i + 1 < nbVideos) {
+      const nextSrc = import.meta.env.BASE_URL + 'assets/videos/' + String(getVideo(i + 1));
+      await preloadVideo(nextSrc);
     }
+
+    await playVideo(i);
+
+    if (dialogs[i]["end"] == "skip") {
+      isPlaying.value = true;
+    } else if (dialogs[i]["end"] == "pause") {
+      isPlaying.value = false;
+      if (currentVideo == nbVideos - 1) {
+        isPlaying.value = true;
+        break;
+      }
+      pauseVideoPlayer();
+      break;
+    }
+  }
 }
+
 function playVideoPlayer() {
     document.getElementById("main-video").play();
 }
@@ -110,54 +123,84 @@ function pauseVideoPlayer() {
     document.getElementById("main-video").pause();
 }
 
-let videoSrc = import.meta.env.BASE_URL + 'assets/sample-video.mp4';
+// Précharge une vidéo et retourne la vidéo invisible quand elle est prête
+function preloadVideo(src) {
+  return new Promise((resolve, reject) => {
+    const video = document.createElement('video');
+    video.src = src;
+    video.preload = 'auto';
+    video.style.display = 'none';
+    document.body.appendChild(video);
+
+    video.addEventListener('canplaythrough', () => {
+      resolve(video);
+    });
+
+    video.addEventListener('error', (e) => {
+      reject(e);
+    });
+  });
+}
 
 
-// Fonction pour une "étape" de bulle
 async function playVideo(n) {
-    const video = document.getElementById("main-video");
+  const videoToShow = currentVideoId.value === 1 ? document.getElementById('video2') : document.getElementById('video1');
+  const videoToHide = currentVideoId.value === 1 ? document.getElementById('video1') : document.getElementById('video2');
 
-    // Change la source
-    //video.src = `/assets/video-${n % 4}.mp4`;
-    //video.src = "/figuriniste-staging/assets/sample-video.mp4"
+  const nextVideoSrc = import.meta.env.BASE_URL + 'assets/videos/' + String(getVideo(n));
 
-    videoSrc = import.meta.env.BASE_URL + 'assets/sample-video.mp4';
+  // Précharge la vidéo dans la vidéo cachée
+  videoToShow.src = nextVideoSrc;
+  await videoToShow.load();
 
-    // Recharge et joue la vidéo (important !)
-    await video.load();
-    await video.play();
+  // Attend que la vidéo soit prête
+  await new Promise(resolve => {
+    videoToShow.oncanplaythrough = () => resolve();
+  });
 
-    await delay(getTimecodeStart(n));
+  // Lance la vidéo cachée
+  videoToShow.currentTime = 0;
+  await videoToShow.play();
 
-    // Affiche la bulle
-    showBubble.value = true;
-    dialogContent = getDialog(n, language);
+  currentVideoId.value = currentVideoId.value === 1 ? 2 : 1;
 
+  await delay(getTimecodeStart(n));
 
-    const duration = getTimecodeEnd(n) - getTimecodeStart(n);
+  // Affiche la bulle
+  showBubble.value = true;
+  dialogContent = getDialog(n, language);
 
-    // Timer debug
-    timer.value = 1;
-    timerInterval = setInterval(() => {
-        timer.value++;
-    }, 1000);
+  const duration = getTimecodeEnd(n) - getTimecodeStart(n);
 
-    await delay(duration);
+  // Timer debug
+  timer.value = 1;
+  timerInterval = setInterval(() => {
+    timer.value++;
+  }, 1000);
 
-    clearInterval(timerInterval);
+  await delay(duration);
 
-    // NE ferme la bulle QUE si pas une pause
-    if (dialogs[n]["end"] !== "pause") {
-        animateBubbleOut();
-        await delay(1000);
-        showBubble.value = false;
+  clearInterval(timerInterval);
+
+  // NE ferme la bulle QUE si pas une pause
+  if (dialogs[n]["end"] !== "pause") {
+    animateBubbleOut();
+    await delay(1000);
+    showBubble.value = false;
+  }
+
+  // Attend la fin de la vidéo affichée
+  await new Promise((resolve) => {
+    if (videoToShow.ended) {
+      resolve();
+    } else {
+      videoToShow.addEventListener("ended", resolve, { once: true });
     }
+  });
 }
 
 
 onMounted(() => {
-    //gsap.from(document.querySelector(".video-screen"), { opacity: 0, duration: 1 });
-
 
     // Démarre la séquence
     playSequence();
@@ -169,7 +212,7 @@ onMounted(() => {
 <template>
 
 
-    <div class="bubble-debug">video n° {{ currentVideo }} <br> <span class="timer">{{ timer }}</span><br> isPlaying : {{
+    <div class="debug bubble-debug">video n° {{ currentVideo }} <br> <span class="timer">{{ timer }}</span><br> isPlaying : {{
         isPlaying }} ({{ dialogs[currentVideo]["end"] }}) <br> durée : {{ getDuration(currentVideo) }} <br>
         timecode-start : {{ getTimecodeStart(currentVideo) / 1000 }} <br> timecode-end : {{
             getTimecodeEnd(currentVideo) /1000 }} </div>
@@ -178,7 +221,22 @@ onMounted(() => {
     <div class="video-screen">
         <button v-if="!isPlaying" id="play" @click="resume()">Continuer</button>
 
-        <video loop muted autoplay :src="videoSrc" class="main-video" id="main-video"></video>
+        <!-- <video crossorigin="anonymous" class="main-video" id="main-video"></video> -->
+
+  <video
+    crossorigin="anonymous"
+    class="main-video"
+    id="video1"
+    :style="{ opacity: currentVideoId === 1 ? 1 : 0 }"
+    muted
+  ></video>
+  <video
+    crossorigin="anonymous"
+    class="main-video"
+    id="video2"
+    :style="{ opacity: currentVideoId === 2 ? 1 : 0 }"
+    muted
+  ></video>
 
         <DialogBubble v-if="showBubble" ref="dialogBubble" class="dialog-bubble" :dialogContent="dialogContent" />
 
@@ -193,6 +251,12 @@ onMounted(() => {
 </template>
 
 <style scoped>
+
+button {
+    position: absolute;
+    top:500px;
+}
+
 #play {
     z-index: 100;
     position: absolute;
@@ -232,9 +296,15 @@ video {
     outline: none;
 }
 
-.main-video {
-    width: 100vw;
+ 
+.main-video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
 }
+
 
 .video-screen {
     display: flex;
@@ -244,15 +314,14 @@ video {
 }
 
 .bubble-debug {
-    position: absolute;
     top: 0px;
     right: 0px;
-    background-color: rgba(255, 0, 0, 0.3);
-    padding: 10px;
 }
 
 .timer {
     font-size: xx-large;
     font-weight: 700;
 }
+
+
 </style>

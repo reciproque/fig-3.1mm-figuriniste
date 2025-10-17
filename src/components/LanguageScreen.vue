@@ -1,6 +1,6 @@
 <script setup>
 
-import texts from '../../texts/interface.json'
+import texts from '../../public/texts/interface.json'
 
 import { gsap } from 'gsap';
 

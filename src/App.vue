@@ -4,6 +4,11 @@ import { ref } from 'vue'
 import LanguageScreen from './components/LanguageScreen.vue'
 import VideoPlayer from './components/VideoPlayer.vue'
 
+import texts from '../public/texts/interface.json'
+import dialogs from '../public/texts/dialogs.json'
+
+
+
 // Langue globale du programme
 const selectedLanguage = ref(null)
 
@@ -19,6 +24,12 @@ function onLanguageSelected(lang) {
     <!-- TODO : gérer le passage d'une step à l'autre + étapes interactives -->
     <LanguageScreen v-if="!selectedLanguage" @language-selected="onLanguageSelected" />
     <VideoPlayer v-else :language="selectedLanguage" />
+
+    <div class="debug debug-versions">    
+    Numéro de versions<br>
+    Build du 17/10/2025 à 16:30 <br>
+    Interface : {{ texts[Object.keys(texts).length-1]["texte-FR"] }} <br>
+    Dialogues : {{ dialogs[Object.keys(dialogs).length-1]["texte-FR"] }}</div>
 
     <!-- TODO : modale inactivité et reload -->
     <!-- <VideoPlayer :language='"FR"' /> -->
@@ -38,7 +49,7 @@ function onLanguageSelected(lang) {
 }
 
 .screen {
-  background-image: url('/assets/background.png');
+  background-image: url('/public/assets/background.png');
   background-size: cover;
   width: 1920px;
   height: 1080px;
@@ -47,7 +58,7 @@ function onLanguageSelected(lang) {
   position: absolute;
   top: 0;
   left: 0;
-  color: #493C38;
+  color: #ffffff;
   overflow: hidden;
 }
 
@@ -74,5 +85,19 @@ h2 {
   font-weight: 300;
   filter: drop-shadow(0 0 29px rgba(0, 0, 0, 0.5));
   text-align: center;
+}
+
+.debug {
+  color: white;
+  position: absolute;
+  padding: 10px;
+  background-color: rgba(255, 184, 184, 0.3);
+  z-index: 1000;
+
+}
+
+.debug-versions {
+  bottom:0px;
+  left:0px;
 }
 </style>

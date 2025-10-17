@@ -38,7 +38,7 @@ onMounted(() => { beginChoiceListening()})
 </script>
 
 <template>
-    <div class="choice-debug">Utilisez 1-2-3-4-5-6 sur le clavier <br> Outil touché :  <br> (Bonne réponse) : {{goodAnswer}} </div>
+    <div class="debug choice-debug">Utilisez 1-2-3-4-5-6 sur le clavier <br> Outil touché :  <br> (Bonne réponse) : {{goodAnswer}} </div>
 
     <div class="choix">
         <div class="instruction">{{choiceInstruction}}</div>
@@ -80,12 +80,10 @@ onMounted(() => { beginChoiceListening()})
     gap: 150px;
 }
 
+
 .choice-debug {
-    position: absolute;
     top:0px;
     left:0px;
-    background-color: rgba(255, 0, 0, 0.3);
-    padding: 10px;
 }
 
 </style>

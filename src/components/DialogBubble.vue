@@ -60,6 +60,7 @@ onMounted(() => {
     font-weight: 700;
     font-family: 'Gotham-Book';
     text-align: center;
+    color: #493C38;
     background-color: #FBF9F5;
     border-radius: 40px;
     padding: 40px 94px;

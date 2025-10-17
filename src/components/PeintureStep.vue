@@ -1,5 +1,5 @@
 <script setup>
-import texts from '../../texts/interface.json'
+import texts from '../../public/texts/interface.json'
 
 import { gsap } from 'gsap';
 
@@ -72,7 +72,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="peinture-debug">
+    <div class="debug peinture-debug">
     ETAPE : {{ step }}
     <br>Peau : {{ peau }}
     <br> Cheveux :  {{ cheveux }}
@@ -215,11 +215,10 @@ em {
     right: 0;
 }
 
+
 .peinture-debug {
-    position: absolute;
     top:0px;
     left:0px;
-    background-color: rgba(255, 0, 0, 0.3);
-    padding: 10px;
+ 
 }
 </style>
