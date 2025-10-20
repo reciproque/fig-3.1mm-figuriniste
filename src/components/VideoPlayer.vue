@@ -259,7 +259,9 @@ async function playVideo(n) {
 
   if (replaceToolName.value == true) {
     let outil = getText(17 + Number(replaceToolNameNumber.value), language);
-    dialogContent = dialogContent.replace("[[cet outil]]", outil);
+    if (language=="FR") dialogContent = dialogContent.replace("[[cet outil]]", outil);
+    if (language=="EN") dialogContent = dialogContent.replace("[[this tool]]", outil);
+    if (language=="DE") dialogContent = dialogContent.replace("[[dieses Werkzeug]]", outil);
   }
 
   const duration = getTimecodeEnd(n) - getTimecodeStart(n);
