@@ -1,6 +1,4 @@
 <script setup>
-import texts from '../../public/texts/interface.json'
-
 import { gsap } from 'gsap';
 
 import { onMounted } from 'vue';
@@ -16,12 +14,6 @@ defineProps({
         required: false
     }
 })
-
-function getText(n, lang) {
-    if (lang == "FR") return texts[n]["texte-FR"];
-    if (lang == "EN") return texts[n]["texte-EN"];
-    if (lang == "DE") return texts[n]["texte-DE"];
-}
 
 function selectArms(n) {
     console.log(n);

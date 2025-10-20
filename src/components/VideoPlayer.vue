@@ -6,50 +6,84 @@ import AssemblageStep from './AssemblageStep.vue';
 import PeintureStep from './PeintureStep.vue';
 
 const { language } = defineProps({
-    language: {
-        type: String,
-        required: true
-    }
+  language: {
+    type: String,
+    required: true
+  }
 })
 
 const currentVideoId = ref(1);
 
-import texts from '../../public/texts/interface.json'
-import dialogs from '../../public/texts/dialogs.json'
+const dialogs = ref({});
+const texts = ref({});
+const nbVideos = ref(0);
+
+onMounted(async () => {
+  try {
+    const dialogsRes = await fetch('texts/dialogs.json');
+    dialogs.value = await dialogsRes.json();
+    console.log('✔ dialogs loaded:', dialogs.value);
+
+    const textsRes = await fetch('texts/interface.json');
+    texts.value = await textsRes.json();
+    console.log('✔ texts loaded:', texts.value);
+
+    nbVideos.value = Object.keys(dialogs.value).length - 1;
+    await playSequence();
+
+  } catch (err) {
+    console.error('Erreur de chargement des fichiers JSON', err);
+  }
+});
+
 
 import { gsap } from 'gsap';
 
 import { ref, onMounted } from 'vue';
 
 function getText(n, lang) {
-    if (lang == "FR") return texts[n]["texte-FR"];
-    if (lang == "EN") return texts[n]["texte-EN"];
-    if (lang == "DE") return texts[n]["texte-DE"];
+  const entry = texts.value?.[n];
+  if (!entry) return '';
+
+  if (lang === "FR") return entry["texte-FR"] || '';
+  if (lang === "EN") return entry["texte-EN"] || '';
+  if (lang === "DE") return entry["texte-DE"] || '';
+
+  return '';
 }
 
 function getDialog(n, lang) {
-    if (lang == "FR") return dialogs[n]["texte-FR"];
-    if (lang == "EN") return dialogs[n]["texte-EN"];
-    if (lang == "DE") return dialogs[n]["texte-DE"];
+  const entry = dialogs.value?.[n];
+  if (!entry) return '';
+
+  if (lang === "FR") return entry["texte-FR"] || '';
+  if (lang === "EN") return entry["texte-EN"] || '';
+  if (lang === "DE") return entry["texte-DE"] || '';
+
+  return '';
 }
 
 function getVideo(n) {
-    return dialogs[n]["nomenclature-video"];
+  const entry = dialogs.value?.[n];
+  return entry?.["nomenclature-video"] || '';
 }
 
 function getDuration(n) {
-    return dialogs[n]["duration"];
+  const entry = dialogs.value?.[n];
+  return entry?.["duration"] ?? 0;
 }
 
 function getTimecodeStart(n) {
-    return dialogs[n]["timecode-start"] * 1000;
+  const entry = dialogs.value?.[n];
+  return entry?.["timecode-start"] != null ? entry["timecode-start"] * 1000 : 0;
 }
 
 function getTimecodeEnd(n) {
-    return dialogs[n]["timecode-end"] * 1000;
+  const entry = dialogs.value?.[n];
+  return entry?.["timecode-end"] != null ? entry["timecode-end"] * 1000 : 0;
 }
 
-let nbVideos = Object.keys(dialogs).length -1;
+
 
 let currentVideo = 0;
 
@@ -65,79 +99,83 @@ let dialogContent = getDialog(0, language)
 const showBubble = ref(false)
 
 function animateBubbleOut() {
-    const bubble = document.querySelector(".dialog-bubble")
-    if (bubble) {
-        gsap.to(bubble, { scale: 0, duration: 0.5 })
-    }
+  const bubble = document.querySelector(".dialog-bubble")
+  if (bubble) {
+    gsap.to(bubble, { scale: 0, duration: 0.5 })
+  }
 }
 
 function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 const replaceToolName = ref(false);
 const replaceToolNameNumber = ref(0);
 
 async function resume(n) {
-    isPlaying.value = true;
-    animateBubbleOut();
-    await delay(1000);
-    showBubble.value = false;
+  isPlaying.value = true;
+  animateBubbleOut();
+  await delay(1000);
+  showBubble.value = false;
 
-    console.log(n);
+  console.log(n);
 
-    if(showDessin) {
-      let goodAnswer = 6;
-      showDessin.value = false;
-      if (n==goodAnswer) {
-        replaceToolName.value = false;
-        currentVideo = 5;  
-      }
-      else {
-        replaceToolName.value = true;
-        replaceToolNameNumber.value = n;
-        currentVideo = 3;    
-      }    
+  if (showDessin) {
+    let goodAnswer = 6;
+    showDessin.value = false;
+    if (n == goodAnswer) {
+      replaceToolName.value = false;
+      currentVideo = 5;
     }
     else {
-      replaceToolName.value = false;
-      currentVideo++;
+      replaceToolName.value = true;
+      replaceToolNameNumber.value = n;
+      currentVideo = 3;
     }
-    await playSequence();          
+  }
+  else {
+    replaceToolName.value = false;
+    currentVideo++;
+  }
+  await playSequence();
 }
 
-
 async function playSequence() {
-  for (let i = currentVideo; i < nbVideos; i++) {
+  for (let i = currentVideo; i < nbVideos.value; i++) {
     currentVideo = i;
 
     // Précharge la vidéo suivante si elle existe
-    if (i + 1 < nbVideos) {
+    if (i + 1 < nbVideos.value) {
       const nextSrc = import.meta.env.BASE_URL + 'assets/videos/' + String(getVideo(i + 1));
       await preloadVideo(nextSrc);
     }
 
     await playVideo(i);
 
-    if (dialogs[i]["end"] == "skip") {
+    const end = dialogs.value?.[i]?.["end"];
+
+    if (end === "skip") {
       isPlaying.value = true;
-    } else if (dialogs[i]["end"] == "pause") {
+    }
+    else if (end === "pause") {
       isPlaying.value = false;
-      if (currentVideo == nbVideos - 1) {
+
+      if (currentVideo === nbVideos.value- 1) {
         isPlaying.value = true;
         break;
       }
-      //TODO : bon écran pause selon "action"
-      //launchInteractiveStep(dialogs[i]["pause"]);
-      launchInteractiveStep("dessin");
 
+      // TODO : choisir en fonction du champ "pause"
+      launchInteractiveStep("dessin");
       break;
     }
-  }
-}
+    else {
+      console.warn(`⚠️ Champ "end" manquant ou non reconnu pour la vidéo ${i}:`, end);
+      // Par défaut : continuer
+      isPlaying.value = true;
+    }
 
-function playVideoPlayer() {
-    document.getElementById("main-video").play();
+  }
 }
 
 const showDessin = ref(false);
@@ -165,8 +203,8 @@ function launchInteractiveStep(step) {
       break;
     case "qrcode":
       showQR.value = true;
-    
-  
+
+
     default:
       break;
   }
@@ -219,8 +257,8 @@ async function playVideo(n) {
   showBubble.value = true;
   dialogContent = getDialog(n, language);
 
-  if(replaceToolName.value==true) {
-    let outil = getText(17+Number(replaceToolNameNumber.value), language);
+  if (replaceToolName.value == true) {
+    let outil = getText(17 + Number(replaceToolNameNumber.value), language);
     dialogContent = dialogContent.replace("[[cet outil]]", outil);
   }
 
@@ -237,7 +275,7 @@ async function playVideo(n) {
   clearInterval(timerInterval);
 
   // NE ferme la bulle QUE si pas une pause
-  if (dialogs[n]["end"] !== "pause") {
+  if (dialogs.value?.[n]["end"] !== "pause") {
     animateBubbleOut();
     await delay(1000);
     showBubble.value = false;
@@ -254,11 +292,6 @@ async function playVideo(n) {
 }
 
 
-onMounted(() => {
-
-    // Démarre la séquence
-    playSequence();
-});
 
 
 </script>
@@ -266,122 +299,114 @@ onMounted(() => {
 <template>
 
 
-    <div class="debug bubble-debug">video n° {{ currentVideo }} <br> <span class="timer">{{ timer }}</span><br> isPlaying : {{
-        isPlaying }} ({{ dialogs[currentVideo]["end"] }}) <br> durée : {{ getDuration(currentVideo) }} <br>
-        timecode-start : {{ getTimecodeStart(currentVideo) / 1000 }} <br> timecode-end : {{
-            getTimecodeEnd(currentVideo) /1000 }} </div>
+  <div class="debug bubble-debug">video n° {{ currentVideo }} <br> <span class="timer">{{ timer }}</span><br> isPlaying
+    : {{
+      isPlaying }} <br> durée : {{ getDuration(currentVideo) }} <br>
+    timecode-start : {{ getTimecodeStart(currentVideo) / 1000 }} <br> timecode-end : {{
+      getTimecodeEnd(currentVideo) / 1000 }} </div>
 
 
-    <div class="video-screen">
-        <button v-if="!isPlaying" id="play" @click="resume(0)">Continuer</button>
+  <div class="video-screen" v-if="dialogs && texts">
+    <button v-if="!isPlaying" id="play" @click="resume(0)">Continuer</button>
 
-        <!-- <video crossorigin="anonymous" class="main-video" id="main-video"></video> -->
+    <!-- <video crossorigin="anonymous" class="main-video" id="main-video"></video> -->
 
-  <video
-    crossorigin="anonymous"
-    class="main-video"
-    id="video1"
-    :style="{ opacity: currentVideoId === 1 ? 1 : 0 }"
-    muted
-  ></video>
+    <video crossorigin="anonymous" class="main-video" id="video1" :style="{ opacity: currentVideoId === 1 ? 1 : 0 }"
+      muted></video>
 
-  <video
-    crossorigin="anonymous"
-    class="main-video"
-    id="video2"
-    :style="{ opacity: currentVideoId === 2 ? 1 : 0 }"
-    muted
-  ></video>
+    <video crossorigin="anonymous" class="main-video" id="video2" :style="{ opacity: currentVideoId === 2 ? 1 : 0 }"
+      muted></video>
 
-        <DialogBubble v-if="showBubble" ref="dialogBubble" class="dialog-bubble" :dialogContent="dialogContent" />
+    <DialogBubble v-if="showBubble" ref="dialogBubble" class="dialog-bubble" :dialogContent="dialogContent" />
 
-        <!-- Dessin -->
-        <ChooseToolScreen v-if="showDessin" :choiceInstruction="getText(6, language)" :goodAnswer='6' @numberChosen="resume"/>
+    <!-- Dessin -->
+    <ChooseToolScreen v-if="showDessin" :choiceInstruction="getText(6, language)" :goodAnswer='6'
+      @numberChosen="resume" />
 
-        <!-- Ebarbage -->
-        <ChooseToolScreen v-if="showEbarbage" :choiceInstruction="getText(6, language)" :goodAnswer='6'/>
+    <!-- Ebarbage -->
+    <ChooseToolScreen v-if="showEbarbage" :choiceInstruction="getText(6, language)" :goodAnswer='6' />
 
-        <!-- Assemblage -->
-        <AssemblageStep v-if="showAssemblage" :instruction="getText(8, language)" :skipText="[getText(9, language), getText(10, language)]" />     
+    <!-- Assemblage -->
+    <AssemblageStep v-if="showAssemblage" :instruction="getText(8, language)"
+      :skipText="[getText(9, language), getText(10, language)]" />
 
-        <!-- Peinture -->
-        <PeintureStep v-if="showPeinture" :instructions="[getText(13, language), getText(14, language), getText(15, language), getText(16, language)]" :skipText="[getText(11, language), getText(12, language)]"/>
+    <!-- Peinture -->
+    <PeintureStep v-if="showPeinture"
+      :instructions="[getText(13, language), getText(14, language), getText(15, language), getText(16, language)]"
+      :skipText="[getText(11, language), getText(12, language)]" />
 
-    </div>
+  </div>
 
 </template>
 
 <style scoped>
-
 button {
-    position: absolute;
-    top:500px;
+  position: absolute;
+  top: 500px;
 }
 
 #play {
-    z-index: 100;
-    position: absolute;
-    font-size: xx-large;
+  z-index: 100;
+  position: absolute;
+  font-size: xx-large;
 }
 
 .dialog-bubble {
-    position: absolute;
-    top: 10px;
-    z-index: 10;
+  position: absolute;
+  top: 10px;
+  z-index: 10;
 }
 
 
 .flag {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .flags-row {
-    display: flex;
-    flex-direction: row;
-    padding-top: 160px;
-    padding-bottom: 80px;
-    gap: 96px;
+  display: flex;
+  flex-direction: row;
+  padding-top: 160px;
+  padding-bottom: 80px;
+  gap: 96px;
 }
 
 .paraph-lang {
-    font-family: 'Gotham-Book';
-    text-transform: uppercase;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
+  font-family: 'Gotham-Book';
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
 }
 
 video {
-    outline: none;
+  outline: none;
 }
 
- 
-.main-video{
-    position: absolute;
-    top: 0;
-    left: 0;
-    pointer-events: none;
+
+.main-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
 }
 
 
 .video-screen {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
 }
 
 .bubble-debug {
-    top: 0px;
-    right: 0px;
+  top: 0px;
+  right: 0px;
 }
 
 .timer {
-    font-size: xx-large;
-    font-weight: 700;
+  font-size: xx-large;
+  font-weight: 700;
 }
-
-
 </style>

@@ -38,6 +38,8 @@ onMounted(() => {
 </script>
 
 <template>
+
+  <!-- TODO : passer les 5 textes comme props de LanguageScreen.vue pour qu'ils soient gérés dans le json fetch dans App.vue !!! -->
   <div class="language-screen">
     <h1>{{ getText(0, "FR") }}</h1> <br>
     <h2>{{ getText(1, "FR") }}</h2> <br>

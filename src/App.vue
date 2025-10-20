@@ -1,12 +1,23 @@
 <script setup>
 
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import LanguageScreen from './components/LanguageScreen.vue'
 import VideoPlayer from './components/VideoPlayer.vue'
 
-import texts from '../public/texts/interface.json'
-import dialogs from '../public/texts/dialogs.json'
+const dialogs = ref({});
+const texts = ref({});
 
+onMounted(async () => {
+  try {
+    const dialogsRes = await fetch('texts/dialogs.json');
+    dialogs.value = await dialogsRes.json();
+
+    const textsRes = await fetch('texts/interface.json');
+    texts.value = await textsRes.json();
+  } catch (error) {
+    console.error('Erreur lors du chargement des fichiers JSON:', error);
+  }
+});
 
 
 // Langue globale du programme
@@ -26,7 +37,7 @@ function onLanguageSelected(lang) {
 
     <div class="debug debug-versions" v-if="dialogs && Object.keys(dialogs).length && texts && Object.keys(texts).length" >    
     Numéro de versions<br>
-    Build du 20/10/2025 à 15h<br>
+    Build du 20/10/2025 à 18h<br>
     Interface : {{ texts[Object.keys(texts).length-1]["texte-FR"] }} <br>
     Dialogues : {{ dialogs[Object.keys(dialogs).length-1]["texte-FR"] }} 
   </div>
