@@ -35,7 +35,6 @@ function getDialog(n, lang) {
 
 function getVideo(n) {
     return dialogs[n]["nomenclature-video"];
-
 }
 
 function getDuration(n) {
@@ -76,15 +75,34 @@ function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function resume() {
-    isPlaying.value = true;
+const replaceToolName = ref(false);
+const replaceToolNameNumber = ref(0);
 
+async function resume(n) {
+    isPlaying.value = true;
     animateBubbleOut();
     await delay(1000);
     showBubble.value = false;
 
-    currentVideo++;          
+    console.log(n);
 
+    if(showDessin) {
+      let goodAnswer = 6;
+      showDessin.value = false;
+      if (n==goodAnswer) {
+        replaceToolName.value = false;
+        currentVideo = 5;  
+      }
+      else {
+        replaceToolName.value = true;
+        replaceToolNameNumber.value = n;
+        currentVideo = 3;    
+      }    
+    }
+    else {
+      replaceToolName.value = false;
+      currentVideo++;
+    }
     await playSequence();          
 }
 
@@ -109,7 +127,10 @@ async function playSequence() {
         isPlaying.value = true;
         break;
       }
-      pauseVideoPlayer();
+      //TODO : bon écran pause selon "action"
+      //launchInteractiveStep(dialogs[i]["pause"]);
+      launchInteractiveStep("dessin");
+
       break;
     }
   }
@@ -119,8 +140,36 @@ function playVideoPlayer() {
     document.getElementById("main-video").play();
 }
 
-function pauseVideoPlayer() {
-    document.getElementById("main-video").pause();
+const showDessin = ref(false);
+const showEbarbage = ref(false);
+const showAssemblage = ref(false);
+const showPeinture = ref(false);
+const showQR = ref(false);
+
+
+function launchInteractiveStep(step) {
+  console.log(step);
+
+  switch (step) {
+    case "dessin":
+      showDessin.value = true;
+      break;
+    case "ebarbage":
+      showEbarbage.value = true;
+      break;
+    case "assemblage":
+      showAssemblage.value = true;
+      break;
+    case "peinture":
+      showPeinture.value = true;
+      break;
+    case "qrcode":
+      showQR.value = true;
+    
+  
+    default:
+      break;
+  }
 }
 
 // Précharge une vidéo et retourne la vidéo invisible quand elle est prête
@@ -169,6 +218,11 @@ async function playVideo(n) {
   // Affiche la bulle
   showBubble.value = true;
   dialogContent = getDialog(n, language);
+
+  if(replaceToolName.value==true) {
+    let outil = getText(17+Number(replaceToolNameNumber.value), language);
+    dialogContent = dialogContent.replace("[[cet outil]]", outil);
+  }
 
   const duration = getTimecodeEnd(n) - getTimecodeStart(n);
 
@@ -219,7 +273,7 @@ onMounted(() => {
 
 
     <div class="video-screen">
-        <button v-if="!isPlaying" id="play" @click="resume()">Continuer</button>
+        <button v-if="!isPlaying" id="play" @click="resume(0)">Continuer</button>
 
         <!-- <video crossorigin="anonymous" class="main-video" id="main-video"></video> -->
 
@@ -230,6 +284,7 @@ onMounted(() => {
     :style="{ opacity: currentVideoId === 1 ? 1 : 0 }"
     muted
   ></video>
+
   <video
     crossorigin="anonymous"
     class="main-video"
@@ -240,11 +295,17 @@ onMounted(() => {
 
         <DialogBubble v-if="showBubble" ref="dialogBubble" class="dialog-bubble" :dialogContent="dialogContent" />
 
-        <!-- <ChooseToolScreen :choiceInstruction="getText(6, language)" :goodAnswer='6'/> -->
+        <!-- Dessin -->
+        <ChooseToolScreen v-if="showDessin" :choiceInstruction="getText(6, language)" :goodAnswer='6' @numberChosen="resume"/>
 
-        <!-- <AssemblageStep :instruction="getText(8, language)" :skipText="[getText(9, language), getText(10, language)]" />      -->
+        <!-- Ebarbage -->
+        <ChooseToolScreen v-if="showEbarbage" :choiceInstruction="getText(6, language)" :goodAnswer='6'/>
 
-        <!-- <PeintureStep :instructions="[getText(13, language), getText(14, language), getText(15, language), getText(16, language)]" :skipText="[getText(11, language), getText(12, language)]"/> -->
+        <!-- Assemblage -->
+        <AssemblageStep v-if="showAssemblage" :instruction="getText(8, language)" :skipText="[getText(9, language), getText(10, language)]" />     
+
+        <!-- Peinture -->
+        <PeintureStep v-if="showPeinture" :instructions="[getText(13, language), getText(14, language), getText(15, language), getText(16, language)]" :skipText="[getText(11, language), getText(12, language)]"/>
 
     </div>
 
@@ -301,7 +362,6 @@ video {
     position: absolute;
     top: 0;
     left: 0;
-    transition: opacity 0.5s ease;
     pointer-events: none;
 }
 

@@ -2,6 +2,9 @@
 
 import { onMounted, defineEmits } from 'vue';
 
+import { gsap } from 'gsap';
+
+
 
 const { choiceInstruction, goodAnswer} = defineProps({
     choiceInstruction: {
@@ -15,7 +18,7 @@ const { choiceInstruction, goodAnswer} = defineProps({
 })
 
 // TODO : emit true si bonne réponse, false si mauvaise réponse;
-// const state = defineEmits(['choiceState']) 
+const emit = defineEmits(['numberChosen']) 
 
 
 function beginChoiceListening() {
@@ -28,11 +31,14 @@ function beginChoiceListening() {
             document.getElementById("choix-fleche-" + e.key).style.filter = "none";
             if (e.key == goodAnswer) document.querySelector(".choice-debug").innerHTML = `Utilisez 1-2-3-4-5-6 sur le clavier <br> Outil touché : ${e.key} <br> (Bonne réponse : ${goodAnswer}) -> VRAI`
             else document.querySelector(".choice-debug").innerHTML = `Utilisez 1-2-3-4-5-6 sur le clavier <br> Outil touché : ${e.key} <br> (Bonne réponse : ${goodAnswer}) -> FAUX`
+            emit('numberChosen',  e.key);
         }
     });
 }
 
-onMounted(() => { beginChoiceListening()})
+onMounted(() => { 
+    gsap.from(document.querySelector(".choix"), {opacity:0, duration:1})
+    beginChoiceListening()})
 
 
 </script>

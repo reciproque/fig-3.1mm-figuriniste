@@ -128,43 +128,50 @@
   {
     "étape": "Outils-choix",
     "no": 18,
+    "texte-FR": "cet ébauchoir",
+    "texte-EN": "this roughing block",
+    "texte-DE": "dieser Schruppblock"
+  },
+  {
+    "étape": "Outils-choix",
+    "no": 19,
     "texte-FR": "cette lime",
     "texte-EN": "this file",
     "texte-DE": "diese Datei"
   },
   {
     "étape": "Outils-choix",
-    "no": 19,
+    "no": 20,
+    "texte-FR": "ce moule",
+    "texte-EN": "this mold",
+    "texte-DE": "diese Form"
+  },
+  {
+    "étape": "Outils-choix",
+    "no": 21,
     "texte-FR": "cette palette",
     "texte-EN": "this palette",
     "texte-DE": "diese Palette"
   },
   {
     "étape": "Outils-choix",
-    "no": 20,
+    "no": 22,
     "texte-FR": "cette louche",
     "texte-EN": "this ladle",
     "texte-DE": "diese Schöpfkelle"
   },
   {
-    "étape": "Outils-choix",
-    "no": 21,
+    "étape": "",
+    "no": 23,
     "texte-FR": "ce critérium",
     "texte-EN": "this criterion",
     "texte-DE": "dieses Kriterium"
   },
   {
-    "étape": "Outils-choix",
-    "no": 22,
-    "texte-FR": "",
-    "texte-EN": "",
-    "texte-DE": ""
-  },
-  {
     "étape": "NUMERO-VERSION",
-    "no": 23,
-    "texte-FR": "17/10/2025 14:37:46",
-    "texte-EN": "17/10/2025 14:37:46",
-    "texte-DE": "17/10/2025 14:37:46"
+    "no": "-",
+    "texte-FR": "20/10/2025 17:14:33",
+    "texte-EN": "-",
+    "texte-DE": "-"
   }
 ]

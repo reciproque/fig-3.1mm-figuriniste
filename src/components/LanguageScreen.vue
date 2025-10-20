@@ -67,6 +67,11 @@ onMounted(() => {
   cursor: pointer;
 }
 
+.flag img {
+  width: 350px;
+
+}
+
 .flags-row {
   display: flex;
   flex-direction: row;

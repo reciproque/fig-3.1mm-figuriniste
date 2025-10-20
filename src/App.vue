@@ -21,15 +21,15 @@ function onLanguageSelected(lang) {
 <template>
   <div class="screen">
 
-    <!-- TODO : gérer le passage d'une step à l'autre + étapes interactives -->
     <LanguageScreen v-if="!selectedLanguage" @language-selected="onLanguageSelected" />
     <VideoPlayer v-else :language="selectedLanguage" />
 
-    <div class="debug debug-versions">    
+    <div class="debug debug-versions" v-if="dialogs && Object.keys(dialogs).length && texts && Object.keys(texts).length" >    
     Numéro de versions<br>
-    Build du 17/10/2025 à 16:30 <br>
+    Build du 20/10/2025 à 15h<br>
     Interface : {{ texts[Object.keys(texts).length-1]["texte-FR"] }} <br>
-    Dialogues : {{ dialogs[Object.keys(dialogs).length-1]["texte-FR"] }}</div>
+    Dialogues : {{ dialogs[Object.keys(dialogs).length-1]["texte-FR"] }} 
+  </div>
 
     <!-- TODO : modale inactivité et reload -->
     <!-- <VideoPlayer :language='"FR"' /> -->
@@ -88,6 +88,7 @@ h2 {
 }
 
 .debug {
+  /* display: none; */
   color: white;
   position: absolute;
   padding: 10px;
