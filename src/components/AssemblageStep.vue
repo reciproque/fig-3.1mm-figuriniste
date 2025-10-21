@@ -16,7 +16,6 @@ defineProps({
 })
 
 function selectArms(n) {
-    console.log(n);
     gsap.to(document.getElementById("circle-"+n), {opacity:0, duration:0.2})
     if(n==1) gsap.to(document.getElementById("arms-"+n), {x:500,y:80, duration:0.2})
     if(n==2) gsap.to(document.getElementById("arms-"+n), {x:-700,y:220, duration:0.2})

@@ -1,7 +1,5 @@
 <script setup>
 
-import texts from '../../public/texts/interface.json'
-
 import { gsap } from 'gsap';
 
 import { onMounted } from 'vue';
@@ -9,19 +7,22 @@ import { onMounted } from 'vue';
 import { defineEmits } from 'vue'
 
 
-function getText(n, lang) {
-  if (lang == "FR") return texts[n]["texte-FR"];
-  if (lang == "EN") return texts[n]["texte-EN"];
-  if (lang == "DE") return texts[n]["texte-DE"];
-}
+const { instructions } = defineProps({
+    instructions: {
+        type: Object,
+        required: true
+    }
+})
 
 const emit = defineEmits(['language-selected'])
 
+let canClick = true;
 function selectLanguage(lang) {
-  gsap.from(document.getElementById(lang), { scale: 0.9, duration: 1, ease: "bounce.out" })
-
-  //TODO : ne pas pouvoir cliquer 2 fois sur un bouton (peut casser le gsap/changer la langue...)
-  setTimeout(() => emit('language-selected', lang), 800);
+  if (canClick) {
+    gsap.from(document.getElementById(lang), { scale: 0.9, duration: 1, ease: "bounce.out" })
+    setTimeout(() => emit('language-selected', lang), 800);
+  }
+  canClick = false;
 }
 
 // Animation de début (fade in)
@@ -39,19 +40,18 @@ onMounted(() => {
 
 <template>
 
-  <!-- TODO : passer les 5 textes comme props de LanguageScreen.vue pour qu'ils soient gérés dans le json fetch dans App.vue !!! -->
   <div class="language-screen">
-    <h1>{{ getText(0, "FR") }}</h1> <br>
-    <h2>{{ getText(1, "FR") }}</h2> <br>
-    <h2>{{ getText(2, "FR") }}</h2>
+    <h1>{{ instructions[0] }}</h1> <br>
+    <h2>{{ instructions[1] }}</h2> <br>
+    <h2>{{ instructions[2] }}</h2>
     <div class="flags-row">
       <div class="flag" id="FR"><img src="/assets/fr.png" alt="" @click="selectLanguage('FR')"></div>
       <div class="flag" id="EN"><img src="/assets/en.png" alt="" @click="selectLanguage('EN')"></div>
       <div class="flag" id="DE"><img src="/assets/de.png" alt="" @click="selectLanguage('DE')"></div>
     </div>
-    <div class="paraph-lang"><span>{{ getText(3, "FR") }}</span></br>
-      <span>{{ getText(4, "FR") }}</span> </br>
-      <span>{{ getText(5, "FR") }}</span> </br>
+    <div class="paraph-lang"><span>{{ instructions[3] }}</span></br>
+      <span>{{ instructions[4] }}</span> </br>
+      <span>{{ instructions[5] }}</span> </br>
     </div>
   </div>
 

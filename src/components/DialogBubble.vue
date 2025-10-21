@@ -14,6 +14,7 @@ defineProps({
 onMounted(() => {
     gsap.from(".bubble", { scale: 0.5, duration: 0.5 })
 
+    // TODO : gestion des espaces insécables
     let animatedText = document.querySelector(".bubble-box");
     animatedText.innerHTML = animatedText.textContent
         .split("")

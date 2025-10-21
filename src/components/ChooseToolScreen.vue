@@ -5,7 +5,6 @@ import { onMounted, defineEmits } from 'vue';
 import { gsap } from 'gsap';
 
 
-
 const { choiceInstruction, goodAnswer} = defineProps({
     choiceInstruction: {
         type: String,
@@ -17,10 +16,10 @@ const { choiceInstruction, goodAnswer} = defineProps({
     }
 })
 
-// TODO : emit true si bonne réponse, false si mauvaise réponse;
-const emit = defineEmits(['numberChosen']) 
+const emit = defineEmits(['touchedTool']) 
 
-
+// TODO : interfaçage avec Phidget !
+// Function qui commence à écouter les touches clavier.
 function beginChoiceListening() {
     document.addEventListener('keydown', function (e) {
         if (e.key === "1" || e.key === "2" || e.key === "3" || e.key === "4" || e.key === "5" || e.key === "6") document.getElementById("choix-fleche-" + e.key).style.filter = "invert()";
@@ -31,15 +30,16 @@ function beginChoiceListening() {
             document.getElementById("choix-fleche-" + e.key).style.filter = "none";
             if (e.key == goodAnswer) document.querySelector(".choice-debug").innerHTML = `Utilisez 1-2-3-4-5-6 sur le clavier <br> Outil touché : ${e.key} <br> (Bonne réponse : ${goodAnswer}) -> VRAI`
             else document.querySelector(".choice-debug").innerHTML = `Utilisez 1-2-3-4-5-6 sur le clavier <br> Outil touché : ${e.key} <br> (Bonne réponse : ${goodAnswer}) -> FAUX`
-            emit('numberChosen',  e.key);
+
+            emit('touchedTool',  e.key);
         }
     });
 }
 
 onMounted(() => { 
     gsap.from(document.querySelector(".choix"), {opacity:0, duration:1})
-    beginChoiceListening()})
-
+    beginChoiceListening()
+})
 
 </script>
 

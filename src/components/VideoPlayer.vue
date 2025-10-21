@@ -5,6 +5,10 @@ import ChooseToolScreen from './ChooseToolScreen.vue'
 import AssemblageStep from './AssemblageStep.vue';
 import PeintureStep from './PeintureStep.vue';
 
+import { gsap } from 'gsap';
+
+import { ref, onMounted } from 'vue';
+
 const { language } = defineProps({
   language: {
     type: String,
@@ -14,6 +18,8 @@ const { language } = defineProps({
 
 const currentVideoId = ref(1);
 
+// Chargement des dialogues et textes d'interface depuis Json
+
 const dialogs = ref({});
 const texts = ref({});
 const nbVideos = ref(0);
@@ -22,24 +28,20 @@ onMounted(async () => {
   try {
     const dialogsRes = await fetch('texts/dialogs.json');
     dialogs.value = await dialogsRes.json();
-    console.log('✔ dialogs loaded:', dialogs.value);
 
     const textsRes = await fetch('texts/interface.json');
     texts.value = await textsRes.json();
-    console.log('✔ texts loaded:', texts.value);
 
     nbVideos.value = Object.keys(dialogs.value).length - 1;
     await playSequence();
 
   } catch (err) {
-    console.error('Erreur de chargement des fichiers JSON', err);
+    console.error('Erreur de chargement des fichiers JSON : ', err);
   }
 });
 
+//
 
-import { gsap } from 'gsap';
-
-import { ref, onMounted } from 'vue';
 
 function getText(n, lang) {
   const entry = texts.value?.[n];
@@ -84,18 +86,19 @@ function getTimecodeEnd(n) {
 }
 
 
-
 let currentVideo = 0;
 
 const isPlaying = ref(true);
 
 // Timer pour debug
+
 const timer = ref(0);
 let timerInterval = null;
 
 
-let dialogContent = getDialog(0, language)
+// Gestion bulles de dialogue
 
+let dialogContent = getDialog(0, language)
 const showBubble = ref(false)
 
 function animateBubbleOut() {
@@ -109,8 +112,17 @@ function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const replaceToolName = ref(false);
-const replaceToolNameNumber = ref(0);
+const replaceToolName = ref(false); // Doit-on remplacer "[[cet outil]]" dans la bulle ?
+const replaceToolNameNumber = ref(0); //  Par quoi remplacer "[[cet outil]]" ?
+
+// Reprendre la timeline après une séquence interactive. 
+// n = nombre émis par le composant interactif (outil touché pour dessin/ébardage, combinaison choisie pour assemblage/peinture)
+const posEbauchoir = 1;
+const posLime = 2;
+const posMoule = 3;
+const posPalette = 4;
+const posLouche = 5;
+const posCriterium = 6;
 
 async function resume(n) {
   isPlaying.value = true;
@@ -118,37 +130,46 @@ async function resume(n) {
   await delay(1000);
   showBubble.value = false;
 
-  console.log(n);
-
+  // Dessin //
   if (showDessin) {
-    let goodAnswer = 6;
+    let videoFalse = 3;
+    let videoTrue = 5;
+
     showDessin.value = false;
-    if (n == goodAnswer) {
+
+    // Bonne réponse
+    if (n == posCriterium) {
       replaceToolName.value = false;
-      currentVideo = 5;
+      currentVideo = videoTrue;
     }
+    // Mauvaise réponse
     else {
       replaceToolName.value = true;
       replaceToolNameNumber.value = n;
-      currentVideo = 3;
+      currentVideo = videoFalse;
     }
   }
+
+  // TODO : Ebarbage 
+  // TODO : Assemblage
+  // TODO : Peinture
+
+  // Default
   else {
     replaceToolName.value = false;
     currentVideo++;
   }
+
   await playSequence();
 }
+
+//
+
+
 
 async function playSequence() {
   for (let i = currentVideo; i < nbVideos.value; i++) {
     currentVideo = i;
-
-    // Précharge la vidéo suivante si elle existe
-    if (i + 1 < nbVideos.value) {
-      const nextSrc = import.meta.env.BASE_URL + 'assets/videos/' + String(getVideo(i + 1));
-      await preloadVideo(nextSrc);
-    }
 
     await playVideo(i);
 
@@ -160,18 +181,17 @@ async function playSequence() {
     else if (end === "pause") {
       isPlaying.value = false;
 
-      if (currentVideo === nbVideos.value- 1) {
+      if (currentVideo === nbVideos.value - 1) {
         isPlaying.value = true;
         break;
       }
 
-      // TODO : choisir en fonction du champ "pause"
+      // TODO : choisir en fonction du champ "pause" avec interactiveStep = dialogs.value?.[i]?.["pause"];
       launchInteractiveStep("dessin");
       break;
     }
     else {
-      console.warn(`⚠️ Champ "end" manquant ou non reconnu pour la vidéo ${i}:`, end);
-      // Par défaut : continuer
+      console.warn(`Champ "end" manquant ou non reconnu pour la vidéo ${i}:`, end);
       isPlaying.value = true;
     }
 
@@ -184,10 +204,7 @@ const showAssemblage = ref(false);
 const showPeinture = ref(false);
 const showQR = ref(false);
 
-
 function launchInteractiveStep(step) {
-  console.log(step);
-
   switch (step) {
     case "dessin":
       showDessin.value = true;
@@ -203,65 +220,38 @@ function launchInteractiveStep(step) {
       break;
     case "qrcode":
       showQR.value = true;
-
-
     default:
       break;
   }
 }
 
-// Précharge une vidéo et retourne la vidéo invisible quand elle est prête
-function preloadVideo(src) {
-  return new Promise((resolve, reject) => {
-    const video = document.createElement('video');
-    video.src = src;
-    video.preload = 'auto';
-    video.style.display = 'none';
-    document.body.appendChild(video);
-
-    video.addEventListener('canplaythrough', () => {
-      resolve(video);
-    });
-
-    video.addEventListener('error', (e) => {
-      reject(e);
-    });
-  });
-}
-
-
 async function playVideo(n) {
+
+  // Echange de load entre video1 et video2 pour passage imperceptible de l'une à l'autre
   const videoToShow = currentVideoId.value === 1 ? document.getElementById('video2') : document.getElementById('video1');
-  const videoToHide = currentVideoId.value === 1 ? document.getElementById('video1') : document.getElementById('video2');
-
   const nextVideoSrc = import.meta.env.BASE_URL + 'assets/videos/' + String(getVideo(n));
-
-  // Précharge la vidéo dans la vidéo cachée
   videoToShow.src = nextVideoSrc;
   await videoToShow.load();
-
-  // Attend que la vidéo soit prête
   await new Promise(resolve => {
     videoToShow.oncanplaythrough = () => resolve();
   });
-
-  // Lance la vidéo cachée
   videoToShow.currentTime = 0;
   await videoToShow.play();
-
   currentVideoId.value = currentVideoId.value === 1 ? 2 : 1;
+  //
 
   await delay(getTimecodeStart(n));
 
-  // Affiche la bulle
+  // Afficher la bulle
   showBubble.value = true;
   dialogContent = getDialog(n, language);
 
+  // Doit-on remplacer "[[cet outil]]" dans la bulle ?
   if (replaceToolName.value == true) {
     let outil = getText(17 + Number(replaceToolNameNumber.value), language);
-    if (language=="FR") dialogContent = dialogContent.replace("[[cet outil]]", outil);
-    if (language=="EN") dialogContent = dialogContent.replace("[[this tool]]", outil);
-    if (language=="DE") dialogContent = dialogContent.replace("[[dieses Werkzeug]]", outil);
+    if (language == "FR") dialogContent = dialogContent.replace("[[cet outil]]", outil);
+    if (language == "EN") dialogContent = dialogContent.replace("[[this tool]]", outil);
+    if (language == "DE") dialogContent = dialogContent.replace("[[dieses Werkzeug]]", outil);
   }
 
   const duration = getTimecodeEnd(n) - getTimecodeStart(n);
@@ -276,7 +266,7 @@ async function playVideo(n) {
 
   clearInterval(timerInterval);
 
-  // NE ferme la bulle QUE si pas une pause
+  // Ferme la bulle que si pas une pause
   if (dialogs.value?.[n]["end"] !== "pause") {
     animateBubbleOut();
     await delay(1000);
@@ -293,25 +283,22 @@ async function playVideo(n) {
   });
 }
 
-
-
-
 </script>
 
 <template>
 
-
-  <div class="debug bubble-debug">video n° {{ currentVideo }} <br> <span class="timer">{{ timer }}</span><br> isPlaying
-    : {{
-      isPlaying }} <br> durée : {{ getDuration(currentVideo) }} <br>
-    timecode-start : {{ getTimecodeStart(currentVideo) / 1000 }} <br> timecode-end : {{
-      getTimecodeEnd(currentVideo) / 1000 }} </div>
+  <div class="debug bubble-debug">
+    video n° {{ currentVideo }} <br> 
+    <span class="timer">{{ timer }}</span><br> 
+    isPlaying : {{ isPlaying }} <br> 
+    durée : {{ getDuration(currentVideo) }} <br>
+    timecode-start : {{ getTimecodeStart(currentVideo) / 1000 }} <br> 
+    timecode-end : {{ getTimecodeEnd(currentVideo) / 1000 }} 
+  </div>
 
 
   <div class="video-screen" v-if="dialogs && texts">
-    <button v-if="!isPlaying" id="play" @click="resume(0)">Continuer</button>
-
-    <!-- <video crossorigin="anonymous" class="main-video" id="main-video"></video> -->
+    <!-- <button v-if="!isPlaying" id="play" @click="resume(0)">Continuer</button> -->
 
     <video crossorigin="anonymous" class="main-video" id="video1" :style="{ opacity: currentVideoId === 1 ? 1 : 0 }"
       muted></video>
@@ -322,21 +309,26 @@ async function playVideo(n) {
     <DialogBubble v-if="showBubble" ref="dialogBubble" class="dialog-bubble" :dialogContent="dialogContent" />
 
     <!-- Dessin -->
-    <ChooseToolScreen v-if="showDessin" :choiceInstruction="getText(6, language)" :goodAnswer='6'
-      @numberChosen="resume" />
+    <ChooseToolScreen v-if="showDessin" 
+      :choiceInstruction="getText(6, language)" 
+      :goodAnswer='posCriterium'
+      @touchedTool="resume" />
 
     <!-- Ebarbage -->
-    <ChooseToolScreen v-if="showEbarbage" :choiceInstruction="getText(6, language)" :goodAnswer='6' />
+    <ChooseToolScreen v-if="showEbarbage" 
+      :choiceInstruction="getText(7, language)" 
+      :goodAnswer='posEbauchoir' />
 
     <!-- Assemblage -->
-    <AssemblageStep v-if="showAssemblage" :instruction="getText(8, language)"
+    <AssemblageStep v-if="showAssemblage" 
+      :instruction="getText(8, language)"
       :skipText="[getText(9, language), getText(10, language)]" />
 
     <!-- Peinture -->
     <PeintureStep v-if="showPeinture"
       :instructions="[getText(13, language), getText(14, language), getText(15, language), getText(16, language)]"
       :skipText="[getText(11, language), getText(12, language)]" />
-
+      
   </div>
 
 </template>

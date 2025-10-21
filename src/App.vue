@@ -4,6 +4,9 @@ import { ref, onMounted } from 'vue'
 import LanguageScreen from './components/LanguageScreen.vue'
 import VideoPlayer from './components/VideoPlayer.vue'
 
+
+// Chargement des dialogues et textes d'interface depuis Json
+
 const dialogs = ref({});
 const texts = ref({});
 
@@ -15,35 +18,39 @@ onMounted(async () => {
     const textsRes = await fetch('texts/interface.json');
     texts.value = await textsRes.json();
   } catch (error) {
-    console.error('Erreur lors du chargement des fichiers JSON:', error);
+    console.error('Erreur lors du chargement des fichiers JSON : ', error);
   }
 });
 
+//
 
 // Langue globale du programme
+
 const selectedLanguage = ref(null)
 
 function onLanguageSelected(lang) {
   selectedLanguage.value = lang
 }
 
+//
+
 </script>
 
 <template>
   <div class="screen">
 
-    <LanguageScreen v-if="!selectedLanguage" @language-selected="onLanguageSelected" />
+    <LanguageScreen v-if="!selectedLanguage" @language-selected="onLanguageSelected"
+    :instructions="[texts[0]['texte-FR'], texts[1]['texte-FR'], texts[2]['texte-FR'], texts[3]['texte-FR'], texts[4]['texte-FR'], texts[5]['texte-FR']]" />
     <VideoPlayer v-else :language="selectedLanguage" />
 
     <div class="debug debug-versions" v-if="dialogs && Object.keys(dialogs).length && texts && Object.keys(texts).length" >    
-    Numéro de versions<br>
-    Build du 20/10/2025 à 18h<br>
-    Interface : {{ texts[Object.keys(texts).length-1]["texte-FR"] }} <br>
-    Dialogues : {{ dialogs[Object.keys(dialogs).length-1]["texte-FR"] }} 
-  </div>
+      Numéro de versions<br>
+      Build du 21/10/2025 à 11h<br>
+      Interface : {{ texts[Object.keys(texts).length-1]["texte-FR"] }} <br>
+      Dialogues : {{ dialogs[Object.keys(dialogs).length-1]["texte-FR"] }} 
+    </div>
 
     <!-- TODO : modale inactivité et reload -->
-    <!-- <VideoPlayer :language='"FR"' /> -->
 
   </div>
 </template>
