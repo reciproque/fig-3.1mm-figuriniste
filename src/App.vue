@@ -40,7 +40,7 @@ function onLanguageSelected(lang) {
   <div class="screen">
 
     <LanguageScreen v-if="!selectedLanguage" @language-selected="onLanguageSelected"
-    :instructions="[texts[0]['texte-FR'], texts[1]['texte-FR'], texts[2]['texte-FR'], texts[3]['texte-FR'], texts[4]['texte-FR'], texts[5]['texte-FR']]" />
+    :instructions="[texts?.[0]?.['texte-FR'], texts?.[1]?.['texte-FR'], texts?.[2]?.['texte-FR'], texts?.[3]?.['texte-FR'], texts?.[4]?.['texte-FR'], texts?.[5]?.['texte-FR']]" />
     <VideoPlayer v-else :language="selectedLanguage" />
 
     <div class="debug debug-versions" v-if="dialogs && Object.keys(dialogs).length && texts && Object.keys(texts).length" >    

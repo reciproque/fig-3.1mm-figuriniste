@@ -86,7 +86,7 @@ function getTimecodeEnd(n) {
 }
 
 
-let currentVideo = 0;
+let currentVideo = 38;
 
 const isPlaying = ref(true);
 
@@ -112,9 +112,6 @@ function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const replaceToolName = ref(false); // Doit-on remplacer "[[cet outil]]" dans la bulle ?
-const replaceToolNameNumber = ref(0); //  Par quoi remplacer "[[cet outil]]" ?
-
 // Reprendre la timeline après une séquence interactive. 
 // n = nombre émis par le composant interactif (outil touché pour dessin/ébardage, combinaison choisie pour assemblage/peinture)
 const posEbauchoir = 1;
@@ -132,25 +129,38 @@ async function resume(n) {
 
   // Dessin //
   if (showDessin) {
-    let videoFalse = 3;
-    let videoTrue = 5;
+    let videoFalse = Number(n)+2;
+    let videoTrue = 8;
 
     showDessin.value = false;
 
     // Bonne réponse
     if (n == posCriterium) {
-      replaceToolName.value = false;
       currentVideo = videoTrue;
     }
     // Mauvaise réponse
     else {
-      replaceToolName.value = true;
-      replaceToolNameNumber.value = n;
       currentVideo = videoFalse;
     }
   }
 
-  // TODO : Ebarbage 
+  // Ebarbage //
+  if (showEbarbage) {
+    let videoFalse = Number(n)+(n < 2 ? 29 : 28);
+    let videoTrue = 35;
+
+    showEbarbage.value = false;
+
+    // Bonne réponse
+    if (n == posLime) {
+      currentVideo = videoTrue;
+    }
+    // Mauvaise réponse
+    else {
+      currentVideo = videoFalse;
+    }
+  }
+
   // TODO : Assemblage
   // TODO : Peinture
 
@@ -187,7 +197,7 @@ async function playSequence() {
       }
 
       // TODO : choisir en fonction du champ "pause" avec interactiveStep = dialogs.value?.[i]?.["pause"];
-      launchInteractiveStep("dessin");
+      launchInteractiveStep(dialogs.value?.[i]?.["pause"]);
       break;
     }
     else {
@@ -245,14 +255,6 @@ async function playVideo(n) {
   // Afficher la bulle
   showBubble.value = true;
   dialogContent = getDialog(n, language);
-
-  // Doit-on remplacer "[[cet outil]]" dans la bulle ?
-  if (replaceToolName.value == true) {
-    let outil = getText(17 + Number(replaceToolNameNumber.value), language);
-    if (language == "FR") dialogContent = dialogContent.replace("[[cet outil]]", outil);
-    if (language == "EN") dialogContent = dialogContent.replace("[[this tool]]", outil);
-    if (language == "DE") dialogContent = dialogContent.replace("[[dieses Werkzeug]]", outil);
-  }
 
   const duration = getTimecodeEnd(n) - getTimecodeStart(n);
 
@@ -317,7 +319,8 @@ async function playVideo(n) {
     <!-- Ebarbage -->
     <ChooseToolScreen v-if="showEbarbage" 
       :choiceInstruction="getText(7, language)" 
-      :goodAnswer='posEbauchoir' />
+      :goodAnswer='posLime'
+      @touchedTool="resume"  />
 
     <!-- Assemblage -->
     <AssemblageStep v-if="showAssemblage" 

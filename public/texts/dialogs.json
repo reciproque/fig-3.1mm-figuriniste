@@ -1,6 +1,5 @@
 [
   {
-    "étape": "Dessin_01",
     "video": 0,
     "nomenclature-video": "Dessin_01.mp4",
     "duration": 5,
@@ -16,7 +15,6 @@
     "nb-car-DE": 87
   },
   {
-    "étape": "Dessin_02",
     "video": 1,
     "nomenclature-video": "Dessin_02.mp4",
     "duration": 7,
@@ -32,7 +30,6 @@
     "nb-car-DE": 123
   },
   {
-    "étape": "Dessin_03",
     "video": 2,
     "nomenclature-video": "background.mp4",
     "duration": 2,
@@ -48,40 +45,82 @@
     "nb-car-DE": 87
   },
   {
-    "étape": "Dessin_04",
     "video": 3,
-    "nomenclature-video": "Dessin_04.mp4",
-    "duration": 5,
-    "timecode-start": 0,
-    "timecode-end": 5,
-    "end": "skip",
-    "pause": "",
-    "texte-FR": "En êtes-vous sûr·e ?",
-    "texte-EN": "Are you sure?",
-    "texte-DE": "Bist du sicher?",
-    "nb-car-FR": 20,
-    "nb-car-EN": 13,
-    "nb-car-DE": 15
-  },
-  {
-    "étape": "Dessin_05",
-    "video": 4,
-    "nomenclature-video": "Dessin_05.mp4",
+    "nomenclature-video": "Mauvaise_outill_02.mp4",
     "duration": 5,
     "timecode-start": 0,
     "timecode-end": 5,
     "end": "pause",
     "pause": "dessin",
-    "texte-FR": "Oh, [[cet outil]] ne nous servira pas pour dessiner. Essayons autre chose.",
-    "texte-EN": "Oh, [[this tool]] won't be useful for drawing. Let's try something else.",
-    "texte-DE": "Oh, [[dieses Werkzeug]] ist zum Zeichnen nicht nützlich. Versuchen wir etwas anderes.",
+    "texte-FR": "Oh, cet ébauchoir ne nous servira pas pour dessiner. Essayons autre chose.",
+    "texte-EN": "Oh, this sketcher won't do us any good for drawing. Let's try something else.",
+    "texte-DE": "Oh, dieser Skizzierer wird uns zum Zeichnen nicht weiterhelfen. Versuchen wir etwas anderes.",
     "nb-car-FR": 74,
-    "nb-car-EN": 72,
-    "nb-car-DE": 85
+    "nb-car-EN": 77,
+    "nb-car-DE": 92
   },
   {
-    "étape": "Dessin_06",
+    "video": 4,
+    "nomenclature-video": "Mauvaise_outill_03.mp4",
+    "duration": 5,
+    "timecode-start": 0,
+    "timecode-end": 5,
+    "end": "pause",
+    "pause": "dessin",
+    "texte-FR": "Oh, cette lime ne nous servira pas pour dessiner. Essayons autre chose.",
+    "texte-EN": "Oh, this file won't do us any good for drawing. Let's try something else.",
+    "texte-DE": "Oh, diese Datei ist zum Zeichnen nicht geeignet. Versuchen wir etwas anderes.",
+    "nb-car-FR": 71,
+    "nb-car-EN": 73,
+    "nb-car-DE": 77
+  },
+  {
     "video": 5,
+    "nomenclature-video": "Mauvaise_outill_06.mp4",
+    "duration": 5,
+    "timecode-start": 0,
+    "timecode-end": 5,
+    "end": "pause",
+    "pause": "dessin",
+    "texte-FR": "Oh, ce moule ne nous servira pas pour dessiner. Essayons autre chose.",
+    "texte-EN": "Oh, this mold won't be of any use for drawing. Let's try something else.",
+    "texte-DE": "Oh, diese Form ist zum Zeichnen nicht zu gebrauchen. Versuchen wir etwas anderes.",
+    "nb-car-FR": 69,
+    "nb-car-EN": 72,
+    "nb-car-DE": 81
+  },
+  {
+    "video": 6,
+    "nomenclature-video": "Mauvaise_outill_05.mp4",
+    "duration": 5,
+    "timecode-start": 0,
+    "timecode-end": 5,
+    "end": "pause",
+    "pause": "dessin",
+    "texte-FR": "Oh, cette palette ne nous servira pas pour dessiner. Essayons autre chose.",
+    "texte-EN": "Oh, this palette won't be any good for drawing. Let's try something else.",
+    "texte-DE": "Oh, diese Palette ist zum Zeichnen nicht geeignet. Versuchen wir etwas anderes.",
+    "nb-car-FR": 74,
+    "nb-car-EN": 73,
+    "nb-car-DE": 79
+  },
+  {
+    "video": 7,
+    "nomenclature-video": "Mauvaise_outill_04.mp4",
+    "duration": 5,
+    "timecode-start": 0,
+    "timecode-end": 5,
+    "end": "pause",
+    "pause": "dessin",
+    "texte-FR": "Oh, cette louche ne nous servira pas pour dessiner. Essayons autre chose.",
+    "texte-EN": "Oh, this ladle won't do us any good for drawing. Let's try something else.",
+    "texte-DE": "Oh, diese Dame wird uns beim Zeichnen nicht weiterhelfen. Versuchen wir etwas anderes.",
+    "nb-car-FR": 73,
+    "nb-car-EN": 74,
+    "nb-car-DE": 86
+  },
+  {
+    "video": 8,
     "nomenclature-video": "Dessin_06.mp4",
     "duration": 5,
     "timecode-start": 1,
@@ -96,8 +135,7 @@
     "nb-car-DE": 63
   },
   {
-    "étape": "Dessin_07",
-    "video": 6,
+    "video": 9,
     "nomenclature-video": "Dessin_07.mp4",
     "duration": 5,
     "timecode-start": 0,
@@ -112,8 +150,7 @@
     "nb-car-DE": 32
   },
   {
-    "étape": "Dessin_08",
-    "video": 7,
+    "video": 10,
     "nomenclature-video": "Dessin_08.mp4",
     "duration": 5,
     "timecode-start": 0,
@@ -128,8 +165,7 @@
     "nb-car-DE": 128
   },
   {
-    "étape": "Dessin_09",
-    "video": 8,
+    "video": 11,
     "nomenclature-video": "Dessin_09.mp4",
     "duration": 5,
     "timecode-start": 2,
@@ -144,8 +180,7 @@
     "nb-car-DE": 74
   },
   {
-    "étape": "Dessin_10",
-    "video": 9,
+    "video": 12,
     "nomenclature-video": "Dessin_10.mp4",
     "duration": 5,
     "timecode-start": 2,
@@ -160,8 +195,7 @@
     "nb-car-DE": 82
   },
   {
-    "étape": "Modelage1",
-    "video": 10,
+    "video": 13,
     "nomenclature-video": "Modelage_01.mp4",
     "duration": 5,
     "timecode-start": 0,
@@ -176,8 +210,7 @@
     "nb-car-DE": 127
   },
   {
-    "étape": "Modelage1",
-    "video": 11,
+    "video": 14,
     "nomenclature-video": "Modelage_02.mp4",
     "duration": 5,
     "timecode-start": 0,
@@ -192,8 +225,7 @@
     "nb-car-DE": 118
   },
   {
-    "étape": "Modelage1",
-    "video": 12,
+    "video": 15,
     "nomenclature-video": "Modelage_03.mp4",
     "duration": 5,
     "timecode-start": 0,
@@ -201,15 +233,14 @@
     "end": "skip",
     "pause": "",
     "texte-FR": "Je cherche d'abord à obtenir la silhouette générale.",
-    "texte-EN": "I first try to get the general outline.",
-    "texte-DE": "Ich versuche zunächst, den allgemeinen Überblick zu erfassen.",
+    "texte-EN": "First I try to get the general outline.",
+    "texte-DE": "Zuerst versuche ich, mir einen allgemeinen Überblick zu verschaffen.",
     "nb-car-FR": 52,
     "nb-car-EN": 39,
-    "nb-car-DE": 61
+    "nb-car-DE": 68
   },
   {
-    "étape": "Modelage1",
-    "video": 13,
+    "video": 16,
     "nomenclature-video": "Modelage_04.mp4",
     "duration": 5,
     "timecode-start": 0,
@@ -224,8 +255,7 @@
     "nb-car-DE": 33
   },
   {
-    "étape": "Modelage1",
-    "video": 14,
+    "video": 17,
     "nomenclature-video": "Modelage_05.mp4",
     "duration": 5,
     "timecode-start": 0,
@@ -240,8 +270,7 @@
     "nb-car-DE": 20
   },
   {
-    "étape": "Moule1",
-    "video": 15,
+    "video": 18,
     "nomenclature-video": "Moule_01.mp4",
     "duration": 5,
     "timecode-start": 0,
@@ -256,8 +285,7 @@
     "nb-car-DE": 163
   },
   {
-    "étape": "Moule1",
-    "video": 16,
+    "video": 19,
     "nomenclature-video": "Moule_02.mp4",
     "duration": 5,
     "timecode-start": 0,
@@ -272,8 +300,7 @@
     "nb-car-DE": 32
   },
   {
-    "étape": "Moule1",
-    "video": 17,
+    "video": 20,
     "nomenclature-video": "Moule_03.mp4",
     "duration": 5,
     "timecode-start": 0,
@@ -288,8 +315,7 @@
     "nb-car-DE": 130
   },
   {
-    "étape": "Moule1",
-    "video": 18,
+    "video": 21,
     "nomenclature-video": "Moule_04.mp4",
     "duration": 5,
     "timecode-start": 0,
@@ -304,9 +330,8 @@
     "nb-car-DE": 82
   },
   {
-    "étape": "Coulee1",
-    "video": 19,
-    "nomenclature-video": "Coulée_01.mp4",
+    "video": 22,
+    "nomenclature-video": "Coulee_01.mp4",
     "duration": 5,
     "timecode-start": 0,
     "timecode-end": 5,
@@ -320,9 +345,8 @@
     "nb-car-DE": 124
   },
   {
-    "étape": "Coulee1",
-    "video": 20,
-    "nomenclature-video": "background.mp4",
+    "video": 23,
+    "nomenclature-video": "Coulee_02.mp4",
     "duration": 5,
     "timecode-start": 0,
     "timecode-end": 5,
@@ -336,9 +360,8 @@
     "nb-car-DE": 90
   },
   {
-    "étape": "Coulee1",
-    "video": 21,
-    "nomenclature-video": "background.mp5",
+    "video": 24,
+    "nomenclature-video": "Coulee_03.mp4",
     "duration": 5,
     "timecode-start": 0,
     "timecode-end": 5,
@@ -352,9 +375,23 @@
     "nb-car-DE": 27
   },
   {
-    "étape": "Coulee1",
-    "video": 22,
-    "nomenclature-video": "background.mp6",
+    "video": 25,
+    "nomenclature-video": "Coulee_04.mp4",
+    "duration": 5,
+    "timecode-start": 0,
+    "timecode-end": 5,
+    "end": "skip",
+    "pause": "",
+    "texte-FR": "",
+    "texte-EN": "",
+    "texte-DE": "",
+    "nb-car-FR": 0,
+    "nb-car-EN": 0,
+    "nb-car-DE": 0
+  },
+  {
+    "video": 26,
+    "nomenclature-video": "Coulee_05.mp4",
     "duration": 5,
     "timecode-start": 0,
     "timecode-end": 5,
@@ -368,9 +405,8 @@
     "nb-car-DE": 33
   },
   {
-    "étape": "Coulee1",
-    "video": 23,
-    "nomenclature-video": "background.mp7",
+    "video": 27,
+    "nomenclature-video": "Coulee_06.mp4",
     "duration": 5,
     "timecode-start": 0,
     "timecode-end": 5,
@@ -384,89 +420,113 @@
     "nb-car-DE": 66
   },
   {
-    "étape": "Ebarbage1",
-    "video": 24,
-    "nomenclature-video": "background.mp4",
+    "video": 28,
+    "nomenclature-video": "Ebarbage_01.mp4",
     "duration": 5,
     "timecode-start": 0,
     "timecode-end": 5,
     "end": "skip",
     "pause": "",
     "texte-FR": "À la sortie du moule, il faut retirer les excès de métal durcis dans les canaux aménagés autour de la figurine. \nOn appelle cette étape l’ébarbage.",
-    "texte-EN": "Once the figurine is removed from the mold, the excess hardened metal must be removed from the channels created around the figurine.\nThis step is called deburring.",
-    "texte-DE": "Sobald die Figur aus der Form genommen wurde, muss das überschüssige gehärtete Metall aus den um die Figur herum entstandenen Kanälen entfernt werden.\nDieser Schritt wird als Entgraten bezeichnet.",
+    "texte-EN": "Once the figurine is removed from the mold, the excess hardened metal must be removed from the channels created around it.\nThis step is called deburring.",
+    "texte-DE": "Sobald die Figur aus der Form genommen wurde, muss das überschüssige gehärtete Metall aus den umliegenden Kanälen entfernt werden.\nDieser Schritt wird als Entgraten bezeichnet.",
     "nb-car-FR": 147,
-    "nb-car-EN": 163,
-    "nb-car-DE": 196
+    "nb-car-EN": 153,
+    "nb-car-DE": 176
   },
   {
-    "étape": "Ebarbage1",
-    "video": 25,
+    "video": 29,
     "nomenclature-video": "background.mp4",
     "duration": 2,
     "timecode-start": 0,
     "timecode-end": 2,
     "end": "pause",
     "pause": "ebarbage",
-    "texte-FR": "Pourriez-vous, s'il vous plaît, me passer l'outil pour ébarber&nbsp;?",
+    "texte-FR": "Pourriez-vous, s'il vous plaît, me passer l'outil pour ébarber ?",
     "texte-EN": "Could you please pass me the deburring tool?",
     "texte-DE": "Könnten Sie mir bitte das Entgratungswerkzeug geben?",
-    "nb-car-FR": 69,
+    "nb-car-FR": 64,
     "nb-car-EN": 44,
     "nb-car-DE": 52
   },
   {
-    "étape": "Ebarbage2",
-    "video": 26,
-    "nomenclature-video": "background.mp4",
-    "duration": 5,
-    "timecode-start": 0,
-    "timecode-end": 5,
-    "end": "skip",
-    "pause": "",
-    "texte-FR": "En êtes-vous sûr·e ?",
-    "texte-EN": "Are you sure?",
-    "texte-DE": "Bist du sicher?",
-    "nb-car-FR": 20,
-    "nb-car-EN": 13,
-    "nb-car-DE": 15
-  },
-  {
-    "étape": "Ebarbage2",
-    "video": 27,
-    "nomenclature-video": "background.mp4",
+    "video": 30,
+    "nomenclature-video": "Mauvaise_outill_02.mp4",
     "duration": 5,
     "timecode-start": 0,
     "timecode-end": 5,
     "end": "pause",
     "pause": "ebarbage",
-    "texte-FR": "Oh, [[cet outil]] ne nous servira pas pour ébarber. Essayons autre chose.",
-    "texte-EN": "Oh, [[this tool]] won't do us any good for trimming. Let's try something else.",
-    "texte-DE": "Oh, [[dieses Werkzeug]] wird uns beim Trimmen nichts nützen. Versuchen wir etwas anderes.",
+    "texte-FR": "Oh, cet ébauchoir ne nous servira pas pour ébarber. Essayons autre chose.",
+    "texte-EN": "Oh, this roughing knife won't do us any good for trimming. Let's try something else.",
+    "texte-DE": "Oh, dieses Schruppmesser wird uns zum Trimmen nichts nützen. Versuchen wir etwas anderes.",
     "nb-car-FR": 73,
-    "nb-car-EN": 78,
+    "nb-car-EN": 84,
     "nb-car-DE": 89
   },
   {
-    "étape": "Ebarbage3",
-    "video": 28,
-    "nomenclature-video": "background.mp4",
+    "video": 31,
+    "nomenclature-video": "Mauvaise_outill_06.mp4",
     "duration": 5,
     "timecode-start": 0,
     "timecode-end": 5,
-    "end": "skip",
-    "pause": "",
-    "texte-FR": "Bien vu !",
-    "texte-EN": "Well seen!",
-    "texte-DE": "Gut gesehen!",
-    "nb-car-FR": 10,
-    "nb-car-EN": 10,
-    "nb-car-DE": 12
+    "end": "pause",
+    "pause": "ebarbage",
+    "texte-FR": "Oh, ce moule ne nous servira pas pour ébarber. Essayons autre chose.",
+    "texte-EN": "Oh, this mold won't do us any good for trimming. Let's try something else.",
+    "texte-DE": "Oh, diese Form wird uns zum Trimmen nichts nützen. Versuchen wir etwas anderes.",
+    "nb-car-FR": 68,
+    "nb-car-EN": 74,
+    "nb-car-DE": 79
   },
   {
-    "étape": "Ebarbage3",
-    "video": 29,
-    "nomenclature-video": "background.mp4",
+    "video": 32,
+    "nomenclature-video": "Mauvaise_outill_05.mp4",
+    "duration": 5,
+    "timecode-start": 0,
+    "timecode-end": 5,
+    "end": "pause",
+    "pause": "ebarbage",
+    "texte-FR": "Oh, cette palette ne nous servira pas pour ébarber. Essayons autre chose.",
+    "texte-EN": "Oh, this palette won't do us any good for trimming. Let's try something else.",
+    "texte-DE": "Oh, diese Palette wird uns zum Trimmen nichts nützen. Versuchen wir etwas anderes.",
+    "nb-car-FR": 73,
+    "nb-car-EN": 77,
+    "nb-car-DE": 82
+  },
+  {
+    "video": 33,
+    "nomenclature-video": "Mauvaise_outill_04.mp4",
+    "duration": 5,
+    "timecode-start": 0,
+    "timecode-end": 5,
+    "end": "pause",
+    "pause": "ebarbage",
+    "texte-FR": "Oh, cette louche ne nous servira pas pour ébarber. Essayons autre chose.",
+    "texte-EN": "Oh, this ladle won't do us any good for trimming. Let's try something else.",
+    "texte-DE": "Oh, diese Dame wird uns beim Trimmen nicht weiterhelfen. Versuchen wir etwas anderes.",
+    "nb-car-FR": 72,
+    "nb-car-EN": 75,
+    "nb-car-DE": 85
+  },
+  {
+    "video": 34,
+    "nomenclature-video": "Mauvaise_outill_01.mp4",
+    "duration": 5,
+    "timecode-start": 0,
+    "timecode-end": 5,
+    "end": "pause",
+    "pause": "ebarbage",
+    "texte-FR": "Oh, ce critérium ne nous servira pas pour ébarber. Essayons autre chose.",
+    "texte-EN": "Oh, this criterion won't do us any good for trimming. Let's try something else.",
+    "texte-DE": "Oh, dieses Kriterium hilft uns beim Trimmen nicht weiter. Versuchen wir etwas anderes.",
+    "nb-car-FR": 72,
+    "nb-car-EN": 79,
+    "nb-car-DE": 86
+  },
+  {
+    "video": 35,
+    "nomenclature-video": "Ebarbage_04.mp4",
     "duration": 5,
     "timecode-start": 0,
     "timecode-end": 5,
@@ -480,9 +540,8 @@
     "nb-car-DE": 98
   },
   {
-    "étape": "Ebarbage3",
-    "video": 30,
-    "nomenclature-video": "background.mp4",
+    "video": 36,
+    "nomenclature-video": "Ebarbage_05.mp4",
     "duration": 5,
     "timecode-start": 0,
     "timecode-end": 5,
@@ -496,9 +555,8 @@
     "nb-car-DE": 76
   },
   {
-    "étape": "Assemblage1",
-    "video": 31,
-    "nomenclature-video": "background.mp4",
+    "video": 37,
+    "nomenclature-video": "Assemblage_01.mp4",
     "duration": 5,
     "timecode-start": 0,
     "timecode-end": 5,
@@ -512,25 +570,23 @@
     "nb-car-DE": 115
   },
   {
-    "étape": "Assemblage1",
-    "video": 32,
-    "nomenclature-video": "background.mp4",
+    "video": 38,
+    "nomenclature-video": "Assemblage_02.mp4",
     "duration": 5,
     "timecode-start": 0,
     "timecode-end": 5,
     "end": "pause",
     "pause": "assemblage",
-    "texte-FR": "Voulez-vous bien m’aider à imaginer un assemblage,  ou préférez-vous que je m’en charge ?",
-    "texte-EN": "Would you mind helping me come up with a combination, or would you prefer that I do it myself?",
-    "texte-DE": "Würde es Ihnen etwas ausmachen, mir bei der Entwicklung einer Kombination zu helfen, oder möchten Sie, dass ich es selbst mache?",
-    "nb-car-FR": 90,
-    "nb-car-EN": 94,
-    "nb-car-DE": 128
+    "texte-FR": "Voulez-vous bien m’aider à imaginer un assemblage, ou préférez-vous que je m’en charge ?",
+    "texte-EN": "Chargement en cours...",
+    "texte-DE": "Chargement en cours...",
+    "nb-car-FR": 89,
+    "nb-car-EN": "Chargement en cours...",
+    "nb-car-DE": "Chargement en cours..."
   },
   {
-    "étape": "Peinture1",
-    "video": 33,
-    "nomenclature-video": "background.mp4",
+    "video": 39,
+    "nomenclature-video": "Peinture_01.mp4",
     "duration": 5,
     "timecode-start": 0,
     "timecode-end": 5,
@@ -544,9 +600,8 @@
     "nb-car-DE": 131
   },
   {
-    "étape": "Peinture1",
-    "video": 34,
-    "nomenclature-video": "background.mp4",
+    "video": 40,
+    "nomenclature-video": "Peinture_02.mp4",
     "duration": 5,
     "timecode-start": 0,
     "timecode-end": 5,
@@ -560,9 +615,8 @@
     "nb-car-DE": 120
   },
   {
-    "étape": "Peinture1",
-    "video": 35,
-    "nomenclature-video": "background.mp4",
+    "video": 41,
+    "nomenclature-video": "Peinture_03.mp4",
     "duration": 5,
     "timecode-start": 0,
     "timecode-end": 5,
@@ -576,9 +630,8 @@
     "nb-car-DE": 74
   },
   {
-    "étape": "Peinture1",
-    "video": 36,
-    "nomenclature-video": "background.mp4",
+    "video": 42,
+    "nomenclature-video": "Peinture_11.mp4",
     "duration": 5,
     "timecode-start": 0,
     "timecode-end": 5,
@@ -592,8 +645,7 @@
     "nb-car-DE": 87
   },
   {
-    "étape": "QR-Code1",
-    "video": 37,
+    "video": 43,
     "nomenclature-video": "background.mp4",
     "duration": 5,
     "timecode-start": 0,
@@ -608,15 +660,14 @@
     "nb-car-DE": 37
   },
   {
-    "étape": "NUMERO-VERSION",
     "video": "-",
-    "nomenclature-video": "-",
+    "nomenclature-video": "NUMERO-VERSION",
     "duration": "-",
     "timecode-start": "-",
     "timecode-end": "-",
     "end": "-",
     "pause": "-",
-    "texte-FR": "20/10/2025 18:04:32",
+    "texte-FR": "22/10/2025 11:42:30",
     "texte-EN": "-",
     "texte-DE": "-",
     "nb-car-FR": "",
