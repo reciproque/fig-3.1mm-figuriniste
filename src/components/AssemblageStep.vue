@@ -1,7 +1,7 @@
 <script setup>
 import { gsap } from 'gsap';
 
-import { onMounted } from 'vue';
+import { onMounted, defineEmits } from 'vue';
 
 
 defineProps({
@@ -15,18 +15,21 @@ defineProps({
     }
 })
 
+const emit = defineEmits(['chosenArm']) 
+
+
 function selectArms(n) {
     gsap.to(document.getElementById("circle-"+n), {opacity:0, duration:0.2})
-    if(n==1) gsap.to(document.getElementById("arms-"+n), {x:500,y:80, duration:0.2})
-    if(n==2) gsap.to(document.getElementById("arms-"+n), {x:-700,y:220, duration:0.2})
-    if(n==3) gsap.to(document.getElementById("arms-"+n), {x:-500,y:-220, duration:0.2})
+    if(n==1) gsap.to(document.getElementById("arms-"+n), {x:500, duration:0.2})
+    if(n==2) gsap.to(document.getElementById("arms-"+n), {x:-800, duration:0.2})
+    if(n==3) gsap.to(document.getElementById("arms-"+n), {x:-600,y:-300, duration:0.2})
+    emit('chosenArm',  n);
+
 
 }
 
 onMounted(() => {
     gsap.from(document.querySelector(".assemblage-screen"), { opacity: 0, duration: 1})
-
-
 })
 
 </script>
@@ -40,23 +43,21 @@ onMounted(() => {
         </div>
 
     </div>
-    <img src="/assets/circle-head.svg" alt="" class="circle-head">
-    <img src="/assets/sample-armless-richard.png" alt="" class="richard">
 
     <div class="arms-choice" id="arms-choice-1">
         <img src="/assets/circle-choice.svg" alt="" class="circle-choice" @click="selectArms(1)" id="circle-1">
-        <img src="/assets/sample-arm1.png" alt="" class="arms" id="arms-1">
+        <img src="/assets/bras1.png" alt="" class="arms" id="arms-1">
     </div>
 
     <div class="arms-choice" id="arms-choice-2">
         <img src="/assets/circle-choice.svg" alt="" class="circle-choice" @click="selectArms(2)" id="circle-2">
-        <img src="/assets/sample-arm2.png" alt="" class="arms" id="arms-2">
+        <img src="/assets/bras2.png" alt="" class="arms" id="arms-2">
     </div>
 
 
     <div class="arms-choice" id="arms-choice-3">
         <img src="/assets/circle-choice.svg" alt="" class="circle-choice" @click="selectArms(3)" id="circle-3">
-        <img src="/assets/sample-arm3.png" alt="" class="arms" id="arms-3">
+        <img src="/assets/bras3.png" alt="" class="arms" id="arms-3">
     </div>
 
 
@@ -69,19 +70,6 @@ onMounted(() => {
     align-items: center;
 }
 
-.circle-head {
-    position: absolute;
-    top: 224px;
-    left: 749px;
-}
-
-.richard {
-    position: absolute;
-    top: 114px;
-    left: 624px;
-
-}
-
 .instruction {
     margin-top: 85px;
 }
@@ -92,7 +80,24 @@ onMounted(() => {
 
 .circle-choice {
     cursor: pointer;
+
 }
+
+#arms-choice-1 .circle-choice {
+    left: -300px;
+}
+
+#arms-choice-2 .circle-choice {
+    top: -400px;
+    left: -300px;
+}
+
+
+#arms-choice-3 .circle-choice {
+    top: -280px;
+    left: -300px;
+}
+
 
 .arms-choice {
     transition: 0.4s;
@@ -110,24 +115,30 @@ onMounted(() => {
 
 }
 
+.arms-choice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #arms-choice-1 {
-    top: 300px;
-    right: 1700px;
+    top: 540px;
+    left: 460px;
 }
 
 #arms-choice-2 {
-    top: 170px;
-    right: 500px;
+    top: 540px;
+    left: 1760px;
 }
 
 #arms-choice-3 {
-    top: 600px;
-    right: 700px;
+    top: 840px;
+    left: 1560px;
 }
 
-.arms {
-    top: -95px;
-}
+/* .arms {
+    border: solid 10px #3959D0;
+} */
 
 .randomizer-box {
     position: absolute;

@@ -97,7 +97,7 @@ h2 {
 }
 
 .instruction {
-  font-size: 50px;
+  font-size: 38px;
   color: white;
   font-family: 'Gotham-Black';
   font-weight: 300;

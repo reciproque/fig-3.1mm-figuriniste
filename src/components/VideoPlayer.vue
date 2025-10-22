@@ -86,7 +86,7 @@ function getTimecodeEnd(n) {
 }
 
 
-let currentVideo = 38;
+let currentVideo = 39;
 
 const isPlaying = ref(true);
 
@@ -120,6 +120,8 @@ const posMoule = 3;
 const posPalette = 4;
 const posLouche = 5;
 const posCriterium = 6;
+
+let arm = 1;
 
 async function resume(n) {
   isPlaying.value = true;
@@ -161,12 +163,17 @@ async function resume(n) {
     }
   }
 
-  // TODO : Assemblage
+  // Assemblage
+  if (showAssemblage) {
+      console.log("Bras choisi : " + n)
+      arm = n;
+      showAssemblage.value = false;
+      currentVideo = 40;
+  }
   // TODO : Peinture
 
   // Default
   else {
-    replaceToolName.value = false;
     currentVideo++;
   }
 
@@ -325,7 +332,8 @@ async function playVideo(n) {
     <!-- Assemblage -->
     <AssemblageStep v-if="showAssemblage" 
       :instruction="getText(8, language)"
-      :skipText="[getText(9, language), getText(10, language)]" />
+      :skipText="[getText(9, language), getText(10, language)]"
+      @chosenArm="resume" />
 
     <!-- Peinture -->
     <PeintureStep v-if="showPeinture"
