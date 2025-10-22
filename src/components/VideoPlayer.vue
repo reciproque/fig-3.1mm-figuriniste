@@ -86,7 +86,7 @@ function getTimecodeEnd(n) {
 }
 
 
-let currentVideo = 39;
+let currentVideo = 38;
 
 const isPlaying = ref(true);
 
@@ -130,7 +130,7 @@ async function resume(n) {
   showBubble.value = false;
 
   // Dessin //
-  if (showDessin) {
+  if (showDessin.value) {
     let videoFalse = Number(n)+2;
     let videoTrue = 8;
 
@@ -147,7 +147,7 @@ async function resume(n) {
   }
 
   // Ebarbage //
-  if (showEbarbage) {
+  if (showEbarbage.value) {
     let videoFalse = Number(n)+(n < 2 ? 29 : 28);
     let videoTrue = 35;
 
@@ -164,18 +164,13 @@ async function resume(n) {
   }
 
   // Assemblage
-  if (showAssemblage) {
+  if (showAssemblage.value) {
       console.log("Bras choisi : " + n)
       arm = n;
       showAssemblage.value = false;
-      currentVideo = 40;
+      currentVideo = 40; 
   }
   // TODO : Peinture
-
-  // Default
-  else {
-    currentVideo++;
-  }
 
   await playSequence();
 }

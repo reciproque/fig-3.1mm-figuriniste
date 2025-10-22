@@ -17,13 +17,20 @@ defineProps({
 
 const emit = defineEmits(['chosenArm']) 
 
+let canClick = true;
 
 function selectArms(n) {
-    gsap.to(document.getElementById("circle-"+n), {opacity:0, duration:0.2})
-    if(n==1) gsap.to(document.getElementById("arms-"+n), {x:500, duration:0.2})
-    if(n==2) gsap.to(document.getElementById("arms-"+n), {x:-800, duration:0.2})
-    if(n==3) gsap.to(document.getElementById("arms-"+n), {x:-600,y:-300, duration:0.2})
-    emit('chosenArm',  n);
+    if (canClick) {
+        gsap.from(document.getElementById("circle-"+n), { scale: 0.9, duration: 1, ease: "bounce.out" })
+        if(n==1) gsap.to(document.getElementById("arms-"+n), {x:500, duration:0.2})
+        if(n==2) gsap.to(document.getElementById("arms-"+n), {x:-800, duration:0.2})
+        if(n==3) gsap.to(document.getElementById("arms-"+n), {x:-600,y:-300, duration:0.2})
+
+        setTimeout(() => emit('chosenArm', n), 1500);
+
+    }
+    canClick=false;
+
 
 
 }
