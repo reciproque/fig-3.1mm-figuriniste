@@ -45,14 +45,16 @@ function onLanguageSelected(lang) {
 
     <div class="debug debug-versions" v-if="dialogs && Object.keys(dialogs).length && texts && Object.keys(texts).length" >    
       Numéro de versions<br>
-      Build du 22/10/2025<br>
+      Build du 22/10/2025 à 18h10<br>
       Interface : {{ texts[Object.keys(texts).length-1]["texte-FR"] }} <br>
-      Dialogues : {{ dialogs[Object.keys(dialogs).length-1]["texte-FR"] }} 
+      Dialogues : {{ dialogs[Object.keys(dialogs).length-1]["texte-FR"] }} <br>
+    
     </div>
+
+</div>
 
     <!-- TODO : modale inactivité et reload -->
 
-  </div>
 </template>
 
 <style>

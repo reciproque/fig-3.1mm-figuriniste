@@ -2,7 +2,7 @@
 
 import { gsap } from 'gsap';
 
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, defineEmits } from 'vue';
 
 const step = ref(0);
 
@@ -23,6 +23,9 @@ defineProps({
         required: false
     }
 })
+
+const emit = defineEmits(['finaleCombination']) 
+let finale = '';
 
 
 function selectColor(n) {
@@ -46,12 +49,19 @@ function selectColor(n) {
 
 }
 
+function skipPeinture() {
+    emit('finaleCombination', '1111')
+}
+
+
+// TODO : nextStep doit aussi changer la vidéo de fond...
+
 function nextStep() {
     
-    setTimeout(() => {
-        gsap.from(document.querySelector(".palette"), { x: 200, rotateZ: 20, duration: 1 })}, 
+    // setTimeout(() => {
+    //     gsap.from(document.querySelector(".palette"), { x: 200, rotateZ: 20, duration: 1 })}, 
     
-        500);
+    //     500);
 
 
     document.querySelector(".peinture-debug").innerHTML = `ETAPE : ${step.value} 
@@ -60,10 +70,15 @@ function nextStep() {
     <br> Robe/Bouclier : ${robe} 
     <br> Cote de maille/Armoiries : ${armoiries} 
     `;
+
+    if (step.value==3) {
+        finale = String(peau) + String(cheveux) + String(robe) + String(armoiries);
+        setTimeout(() => emit('finaleCombination', finale), 500);
+    }
 }
 
 onMounted(() => {
-    gsap.from(document.querySelector(".palette"), { x: 200, rotateZ: 20, duration: 1 })
+    // gsap.from(document.querySelector(".palette"), { x: 200, rotateZ: 20, duration: 1 })
     // gsap.from(document.querySelector(".assemblage-screen"), { opacity: 0, duration: 1})
 
 })
@@ -77,31 +92,31 @@ onMounted(() => {
     <br> Cheveux :  {{ cheveux }}
     <br> Robe/Bouclier :  {{ robe }}
     <br> Cote de maille/Armoiries : {{ armoiries }}</div>
-    <div class="assemblage-screen">
+    <div class="peinture-screen">
         <div class="instruction">{{ instructions[step] }}</div>
-        <div v-if="step==0" class="randomizer-box" @click="selectColor(1)">{{ skipText[0] }}
+        <div v-if="step==0" class="randomizer-box" @click="skipPeinture()">{{ skipText[0] }}
             <br>
             <em>{{ skipText[1] }}</em>
         </div>
 
         <div class="palette">
-            <img src="/assets/palette.png" alt="">
+            <!-- <img src="/assets/palette.png" alt=""> -->
             <div class="color-choice" id="color-choice-1">
                 <img src="/assets/circle-choice-paint.svg" alt="" class="circle-choice" @click="selectColor(1)"
                     id="circle-1">
-                <img src="/assets/paint-black.png" alt="" class="color" id="color-1">
+                <img src="" alt="" class="color" id="color-1">
             </div>
 
             <div class="color-choice" id="color-choice-2">
                 <img src="/assets/circle-choice-paint.svg" alt="" class="circle-choice" @click="selectColor(2)"
                     id="circle-2">
-                <img src="/assets/paint-yellow.png" alt="" class="color" id="color-2">
+                <img src="" alt="" class="color" id="color-2">
             </div>
 
             <div class="color-choice" id="color-choice-3">
                 <img src="/assets/circle-choice-paint.svg" alt="" class="circle-choice" @click="selectColor(3)"
                     id="circle-3">
-                <img src="/assets/paint-white.png" alt="" class="color" id="color-3">
+                <img src="" alt="" class="color" id="color-3">
             </div>
 
 
@@ -109,30 +124,16 @@ onMounted(() => {
         </div>
     </div>
 
-    <img src="/assets/circle-head.svg" alt="" class="circle-head">
-    <img src="/assets/sample-white-richard.png" alt="" class="richard">
 
 
 
 </template>
 
 <style scoped>
-.assemblage-screen {
+.peinture-screen {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.circle-head {
-    position: absolute;
-    top: 224px;
-    left: 749px;
-}
-
-.richard {
-    position: absolute;
-    top: 173px;
-    left: 711px;
 }
 
 .instruction {
@@ -158,6 +159,8 @@ onMounted(() => {
 .color,
 .circle-choice {
     position: absolute;
+    border: solid 3px red;
+    scale: 0.9;
 }
 
 .color-choice:hover {
@@ -167,18 +170,18 @@ onMounted(() => {
 }
 
 #color-choice-1 {
-    top: 300px;
-    left: 370px;
+    top: 560px;
+    right: 300px;
 }
 
 #color-choice-2 {
-    top: 511px;
-    left: 306px;
+    top: 720px;
+    right: 410px;
 }
 
 #color-choice-3 {
-    top: 724px;
-    left: 370px;
+    top: 900px;
+    right: 400px;
 }
 
 
@@ -209,10 +212,10 @@ em {
     font-weight: 500;
 }
 
-.palette {
+/* .palette {
     position: absolute;
     right: 0;
-}
+} */
 
 
 .peinture-debug {

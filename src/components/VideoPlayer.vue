@@ -86,7 +86,7 @@ function getTimecodeEnd(n) {
 }
 
 
-let currentVideo = 38;
+let currentVideo = 0;
 
 const isPlaying = ref(true);
 
@@ -171,6 +171,12 @@ async function resume(n) {
       currentVideo = 40; 
   }
   // TODO : Peinture
+
+  if(showPeinture.value) {
+    console.log(n);
+    showPeinture.value = false;
+    currentVideo = 44;
+  }
 
   await playSequence();
 }
@@ -333,7 +339,8 @@ async function playVideo(n) {
     <!-- Peinture -->
     <PeintureStep v-if="showPeinture"
       :instructions="[getText(13, language), getText(14, language), getText(15, language), getText(16, language)]"
-      :skipText="[getText(11, language), getText(12, language)]" />
+      :skipText="[getText(11, language), getText(12, language)]" 
+      @finaleCombination="resume"/>
       
   </div>
 
