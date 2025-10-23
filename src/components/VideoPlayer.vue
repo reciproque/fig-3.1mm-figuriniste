@@ -9,10 +9,14 @@ import { gsap } from 'gsap';
 
 import { ref, onMounted } from 'vue';
 
-const { language } = defineProps({
+const { language, startId } = defineProps({
   language: {
     type: String,
     required: true
+  },
+  startId: {
+    type: Number,
+    required:false
   }
 })
 
@@ -86,7 +90,7 @@ function getTimecodeEnd(n) {
 }
 
 
-let currentVideo = 0;
+let currentVideo = startId;
 
 const isPlaying = ref(true);
 

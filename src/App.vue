@@ -10,6 +10,8 @@ import VideoPlayer from './components/VideoPlayer.vue'
 const dialogs = ref({});
 const texts = ref({});
 
+let selectedStartId = 0;
+
 onMounted(async () => {
   try {
     const dialogsRes = await fetch('texts/dialogs.json');
@@ -41,13 +43,16 @@ function onLanguageSelected(lang) {
 
     <LanguageScreen v-if="!selectedLanguage" @language-selected="onLanguageSelected"
     :instructions="[texts?.[0]?.['texte-FR'], texts?.[1]?.['texte-FR'], texts?.[2]?.['texte-FR'], texts?.[3]?.['texte-FR'], texts?.[4]?.['texte-FR'], texts?.[5]?.['texte-FR']]" />
-    <VideoPlayer v-else :language="selectedLanguage" />
+    <VideoPlayer v-else :language="selectedLanguage" 
+    :startId="selectedStartId"/>
 
     <div class="debug debug-versions" v-if="dialogs && Object.keys(dialogs).length && texts && Object.keys(texts).length" >    
       Numéro de versions<br>
-      Build du 22/10/2025 à 18h10<br>
+      Build du 23/10/2025 à 12h<br>
       Interface : {{ texts[Object.keys(texts).length-1]["texte-FR"] }} <br>
       Dialogues : {{ dialogs[Object.keys(dialogs).length-1]["texte-FR"] }} <br>
+      
+      <span v-if="!selectedLanguage">Démarrer à la vidéo n° <input type="number" v-model="selectedStartId"></span>
     
     </div>
 
