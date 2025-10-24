@@ -36,6 +36,8 @@ function selectColor(n) {
     if (step.value==1) cheveux = n;
     if (step.value==2) robe = n;
     if (step.value==3) armoiries = n;
+
+    //TODO : play la vidéo adéquate et afficher la couleur peinte... 
     
     step.value++;
     nextStep();
@@ -71,7 +73,7 @@ function nextStep() {
     <br> Cote de maille/Armoiries : ${armoiries} 
     `;
 
-    if (step.value==3) {
+    if (step.value==4) {
         finale = String(peau) + String(cheveux) + String(robe) + String(armoiries);
         setTimeout(() => emit('finaleCombination', finale), 500);
     }
@@ -80,7 +82,6 @@ function nextStep() {
 onMounted(() => {
     // gsap.from(document.querySelector(".palette"), { x: 200, rotateZ: 20, duration: 1 })
     // gsap.from(document.querySelector(".assemblage-screen"), { opacity: 0, duration: 1})
-
 })
 
 </script>
@@ -123,9 +124,6 @@ onMounted(() => {
 
         </div>
     </div>
-
-
-
 
 </template>
 

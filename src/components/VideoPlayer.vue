@@ -4,6 +4,7 @@ import DialogBubble from './DialogBubble.vue';
 import ChooseToolScreen from './ChooseToolScreen.vue'
 import AssemblageStep from './AssemblageStep.vue';
 import PeintureStep from './PeintureStep.vue';
+import QRCodeScreen from './QRCodeScreen.vue';
 
 import { gsap } from 'gsap';
 
@@ -126,6 +127,10 @@ const posLouche = 5;
 const posCriterium = 6;
 
 let arm = 1;
+const finaleRichard = ref("11111");
+
+let nbErrorDessin = 0;
+let nbErrorEbarbage = 0;
 
 async function resume(n) {
   isPlaying.value = true;
@@ -135,8 +140,8 @@ async function resume(n) {
 
   // Dessin //
   if (showDessin.value) {
-    let videoFalse = Number(n)+2;
-    let videoTrue = 8;
+    let videoFalse = Number(2*n)+1;
+    let videoTrue = 14;
 
     showDessin.value = false;
 
@@ -146,14 +151,23 @@ async function resume(n) {
     }
     // Mauvaise réponse
     else {
-      currentVideo = videoFalse;
+      nbErrorDessin++;
+      if (nbErrorDessin==1) currentVideo = videoFalse;
+      if (nbErrorDessin==2) {
+        currentVideo = videoFalse;
+        await playVideo(videoFalse);
+        currentVideo = 13;
+        await playVideo(currentVideo);
+        currentVideo = 15;
+        await playSequence();
+      }
     }
   }
 
   // Ebarbage //
   if (showEbarbage.value) {
-    let videoFalse = Number(n)+(n < 2 ? 29 : 28);
-    let videoTrue = 35;
+    let videoFalse = Number(2*n)+(n < 2 ? 34 : 32);
+    let videoTrue = 47;
 
     showEbarbage.value = false;
 
@@ -163,7 +177,16 @@ async function resume(n) {
     }
     // Mauvaise réponse
     else {
-      currentVideo = videoFalse;
+      nbErrorEbarbage++;
+      if (nbErrorEbarbage == 1) currentVideo = videoFalse;
+      if (nbErrorEbarbage == 2) {
+        currentVideo = videoFalse;
+        await playVideo(videoFalse);
+        currentVideo = 46;
+        await playVideo(currentVideo);
+        currentVideo = 48;
+        await playSequence();
+      }
     }
   }
 
@@ -172,16 +195,22 @@ async function resume(n) {
       console.log("Bras choisi : " + n)
       arm = n;
       showAssemblage.value = false;
-      currentVideo = 40; 
+      currentVideo = 52; 
   }
   // TODO : Peinture
 
   if(showPeinture.value) {
-    console.log(n);
     showPeinture.value = false;
-    currentVideo = 44;
+    currentVideo = 56;
+    finaleRichard.value = String(arm) + String(n);
   }
 
+  // TODO : QRCode. n (renvoyé par Peinture) = finale Combination, ex 1312(.png)
+  if (showQR.value) {
+    console.log(n);
+    showQR.value = false;
+
+  }
   await playSequence();
 }
 
@@ -203,12 +232,10 @@ async function playSequence() {
     else if (end === "pause") {
       isPlaying.value = false;
 
-      if (currentVideo === nbVideos.value - 1) {
+      if (currentVideo === nbVideos.value) {
         isPlaying.value = true;
         break;
       }
-
-      // TODO : choisir en fonction du champ "pause" avec interactiveStep = dialogs.value?.[i]?.["pause"];
       launchInteractiveStep(dialogs.value?.[i]?.["pause"]);
       break;
     }
@@ -345,7 +372,11 @@ async function playVideo(n) {
       :instructions="[getText(13, language), getText(14, language), getText(15, language), getText(16, language)]"
       :skipText="[getText(11, language), getText(12, language)]" 
       @finaleCombination="resume"/>
-      
+
+    <!-- TODO: QRCode -->
+    <QRCodeScreen v-if="showQR"
+      :instruction="getText(17, language)"
+      :combination="finaleRichard"/>
   </div>
 
 </template>

@@ -129,17 +129,17 @@ onMounted(() => {
 }
 
 #arms-choice-1 {
-    top: 540px;
+    top: 730px;
     left: 460px;
 }
 
 #arms-choice-2 {
-    top: 540px;
+    top:  730px;
     left: 1760px;
 }
 
 #arms-choice-3 {
-    top: 840px;
+    top: 1030px;
     left: 1560px;
 }
 

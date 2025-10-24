@@ -29,7 +29,7 @@ function selectLanguage(lang) {
 onMounted(() => {
   gsap.from(document.querySelector("h1"), { opacity: 0, duration: 3 })
   gsap.from(document.querySelectorAll("h2"), { opacity: 0, duration: 3 })
-  gsap.from(document.querySelector(".paraph-lang"), { opacity: 0, duration: 3, delay: 1 })
+  gsap.from(document.querySelectorAll("span"), { opacity: 0, duration: 3, delay: 1 })
   gsap.from(document.getElementById("FR"), { opacity: 0, duration: 4, delay: 0.5 })
   gsap.from(document.getElementById("EN"), { opacity: 0, duration: 4, delay: 0.75 })
   gsap.from(document.getElementById("DE"), { opacity: 0, duration: 4, delay: 1 })
@@ -41,18 +41,18 @@ onMounted(() => {
 <template>
 
   <div class="language-screen">
-    <h1>{{ instructions[0] }}</h1> <br>
-    <h2>{{ instructions[1] }}</h2> <br>
+    <h1>{{ instructions[0] }}</h1>
+    <h2>{{ instructions[1] }}</h2>
     <h2>{{ instructions[2] }}</h2>
     <div class="flags-row">
-      <div class="flag" id="FR"><img src="/assets/fr.png" alt="" @click="selectLanguage('FR')"></div>
-      <div class="flag" id="EN"><img src="/assets/en.png" alt="" @click="selectLanguage('EN')"></div>
-      <div class="flag" id="DE"><img src="/assets/de.png" alt="" @click="selectLanguage('DE')"></div>
+      <div class="flag"><img src="/assets/fr.png" id="FR" alt="" @click="selectLanguage('FR')"><br><span>{{ instructions[3] }}</span></div>
+      <div class="flag"><img src="/assets/en.png" id="EN" alt="" @click="selectLanguage('EN')"><br><span>{{ instructions[4] }}</span></div>
+      <div class="flag"><img src="/assets/de.png" id="DE" alt="" @click="selectLanguage('DE')"><br><span>{{ instructions[5] }}</span></div>
     </div>
-    <div class="paraph-lang"><span>{{ instructions[3] }}</span></br>
+    <!-- <div class="paraph-lang"><span>{{ instructions[3] }}</span></br>
       <span>{{ instructions[4] }}</span> </br>
       <span>{{ instructions[5] }}</span> </br>
-    </div>
+    </div> -->
   </div>
 
 </template>
@@ -67,6 +67,10 @@ onMounted(() => {
 
 .flag {
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .flag img {
@@ -77,9 +81,12 @@ onMounted(() => {
 .flags-row {
   display: flex;
   flex-direction: row;
-  padding-top: 80px;
+  padding-top: 180px;
   padding-bottom: 80px;
   gap: 96px;
+  font-family: 'Gotham-Book';
+  text-transform: uppercase;
+  font-size: 32px;
 }
 
 .paraph-lang {

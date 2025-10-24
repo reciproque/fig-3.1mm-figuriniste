@@ -48,7 +48,7 @@ function onLanguageSelected(lang) {
 
     <div class="debug debug-versions" v-if="dialogs && Object.keys(dialogs).length && texts && Object.keys(texts).length" >    
       Numéro de versions<br>
-      Build du 23/10/2025 à 12h<br>
+      Build STAGING du 24/10/2025 à 15h<br>
       Interface : {{ texts[Object.keys(texts).length-1]["texte-FR"] }} <br>
       Dialogues : {{ dialogs[Object.keys(dialogs).length-1]["texte-FR"] }} <br>
       
@@ -73,6 +73,10 @@ function onLanguageSelected(lang) {
   src: url('/assets/Gotham-Book.otf') format("opentype");
 }
 
+@font-face {
+  font-family: 'Gotham-Bold';
+  src: url('/assets/Gotham-Bold.otf') format("opentype");
+}
 .screen {
   background-image: url('/public/assets/background.png');
   background-size: cover;
@@ -97,16 +101,16 @@ h1 {
 }
 
 h2 {
-  font-size: 50px;
-  font-family: 'Gotham-Black';
+  font-size: 38px;
+  font-family: 'Gotham';
   text-transform: uppercase;
-  font-weight: 800;
 }
 
 .instruction {
-  font-size: 38px;
+  font-size: 48px;
   color: white;
-  font-family: 'Gotham-Black';
+  font-family: 'Gotham-Bold';
+  letter-spacing: -2px;
   font-weight: 300;
   filter: drop-shadow(0 0 29px rgba(0, 0, 0, 0.5));
   text-align: center;
@@ -117,7 +121,7 @@ h2 {
   color: white;
   position: absolute;
   padding: 10px;
-  background-color: rgba(255, 184, 184, 0.3);
+  background-color: rgba(182, 247, 50, 0.3);
   z-index: 1000;
 
 }

@@ -48,25 +48,28 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 891px;
 }
 
 .bubble-arrow {
     width: 110px;
-    margin-bottom: -10px;
+    margin-bottom: -15px;
 }
 
 /* TODO : taille de la bulle adaptée au texte */
 
 .bubble-box {
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 700;
-    font-family: 'Gotham-Book';
+    font-family: 'Gotham-Bold';
     text-align: center;
     color: #493C38;
     background-color: #FBF9F5;
     border-radius: 40px;
     padding: 40px 94px;
-    width: 700px;
+    line-height: 110%;
+    max-width: 703px;
+    letter-spacing: -2%;
     box-sizing: content-box;
 }
 </style>

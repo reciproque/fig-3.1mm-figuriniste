@@ -126,51 +126,23 @@
     "texte-DE": "Scannen Sie mit Ihrem Mobiltelefon den QR-Code"
   },
   {
-    "étape": "Outils-choix",
+    "étape": "Timeout",
     "no": 18,
-    "texte-FR": "cet ébauchoir",
-    "texte-EN": "this roughing block",
-    "texte-DE": "dieser Schruppblock"
+    "texte-FR": "Êtes-vous toujours là ?",
+    "texte-EN": "Are you still there?",
+    "texte-DE": "Bist du noch da?"
   },
   {
-    "étape": "Outils-choix",
+    "étape": "Timeout",
     "no": 19,
-    "texte-FR": "cette lime",
-    "texte-EN": "this file",
-    "texte-DE": "diese Datei"
-  },
-  {
-    "étape": "Outils-choix",
-    "no": 20,
-    "texte-FR": "ce moule",
-    "texte-EN": "this mold",
-    "texte-DE": "diese Form"
-  },
-  {
-    "étape": "Outils-choix",
-    "no": 21,
-    "texte-FR": "cette palette",
-    "texte-EN": "this palette",
-    "texte-DE": "diese Palette"
-  },
-  {
-    "étape": "Outils-choix",
-    "no": 22,
-    "texte-FR": "cette louche",
-    "texte-EN": "this ladle",
-    "texte-DE": "diese Schöpfkelle"
-  },
-  {
-    "étape": "Outils-choix",
-    "no": 23,
-    "texte-FR": "ce critérium",
-    "texte-EN": "this criterion",
-    "texte-DE": "dieses Kriterium"
+    "texte-FR": "Oui, continuer",
+    "texte-EN": "Yes, continue",
+    "texte-DE": "Ja, weiter"
   },
   {
     "étape": "NUMERO-VERSION",
     "no": "-",
-    "texte-FR": "22/10/2025 10:48:31",
+    "texte-FR": "24/10/2025 14:26:24",
     "texte-EN": "-",
     "texte-DE": "-"
   }
