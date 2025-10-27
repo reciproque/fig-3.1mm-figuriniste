@@ -4,9 +4,6 @@ import { gsap } from 'gsap';
 
 import { ref, onMounted, defineEmits } from 'vue';
 
-const step = ref(0);
-
-const paintColors = ref(["black", "yellow", "white"]);
 
 let peau = 1;
 let cheveux = 1;
@@ -24,7 +21,9 @@ defineProps({
     }
 })
 
-const emit = defineEmits(['finaleCombination']) 
+const step = ref(0);
+
+const emit = defineEmits(['finaleCombination', 'nextStep', 'chooseSkipPeinture']) 
 let finale = '';
 
 
@@ -39,7 +38,6 @@ function selectColor(n) {
 
     //TODO : play la vidéo adéquate et afficher la couleur peinte... 
     
-    step.value++;
     nextStep();
 
     document.querySelector(".peinture-debug").innerHTML = `ETAPE : ${step.value} 
@@ -52,7 +50,7 @@ function selectColor(n) {
 }
 
 function skipPeinture() {
-    emit('finaleCombination', '1111')
+    emit('chooseSkipPeinture', '1')
 }
 
 
@@ -65,6 +63,9 @@ function nextStep() {
     
     //     500);
 
+    emit('nextStep', 1);
+    setTimeout(()=>{step.value++},1000);
+
 
     document.querySelector(".peinture-debug").innerHTML = `ETAPE : ${step.value} 
     <br> Peau : ${peau} 
@@ -72,10 +73,12 @@ function nextStep() {
     <br> Robe/Bouclier : ${robe} 
     <br> Cote de maille/Armoiries : ${armoiries} 
     `;
+    console.log(step.value);
 
-    if (step.value==4) {
+    if (step.value==3) {
+        
         finale = String(peau) + String(cheveux) + String(robe) + String(armoiries);
-        setTimeout(() => emit('finaleCombination', finale), 500);
+        emit('finaleCombination', finale);
     }
 }
 
@@ -159,13 +162,14 @@ onMounted(() => {
     position: absolute;
     border: solid 3px red;
     scale: 0.9;
+    opacity: 0.5;
 }
 
-.color-choice:hover {
+/* .color-choice:hover {
     filter: invert();
     transition: 0.4s;
 
-}
+} */
 
 #color-choice-1 {
     top: 560px;
