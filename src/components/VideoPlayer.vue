@@ -119,11 +119,7 @@ function delay(ms) {
 
 // Reprendre la timeline après une séquence interactive. 
 // n = nombre émis par le composant interactif (outil touché pour dessin/ébardage, combinaison choisie pour assemblage/peinture)
-const posEbauchoir = 1;
 const posLime = 2;
-const posMoule = 3;
-const posPalette = 4;
-const posLouche = 5;
 const posCriterium = 6;
 
 let arm = 1;
@@ -132,96 +128,99 @@ const finaleRichard = ref("11111");
 let nbErrorDessin = 0;
 let nbErrorEbarbage = 0;
 
-async function resume(n) {
+function onDessinChoice(n) { resume(n, "dessin"); }
+function onEbarbageChoice(n) { resume(n, "ebarbage"); }
+function onAssemblageChoice(n) { resume(n, "assemblage"); }
+function onPeintureChoice(n) { resume(n, "peinture"); }
+
+
+async function resume(n, step) {
+
   isPlaying.value = true;
   animateBubbleOut();
   await delay(1000);
   showBubble.value = false;
 
-  // Dessin //
-  if (showDessin.value) {
-    let videoFalse = Number(2*n)+1;
-    let videoTrue = 14;
-
-    showDessin.value = false;
-
-    // Bonne réponse
-    if (n == posCriterium) {
-      currentVideo = videoTrue;
-    }
-    // Mauvaise réponse
-    else {
-      nbErrorDessin++;
-      if (nbErrorDessin==1) currentVideo = videoFalse;
-      if (nbErrorDessin==2) {
-        currentVideo = videoFalse;
-        await playVideo(videoFalse);
-        currentVideo = 13;
-        await playVideo(currentVideo);
-        currentVideo = 15;
-        await playSequence();
-      }
-    }
+  switch(step) {
+    case "dessin": await handleDessin(n); break;
+    case "ebarbage": await handleEbarbage(n); break;
+    case "assemblage": await handleAssemblage(n); break;
+    case "peinture": await handlePeinture(n); break;
   }
 
-  // Ebarbage //
-  if (showEbarbage.value) {
-    let videoFalse = Number(2*n)+(n < 2 ? 34 : 32);
-    let videoTrue = 47;
-
-    showEbarbage.value = false;
-
-    // Bonne réponse
-    if (n == posLime) {
-      currentVideo = videoTrue;
-    }
-    // Mauvaise réponse
-    else {
-      nbErrorEbarbage++;
-      if (nbErrorEbarbage == 1) currentVideo = videoFalse;
-      if (nbErrorEbarbage == 2) {
-        currentVideo = videoFalse;
-        await playVideo(videoFalse);
-        currentVideo = 46;
-        await playVideo(currentVideo);
-        currentVideo = 48;
-        await playSequence();
-      }
-    }
+  switch(step) {
+    case "dessin": showDessin.value = false; break;
+    case "ebarbage": showEbarbage.value = false; break;
+    case "assemblage": showAssemblage.value = false; break;
+    case "peinture": showPeinture.value = false; break;
   }
 
-  // Assemblage
-  if (showAssemblage.value) {
-      console.log("Bras choisi : " + n)
-      arm = n;
-      showAssemblage.value = false;
-      currentVideo = 52; 
-  }
-  // TODO : Peinture
-
-  if(showPeinture.value) {
-    showPeinture.value = false;
-    currentVideo = 56;
-    finaleRichard.value = String(arm) + String(n);
-  }
-
-  // TODO : QRCode. n (renvoyé par Peinture) = finale Combination, ex 1312(.png)
-  if (showQR.value) {
-    console.log(n);
-    showQR.value = false;
-
-  }
   await playSequence();
 }
 
-//
+
+async function handleDessin(n) {
+  let videoFalse = 2 * n + 1;
+  let videoTrue = 14;
+
+  if (n == posCriterium) {
+    currentVideo = videoTrue;
+    showDessin.value = false;
+  } else {
+    nbErrorDessin++;
+    showDessin.value = false;
+
+    if (nbErrorDessin == 1) currentVideo = videoFalse;
+    if (nbErrorDessin == 2) {
+      currentVideo = videoFalse;
+      await playVideo(videoFalse);
+      currentVideo = 13;
+      await playVideo(currentVideo);
+      currentVideo = 15;
+    }
+  }
+}
+
+async function handleEbarbage(n) {
+  let videoFalse = 2 * n + (n < 2 ? 34 : 32);
+  let videoTrue = 47;
+
+  if (n == posLime) {
+    currentVideo = videoTrue;
+    showEbarbage.value = false;
+
+  } else {
+    nbErrorEbarbage++;
+    showEbarbage.value = false;
+    if (nbErrorEbarbage == 1) currentVideo = videoFalse;
+    if (nbErrorEbarbage == 2) {
+      currentVideo = videoFalse;
+      await playVideo(videoFalse);
+      currentVideo = 46;
+      await playVideo(currentVideo);
+      currentVideo = 48;
+    }
+  }
+}
+
+async function handleAssemblage(n) {
+  console.log("Bras choisi : " + n);
+  arm = n;
+  currentVideo = 52;
+}
+
+async function handlePeinture(n) {
+  currentVideo = 56;
+  finaleRichard.value = String(arm) + String(n);
+}
+
 
 
 
 async function playSequence() {
   for (let i = currentVideo; i < nbVideos.value; i++) {
     currentVideo = i;
-
+    console.log("showAssemblage.value : " + showAssemblage.value)
     await playVideo(i);
 
     const end = dialogs.value?.[i]?.["end"];
@@ -254,25 +253,23 @@ const showPeinture = ref(false);
 const showQR = ref(false);
 
 function launchInteractiveStep(step) {
+  showDessin.value = false;
+  showEbarbage.value = false;
+  showAssemblage.value = false;
+  showPeinture.value = false;
+  showQR.value = false;
+
   switch (step) {
-    case "dessin":
-      showDessin.value = true;
-      break;
-    case "ebarbage":
-      showEbarbage.value = true;
-      break;
-    case "assemblage":
-      showAssemblage.value = true;
-      break;
-    case "peinture":
-      showPeinture.value = true;
-      break;
-    case "qrcode":
-      showQR.value = true;
-    default:
-      break;
+    case "dessin": showDessin.value = true; break;
+    case "ebarbage": showEbarbage.value = true; break;
+    case "assemblage": showAssemblage.value = true; break;
+    case "peinture": showPeinture.value = true; break;
+    case "qrcode": showQR.value = true; break;
   }
+
 }
+
+
 
 async function playVideo(n) {
 
@@ -353,25 +350,25 @@ async function playVideo(n) {
     <ChooseToolScreen v-if="showDessin" 
       :choiceInstruction="getText(6, language)" 
       :goodAnswer='posCriterium'
-      @touchedTool="resume" />
+      @touchedTool="onDessinChoice" />
 
     <!-- Ebarbage -->
     <ChooseToolScreen v-if="showEbarbage" 
       :choiceInstruction="getText(7, language)" 
       :goodAnswer='posLime'
-      @touchedTool="resume"  />
+      @touchedTool="onEbarbageChoice"  />
 
     <!-- Assemblage -->
     <AssemblageStep v-if="showAssemblage" 
       :instruction="getText(8, language)"
       :skipText="[getText(9, language), getText(10, language)]"
-      @chosenArm="resume" />
+      @chosenArm="onAssemblageChoice" />
 
     <!-- Peinture -->
     <PeintureStep v-if="showPeinture"
       :instructions="[getText(13, language), getText(14, language), getText(15, language), getText(16, language)]"
       :skipText="[getText(11, language), getText(12, language)]" 
-      @finaleCombination="resume"/>
+      @finaleCombination="onPeintureChoice"/>
 
     <!-- TODO: QRCode -->
     <QRCodeScreen v-if="showQR"
