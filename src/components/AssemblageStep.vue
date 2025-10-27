@@ -116,11 +116,10 @@ onMounted(() => {
     position: absolute;
 }
 
-.arms-choice:hover {
+/*.arms-choice:hover {
     filter: invert();
     transition: 0.4s;
-
-}
+}*/
 
 .arms-choice {
     display: flex;
