@@ -15,15 +15,16 @@ onMounted(() => {
 
     gsap.from(".bubble", { scale: 0.5, duration: 0.5 })
 
-    // TODO : gestion des espaces insécables
     let animatedText = document.querySelector(".bubble-box");
-    animatedText.innerHTML = animatedText.textContent
+    animatedText.innerHTML = animatedText.textContent.replace(/ (\?|!)/g, '\u00A0$1')
         .split("")
         .map((char) => {
             if (char === "\n") return "<br>";
+            if (char === '\u00A0') return  `<span style="font-family:auto">${char}</span>`;
             return `<span>${char}</span>`;
         })
         .join("");
+
 
     gsap.from(animatedText.querySelectorAll("span"), {
         opacity: 0,

@@ -323,11 +323,11 @@
     "end": "skip",
     "pause": "",
     "texte-FR": "Je cherche d'abord à obtenir la silhouette générale.",
-    "texte-EN": "First I try to get the general outline.",
-    "texte-DE": "Zuerst versuche ich, mir einen allgemeinen Überblick zu verschaffen.",
+    "texte-EN": "I first try to get the general outline.",
+    "texte-DE": "Ich versuche zunächst, den allgemeinen Überblick zu erfassen.",
     "nb-car-FR": 52,
     "nb-car-EN": 39,
-    "nb-car-DE": 68
+    "nb-car-DE": 61
   },
   {
     "video": 22,
@@ -848,10 +848,10 @@
     "end": "skip",
     "pause": "",
     "texte-FR": "Voilà c’est fait, merci pour votre aide précieuse ! J’espère que notre figurine vous plaît.",
-    "texte-EN": "That's it, thank you for your precious help! I hope you like our figurine.",
+    "texte-EN": "That's it, thank you for your invaluable help! I hope you like our figurine.",
     "texte-DE": "Das war's, vielen Dank für Ihre wertvolle Hilfe! Ich hoffe, Ihnen gefällt unsere Figur.",
     "nb-car-FR": 92,
-    "nb-car-EN": 74,
+    "nb-car-EN": 76,
     "nb-car-DE": 87
   },
   {
@@ -877,7 +877,7 @@
     "timecode-end": "-",
     "end": "-",
     "pause": "-",
-    "texte-FR": "24/10/2025 15:13:43",
+    "texte-FR": "27/10/2025 12:38:23",
     "texte-EN": "-",
     "texte-DE": "-",
     "nb-car-FR": "",
