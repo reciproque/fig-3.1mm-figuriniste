@@ -109,7 +109,7 @@ const showBubble = ref(false)
 function animateBubbleOut() {
   const bubble = document.querySelector(".dialog-bubble")
   if (bubble) {
-    gsap.to(bubble, { scale: 0, duration: 0.5 })
+    gsap.to(bubble, { opacity: 0, duration: 0.2 })
   }
 }
 
@@ -357,10 +357,10 @@ async function playVideo(n) {
   <div class="video-screen" v-if="dialogs && texts">
     <!-- <button v-if="!isPlaying" id="play" @click="resume(0)">Continuer</button> -->
 
-    <video crossorigin="anonymous" class="main-video" id="video1" :style="{ opacity: currentVideoId === 1 ? 1 : 0 }"
+    <video  v-if="!showPeinture" crossorigin="anonymous" class="main-video" id="video1" :style="{ opacity: currentVideoId === 1 ? 1 : 0 }"
       muted></video>
 
-    <video crossorigin="anonymous" class="main-video" id="video2" :style="{ opacity: currentVideoId === 2 ? 1 : 0 }"
+    <video v-if="!showPeinture" crossorigin="anonymous" class="main-video" id="video2" :style="{ opacity: currentVideoId === 2 ? 1 : 0 }"
       muted></video>
 
     <DialogBubble v-if="showBubble" ref="dialogBubble" class="dialog-bubble" :dialogContent="dialogContent" />

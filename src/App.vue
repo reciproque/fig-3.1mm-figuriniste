@@ -48,7 +48,7 @@ function onLanguageSelected(lang) {
 
     <div class="debug debug-versions" v-if="dialogs && Object.keys(dialogs).length && texts && Object.keys(texts).length" >    
       Numéro de versions<br>
-      Build STAGING du 29/10/2025 à 16h30<br>
+      Locale du xx à xx<br>
       Interface : {{ texts[Object.keys(texts).length-1]["texte-FR"] }} <br>
       Dialogues : {{ dialogs[Object.keys(dialogs).length-1]["texte-FR"] }} <br>
       
@@ -121,7 +121,7 @@ h2 {
   color: white;
   position: absolute;
   padding: 10px;
-  background-color: rgba(182, 247, 50, 0.3);
+  background-color: #e032f74d;
   z-index: 1000;
 
 }

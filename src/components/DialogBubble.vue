@@ -13,7 +13,7 @@ defineProps({
 
 onMounted(() => {
 
-    gsap.from(".bubble", { scale: 0.5, duration: 0.5 })
+    gsap.from(".bubble", { y: -50, duration: 0.5 })
 
     let animatedText = document.querySelector(".bubble-box");
     animatedText.innerHTML = animatedText.textContent.replace(/ (\?|!)/g, '\u00A0$1')
