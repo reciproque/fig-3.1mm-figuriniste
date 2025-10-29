@@ -54,7 +54,7 @@ onMounted(() => {
 
 .bubble-arrow {
     width: 110px;
-    margin-bottom: -15px;
+    margin-bottom: -20px;
 }
 
 /* TODO : taille de la bulle adaptée au texte */
