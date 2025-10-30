@@ -142,11 +142,8 @@ onMounted(() => {
     left: 1560px;
 }
 
-/* .arms {
-    border: solid 10px #3959D0;
-} */
-
 .randomizer-box {
+    display: none;
     position: absolute;
     bottom: 0;
     background-color: #F5F7FB;

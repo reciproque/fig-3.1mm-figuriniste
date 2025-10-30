@@ -4,8 +4,6 @@ import { gsap } from 'gsap';
 
 import { ref, onMounted, defineEmits } from 'vue';
 
-let bras = 3;
-
 let peau = 1;
 let cheveux = 1;
 let robe = 1;
@@ -19,12 +17,16 @@ defineProps({
     skipText: {
         type: Object,
         required: false
+    },
+    bras: {
+        type: Number,
+        required: false
     }
 })
 
 const step = ref(0);
 
-const emit = defineEmits(['finaleCombination', 'nextStep', 'chooseSkipPeinture']) 
+const emit = defineEmits(['finaleCombination', 'chooseSkipPeinture']) 
 let finale = '';
 
 
@@ -41,13 +43,6 @@ function selectColor(n) {
     
     nextStep();
 
-    document.querySelector(".peinture-debug").innerHTML = `ETAPE : ${step.value} 
-    <br> Peau : ${peau} 
-    <br> Cheveux : ${cheveux} 
-    <br> Robe/Bouclier : ${robe} 
-    <br> Cote de maille/Armoiries : ${armoiries} 
-    `;
-
 }
 
 function skipPeinture() {
@@ -59,30 +54,22 @@ function skipPeinture() {
 
 function nextStep() {
     
-    // setTimeout(() => {
-    //     gsap.from(document.querySelector(".palette"), { x: 200, rotateZ: 20, duration: 1 })}, 
-    //     500);
+    if(step.value<= 4) {
+        setTimeout(() => {
+        gsap.from(document.querySelector(".palette-wrapper"), { x: 200, opacity: 0, rotateZ: 20, duration: 1 })}, 
+        1000);
+    }
 
-    //emit('nextStep', 1);
     setTimeout(()=>{step.value++},1000);
-
-
-    document.querySelector(".peinture-debug").innerHTML = `ETAPE : ${step.value} 
-    <br> Peau : ${peau} 
-    <br> Cheveux : ${cheveux} 
-    <br> Robe/Bouclier : ${robe} 
-    <br> Cote de maille/Armoiries : ${armoiries} 
-    `;
-    console.log(step.value);
 
     if (step.value==3) {
         finale = String(peau) + String(cheveux) + String(robe) + String(armoiries);
-        //emit('finaleCombination', finale);
+        setTimeout(()=>{emit('finaleCombination', finale)},1000); 
     }
 }
 
 onMounted(() => {
-    gsap.from(document.querySelector(".palette-wrapper"), { x: 200, rotateZ: 20, duration: 1 })
+    gsap.from(document.querySelector(".palette-wrapper"), { x: 200, opacity: 0, rotateZ: 20, duration: 1 })
     // gsap.from(document.querySelector(".assemblage-screen"), { opacity: 0, duration: 1})
 })
 
@@ -91,6 +78,7 @@ onMounted(() => {
 <template>
     <div class="debug peinture-debug">
     ETAPE : {{ step }}
+    <br>Bras : {{ bras }}
     <br>Peau : {{ peau }}
     <br> Cheveux :  {{ cheveux }}
     <br> Robe/Bouclier :  {{ robe }}
@@ -112,7 +100,7 @@ onMounted(() => {
 
 
         
-        <div class="palette-wrapper">
+        <div class="palette-wrapper" v-if="step<4">
             <img class="palette" src="/assets/palette.png" alt="">
 
         <!-- Peau -->

@@ -94,7 +94,7 @@
     "étape": "Peinture",
     "no": 13,
     "texte-FR": "Choisissez la couleur de la peau",
-    "texte-EN": "Choose skin color",
+    "texte-EN": "Choose the skin color",
     "texte-DE": "Wählen Sie die Hautfarbe"
   },
   {
@@ -102,14 +102,14 @@
     "no": 14,
     "texte-FR": "Choisissez la couleur des cheveux",
     "texte-EN": "Choose hair color",
-    "texte-DE": "Wählen Sie die Haarfarbe"
+    "texte-DE": "Wähle deine Haarfarbe"
   },
   {
     "étape": "Peinture",
     "no": 15,
-    "texte-FR": "Choisissez la couleur de la robe et du bouclier",
-    "texte-EN": "Choose the color of the dress and shield",
-    "texte-DE": "Wählen Sie die Farbe des Kleides und des Schildes"
+    "texte-FR": "Choisissez la couleur de la robe",
+    "texte-EN": "Choose the color of the dress",
+    "texte-DE": "Wähle die Farbe des Kleides"
   },
   {
     "étape": "Peinture",
@@ -121,9 +121,9 @@
   {
     "étape": "QR-code",
     "no": 17,
-    "texte-FR": "À l'aide de votre téléphone portable, scannez le QR-code",
-    "texte-EN": "Using your mobile phone, scan the QR code",
-    "texte-DE": "Scannen Sie mit Ihrem Mobiltelefon den QR-Code"
+    "texte-FR": "À l'aide de votre téléphone portable, scannez le QR-code.",
+    "texte-EN": "Using your mobile phone, scan the QR code.",
+    "texte-DE": "Scannen Sie den QR-Code mit Ihrem Mobiltelefon."
   },
   {
     "étape": "Timeout",
@@ -142,7 +142,7 @@
   {
     "étape": "NUMERO-VERSION",
     "no": "-",
-    "texte-FR": "24/10/2025 14:26:24",
+    "texte-FR": "30/10/2025 10:54:52",
     "texte-EN": "-",
     "texte-DE": "-"
   }

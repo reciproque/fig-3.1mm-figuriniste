@@ -123,7 +123,7 @@ const posLime = 2;
 const posCriterium = 6;
 
 let arm = 1;
-const finaleRichard = ref("11111");
+const finaleRichard = ref("12111");
 
 let nbErrorDessin = 0;
 let nbErrorEbarbage = 0;
@@ -131,7 +131,7 @@ let nbErrorEbarbage = 0;
 function onDessinChoice(n) { resume(n, "dessin"); }
 function onEbarbageChoice(n) { resume(n, "ebarbage"); }
 function onAssemblageChoice(n) { resume(n, "assemblage"); }
-function onPeintureChoice(n) { resume(n, "peinture"); }
+function endPeinture(n) { resume(n, "peinture"); }
 function onSkipPeintureChoice(n) { resume(n, "skipPeinture"); }
 
 
@@ -155,8 +155,8 @@ async function resume(n, step) {
     case "dessin": showDessin.value = false; break;
     case "ebarbage": showEbarbage.value = false; break;
     case "assemblage": showAssemblage.value = false; break;
-    case "peinture": showPeintureForAnim.value = false; break;
-    case "skipPeinture": showPeintureForAnim.value = false; break;
+    case "peinture": showPeinture.value = false; break;
+    case "skipPeinture": showPeinture.value = false; break;
 
   }
 
@@ -215,21 +215,16 @@ async function handleAssemblage(n) {
 }
 
 async function handlePeinture(n) {
-  currentVideo++;
-  if (n%2==0) showPeintureForAnim.value = false;
-  if (n%2==1) showPeintureForAnim.value = true;
-
-  if(currentVideo==63) {
-    showPeinture.value = false; 
-    finaleRichard.value = String(arm) + String(n);
-  }
+  showPeinture.value = false; 
+  finaleRichard.value = String(arm) + String(n);
+  currentVideo= 63;
+  
 }
 
 async function handleSkipPeinture() {
   currentVideo = 63;
-  showPeinture.value = false; 
-  showPeintureForAnim.value = false;
-  finaleRichard.value = arm + "1111";
+  showPeinture.value = false;
+  finaleRichard.value = arm + "2111";
 }
 
 
@@ -269,21 +264,21 @@ const showAssemblage = ref(false);
 const showPeinture = ref(false);
 const showQR = ref(false);
 
-const showPeintureForAnim = ref(false);
-
 function launchInteractiveStep(step) {
   showDessin.value = false;
   showEbarbage.value = false;
   showAssemblage.value = false;
-  showPeintureForAnim.value = false;
   showQR.value = false;
 
   switch (step) {
     case "dessin": showDessin.value = true; break;
     case "ebarbage": showEbarbage.value = true; break;
     case "assemblage": showAssemblage.value = true; break;
-    case "peinture": showPeinture.value = true; showPeintureForAnim.value = true; break;
-    case "qrcode": showQR.value = true; break;
+    case "peinture": showPeinture.value = true; break;
+    case "qrcode": {
+      showQR.value = true; 
+      break;
+    }
   }
 
 }
@@ -384,13 +379,12 @@ async function playVideo(n) {
       @chosenArm="onAssemblageChoice" />
 
     <!-- Peinture -->
-     <div v-show="showPeintureForAnim">
     <PeintureStep v-if="showPeinture"
       :instructions="[getText(13, language), getText(14, language), getText(15, language), getText(16, language)]"
       :skipText="[getText(11, language), getText(12, language)]" 
+      :bras="arm"
       @chooseSkipPeinture="onSkipPeintureChoice"
-      @finaleCombination="onPeintureChoice"
-      @nextStep="onPeintureChoice"/></div>
+      @finaleCombination="endPeinture"/>
 
     <!-- TODO: QRCode -->
     <QRCodeScreen v-if="showQR"

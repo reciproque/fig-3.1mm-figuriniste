@@ -69,7 +69,7 @@
     "pause": "dessin",
     "texte-FR": "Essayons autre chose.",
     "texte-EN": "Let's try something else.",
-    "texte-DE": "Versuchen wir etwas anderes.",
+    "texte-DE": "Lass uns etwas anderes versuchen.",
     "nb-car-FR": "",
     "nb-car-EN": "",
     "nb-car-DE": ""
@@ -99,7 +99,7 @@
     "pause": "dessin",
     "texte-FR": "Essayons autre chose.",
     "texte-EN": "Let's try something else.",
-    "texte-DE": "Versuchen wir etwas anderes.",
+    "texte-DE": "Lass uns etwas anderes versuchen.",
     "nb-car-FR": "",
     "nb-car-EN": "",
     "nb-car-DE": ""
@@ -129,7 +129,7 @@
     "pause": "dessin",
     "texte-FR": "Essayons autre chose.",
     "texte-EN": "Let's try something else.",
-    "texte-DE": "Versuchen wir etwas anderes.",
+    "texte-DE": "Lass uns etwas anderes versuchen.",
     "nb-car-FR": "",
     "nb-car-EN": "",
     "nb-car-DE": ""
@@ -159,7 +159,7 @@
     "pause": "dessin",
     "texte-FR": "Essayons autre chose.",
     "texte-EN": "Let's try something else.",
-    "texte-DE": "Versuchen wir etwas anderes.",
+    "texte-DE": "Lass uns etwas anderes versuchen.",
     "nb-car-FR": "",
     "nb-car-EN": "",
     "nb-car-DE": ""
@@ -189,7 +189,7 @@
     "pause": "dessin",
     "texte-FR": "Essayons autre chose.",
     "texte-EN": "Let's try something else.",
-    "texte-DE": "Versuchen wir etwas anderes.",
+    "texte-DE": "Lass uns etwas anderes versuchen.",
     "nb-car-FR": "",
     "nb-car-EN": "",
     "nb-car-DE": ""
@@ -323,11 +323,11 @@
     "end": "skip",
     "pause": "",
     "texte-FR": "Je cherche d'abord à obtenir la silhouette générale.",
-    "texte-EN": "I first try to get the general outline.",
-    "texte-DE": "Ich versuche zunächst, den allgemeinen Überblick zu erfassen.",
+    "texte-EN": "First I try to get the general outline.",
+    "texte-DE": "Zuerst versuche ich, mir einen allgemeinen Überblick zu verschaffen.",
     "nb-car-FR": 52,
     "nb-car-EN": 39,
-    "nb-car-DE": 61
+    "nb-car-DE": 68
   },
   {
     "video": 22,
@@ -519,10 +519,10 @@
     "pause": "",
     "texte-FR": "À la sortie du moule, il faut retirer les excès de métal durcis dans les canaux aménagés autour de la figurine. \n\nOn appelle cette étape l’ébarbage.",
     "texte-EN": "Once the figurine is removed from the mold, the excess hardened metal must be removed from the channels created around the figurine.\n\nThis step is called deburring.",
-    "texte-DE": "Sobald die Figur aus der Form genommen wurde, muss das überschüssige gehärtete Metall aus den um die Figur herum entstandenen Kanälen entfernt werden.\n\nDieser Schritt wird als Entgraten bezeichnet.",
+    "texte-DE": "Sobald die Figur aus der Form genommen wurde, muss das überschüssige, gehärtete Metall aus den um die Figur herum entstandenen Kanälen entfernt werden.\n\nDieser Schritt wird als Entgraten bezeichnet.",
     "nb-car-FR": 148,
     "nb-car-EN": 164,
-    "nb-car-DE": 197
+    "nb-car-DE": 198
   },
   {
     "video": 35,
@@ -564,7 +564,7 @@
     "pause": "ebarbage",
     "texte-FR": "Essayons autre chose.",
     "texte-EN": "Let's try something else.",
-    "texte-DE": "Versuchen wir etwas anderes.",
+    "texte-DE": "Lass uns etwas anderes versuchen.",
     "nb-car-FR": "",
     "nb-car-EN": "",
     "nb-car-DE": ""
@@ -594,7 +594,7 @@
     "pause": "ebarbage",
     "texte-FR": "Essayons autre chose.",
     "texte-EN": "Let's try something else.",
-    "texte-DE": "Versuchen wir etwas anderes.",
+    "texte-DE": "Lass uns etwas anderes versuchen.",
     "nb-car-FR": "",
     "nb-car-EN": "",
     "nb-car-DE": ""
@@ -624,7 +624,7 @@
     "pause": "ebarbage",
     "texte-FR": "Essayons autre chose.",
     "texte-EN": "Let's try something else.",
-    "texte-DE": "Versuchen wir etwas anderes.",
+    "texte-DE": "Lass uns etwas anderes versuchen.",
     "nb-car-FR": "",
     "nb-car-EN": "",
     "nb-car-DE": ""
@@ -654,7 +654,7 @@
     "pause": "ebarbage",
     "texte-FR": "Essayons autre chose.",
     "texte-EN": "Let's try something else.",
-    "texte-DE": "Versuchen wir etwas anderes.",
+    "texte-DE": "Lass uns etwas anderes versuchen.",
     "nb-car-FR": "",
     "nb-car-EN": "",
     "nb-car-DE": ""
@@ -684,7 +684,7 @@
     "pause": "ebarbage",
     "texte-FR": "Essayons autre chose.",
     "texte-EN": "Let's try something else.",
-    "texte-DE": "Versuchen wir etwas anderes.",
+    "texte-DE": "Lass uns etwas anderes versuchen.",
     "nb-car-FR": "",
     "nb-car-EN": "",
     "nb-car-DE": ""
@@ -946,25 +946,25 @@
   },
   {
     "video": 63,
-    "nomenclature-video": "Peinture_11.mp4",
+    "nomenclature-video": "background.mp4",
     "duration": 5,
     "timecode-start": 0,
     "timecode-end": 5,
     "end": "skip",
     "pause": "",
     "texte-FR": "Voilà c’est fait, merci pour votre aide précieuse ! J’espère que notre figurine vous plaît.",
-    "texte-EN": "That's it, thank you for your invaluable help! I hope you like our figurine.",
+    "texte-EN": "That's it, thank you for your precious help! I hope you like our figurine.",
     "texte-DE": "Das war's, vielen Dank für Ihre wertvolle Hilfe! Ich hoffe, Ihnen gefällt unsere Figur.",
     "nb-car-FR": 92,
-    "nb-car-EN": 76,
+    "nb-car-EN": 74,
     "nb-car-DE": 87
   },
   {
     "video": 64,
-    "nomenclature-video": "QR-CODE_01.mp4",
-    "duration": 3,
+    "nomenclature-video": "background.mp4",
+    "duration": 1,
     "timecode-start": 0,
-    "timecode-end": 3,
+    "timecode-end": 1,
     "end": "pause",
     "pause": "qrcode",
     "texte-FR": "Vous pouvez l’emporter en souvenir.",
@@ -982,7 +982,7 @@
     "timecode-end": "-",
     "end": "-",
     "pause": "-",
-    "texte-FR": "27/10/2025 15:49:14",
+    "texte-FR": "30/10/2025 11:33:40",
     "texte-EN": "-",
     "texte-DE": "-",
     "nb-car-FR": "",
