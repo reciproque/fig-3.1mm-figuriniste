@@ -8,10 +8,10 @@ import { defineEmits } from 'vue'
 
 
 const { instructions } = defineProps({
-    instructions: {
-        type: Object,
-        required: true
-    }
+  instructions: {
+    type: Object,
+    required: true
+  }
 })
 
 const emit = defineEmits(['language-selected'])
@@ -45,14 +45,13 @@ onMounted(() => {
     <h2>{{ instructions[1] }}</h2>
     <h2>{{ instructions[2] }}</h2>
     <div class="flags-row">
-      <div class="flag"><img src="/assets/fr.png" id="FR" alt="" @click="selectLanguage('FR')"><br><span>{{ instructions[3] }}</span></div>
-      <div class="flag"><img src="/assets/en.png" id="EN" alt="" @click="selectLanguage('EN')"><br><span>{{ instructions[4] }}</span></div>
-      <div class="flag"><img src="/assets/de.png" id="DE" alt="" @click="selectLanguage('DE')"><br><span>{{ instructions[5] }}</span></div>
+      <div class="flag"><img src="/assets/fr.png" id="FR" alt="" @click="selectLanguage('FR')"><br><span>{{
+        instructions[3] }}</span></div>
+      <div class="flag"><img src="/assets/en.png" id="EN" alt="" @click="selectLanguage('EN')"><br><span>{{
+        instructions[4] }}</span></div>
+      <div class="flag"><img src="/assets/de.png" id="DE" alt="" @click="selectLanguage('DE')"><br><span>{{
+        instructions[5] }}</span></div>
     </div>
-    <!-- <div class="paraph-lang"><span>{{ instructions[3] }}</span></br>
-      <span>{{ instructions[4] }}</span> </br>
-      <span>{{ instructions[5] }}</span> </br>
-    </div> -->
   </div>
 
 </template>

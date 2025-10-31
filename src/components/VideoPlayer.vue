@@ -17,7 +17,7 @@ const { language, startId } = defineProps({
   },
   startId: {
     type: Number,
-    required:false
+    required: false
   }
 })
 
@@ -47,6 +47,7 @@ onMounted(async () => {
 
 //
 
+// Helpers pour récupérer les texts, dialogues et données de vidéos depuis dialogs et texts.
 
 function getText(n, lang) {
   const entry = texts.value?.[n];
@@ -95,7 +96,7 @@ let currentVideo = startId;
 
 const isPlaying = ref(true);
 
-// Timer pour debug
+// Timer pour debug bulles
 
 const timer = ref(0);
 let timerInterval = null;
@@ -117,8 +118,6 @@ function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// Reprendre la timeline après une séquence interactive. 
-// n = nombre émis par le composant interactif (outil touché pour dessin/ébardage, combinaison choisie pour assemblage/peinture)
 const posLime = 2;
 const posCriterium = 6;
 
@@ -131,10 +130,11 @@ let nbErrorEbarbage = 0;
 function onDessinChoice(n) { resume(n, "dessin"); }
 function onEbarbageChoice(n) { resume(n, "ebarbage"); }
 function onAssemblageChoice(n) { resume(n, "assemblage"); }
-function endPeinture(n) { resume(n, "peinture"); }
+function endPeinture(n) { resume(n, "peinture"); } // TODO : 1 bulle avant QRCODE ??
 function onSkipPeintureChoice(n) { resume(n, "skipPeinture"); }
 
-
+// Reprendre la timeline après une séquence interactive. 
+// n = nombre émis par le composant interactif (outil touché pour dessin/ébardage, combinaison choisie pour assemblage/peinture)
 async function resume(n, step) {
 
   isPlaying.value = true;
@@ -142,22 +142,20 @@ async function resume(n, step) {
   await delay(1000);
   showBubble.value = false;
 
-  switch(step) {
+  switch (step) {
     case "dessin": await handleDessin(n); break;
     case "ebarbage": await handleEbarbage(n); break;
     case "assemblage": await handleAssemblage(n); break;
     case "peinture": await handlePeinture(n); break;
     case "skipPeinture": await handleSkipPeinture(n); break;
-
   }
 
-  switch(step) {
+  switch (step) {
     case "dessin": showDessin.value = false; break;
     case "ebarbage": showEbarbage.value = false; break;
     case "assemblage": showAssemblage.value = false; break;
     case "peinture": showPeinture.value = false; break;
     case "skipPeinture": showPeinture.value = false; break;
-
   }
 
   await playSequence();
@@ -165,8 +163,8 @@ async function resume(n, step) {
 
 
 async function handleDessin(n) {
-  let videoFalse = 2 * n + 1;
-  let videoTrue = 14;
+  let videoFalse = 2 * n + 1;  // à changer si décalage indices (TODO ? : mettre numéros dans variable ?)
+  let videoTrue = 14; // à changer si décalage indices
 
   if (n == posCriterium) {
     currentVideo = videoTrue;
@@ -187,8 +185,8 @@ async function handleDessin(n) {
 }
 
 async function handleEbarbage(n) {
-  let videoFalse = 2 * n + (n < 2 ? 34 : 32);
-  let videoTrue = 47;
+  let videoFalse = 2 * n + (n < 2 ? 34 : 32);  // à changer si décalage indices
+  let videoTrue = 47; // à changer si décalage indices
 
   if (n == posLime) {
     currentVideo = videoTrue;
@@ -211,23 +209,21 @@ async function handleEbarbage(n) {
 async function handleAssemblage(n) {
   console.log("Bras choisi : " + n);
   arm = n;
-  currentVideo = 52;
+  currentVideo = 52;  // à changer si décalage indices
 }
 
 async function handlePeinture(n) {
-  showPeinture.value = false; 
+  showPeinture.value = false;
   finaleRichard.value = String(arm) + String(n);
-  currentVideo= 63;
-  
+  currentVideo = 63;  // à changer si décalage indices
+
 }
 
 async function handleSkipPeinture() {
-  currentVideo = 63;
+  currentVideo = 63;  // à changer si décalage indices
   showPeinture.value = false;
   finaleRichard.value = arm + "2111";
 }
-
-
 
 
 async function playSequence() {
@@ -251,7 +247,6 @@ async function playSequence() {
       break;
     }
     else {
-      console.warn(`Champ "end" manquant ou non reconnu pour la vidéo ${i}:`, end);
       isPlaying.value = true;
     }
 
@@ -276,17 +271,15 @@ function launchInteractiveStep(step) {
     case "assemblage": showAssemblage.value = true; break;
     case "peinture": showPeinture.value = true; break;
     case "qrcode": {
-      showQR.value = true; 
+      showQR.value = true;
       break;
     }
   }
-
 }
 
 
-
 async function playVideo(n) {
-  
+
   // Echange de load entre video1 et video2 pour passage imperceptible de l'une à l'autre
   const videoToShow = currentVideoId.value === 1 ? document.getElementById('video2') : document.getElementById('video1');
   const nextVideoSrc = import.meta.env.BASE_URL + 'assets/videos/' + String(getVideo(n));
@@ -340,56 +333,45 @@ async function playVideo(n) {
 <template>
 
   <div class="debug bubble-debug">
-    video n° {{ currentVideo }} <br> 
-    <span class="timer">{{ timer }}</span><br> 
-    isPlaying : {{ isPlaying }} <br> 
+    video n° {{ currentVideo }} <br>
+    <span class="timer">{{ timer }}</span><br>
+    isPlaying : {{ isPlaying }} <br>
     durée : {{ getDuration(currentVideo) }} <br>
-    timecode-start : {{ getTimecodeStart(currentVideo) / 1000 }} <br> 
-    timecode-end : {{ getTimecodeEnd(currentVideo) / 1000 }} 
+    timecode-start : {{ getTimecodeStart(currentVideo) / 1000 }} <br>
+    timecode-end : {{ getTimecodeEnd(currentVideo) / 1000 }}
   </div>
 
 
   <div class="video-screen" v-if="dialogs && texts">
-    <!-- <button v-if="!isPlaying" id="play" @click="resume(0)">Continuer</button> -->
 
-    <video  v-if="!showPeinture" crossorigin="anonymous" class="main-video" id="video1" :style="{ opacity: currentVideoId === 1 ? 1 : 0 }"
-      muted></video>
+    <video v-if="!showPeinture" crossorigin="anonymous" class="main-video" id="video1"
+      :style="{ opacity: currentVideoId === 1 ? 1 : 0 }" muted></video>
 
-    <video v-if="!showPeinture" crossorigin="anonymous" class="main-video" id="video2" :style="{ opacity: currentVideoId === 2 ? 1 : 0 }"
-      muted></video>
+    <video v-if="!showPeinture" crossorigin="anonymous" class="main-video" id="video2"
+      :style="{ opacity: currentVideoId === 2 ? 1 : 0 }" muted></video>
 
     <DialogBubble v-if="showBubble" ref="dialogBubble" class="dialog-bubble" :dialogContent="dialogContent" />
 
     <!-- Dessin -->
-    <ChooseToolScreen v-if="showDessin" 
-      :choiceInstruction="getText(6, language)" 
-      :goodAnswer='posCriterium'
+    <ChooseToolScreen v-if="showDessin" :choiceInstruction="getText(6, language)" :goodAnswer='posCriterium'
       @touchedTool="onDessinChoice" />
 
     <!-- Ebarbage -->
-    <ChooseToolScreen v-if="showEbarbage" 
-      :choiceInstruction="getText(7, language)" 
-      :goodAnswer='posLime'
-      @touchedTool="onEbarbageChoice"  />
+    <ChooseToolScreen v-if="showEbarbage" :choiceInstruction="getText(7, language)" :goodAnswer='posLime'
+      @touchedTool="onEbarbageChoice" />
 
     <!-- Assemblage -->
-    <AssemblageStep v-if="showAssemblage" 
-      :instruction="getText(8, language)"
-      :skipText="[getText(9, language), getText(10, language)]"
-      @chosenArm="onAssemblageChoice" />
+    <AssemblageStep v-if="showAssemblage" :instruction="getText(8, language)"
+      :skipText="[getText(9, language), getText(10, language)]" @chosenArm="onAssemblageChoice" />
 
     <!-- Peinture -->
     <PeintureStep v-if="showPeinture"
       :instructions="[getText(13, language), getText(14, language), getText(15, language), getText(16, language)]"
-      :skipText="[getText(11, language), getText(12, language)]" 
-      :bras="arm"
-      @chooseSkipPeinture="onSkipPeintureChoice"
-      @finaleCombination="endPeinture"/>
+      :skipText="[getText(11, language), getText(12, language)]" :bras="arm" @chooseSkipPeinture="onSkipPeintureChoice"
+      @finaleCombination="endPeinture" />
 
-    <!-- TODO: QRCode -->
-    <QRCodeScreen v-if="showQR"
-      :instruction="getText(17, language)"
-      :combination="finaleRichard"/>
+    <!-- QRCode -->
+    <QRCodeScreen v-if="showQR" :instruction="getText(17, language)" :combination="finaleRichard" />
   </div>
 
 </template>

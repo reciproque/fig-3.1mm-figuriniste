@@ -21,16 +21,14 @@ function reloadApp() {
 }
 
 onMounted(() => {
-    gsap.from(document.querySelector(".star"), { opacity: 0, delay: 0, scale:0.95, duration: 1 })
-    gsap.from(document.querySelector(".shadow"), { opacity: 0, delay: 0.1,  scale:0.95,duration: 1 })
-    gsap.from(document.querySelector(".richard"), { opacity: 0, delay: 0.2, scale:0.95, duration: 1 })
-    gsap.from(document.querySelector(".light"), { opacity: 0, delay: 0.7, scale:0.95, duration: 1 })
+    gsap.from(document.querySelector(".star"), { opacity: 0, delay: 0, scale: 0.95, duration: 1 })
+    gsap.from(document.querySelector(".shadow"), { opacity: 0, delay: 0.1, scale: 0.95, duration: 1 })
+    gsap.from(document.querySelector(".richard"), { opacity: 0, delay: 0.2, scale: 0.95, duration: 1 })
+    gsap.from(document.querySelector(".light"), { opacity: 0, delay: 0.7, scale: 0.95, duration: 1 })
 
-    gsap.from(document.querySelector(".qr-wrapper"), { opacity: 0, delay: 0.8, scale:0.95, duration: 1 })
-
+    gsap.from(document.querySelector(".qr-wrapper"), { opacity: 0, delay: 0.8, scale: 0.95, duration: 1 })
 
     gsap.from(document.querySelector(".bloc-instruction"), { opacity: 0, delay: 0, duration: 1 })
-
 
 })
 
@@ -61,7 +59,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-
 .retry {
     z-index: 100;
     position: absolute;
@@ -81,7 +78,7 @@ onMounted(() => {
 }
 
 .retry:hover {
-    scale:1.1;
+    scale: 1.1;
     transition: 0.4s;
 }
 
@@ -178,7 +175,7 @@ onMounted(() => {
     z-index: -31;
     position: absolute;
     opacity: 0.1;
-        filter: blur(5px);
+    filter: blur(5px);
 
     animation: star 120s infinite linear;
 
@@ -194,6 +191,4 @@ onMounted(() => {
     }
 
 }
-
-
 </style>

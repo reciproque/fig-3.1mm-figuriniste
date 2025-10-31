@@ -1,8 +1,9 @@
 # fig-3.1mm-figuriniste
+![alt text](richards/resultats/12111.png)
 
-Cette application est codée avec le framework **Vue.js** + **Vite**.
+Cette application a été développée avec le framework **Vue.js** + **Vite**.
 
-## Pré-requis
+# Pré-requis
 
 1. Installer Node.js
 
@@ -13,7 +14,10 @@ Ouvrir un terminal à la racine du projet :
 npm install
 ```
 
+# Lancement de l'application
+
 ## Lancement local de l'application
+
 
 Pour lancer l'application (équivalent à la commande ``vite``)
 
@@ -33,9 +37,11 @@ Cette commande sera utilisée en prod pour démarrer automatiquement l'applicati
 
 ## Lancement automatique
 
-TODO // Démarrage automatique avec .bat + planificateur de tâches Windows + mode kiosque
+TODO // Démarrage automatique avec ``start-figuriniste.bat`` dans dossier Windows + planificateur de tâches Windows + mode kiosque
 
-## Build et hébergement en ligne de l'application
+# Hébergement en ligne de l'application
+
+## Build
 
 Pour build l'application en statique (équivalent à la commande ``vite build``)
 
@@ -43,34 +49,40 @@ Pour build l'application en statique (équivalent à la commande ``vite build``)
 npm run build
 ```
 
+Cette commande sera utilisée en dev/staging pour générer une version web de l'application et l'héberger sur un serveur. 
+
 Le build est alors disponible dans le dossier ``/dist``.
 
-Cette commande sera utilisée en staging pour générer une version de test de l'application et l'héberger sur un serveur web. Par exemple,
+
+## Hébergement
+
+Téléverser le contenu de ``/dist`` dans un dossier du serveur web correspondant à la base renseignée dans le fichier ``vite.config.js``.
+
+Par exemple,
 
 
-- La **DEV** est hébergée à http://www.fig.reciproque.com/figuriniste-dev/ ; dans le fichier ``vite.config.js`` :
+- La **DEV** est hébergée à http://www.fig.reciproque.com/figuriniste-dev/ ; les fichiers de ``/dist`` ont été placés dans ``/figuriniste-dev/`` et la base renseignée dans le fichier ``vite.config.js`` est :
 
 ```
   base: '/figuriniste-dev/',
 ```
 
-- La **STAGING** est hébergée à : http://www.fig.reciproque.com/figuriniste-staging/ ; dans le fichier ``vite.config.js`` :
+- La **STAGING** est hébergée à : http://www.fig.reciproque.com/figuriniste-staging/ ; les fichiers de ``/dist`` ont été placés dans ``/figuriniste-staging/`` et la base renseignée dans le fichier ``vite.config.js`` est :
 
 ```
   base: '/figuriniste-staging/',
 ```
 
-
 Ajouter à la racine :
 
-- un fichier ``.htaccess`` afin de masquer les index et protéger le site par mot de passe :
+- un fichier ``.htaccess``, afin de masquer les index et protéger le site par mot de passe :
   
 ```
 Options -Indexes
 
 AuthType Basic
 AuthName "Espace protégé"
-AuthUserFile /home/reciproqv-wge/figurine/figuriniste-staging/.htpasswd
+AuthUserFile /xxx/figuriniste-staging/.htpasswd
 Require valid-user
 ```
 
@@ -81,19 +93,27 @@ nom_utilisateur:mot_de_passe_encrypté
 ```
 
   
-- un fichier ``robots.txt`` pour éviter l'indexation du site :
+- un fichier ``robots.txt``, pour éviter l'indexation du site :
 
 ```
 User-agent: *
 Disallow: /
 ```
 
-## Données
+## Données et combinaisons de couleurs
 
-Les dialogues et textes d'interface sont respectivement issus des fichiers ``dialogs.json`` et ``interface.json``.
+Les dialogues (bulles) et textes d'interface sont respectivement issus des fichiers ``dialogs.json`` et ``interface.json``.
 Ceux-si sont fetch depuis le dossier public, il est donc possible de les remplacer à la volée sans relancer l'application locale ou sans re-build les fichiers statiques.
+
+Le dossier ``richards`` contient également les assets et scripts Python permettant la génération des images et QRCodes de l'étape Peinture. 
+Les scripts nécessiteront l'installation (dans un environnement virtuel) des librairies ``pillow`` et ``qrcode``.
+
+- ``generate-all-richards.py`` permet de générer toutes les combinaisons de couleur de Richard (243 combinaisons possibles) ;
+
+- ``generate-qrcodes.py`` permet de générer tous les QRCodes correspondant à toutes ces combinaisons, renseignés dans le fichier ``url-qrcodes.csv`` sous la forme d'un nom (colonne ``nom``) et URL associée (colonne ``url``).
+
 
 ## Interfaçage Phidget
 
-TODO
+TODO // Interfaçage Phidget & doc
 

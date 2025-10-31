@@ -43,6 +43,7 @@ for bras in range(1,4):
                 overlay = overlay.resize(base.size)
             base = Image.alpha_composite(base, overlay)
             
+            # TODO : crop and add overlay Compiègne / background etc
             # left = 155
             # top = 1920
             # right = 360

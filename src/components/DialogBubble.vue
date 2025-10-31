@@ -16,6 +16,8 @@ onMounted(() => {
     gsap.from(".bubble", { y: -50, duration: 0.5 })
 
     let animatedText = document.querySelector(".bubble-box");
+
+    // Espaces insécables et sauts de ligne
     animatedText.innerHTML = animatedText.textContent.replace(/ (\?|!)/g, '\u00A0$1')
         .split("")
         .map((char) => {

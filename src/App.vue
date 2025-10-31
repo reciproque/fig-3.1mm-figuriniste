@@ -42,23 +42,23 @@ function onLanguageSelected(lang) {
   <div class="screen">
 
     <LanguageScreen v-if="!selectedLanguage" @language-selected="onLanguageSelected"
-    :instructions="[texts?.[0]?.['texte-FR'], texts?.[1]?.['texte-FR'], texts?.[2]?.['texte-FR'], texts?.[3]?.['texte-FR'], texts?.[4]?.['texte-FR'], texts?.[5]?.['texte-FR']]" />
-    <VideoPlayer v-else :language="selectedLanguage" 
-    :startId="selectedStartId"/>
+      :instructions="[texts?.[0]?.['texte-FR'], texts?.[1]?.['texte-FR'], texts?.[2]?.['texte-FR'], texts?.[3]?.['texte-FR'], texts?.[4]?.['texte-FR'], texts?.[5]?.['texte-FR']]" />
+    <VideoPlayer v-else :language="selectedLanguage" :startId="selectedStartId" />
 
-    <div class="debug debug-versions" v-if="dialogs && Object.keys(dialogs).length && texts && Object.keys(texts).length" >    
+    <div class="debug debug-versions"
+      v-if="dialogs && Object.keys(dialogs).length && texts && Object.keys(texts).length">
       Numéro de versions<br>
       Build DEV du 30/10/2025 à 12h30<br>
-      Interface : {{ texts[Object.keys(texts).length-1]["texte-FR"] }} <br>
-      Dialogues : {{ dialogs[Object.keys(dialogs).length-1]["texte-FR"] }} <br>
-      
+      Interface : {{ texts[Object.keys(texts).length - 1]["texte-FR"] }} <br>
+      Dialogues : {{ dialogs[Object.keys(dialogs).length - 1]["texte-FR"] }} <br>
+
       <span v-if="!selectedLanguage">Démarrer à la vidéo n° <input type="number" v-model="selectedStartId"></span>
-    
+
     </div>
 
-</div>
+  </div>
 
-    <!-- TODO : modale inactivité et reload -->
+  <!-- TODO : modale inactivité et reload -->
 
 </template>
 
@@ -77,6 +77,7 @@ function onLanguageSelected(lang) {
   font-family: 'Gotham-Bold';
   src: url('/assets/Gotham-Bold.otf') format("opentype");
 }
+
 .screen {
   background-image: url('/public/assets/background.png');
   background-size: cover;
@@ -127,7 +128,7 @@ h2 {
 }
 
 .debug-versions {
-  bottom:0px;
-  left:0px;
+  bottom: 0px;
+  left: 0px;
 }
 </style>

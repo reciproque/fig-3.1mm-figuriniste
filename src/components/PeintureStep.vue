@@ -26,21 +26,21 @@ defineProps({
 
 const step = ref(0);
 
-const emit = defineEmits(['finaleCombination', 'chooseSkipPeinture']) 
+const emit = defineEmits(['finaleCombination', 'chooseSkipPeinture'])
 let finale = '';
 
 
 function selectColor(n) {
 
-    gsap.from(document.getElementById("color-"+n), { scale: 0.5, duration: 0.2, ease: "bounce.out" })
-    
-    if (step.value==0) peau = n;
-    if (step.value==1) cheveux = n;
-    if (step.value==2) robe = n;
-    if (step.value==3) armoiries = n;
+    gsap.from(document.getElementById("color-" + n), { scale: 0.5, duration: 0.2, ease: "bounce.out" })
 
-    //TODO : play la vidéo adéquate et afficher la couleur peinte... 
-    
+    if (step.value == 0) peau = n;
+    if (step.value == 1) cheveux = n;
+    if (step.value == 2) robe = n;
+    if (step.value == 3) armoiries = n;
+
+    // TODO : play la vidéo d'animation peinture par dessus
+
     nextStep();
 
 }
@@ -50,86 +50,82 @@ function skipPeinture() {
 }
 
 
-// TODO : nextStep doit aussi changer la vidéo de fond...
-
 function nextStep() {
-    
-    if(step.value<= 4) {
+
+    if (step.value <= 4) {
         setTimeout(() => {
-        gsap.from(document.querySelector(".palette-wrapper"), { x: 200, opacity: 0, rotateZ: 20, duration: 1 })}, 
-        1000);
+            gsap.from(document.querySelector(".palette-wrapper"), { x: 200, opacity: 0, rotateZ: 20, duration: 1 })
+        },
+            1000);
     }
 
-    setTimeout(()=>{step.value++},1000);
+    setTimeout(() => { step.value++ }, 1000);
 
-    if (step.value==3) {
+    if (step.value == 3) {
         finale = String(peau) + String(cheveux) + String(robe) + String(armoiries);
-        setTimeout(()=>{emit('finaleCombination', finale)},1000); 
+        setTimeout(() => { emit('finaleCombination', finale) }, 1000);
     }
 }
 
 onMounted(() => {
     gsap.from(document.querySelector(".palette-wrapper"), { x: 200, opacity: 0, rotateZ: 20, duration: 1 })
-    // gsap.from(document.querySelector(".assemblage-screen"), { opacity: 0, duration: 1})
 })
 
 </script>
 
 <template>
     <div class="debug peinture-debug">
-    ETAPE : {{ step }}
-    <br>Bras : {{ bras }}
-    <br>Peau : {{ peau }}
-    <br> Cheveux :  {{ cheveux }}
-    <br> Robe/Bouclier :  {{ robe }}
-    <br> Cote de maille/Armoiries : {{ armoiries }}</div>
+        ETAPE : {{ step }}
+        <br>Bras : {{ bras }}
+        <br>Peau : {{ peau }}
+        <br> Cheveux : {{ cheveux }}
+        <br> Robe/Bouclier : {{ robe }}
+        <br> Cote de maille/Armoiries : {{ armoiries }}
+    </div>
     <div class="peinture-screen">
         <div class="instruction">{{ instructions[step] }}</div>
-        <div v-if="step==0" class="randomizer-box" @click="skipPeinture()">{{ skipText[0] }}
+        <div v-if="step == 0" class="randomizer-box" @click="skipPeinture()">{{ skipText[0] }}
             <br>
             <em>{{ skipText[1] }}</em>
         </div>
 
-        <img class="white-richard" :src="'assets/figurine-blanche-bras'+bras+'.png'" alt="">
+        <img class="white-richard" :src="'assets/figurine-blanche-bras' + bras + '.png'" alt="">
 
-        <img v-if="step>=1" class="peau" :src="'richards/bras'+bras+'/peau/'+peau+'.png'" alt="">
-        <img v-if="step>=2" class="cheveux" :src="'richards/bras'+bras+'/cheveux/'+cheveux+'.png'" alt="">
-        <img v-if="step>=3" class="robe" :src="'richards/bras'+bras+'/robe/'+robe+'.png'" alt="">
-        <img v-if="step>=4"class="armoiries" :src="'richards/bras'+bras+'/armoiries/'+armoiries+'.png'" alt="">
+        <img v-if="step >= 1" class="peau" :src="'richards/bras' + bras + '/peau/' + peau + '.png'" alt="">
+        <img v-if="step >= 2" class="cheveux" :src="'richards/bras' + bras + '/cheveux/' + cheveux + '.png'" alt="">
+        <img v-if="step >= 3" class="robe" :src="'richards/bras' + bras + '/robe/' + robe + '.png'" alt="">
+        <img v-if="step >= 4" class="armoiries" :src="'richards/bras' + bras + '/armoiries/' + armoiries + '.png'" alt="">
 
-
-
-        
-        <div class="palette-wrapper" v-if="step<4">
+        <div class="palette-wrapper" v-if="step < 4">
             <img class="palette" src="/assets/palette.png" alt="">
 
-        <!-- Peau -->
-        <div class="step-0" v-if="step==0">
-            <img src="/assets/peinture-1-1.png" alt="" class="color" id="color-1"  @click="selectColor(1)">
-            <img src="/assets/peinture-1-2.png" alt="" class="color" id="color-2"  @click="selectColor(2)">
-            <img src="/assets/peinture-1-3.png" alt="" class="color" id="color-3"  @click="selectColor(3)">
-        </div>
+            <!-- Peau -->
+            <div class="step-0" v-if="step == 0">
+                <img src="/assets/peinture-1-1.png" alt="" class="color" id="color-1" @click="selectColor(1)">
+                <img src="/assets/peinture-1-2.png" alt="" class="color" id="color-2" @click="selectColor(2)">
+                <img src="/assets/peinture-1-3.png" alt="" class="color" id="color-3" @click="selectColor(3)">
+            </div>
 
-        <!-- Cheveux -->
-        <div class="step-1" v-if="step==1">
-            <img src="/assets/peinture-2-1.png" alt="" class="color" id="color-1"  @click="selectColor(1)">
-            <img src="/assets/peinture-2-3.png" alt="" class="color" id="color-2"  @click="selectColor(2)">
-            <img src="/assets/peinture-2-2.png" alt="" class="color" id="color-3"  @click="selectColor(3)">
-        </div>
+            <!-- Cheveux -->
+            <div class="step-1" v-if="step == 1">
+                <img src="/assets/peinture-2-1.png" alt="" class="color" id="color-1" @click="selectColor(1)">
+                <img src="/assets/peinture-2-3.png" alt="" class="color" id="color-2" @click="selectColor(2)">
+                <img src="/assets/peinture-2-2.png" alt="" class="color" id="color-3" @click="selectColor(3)">
+            </div>
 
-        <!-- Robe -->
-        <div class="step-2" v-if="step==2">
-            <img src="/assets/peinture-3-1.png" alt="" class="color" id="color-1"  @click="selectColor(1)">
-            <img src="/assets/peinture-3-2.png" alt="" class="color" id="color-2"  @click="selectColor(2)">
-            <img src="/assets/peinture-3-3.png" alt="" class="color" id="color-3"  @click="selectColor(3)">
-        </div>
+            <!-- Robe -->
+            <div class="step-2" v-if="step == 2">
+                <img src="/assets/peinture-3-1.png" alt="" class="color" id="color-1" @click="selectColor(1)">
+                <img src="/assets/peinture-3-2.png" alt="" class="color" id="color-2" @click="selectColor(2)">
+                <img src="/assets/peinture-3-3.png" alt="" class="color" id="color-3" @click="selectColor(3)">
+            </div>
 
-        <!-- Armoiries -->
-        <div class="step-2" v-if="step==3">
-            <img src="/assets/peinture-4-1.png" alt="" class="color" id="color-1"  @click="selectColor(1)">
-            <img src="/assets/peinture-4-2.png" alt="" class="color" id="color-2"  @click="selectColor(2)">
-            <img src="/assets/peinture-4-3.png" alt="" class="color" id="color-3"  @click="selectColor(3)">
-        </div>
+            <!-- Armoiries -->
+            <div class="step-2" v-if="step == 3">
+                <img src="/assets/peinture-4-1.png" alt="" class="color" id="color-1" @click="selectColor(1)">
+                <img src="/assets/peinture-4-2.png" alt="" class="color" id="color-2" @click="selectColor(2)">
+                <img src="/assets/peinture-4-3.png" alt="" class="color" id="color-3" @click="selectColor(3)">
+            </div>
         </div>
     </div>
 
@@ -196,7 +192,7 @@ em {
 }
 
 .color:hover {
-    scale: 1.1; 
+    scale: 1.1;
     transition: 0.4s;
 
 }
@@ -216,17 +212,19 @@ em {
     right: 300px;
 }
 
-.white-richard, .peau, .cheveux, .robe, .armoiries {
+.white-richard,
+.peau,
+.cheveux,
+.robe,
+.armoiries {
     position: absolute;
     pointer-events: none;
-    top:100px;
+    top: 100px;
 
 }
 
 .peinture-debug {
-    top:0px;
-    left:0px;
+    top: 0px;
+    left: 0px;
 }
-
-
 </style>

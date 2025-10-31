@@ -15,34 +15,34 @@ defineProps({
     }
 })
 
-const emit = defineEmits(['chosenArm']) 
+const emit = defineEmits(['chosenArm'])
 
 let canClick = true;
 
 function selectArms(n) {
     if (canClick) {
-        gsap.from(document.getElementById("circle-"+n), { scale: 0.9, duration: 1, ease: "bounce.out" })
-        if(n==1) gsap.to(document.getElementById("arms-"+n), {x:500, duration:0.2})
-        if(n==2) gsap.to(document.getElementById("arms-"+n), {x:-800, duration:0.2})
-        if(n==3) gsap.to(document.getElementById("arms-"+n), {x:-600,y:-300, duration:0.2})
+        gsap.from(document.getElementById("circle-" + n), { scale: 0.9, duration: 1, ease: "bounce.out" })
+        if (n == 1) gsap.to(document.getElementById("arms-" + n), { x: 500, duration: 0.2 })
+        if (n == 2) gsap.to(document.getElementById("arms-" + n), { x: -800, duration: 0.2 })
+        if (n == 3) gsap.to(document.getElementById("arms-" + n), { x: -600, y: -300, duration: 0.2 })
 
         setTimeout(() => emit('chosenArm', n), 1500);
 
     }
-    canClick=false;
+    canClick = false;
 
 
 
 }
 
 onMounted(() => {
-    gsap.from(document.querySelector(".assemblage-screen"), { opacity: 0, duration: 1})
+    gsap.from(document.querySelector(".assemblage-screen"), { opacity: 0, duration: 1 })
 })
 
 </script>
 
 <template>
-    <div class="assemblage-screen">     
+    <div class="assemblage-screen">
         <div class="instruction">{{ instruction }}</div>
         <div class="randomizer-box" @click="selectArms(1)">{{ skipText[0] }}
             <br>
@@ -133,7 +133,7 @@ onMounted(() => {
 }
 
 #arms-choice-2 {
-    top:  730px;
+    top: 730px;
     left: 1760px;
 }
 
