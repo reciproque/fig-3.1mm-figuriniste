@@ -61,10 +61,10 @@ Téléverser le contenu de ``/dist`` dans un dossier du serveur web correspondan
 Par exemple,
 
 
-- La **DEV** est hébergée à http://www.fig.reciproque.com/figuriniste-staging/ ; les fichiers de ``/dist`` ont été placés dans ``/figuriniste-staging/`` et la base renseignée dans le fichier ``vite.config.js`` est :
+- La **DEV** est hébergée à http://www.fig.reciproque.com/figuriniste-dev/ ; les fichiers de ``/dist`` ont été placés dans ``/figuriniste-dev/`` et la base renseignée dans le fichier ``vite.config.js`` est :
 
 ```
-  base: '/figuriniste-staging/',
+  base: '/figuriniste-dev/',
 ```
 
 - La **STAGING** est hébergée à : http://www.fig.reciproque.com/figuriniste-staging/ ; les fichiers de ``/dist`` ont été placés dans ``/figuriniste-staging/`` et la base renseignée dans le fichier ``vite.config.js`` est :
