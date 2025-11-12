@@ -103,7 +103,7 @@ h1 {
 
 h2 {
   font-size: 38px;
-  font-family: 'Gotham';
+  font-family: 'Gotham-Book';
   text-transform: uppercase;
 }
 

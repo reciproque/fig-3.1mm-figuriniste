@@ -124,6 +124,17 @@ const posCriterium = 6;
 let arm = 1;
 const finaleRichard = ref("12111");
 
+// à changer si décalage indices
+
+const idDessinFalse = 1;
+const idDessinTrue = 14;
+
+const idEbarbageFalse = 32;
+const idEbarbageTrue = 47;
+
+const idDebutPeinture = 52;
+const idFinPeinture = 63;
+
 let nbErrorDessin = 0;
 let nbErrorEbarbage = 0;
 
@@ -163,8 +174,8 @@ async function resume(n, step) {
 
 
 async function handleDessin(n) {
-  let videoFalse = 2 * n + 1;  // à changer si décalage indices (TODO ? : mettre numéros dans variable ?)
-  let videoTrue = 14; // à changer si décalage indices
+  let videoFalse = 2 * n + idDessinFalse;
+  let videoTrue = idDessinTrue;
 
   if (n == posCriterium) {
     currentVideo = videoTrue;
@@ -177,16 +188,16 @@ async function handleDessin(n) {
     if (nbErrorDessin == 2) {
       currentVideo = videoFalse;
       await playVideo(videoFalse);
-      currentVideo = 13;
+      currentVideo = idDessinTrue-1;
       await playVideo(currentVideo);
-      currentVideo = 15;
+      currentVideo = idDessinTrue+1;
     }
   }
 }
 
 async function handleEbarbage(n) {
-  let videoFalse = 2 * n + (n < 2 ? 34 : 32);  // à changer si décalage indices
-  let videoTrue = 47; // à changer si décalage indices
+  let videoFalse = 2 * n + (n < posLime ? idEbarbageFalse+2 : idEbarbageFalse);
+  let videoTrue = idEbarbageTrue;
 
   if (n == posLime) {
     currentVideo = videoTrue;
@@ -199,9 +210,9 @@ async function handleEbarbage(n) {
     if (nbErrorEbarbage == 2) {
       currentVideo = videoFalse;
       await playVideo(videoFalse);
-      currentVideo = 46;
+      currentVideo = idEbarbageTrue-1;
       await playVideo(currentVideo);
-      currentVideo = 48;
+      currentVideo = idEbarbageTrue+1;
     }
   }
 }
@@ -209,18 +220,18 @@ async function handleEbarbage(n) {
 async function handleAssemblage(n) {
   console.log("Bras choisi : " + n);
   arm = n;
-  currentVideo = 52;  // à changer si décalage indices
+  currentVideo = idDebutPeinture;
 }
 
 async function handlePeinture(n) {
   showPeinture.value = false;
   finaleRichard.value = String(arm) + String(n);
-  currentVideo = 63;  // à changer si décalage indices
+  currentVideo = idFinPeinture;
 
 }
 
 async function handleSkipPeinture() {
-  currentVideo = 63;  // à changer si décalage indices
+  currentVideo = idFinPeinture;
   showPeinture.value = false;
   finaleRichard.value = arm + "2111";
 }
