@@ -142,7 +142,7 @@
   {
     "étape": "Timeout 1",
     "no": 20,
-    "texte-FR": "1°",
+    "texte-FR": 10,
     "texte-EN": 10,
     "texte-DE": 10
   },
@@ -156,7 +156,7 @@
   {
     "étape": "NUMERO-VERSION",
     "no": "-",
-    "texte-FR": "12/11/2025 17:46:48",
+    "texte-FR": "12/11/2025 17:50:43",
     "texte-EN": "-",
     "texte-DE": "-"
   }
