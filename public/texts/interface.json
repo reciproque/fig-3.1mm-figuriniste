@@ -44,51 +44,51 @@
   {
     "étape": "Dessin 1",
     "no": 6,
-    "texte-FR": "Touchez l’outil correspondant à la demande du figuriniste.",
-    "texte-EN": "Touch the tool corresponding to the figurine maker's request.",
-    "texte-DE": "Berühren Sie das Werkzeug, das der Anfrage des Figurenherstellers entspricht."
+    "texte-FR": "Touchez l’outil permettant de dessiner.",
+    "texte-EN": "Tap the drawing tool.",
+    "texte-DE": "Tippe auf das Zeichenwerkzeug."
   },
   {
     "étape": "Ebarbage 1",
     "no": 7,
-    "texte-FR": "Touchez l’outil correspondant à la demande du figuriniste.",
-    "texte-EN": "Touch the tool corresponding to the figurine maker's request.",
-    "texte-DE": "Berühren Sie das Werkzeug, das der Anfrage des Figurenherstellers entspricht."
+    "texte-FR": "Touchez l’outil permettant d'ébarber.",
+    "texte-EN": "Tap the deburring tool.",
+    "texte-DE": "Tippen Sie auf das Entgratungswerkzeug."
   },
   {
     "étape": "Assemblage",
     "no": 8,
     "texte-FR": "Placez le bras de votre choix sur la figurine et soudons le tout",
-    "texte-EN": "Place the arm of your choice on the figurine and let's weld it all together",
-    "texte-DE": "Platzieren Sie den Arm Ihrer Wahl auf der Figur und lassen Sie uns alles zusammenschweißen"
+    "texte-EN": "Place the arm of your choice onto the figurine and solder it all together.",
+    "texte-DE": "Setzen Sie den gewünschten Arm auf die Figur und verlöten Sie alles miteinander."
   },
   {
     "étape": "Assemblage",
     "no": 9,
     "texte-FR": "Non merci, je préfère que vous vous en occupiez",
-    "texte-EN": "No thanks, I'd rather you take care of it.",
-    "texte-DE": "Nein danke, ich möchte lieber, dass Sie sich darum kümmern."
+    "texte-EN": "No thank you, I'd prefer you handle it.",
+    "texte-DE": "Nein danke, ich überlasse das lieber Ihnen."
   },
   {
     "étape": "Assemblage",
     "no": 10,
     "texte-FR": "PASSER L’ÉTAPE",
-    "texte-EN": "SKIP THE STEP",
-    "texte-DE": "ÜBERSPRINGEN SIE DEN SCHRITT"
+    "texte-EN": "PASS THE STEP",
+    "texte-DE": "BESTEHEN SIE DIE SCHRITT"
   },
   {
     "étape": "Peinture",
     "no": 11,
     "texte-FR": "Non merci, pouvez-vous vous occuper de la peinture ?",
     "texte-EN": "No thanks, can you take care of the painting?",
-    "texte-DE": "Nein danke, können Sie sich um das Gemälde kümmern?"
+    "texte-DE": "Nein danke, könnten Sie sich bitte um das Gemälde kümmern?"
   },
   {
     "étape": "Peinture",
     "no": 12,
     "texte-FR": "PASSER L’ÉTAPE",
-    "texte-EN": "SKIP THE STEP",
-    "texte-DE": "ÜBERSPRINGEN SIE DEN SCHRITT"
+    "texte-EN": "PASS THE STEP",
+    "texte-DE": "BESTEHEN SIE DIE SCHRITT"
   },
   {
     "étape": "Peinture",
@@ -101,7 +101,7 @@
     "étape": "Peinture",
     "no": 14,
     "texte-FR": "Choisissez la couleur des cheveux",
-    "texte-EN": "Choose hair color",
+    "texte-EN": "Choose your hair color",
     "texte-DE": "Wähle deine Haarfarbe"
   },
   {
@@ -116,7 +116,7 @@
     "no": 16,
     "texte-FR": "Choisissez la couleur de la cotte de maille et des armoiries",
     "texte-EN": "Choose the color of the chainmail and the coat of arms",
-    "texte-DE": "Wählen Sie die Farbe des Kettenhemds und des Wappens"
+    "texte-DE": "Wähle die Farbe des Kettenhemdes und des Wappens"
   },
   {
     "étape": "QR-code",
@@ -137,12 +137,26 @@
     "no": 19,
     "texte-FR": "Oui, continuer",
     "texte-EN": "Yes, continue",
-    "texte-DE": "Ja, weiter"
+    "texte-DE": "Ja, weiter."
+  },
+  {
+    "étape": "Timeout 1",
+    "no": 20,
+    "texte-FR": "1°",
+    "texte-EN": 10,
+    "texte-DE": 10
+  },
+  {
+    "étape": "Timeout 2",
+    "no": 21,
+    "texte-FR": 10,
+    "texte-EN": 10,
+    "texte-DE": 10
   },
   {
     "étape": "NUMERO-VERSION",
     "no": "-",
-    "texte-FR": "30/10/2025 10:54:52",
+    "texte-FR": "12/11/2025 17:46:48",
     "texte-EN": "-",
     "texte-DE": "-"
   }

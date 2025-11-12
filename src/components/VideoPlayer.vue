@@ -6,6 +6,8 @@ import AssemblageStep from './AssemblageStep.vue';
 import PeintureStep from './PeintureStep.vue';
 import QRCodeScreen from './QRCodeScreen.vue';
 
+import TimeoutModal from './TimeoutModal.vue'
+
 import { gsap } from 'gsap';
 
 import { ref, onMounted } from 'vue';
@@ -92,6 +94,18 @@ function getTimecodeEnd(n) {
 }
 
 
+const isInactive = ref(false);
+
+let TO1 = setTimeout(()=>{isInactive.value=true}, getText(20, language)*1000);
+clearTimeout(TO1);
+
+function stillHere() {
+  isInactive.value = false;
+  TO1 = setTimeout(()=>{isInactive.value=true}, getText(20, language)*1000);
+}
+
+
+
 let currentVideo = startId;
 
 const isPlaying = ref(true);
@@ -148,6 +162,8 @@ function onSkipPeintureChoice(n) { resume(n, "skipPeinture"); }
 // n = nombre émis par le composant interactif (outil touché pour dessin/ébardage, combinaison choisie pour assemblage/peinture)
 async function resume(n, step) {
 
+  clearTimeout(TO1);
+  isInactive.value = false;
   isPlaying.value = true;
   animateBubbleOut();
   await delay(1000);
@@ -276,6 +292,8 @@ function launchInteractiveStep(step) {
   showAssemblage.value = false;
   showQR.value = false;
 
+  TO1 = setTimeout(()=>{isInactive.value=true}, getText(20, language)*1000)
+
   switch (step) {
     case "dessin": showDessin.value = true; break;
     case "ebarbage": showEbarbage.value = true; break;
@@ -352,8 +370,15 @@ async function playVideo(n) {
     timecode-end : {{ getTimecodeEnd(currentVideo) / 1000 }}
   </div>
 
+    <TimeoutModal v-if="isInactive"
+    @click="stillHere"
+
+    :interface="[getText(18, language), getText(19, language)]" 
+    :timer2="getText(21, language)"/>
+
 
   <div class="video-screen" v-if="dialogs && texts">
+
 
     <video v-if="!showPeinture" crossorigin="anonymous" class="main-video" id="video1"
       :style="{ opacity: currentVideoId === 1 ? 1 : 0 }" muted></video>
