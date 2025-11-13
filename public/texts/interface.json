@@ -44,111 +44,118 @@
   {
     "étape": "Dessin 1",
     "no": 6,
-    "texte-FR": "Touchez l’outil permettant de dessiner.",
-    "texte-EN": "Tap the drawing tool.",
-    "texte-DE": "Tippe auf das Zeichenwerkzeug."
+    "texte-FR": "Touchez l’outil permettant de dessiner",
+    "texte-EN": "Tap the drawing tool",
+    "texte-DE": "Tippen Sie auf das Zeichenwerkzeug"
+  },
+  {
+    "étape": "Louche",
+    "no": 7,
+    "texte-FR": "Touchez l’outil permettant de faire la coulée",
+    "texte-EN": "Tap the tool that allows you to perform the pouring",
+    "texte-DE": "Tippen Sie auf das Werkzeug, mit dem Sie das Ausgießen durchführen können."
   },
   {
     "étape": "Ebarbage 1",
-    "no": 7,
-    "texte-FR": "Touchez l’outil permettant d'ébarber.",
-    "texte-EN": "Tap the deburring tool.",
-    "texte-DE": "Tippen Sie auf das Entgratungswerkzeug."
+    "no": 8,
+    "texte-FR": "Touchez l’outil permettant d'ébarber",
+    "texte-EN": "Tap the deburring tool",
+    "texte-DE": "Tippen Sie auf das Entgratungswerkzeug"
   },
   {
     "étape": "Assemblage",
-    "no": 8,
+    "no": 9,
     "texte-FR": "Placez le bras de votre choix sur la figurine et soudons le tout",
     "texte-EN": "Place the arm of your choice onto the figurine and solder it all together.",
     "texte-DE": "Setzen Sie den gewünschten Arm auf die Figur und verlöten Sie alles miteinander."
   },
   {
     "étape": "Assemblage",
-    "no": 9,
+    "no": 10,
     "texte-FR": "Non merci, je préfère que vous vous en occupiez",
     "texte-EN": "No thank you, I'd prefer you handle it.",
     "texte-DE": "Nein danke, ich überlasse das lieber Ihnen."
   },
   {
     "étape": "Assemblage",
-    "no": 10,
+    "no": 11,
     "texte-FR": "PASSER L’ÉTAPE",
     "texte-EN": "PASS THE STEP",
     "texte-DE": "BESTEHEN SIE DIE SCHRITT"
   },
   {
     "étape": "Peinture",
-    "no": 11,
+    "no": 12,
     "texte-FR": "Non merci, pouvez-vous vous occuper de la peinture ?",
     "texte-EN": "No thanks, can you take care of the painting?",
     "texte-DE": "Nein danke, könnten Sie sich bitte um das Gemälde kümmern?"
   },
   {
     "étape": "Peinture",
-    "no": 12,
+    "no": 13,
     "texte-FR": "PASSER L’ÉTAPE",
     "texte-EN": "PASS THE STEP",
     "texte-DE": "BESTEHEN SIE DIE SCHRITT"
   },
   {
     "étape": "Peinture",
-    "no": 13,
+    "no": 14,
     "texte-FR": "Choisissez la couleur de la peau",
     "texte-EN": "Choose the skin color",
     "texte-DE": "Wählen Sie die Hautfarbe"
   },
   {
     "étape": "Peinture",
-    "no": 14,
+    "no": 15,
     "texte-FR": "Choisissez la couleur des cheveux",
     "texte-EN": "Choose your hair color",
     "texte-DE": "Wähle deine Haarfarbe"
   },
   {
     "étape": "Peinture",
-    "no": 15,
+    "no": 16,
     "texte-FR": "Choisissez la couleur de la robe",
     "texte-EN": "Choose the color of the dress",
     "texte-DE": "Wähle die Farbe des Kleides"
   },
   {
     "étape": "Peinture",
-    "no": 16,
+    "no": 17,
     "texte-FR": "Choisissez la couleur de la cotte de maille et des armoiries",
     "texte-EN": "Choose the color of the chainmail and the coat of arms",
     "texte-DE": "Wähle die Farbe des Kettenhemdes und des Wappens"
   },
   {
     "étape": "QR-code",
-    "no": 17,
+    "no": 18,
     "texte-FR": "À l'aide de votre téléphone portable, scannez le QR-code.",
     "texte-EN": "Using your mobile phone, scan the QR code.",
     "texte-DE": "Scannen Sie den QR-Code mit Ihrem Mobiltelefon."
   },
   {
     "étape": "Timeout",
-    "no": 18,
+    "no": 19,
     "texte-FR": "Êtes-vous toujours là ?",
     "texte-EN": "Are you still there?",
     "texte-DE": "Bist du noch da?"
   },
   {
     "étape": "Timeout",
-    "no": 19,
+    "no": 20,
     "texte-FR": "Oui, continuer",
     "texte-EN": "Yes, continue",
     "texte-DE": "Ja, weiter."
   },
   {
     "étape": "Timeout 1",
-    "no": 20,
+    "no": 21,
     "texte-FR": 10,
     "texte-EN": 10,
     "texte-DE": 10
   },
   {
     "étape": "Timeout 2",
-    "no": 21,
+    "no": 22,
     "texte-FR": 10,
     "texte-EN": 10,
     "texte-DE": 10
@@ -156,7 +163,7 @@
   {
     "étape": "NUMERO-VERSION",
     "no": "-",
-    "texte-FR": "12/11/2025 17:50:43",
+    "texte-FR": "13/11/2025 19:45:07",
     "texte-EN": "-",
     "texte-DE": "-"
   }

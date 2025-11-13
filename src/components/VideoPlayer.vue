@@ -96,12 +96,12 @@ function getTimecodeEnd(n) {
 
 const isInactive = ref(false);
 
-let TO1 = setTimeout(()=>{isInactive.value=true}, getText(20, language)*1000);
+let TO1 = setTimeout(()=>{isInactive.value=true}, getText(21, language)*1000);
 clearTimeout(TO1);
 
 function stillHere() {
   isInactive.value = false;
-  TO1 = setTimeout(()=>{isInactive.value=true}, getText(20, language)*1000);
+  TO1 = setTimeout(()=>{isInactive.value=true}, getText(21, language)*1000);
 }
 
 
@@ -133,6 +133,7 @@ function delay(ms) {
 }
 
 const posLime = 2;
+const posLouche = 5;
 const posCriterium = 6;
 
 let arm = 1;
@@ -143,16 +144,21 @@ const finaleRichard = ref("12111");
 const idDessinFalse = 1;
 const idDessinTrue = 14;
 
-const idEbarbageFalse = 32;
-const idEbarbageTrue = 47;
+const idCouleeFalse = 28;
+const idCouleeTrue = 41;
 
-const idDebutPeinture = 52;
-const idFinPeinture = 63;
+const idEbarbageFalse = 44;
+const idEbarbageTrue = 59;
+
+const idDebutPeinture = 64;
+const idFinPeinture = 68;
 
 let nbErrorDessin = 0;
 let nbErrorEbarbage = 0;
+let nbErrorCoulee = 0;
 
 function onDessinChoice(n) { resume(n, "dessin"); }
+function onCouleeChoice(n) { resume(n, "coulee"); }
 function onEbarbageChoice(n) { resume(n, "ebarbage"); }
 function onAssemblageChoice(n) { resume(n, "assemblage"); }
 function endPeinture(n) { resume(n, "peinture"); } // TODO : 1 bulle avant QRCODE ??
@@ -171,6 +177,7 @@ async function resume(n, step) {
 
   switch (step) {
     case "dessin": await handleDessin(n); break;
+    case "coulee": await handleCoulee(n); break;
     case "ebarbage": await handleEbarbage(n); break;
     case "assemblage": await handleAssemblage(n); break;
     case "peinture": await handlePeinture(n); break;
@@ -179,6 +186,7 @@ async function resume(n, step) {
 
   switch (step) {
     case "dessin": showDessin.value = false; break;
+    case "coulee": showCoulee.value = false; break;
     case "ebarbage": showEbarbage.value = false; break;
     case "assemblage": showAssemblage.value = false; break;
     case "peinture": showPeinture.value = false; break;
@@ -207,6 +215,28 @@ async function handleDessin(n) {
       currentVideo = idDessinTrue-1;
       await playVideo(currentVideo);
       currentVideo = idDessinTrue+1;
+    }
+  }
+}
+
+async function handleCoulee(n) {
+  let videoFalse = 2 * n + (n < posLouche ? idCouleeFalse : idCouleeFalse-2);
+  let videoTrue = idCouleeTrue;
+
+  if (n == posLouche) {
+    currentVideo = videoTrue;
+    showCoulee.value = false;
+
+  } else {
+    nbErrorCoulee++;
+    showCoulee.value = false;
+    if (nbErrorCoulee == 1) currentVideo = videoFalse;
+    if (nbErrorCoulee == 2) {
+      currentVideo = videoFalse;
+      await playVideo(videoFalse);
+      currentVideo = idCouleeTrue-1;
+      await playVideo(currentVideo);
+      currentVideo = idCouleeTrue+1;
     }
   }
 }
@@ -281,6 +311,7 @@ async function playSequence() {
 }
 
 const showDessin = ref(false);
+const showCoulee = ref(false);
 const showEbarbage = ref(false);
 const showAssemblage = ref(false);
 const showPeinture = ref(false);
@@ -288,14 +319,16 @@ const showQR = ref(false);
 
 function launchInteractiveStep(step) {
   showDessin.value = false;
+  showCoulee.value = false;
   showEbarbage.value = false;
   showAssemblage.value = false;
   showQR.value = false;
 
-  TO1 = setTimeout(()=>{isInactive.value=true}, getText(20, language)*1000)
+  TO1 = setTimeout(()=>{isInactive.value=true}, getText(21, language)*1000)
 
   switch (step) {
     case "dessin": showDessin.value = true; break;
+    case "coulee": showCoulee.value = true; break;
     case "ebarbage": showEbarbage.value = true; break;
     case "assemblage": showAssemblage.value = true; break;
     case "peinture": showPeinture.value = true; break;
@@ -373,8 +406,8 @@ async function playVideo(n) {
     <TimeoutModal v-if="isInactive"
     @click="stillHere"
 
-    :interface="[getText(18, language), getText(19, language)]" 
-    :timer2="getText(21, language)"/>
+    :interface="[getText(19, language), getText(20, language)]" 
+    :timer2="getText(22, language)"/>
 
 
   <div class="video-screen" v-if="dialogs && texts">
@@ -392,22 +425,26 @@ async function playVideo(n) {
     <ChooseToolScreen v-if="showDessin" :choiceInstruction="getText(6, language)" :goodAnswer='posCriterium'
       @touchedTool="onDessinChoice" />
 
+    <!-- Coulee -->
+    <ChooseToolScreen v-if="showCoulee" :choiceInstruction="getText(7, language)" :goodAnswer='posLouche'
+      @touchedTool="onCouleeChoice" />
+
     <!-- Ebarbage -->
-    <ChooseToolScreen v-if="showEbarbage" :choiceInstruction="getText(7, language)" :goodAnswer='posLime'
+    <ChooseToolScreen v-if="showEbarbage" :choiceInstruction="getText(8, language)" :goodAnswer='posLime'
       @touchedTool="onEbarbageChoice" />
 
     <!-- Assemblage -->
-    <AssemblageStep v-if="showAssemblage" :instruction="getText(8, language)"
-      :skipText="[getText(9, language), getText(10, language)]" @chosenArm="onAssemblageChoice" />
+    <AssemblageStep v-if="showAssemblage" :instruction="getText(9, language)"
+      :skipText="[getText(10, language), getText(11, language)]" @chosenArm="onAssemblageChoice" />
 
     <!-- Peinture -->
     <PeintureStep v-if="showPeinture"
-      :instructions="[getText(13, language), getText(14, language), getText(15, language), getText(16, language)]"
-      :skipText="[getText(11, language), getText(12, language)]" :bras="arm" @chooseSkipPeinture="onSkipPeintureChoice"
+      :instructions="[getText(14, language), getText(15, language), getText(16, language), getText(17, language)]"
+      :skipText="[getText(12, language), getText(13, language)]" :bras="arm" @chooseSkipPeinture="onSkipPeintureChoice"
       @finaleCombination="endPeinture" />
 
     <!-- QRCode -->
-    <QRCodeScreen v-if="showQR" :instruction="getText(17, language)" :combination="finaleRichard" />
+    <QRCodeScreen v-if="showQR" :instruction="getText(18, language)" :combination="finaleRichard" />
   </div>
 
 </template>

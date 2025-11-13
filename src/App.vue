@@ -10,7 +10,7 @@ import VideoPlayer from './components/VideoPlayer.vue'
 const dialogs = ref({});
 const texts = ref({});
 
-let selectedStartId = 0;
+let selectedStartId = 29;
 
 onMounted(async () => {
   try {
@@ -48,7 +48,7 @@ function onLanguageSelected(lang) {
     <div class="debug debug-versions"
       v-if="dialogs && Object.keys(dialogs).length && texts && Object.keys(texts).length">
       Numéro de versions<br>
-      Build DEV du 12.11.25 à 17h45<br>
+      Build DEV du 13.11.25 à 20h30<br>
       Interface : {{ texts[Object.keys(texts).length - 1]["texte-FR"] }} <br>
       Dialogues : {{ dialogs[Object.keys(dialogs).length - 1]["texte-FR"] }} <br>
 
