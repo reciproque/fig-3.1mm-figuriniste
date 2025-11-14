@@ -26,7 +26,7 @@ defineProps({
 
 const step = ref(0);
 
-const emit = defineEmits(['finaleCombination', 'chooseSkipPeinture'])
+const emit = defineEmits(['action', 'finaleCombination', 'chooseSkipPeinture'])
 let finale = '';
 
 
@@ -51,6 +51,8 @@ function skipPeinture() {
 
 
 function nextStep() {
+
+    emit('action');
 
     if (step.value <= 4) {
         setTimeout(() => {

@@ -80,7 +80,7 @@ onBeforeUnmount(() => {
 
             <button id="close-inactivity"> {{ interface[1] }}</button>
 
-            <span class="version">Version DEV</span>
+            <span class="version">{{ interface[2] }}</span>
 
         </div>
 

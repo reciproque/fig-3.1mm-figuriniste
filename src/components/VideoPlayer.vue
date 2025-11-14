@@ -101,7 +101,9 @@ clearTimeout(TO1);
 
 function stillHere() {
   isInactive.value = false;
+  clearTimeout(TO1);
   TO1 = setTimeout(()=>{isInactive.value=true}, getText(21, language)*1000);
+
 }
 
 
@@ -406,7 +408,7 @@ async function playVideo(n) {
     <TimeoutModal v-if="isInactive"
     @click="stillHere"
 
-    :interface="[getText(19, language), getText(20, language)]" 
+    :interface="[getText(19, language), getText(20, language), getText(22, language)]" 
     :timer2="getText(22, language)"/>
 
 
@@ -441,7 +443,9 @@ async function playVideo(n) {
     <PeintureStep v-if="showPeinture"
       :instructions="[getText(14, language), getText(15, language), getText(16, language), getText(17, language)]"
       :skipText="[getText(12, language), getText(13, language)]" :bras="arm" @chooseSkipPeinture="onSkipPeintureChoice"
-      @finaleCombination="endPeinture" />
+      @action="stillHere"
+      @finaleCombination="endPeinture"
+       />
 
     <!-- QRCode -->
     <QRCodeScreen v-if="showQR" :instruction="getText(18, language)" :combination="finaleRichard" />

@@ -42,21 +42,21 @@
     "texte-DE": "-"
   },
   {
-    "étape": "Dessin 1",
+    "étape": "Dessin",
     "no": 6,
     "texte-FR": "Touchez l’outil permettant de dessiner",
     "texte-EN": "Tap the drawing tool",
     "texte-DE": "Tippen Sie auf das Zeichenwerkzeug"
   },
   {
-    "étape": "Louche",
+    "étape": "Coulée",
     "no": 7,
     "texte-FR": "Touchez l’outil permettant de faire la coulée",
     "texte-EN": "Tap the tool that allows you to perform the pouring",
     "texte-DE": "Tippen Sie auf das Werkzeug, mit dem Sie das Ausgießen durchführen können."
   },
   {
-    "étape": "Ebarbage 1",
+    "étape": "Ebarbage",
     "no": 8,
     "texte-FR": "Touchez l’outil permettant d'ébarber",
     "texte-EN": "Tap the deburring tool",
@@ -147,23 +147,30 @@
     "texte-DE": "Ja, weiter."
   },
   {
-    "étape": "Timeout 1",
+    "étape": "Timeout 1 (déclenchement, en secondes)",
     "no": 21,
     "texte-FR": 10,
     "texte-EN": 10,
     "texte-DE": 10
   },
   {
-    "étape": "Timeout 2",
+    "étape": "Timeout 2 (timer, en secondes)",
     "no": 22,
     "texte-FR": 10,
     "texte-EN": 10,
     "texte-DE": 10
   },
   {
+    "étape": "Numéro de version dans modale",
+    "no": 23,
+    "texte-FR": "Version dev (FR)",
+    "texte-EN": "Version dev (EN)",
+    "texte-DE": "Version dev (DE)"
+  },
+  {
     "étape": "NUMERO-VERSION",
     "no": "-",
-    "texte-FR": "13/11/2025 19:45:07",
+    "texte-FR": "14/11/2025 15:46:08",
     "texte-EN": "-",
     "texte-DE": "-"
   }
