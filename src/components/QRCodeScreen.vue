@@ -23,7 +23,7 @@ function reloadApp() {
 onMounted(() => {
     gsap.from(document.querySelector(".star"), { opacity: 0, delay: 0, scale: 0.95, duration: 1 })
     gsap.from(document.querySelector(".shadow"), { opacity: 0, delay: 0.1, scale: 0.95, duration: 1 })
-    gsap.from(document.querySelector(".richard"), { opacity: 0, delay: 0.2, scale: 0.95, duration: 1 })
+    //gsap.from(document.querySelector(".richard"), { opacity: 0, delay: 0.2, scale: 0.95, duration: 1 })
     gsap.from(document.querySelector(".light"), { opacity: 0, delay: 0.7, scale: 0.95, duration: 1 })
 
     gsap.from(document.querySelector(".qr-wrapper"), { opacity: 0, delay: 0.8, scale: 0.95, duration: 1 })
@@ -133,7 +133,7 @@ onMounted(() => {
 
 .richard {
     position: absolute;
-    top: 70px;
+    top: 90px;
     /* animation: richard 5s infinite; */
 }
 
@@ -164,12 +164,14 @@ onMounted(() => {
 }
 
 .star {
-    z-index: -32;
+    z-index: -10;
     position: absolute;
     top: 200px;
     animation: star 60s infinite linear;
-
+    -webkit-mask: linear-gradient(135deg,#000c 40%,#000,#000c 60%) 100% 100%/250% 250%;
+    mask: linear-gradient(135deg,#000c 40%,#000,#000c 60%) 100% 100%/250% 250%;
 }
+
 
 .light {
     z-index: -31;
@@ -184,6 +186,12 @@ onMounted(() => {
 @keyframes star {
     0% {
         rotate: 0deg;
+        
+    }
+
+    25% {
+    -webkit-mask-position: 0 0;
+      mask-position: 0 0;
     }
 
     100% {

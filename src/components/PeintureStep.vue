@@ -29,19 +29,40 @@ const step = ref(0);
 const emit = defineEmits(['action', 'finaleCombination', 'chooseSkipPeinture'])
 let finale = '';
 
+let canClick = true;
 
 function selectColor(n) {
+    if (canClick) {
+            canClick = false;
 
     gsap.from(document.getElementById("color-" + n), { scale: 0.5, duration: 0.2, ease: "bounce.out" })
+    
 
-    if (step.value == 0) peau = n;
+
+    if (step.value == 0) {
+        peau = n;
+
+    }
     if (step.value == 1) cheveux = n;
     if (step.value == 2) robe = n;
     if (step.value == 3) armoiries = n;
+    
+    const image = document.createElement("img");
+    image.className = "animation-peinture";
+    image.id = step.value;
+    image.src = `assets/videos-pinceaux/${step.value}/${n}.gif`;
+    document.querySelector(".anim-wrapper").appendChild(image);
 
-    // TODO : play la vidéo d'animation peinture par dessus
+    if (step.value >0) {
+        document.querySelector(".anim-wrapper").removeChild(document.getElementById(step.value-1))
+    }        
+    gsap.to(document.querySelector(".palette-wrapper"), { x: 200, opacity: 0, rotateZ: 20, duration: 1, delay:0.5 })
 
-    nextStep();
+
+    setTimeout(()=>{nextStep()},2000);
+
+    }
+
 
 }
 
@@ -55,17 +76,23 @@ function nextStep() {
     emit('action');
 
     if (step.value <= 4) {
-        setTimeout(() => {
-            gsap.from(document.querySelector(".palette-wrapper"), { x: 200, opacity: 0, rotateZ: 20, duration: 1 })
-        },
-            1000);
+
+        gsap.to(document.querySelector(".palette-wrapper"), { x: 0, opacity: 1, rotateZ: 0, duration: 1, delay:3})
+
     }
 
-    setTimeout(() => { step.value++ }, 1000);
+    setTimeout(() => { 
+        step.value++;  
+        canClick=true; }, 1000);
+ 
 
     if (step.value == 3) {
         finale = String(peau) + String(cheveux) + String(robe) + String(armoiries);
-        setTimeout(() => { emit('finaleCombination', finale) }, 1000);
+
+        gsap.to(document.querySelector(".palette-wrapper"), { x: 0, opacity: 1, rotateZ: 0, duration: 1, delay:3})
+
+
+        setTimeout(() => { emit('finaleCombination', finale) }, 3000);
     }
 }
 
@@ -84,6 +111,9 @@ onMounted(() => {
         <br> Robe/Bouclier : {{ robe }}
         <br> Cote de maille/Armoiries : {{ armoiries }}
     </div>
+
+    <div class="anim-wrapper"></div>
+
     <div class="peinture-screen">
         <div class="instruction">{{ instructions[step] }}</div>
         <div v-if="step == 0" class="randomizer-box" @click="skipPeinture()">{{ skipText[0] }}
@@ -134,6 +164,26 @@ onMounted(() => {
 </template>
 
 <style scoped>
+
+.anim-wrapper {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    top: 0;
+    z-index: 100;
+    pointer-events: none;
+    transform: scaleX(-1);
+    display: flex;
+
+
+}
+
+.animation-peinture  img {
+    image-rendering: optimizeSpeed;
+    z-index: 1000;
+    position: absolute;
+}
+
 .peinture-screen {
     display: flex;
     flex-direction: column;
@@ -221,8 +271,27 @@ em {
 .armoiries {
     position: absolute;
     pointer-events: none;
-    top: 100px;
+    top: 90px;
+}
 
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+    
+}
+
+.peau,
+.cheveux,
+.robe,
+.armoiries {
+    opacity: 1;
+
+    animation: appear 1s 1;
 }
 
 .peinture-debug {

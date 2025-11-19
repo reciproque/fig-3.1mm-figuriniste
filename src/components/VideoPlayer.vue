@@ -465,6 +465,8 @@ async function playVideo(n) {
       @finaleCombination="endPeinture"
        />
 
+    <img v-if="currentVideo==idFinPeinture || currentVideo==idFinPeinture+1 " class="richard" :src="'richards/resultats/' + finaleRichard + '.png'" alt="">
+
     <!-- QRCode -->
     <QRCodeScreen v-if="showQR" :instruction="getText(18, language)" :combination="finaleRichard" />
   </div>
@@ -472,6 +474,13 @@ async function playVideo(n) {
 </template>
 
 <style scoped>
+
+.richard {
+  position: absolute;
+  z-index: 100;
+  top: 90px;
+}
+
 button {
   position: absolute;
   top: 500px;
