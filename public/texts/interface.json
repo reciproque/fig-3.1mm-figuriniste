@@ -149,14 +149,14 @@
   {
     "étape": "Timeout 1 (déclenchement, en secondes)",
     "no": 21,
-    "texte-FR": 10,
+    "texte-FR": 100000,
     "texte-EN": 10,
     "texte-DE": 10
   },
   {
     "étape": "Timeout 2 (timer, en secondes)",
     "no": 22,
-    "texte-FR": 10,
+    "texte-FR": 100000,
     "texte-EN": 10,
     "texte-DE": 10
   },

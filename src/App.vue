@@ -10,7 +10,7 @@ import VideoPlayer from './components/VideoPlayer.vue'
 const dialogs = ref({});
 const texts = ref({});
 
-let selectedStartId = 0;
+let selectedStartId = 63;
 
 onMounted(async () => {
   try {
