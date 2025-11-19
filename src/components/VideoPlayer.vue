@@ -152,8 +152,12 @@ const idCouleeTrue = 41;
 const idEbarbageFalse = 44;
 const idEbarbageTrue = 59;
 
-const idDebutPeinture = 64;
-const idFinPeinture = 68;
+
+const idDebutPeintureBras1 = 64;
+const idDebutPeintureBras2 = 68;
+const idDebutPeintureBras3 = 72;
+
+const idFinPeinture = 76;
 
 let nbErrorDessin = 0;
 let nbErrorEbarbage = 0;
@@ -266,9 +270,23 @@ async function handleEbarbage(n) {
 }
 
 async function handleAssemblage(n) {
+  showAssemblage.value = false;
   console.log("Bras choisi : " + n);
   arm = n;
-  currentVideo = idDebutPeinture;
+  if (arm==1) {
+    currentVideo = idDebutPeintureBras1;
+  }
+  if (arm==2) {
+    currentVideo = idDebutPeintureBras2;
+  }
+  if (arm==3) {
+    currentVideo = idDebutPeintureBras3;
+  }
+
+  for (let i=1; i<=2; i++) {
+    await playVideo(currentVideo);
+    currentVideo++;
+  }
 }
 
 async function handlePeinture(n) {
