@@ -37,21 +37,28 @@ function selectColor(n) {
 
     gsap.from(document.getElementById("color-" + n), { scale: 0.5, duration: 0.2, ease: "bounce.out" })
     
+    
 
-
-    if (step.value == 0) {
+    if (step.value == 0){
         peau = n;
-
+    } 
+    if (step.value == 1) {
+        cheveux = n;
     }
-    if (step.value == 1) cheveux = n;
-    if (step.value == 2) robe = n;
-    if (step.value == 3) armoiries = n;
+    if (step.value == 2) {
+        robe = n;
+    }
+    if (step.value == 3) {
+        armoiries = n;
+}
     
     const image = document.createElement("img");
     image.className = "animation-peinture";
     image.id = step.value;
     image.src = `assets/videos-pinceaux/${step.value}/${n}.gif`;
     document.querySelector(".anim-wrapper").appendChild(image);
+    document.querySelector(".anim-wrapper").style.display = "block"
+
 
     if (step.value >0) {
         document.querySelector(".anim-wrapper").removeChild(document.getElementById(step.value-1))
@@ -81,9 +88,31 @@ function nextStep() {
 
     }
 
+    let stepDelay = 2000;
+
+    if (step.value == 0){
+        stepDelay = 1000;
+        setTimeout(()=>{document.querySelector(".anim-wrapper").style.display = "none"}, 4000);
+    } 
+    if (step.value == 1) {
+        stepDelay = 200;
+        setTimeout(()=>{document.querySelector(".anim-wrapper").style.display = "none"}, 4000);
+
+    }
+    if (step.value == 2) {
+        stepDelay = 600;
+        setTimeout(()=>{document.querySelector(".anim-wrapper").style.display = "none"}, 4000);
+
+    }
+    if (step.value == 3) {
+        stepDelay = 600;
+        setTimeout(()=>{document.querySelector(".anim-wrapper").style.display = "none"}, 4000);
+
+}
+
     setTimeout(() => { 
         step.value++;  
-        canClick=true; }, 1000);
+        canClick=true; }, stepDelay);
  
 
     if (step.value == 3) {
@@ -172,10 +201,7 @@ onMounted(() => {
     top: 0;
     z-index: 100;
     pointer-events: none;
-    transform: scaleX(-1);
     display: flex;
-
-
 }
 
 .animation-peinture  img {

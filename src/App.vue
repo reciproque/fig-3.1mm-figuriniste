@@ -10,7 +10,7 @@ import VideoPlayer from './components/VideoPlayer.vue'
 const dialogs = ref({});
 const texts = ref({});
 
-let selectedStartId = 62;
+let selectedStartId = 66;
 
 onMounted(async () => {
   try {
@@ -19,9 +19,19 @@ onMounted(async () => {
 
     const textsRes = await fetch('texts/interface.json');
     texts.value = await textsRes.json();
+
   } catch (error) {
     console.error('Erreur lors du chargement des fichiers JSON : ', error);
   }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === "d" || e.key === "D") {
+      console.log("d")
+      displayDebug ? ( document.querySelectorAll(".debug").forEach(element => {element.style.display = "none";})) : document.querySelectorAll(".debug").forEach(element => {element.style.display = "block";})
+      displayDebug = !displayDebug;
+    }
+});
+
 });
 
 //
@@ -33,6 +43,10 @@ const selectedLanguage = ref(null)
 function onLanguageSelected(lang) {
   selectedLanguage.value = lang
 }
+
+let displayDebug = true;
+
+
 
 //
 
@@ -46,9 +60,10 @@ function onLanguageSelected(lang) {
     <VideoPlayer v-else :language="selectedLanguage" :startId="selectedStartId" />
 
     <div class="debug debug-versions"
-      v-if="dialogs && Object.keys(dialogs).length && texts && Object.keys(texts).length">
-      Numéro de versions<br>
-      Build DEV du 19.11.25 à 15h45<br>
+      v-if="dialogs && Object.keys(dialogs).length && texts && Object.keys(texts).length"> 
+      Appuyer sur D pour afficher/désafficher debug<br>
+      Numéro de versions :<br>
+      Build DEV du 24.11.25 à 18h40<br>
       Interface : {{ texts[Object.keys(texts).length - 1]["texte-FR"] }} <br>
       Dialogues : {{ dialogs[Object.keys(dialogs).length - 1]["texte-FR"] }} <br>
 
@@ -118,7 +133,6 @@ h2 {
 }
 
 .debug {
-  /* display: none; */
   color: white;
   position: absolute;
   padding: 10px;

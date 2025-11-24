@@ -149,14 +149,14 @@
   {
     "étape": "Timeout 1 (déclenchement, en secondes)",
     "no": 21,
-    "texte-FR": 100000,
+    "texte-FR": 30,
     "texte-EN": 10,
     "texte-DE": 10
   },
   {
     "étape": "Timeout 2 (timer, en secondes)",
     "no": 22,
-    "texte-FR": 100000,
+    "texte-FR": 10,
     "texte-EN": 10,
     "texte-DE": 10
   },
@@ -168,9 +168,16 @@
     "texte-DE": "Version dev (DE)"
   },
   {
+    "étape": "DEBUG",
+    "no": 24,
+    "texte-FR": "TRUE",
+    "texte-EN": "TRUE",
+    "texte-DE": "TRUE"
+  },
+  {
     "étape": "NUMERO-VERSION",
     "no": "-",
-    "texte-FR": "14/11/2025 15:46:08",
+    "texte-FR": "24/11/2025 17:33:33",
     "texte-EN": "-",
     "texte-DE": "-"
   }

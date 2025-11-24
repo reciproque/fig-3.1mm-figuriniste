@@ -153,11 +153,11 @@ const idEbarbageFalse = 44;
 const idEbarbageTrue = 59;
 
 
-const idDebutPeintureBras1 = 64;
-const idDebutPeintureBras2 = 68;
-const idDebutPeintureBras3 = 72;
+const idDebutPeintureBras1 = 63;
+const idDebutPeintureBras2 = 67;
+const idDebutPeintureBras3 = 71;
 
-const idFinPeinture = 76;
+const idFinPeinture = 75;
 
 let nbErrorDessin = 0;
 let nbErrorEbarbage = 0;

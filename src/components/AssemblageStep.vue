@@ -33,7 +33,7 @@ function startDrag(e, n) {
     const arm = document.getElementById("arms-" + n);
     arm.style.position = "absolute";
 
-    document.getElementById("circle-"+n).style.opacity = "0.5";
+    document.getElementById("circle-"+n).style.opacity = "0.2";
 
     function moveAt(event) {
         let x, y;
@@ -79,39 +79,23 @@ function startDrag(e, n) {
 
         let xfinal = Number(arm.style.left.replace(/px$/, ''));
 
-        // RICHARD OK
-        if (xfinal >= -400 && xfinal <= 100) {
-            canClick = false;
-            if (n==1) {
-                arm.style.left = arm1final[0]+"px";
-                arm.style.top = arm1final[1]+"px";
-            }
-            if (n==2) {
-                arm.style.left = arm2final[0]+"px";
-                arm.style.top = arm2final[1]+"px";
-            }
-            if (n==3) {
-                arm.style.left = arm3final[0]+"px";
-                arm.style.top = arm3final[1]+"px";
-            }
+        canClick = false;
+        if (n==1) {
+            arm.style.left = arm1final[0]+"px";
+            arm.style.top = arm1final[1]+"px";
+        }
+        if (n==2) {
+            arm.style.left = arm2final[0]+"px";
+            arm.style.top = arm2final[1]+"px";
+        }
+        if (n==3) {
+            arm.style.left = arm3final[0]+"px";
+            arm.style.top = arm3final[1]+"px";
+        }
+
 
         setTimeout(() => emit('chosenArm', n), 50);
-        }
-        // Retour position initiale
-        else {
-            if (n==1) {
-                arm.style.left = arm1init[0]+"px";
-                arm.style.top = arm1init[1]+"px";
-            }
-            if (n==2) {
-                arm.style.left = arm2init[0]+"px";
-                arm.style.top = arm2init[1]+"px";
-            }
-            if (n==3) {
-                arm.style.left = arm3init[0]+"px";
-                arm.style.top = arm3init[1]+"px";
-            }
-        }
+        
     }
     if (canClick) {
 

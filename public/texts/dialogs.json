@@ -1,6 +1,7 @@
 [
   {
     "video": 0,
+    "video new": 0,
     "etape": "Intro",
     "nomenclature-video": "Dessin_01.mp4",
     "ID spec.": "",
@@ -18,6 +19,7 @@
   },
   {
     "video": 1,
+    "video new": 1,
     "etape": "Intro",
     "nomenclature-video": "Dessin_02.mp4",
     "ID spec.": "idDessinFalse",
@@ -35,6 +37,7 @@
   },
   {
     "video": 2,
+    "video new": 2,
     "etape": "Dessin",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -52,6 +55,7 @@
   },
   {
     "video": 3,
+    "video new": 3,
     "etape": "Dessin",
     "nomenclature-video": "Mauvaise_outill_02.mp4",
     "ID spec.": "videoFalse = 2 * n + idDessinFalse;\ntouché 1 -> video 3",
@@ -69,6 +73,7 @@
   },
   {
     "video": 4,
+    "video new": 4,
     "etape": "Dessin",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -86,6 +91,7 @@
   },
   {
     "video": 5,
+    "video new": 5,
     "etape": "Dessin",
     "nomenclature-video": "Mauvaise_outill_03.mp4",
     "ID spec.": "videoFalse = 2 * n + idDessinFalse;\ntouché 2 -> video 5",
@@ -103,6 +109,7 @@
   },
   {
     "video": 6,
+    "video new": 6,
     "etape": "Dessin",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -120,6 +127,7 @@
   },
   {
     "video": 7,
+    "video new": 7,
     "etape": "Dessin",
     "nomenclature-video": "Mauvaise_outill_06.mp4",
     "ID spec.": "videoFalse = 2 * n + idDessinFalse;\ntouché 3 -> video 7",
@@ -137,6 +145,7 @@
   },
   {
     "video": 8,
+    "video new": 8,
     "etape": "Dessin",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -154,6 +163,7 @@
   },
   {
     "video": 9,
+    "video new": 9,
     "etape": "Dessin",
     "nomenclature-video": "Mauvaise_outill_05.mp4",
     "ID spec.": "videoFalse = 2 * n + idDessinFalse;\ntouché 4 -> video 9",
@@ -171,6 +181,7 @@
   },
   {
     "video": 10,
+    "video new": 10,
     "etape": "Dessin",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -188,6 +199,7 @@
   },
   {
     "video": 11,
+    "video new": 11,
     "etape": "Dessin",
     "nomenclature-video": "Mauvaise_outill_04.mp4",
     "ID spec.": "videoFalse = 2 * n + idDessinFalse;\ntouché 5 -> video 11",
@@ -205,6 +217,7 @@
   },
   {
     "video": 12,
+    "video new": 12,
     "etape": "Dessin",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -222,6 +235,7 @@
   },
   {
     "video": 13,
+    "video new": 13,
     "etape": "Dessin",
     "nomenclature-video": "Dessin_11.mp4",
     "ID spec.": "idDessinTrue -1",
@@ -230,52 +244,37 @@
     "timecode-end": 3,
     "end": "skip",
     "pause": "",
-    "texte-FR": "Pour pouvoir dessiner notre figurine, c'est un critérium qu'il nous faut.",
-    "texte-EN": "To be able to draw our figurine, we need a mechanical pencil.",
-    "texte-DE": "Um unsere Figur zeichnen zu können, benötigen wir einen Druckbleistift.",
-    "nb-car-FR": 73,
-    "nb-car-EN": 61,
-    "nb-car-DE": 71
+    "texte-FR": "Pour pouvoir dessiner notre figurine, c'est un critérium qu'il nous faut. Il nous faut également une feuille.",
+    "texte-EN": "To draw our figurine, we need a mechanical pencil. We also need a sheet of paper.",
+    "texte-DE": "Um unsere Figur zu zeichnen, benötigen wir einen Druckbleistift. Wir benötigen außerdem ein Blatt Papier.",
+    "nb-car-FR": 109,
+    "nb-car-EN": 81,
+    "nb-car-DE": 105
   },
   {
     "video": 14,
+    "video new": 14,
     "etape": "Dessin",
-    "nomenclature-video": "Dessin_06.mp4",
+    "nomenclature-video": "Dessin_11.mp4",
     "ID spec.": "idDessinTrue",
     "duration": 4,
     "timecode-start": 2,
     "timecode-end": 6,
     "end": "skip",
     "pause": "",
-    "texte-FR": "Parfait !  Avec ce critérium nous allons pouvoir dessiner notre figurine.",
-    "texte-EN": "Perfect! With this mechanical pencil we will be able to draw our figurine.",
-    "texte-DE": "Perfekt! Mit diesem Druckbleistift können wir unsere Figur zeichnen.",
-    "nb-car-FR": 73,
-    "nb-car-EN": 74,
-    "nb-car-DE": 68
-  },
-  {
-    "video": 15,
-    "etape": "Dessin",
-    "nomenclature-video": "Dessin_07.mp4",
-    "ID spec.": "idDessinTrue  +1",
-    "duration": 3,
-    "timecode-start": 2,
-    "timecode-end": 5,
-    "end": "skip",
-    "pause": "",
-    "texte-FR": "Il nous faut également une feuille.",
-    "texte-EN": "We also need a sheet of paper.",
-    "texte-DE": "Wir benötigen außerdem ein Blatt Papier.",
-    "nb-car-FR": 35,
-    "nb-car-EN": 30,
-    "nb-car-DE": 40
+    "texte-FR": "Parfait !  Avec ce critérium nous allons pouvoir dessiner notre figurine. Il nous faut également une feuille.",
+    "texte-EN": "Perfect! With this mechanical pencil we can draw our figurine. We also need a sheet of paper.",
+    "texte-DE": "Perfekt! Mit diesem Druckbleistift können wir unsere Figur zeichnen. Wir brauchen außerdem ein Blatt Papier.",
+    "nb-car-FR": 109,
+    "nb-car-EN": 93,
+    "nb-car-DE": 108
   },
   {
     "video": 16,
+    "video new": 15,
     "etape": "Dessin",
     "nomenclature-video": "Dessin_08.mp4",
-    "ID spec.": "",
+    "ID spec.": "idDessinTrue  +1",
     "duration": 6,
     "timecode-start": 0,
     "timecode-end": 6,
@@ -290,12 +289,13 @@
   },
   {
     "video": 17,
+    "video new": 16,
     "etape": "Dessin",
     "nomenclature-video": "Dessin_09.mp4",
     "ID spec.": "",
     "duration": 5,
-    "timecode-start": 2,
-    "timecode-end": 7,
+    "timecode-start": 0,
+    "timecode-end": 5,
     "end": "skip",
     "pause": "",
     "texte-FR": "J’ai pour cela réuni de la documentation sur Richard Cœur de Lion.",
@@ -307,6 +307,7 @@
   },
   {
     "video": 18,
+    "video new": 17,
     "etape": "Dessin",
     "nomenclature-video": "Dessin_10.mp4",
     "ID spec.": "",
@@ -324,6 +325,7 @@
   },
   {
     "video": 19,
+    "video new": 18,
     "etape": "Modelage",
     "nomenclature-video": "Modelage_01.mp4",
     "ID spec.": "",
@@ -341,6 +343,7 @@
   },
   {
     "video": 20,
+    "video new": 19,
     "etape": "Modelage",
     "nomenclature-video": "Modelage_02.mp4",
     "ID spec.": "",
@@ -358,6 +361,7 @@
   },
   {
     "video": 21,
+    "video new": 20,
     "etape": "Modelage",
     "nomenclature-video": "Modelage_03.mp4",
     "ID spec.": "",
@@ -375,6 +379,7 @@
   },
   {
     "video": 22,
+    "video new": 21,
     "etape": "Modelage",
     "nomenclature-video": "Modelage_04.mp4",
     "ID spec.": "",
@@ -392,6 +397,7 @@
   },
   {
     "video": 23,
+    "video new": 22,
     "etape": "Modelage",
     "nomenclature-video": "Modelage_05.mp4",
     "ID spec.": "",
@@ -409,6 +415,7 @@
   },
   {
     "video": 24,
+    "video new": 23,
     "etape": "Moule",
     "nomenclature-video": "Moule_01.mp4",
     "ID spec.": "",
@@ -426,6 +433,7 @@
   },
   {
     "video": 25,
+    "video new": 24,
     "etape": "Moule",
     "nomenclature-video": "Moule_02.mp4",
     "ID spec.": "",
@@ -443,6 +451,7 @@
   },
   {
     "video": 26,
+    "video new": 25,
     "etape": "Moule",
     "nomenclature-video": "Moule_03.mp4",
     "ID spec.": "",
@@ -460,12 +469,13 @@
   },
   {
     "video": 27,
+    "video new": 26,
     "etape": "Moule",
     "nomenclature-video": "Moule_04.mp4",
     "ID spec.": "",
     "duration": 5,
-    "timecode-start": 2,
-    "timecode-end": 7,
+    "timecode-start": 1,
+    "timecode-end": 6,
     "end": "skip",
     "pause": "",
     "texte-FR": "Comme vous pouvez le voir, nous n'avons reçu ici que le moule du corps. Quant à la tête...",
@@ -477,9 +487,10 @@
   },
   {
     "video": 28,
+    "video new": 27,
     "etape": "Moule",
     "nomenclature-video": "Coulee_01.mp4",
-    "ID spec.": "idCouleeFalse",
+    "ID spec.": "",
     "duration": 5,
     "timecode-start": 1,
     "timecode-end": 6,
@@ -494,6 +505,25 @@
   },
   {
     "video": 29,
+    "video new": 28,
+    "etape": "Coulée",
+    "nomenclature-video": "Coulee_07.mp4",
+    "ID spec.": "idCouleeFalse",
+    "duration": 3,
+    "timecode-start": 1,
+    "timecode-end": 4,
+    "end": "skip",
+    "pause": "",
+    "texte-FR": "... Puis, de couler le métal à l'intérieur.",
+    "texte-EN": "...Then, pour the metal inside.",
+    "texte-DE": "...Und dann zum Metall im Inneren.",
+    "nb-car-FR": 45,
+    "nb-car-EN": 32,
+    "nb-car-DE": 36
+  },
+  {
+    "video": "",
+    "video new": 29,
     "etape": "Coulée",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -502,15 +532,16 @@
     "timecode-end": 2,
     "end": "pause",
     "pause": "coulee",
-    "texte-FR": "... Puis, de couler le métal à l'intérieur. \nPourriez-vous, s'il vous plaît, me passer l'outil qui nous aidera à prélever le mélange ?",
-    "texte-EN": "...Then, pour the metal inside.\nCould you please pass me the tool that will help us scoop the mixture?",
-    "texte-DE": "...Und nun zum Metall im Inneren.\nKönnten Sie mir bitte das Werkzeug reichen, mit dem wir die Mischung herausschöpfen können?",
-    "nb-car-FR": 134,
-    "nb-car-EN": 102,
-    "nb-car-DE": 125
+    "texte-FR": "Pourriez-vous, s'il vous plaît, me passer l'outil qui nous aidera à prélever le mélange ?",
+    "texte-EN": "Could you please pass me the tool that will help us to collect the mixture?",
+    "texte-DE": "Könnten Sie mir bitte das Gerät aushändigen, mit dem wir die Mischung auffangen können?",
+    "nb-car-FR": 89,
+    "nb-car-EN": 75,
+    "nb-car-DE": 87
   },
   {
     "video": 30,
+    "video new": 30,
     "etape": "Coulée",
     "nomenclature-video": "Mauvaise_outill_02.mp4",
     "ID spec.": "videoFalse = 2 * n + (n < posLouche ? idCouleeFalse : idCouleeFalse-2);\nvideoFalse = 2 * n + (n < 5 ? 28 : 26);\ntouché 1 -> video 30",
@@ -528,6 +559,7 @@
   },
   {
     "video": 31,
+    "video new": 31,
     "etape": "Coulée",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -545,6 +577,7 @@
   },
   {
     "video": 32,
+    "video new": 32,
     "etape": "Coulée",
     "nomenclature-video": "Mauvaise_outill_03.mp4",
     "ID spec.": "videoFalse = 2 * n + (n < posLouche ? idCouleeFalse : idCouleeFalse-2);\nvideoFalse = 2 * n + (n < 5 ? 28 : 26);\ntouché 2 -> video 32",
@@ -562,6 +595,7 @@
   },
   {
     "video": 33,
+    "video new": 33,
     "etape": "Coulée",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -579,6 +613,7 @@
   },
   {
     "video": 34,
+    "video new": 34,
     "etape": "Coulée",
     "nomenclature-video": "Mauvaise_outill_06.mp4",
     "ID spec.": "videoFalse = 2 * n + (n < posLouche ? idCouleeFalse : idCouleeFalse-2);\nvideoFalse = 2 * n + (n < 5 ? 28 : 26);\ntouché 3 -> video 34",
@@ -596,6 +631,7 @@
   },
   {
     "video": 35,
+    "video new": 35,
     "etape": "Coulée",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -613,6 +649,7 @@
   },
   {
     "video": 36,
+    "video new": 36,
     "etape": "Coulée",
     "nomenclature-video": "Mauvaise_outill_05.mp4",
     "ID spec.": "videoFalse = 2 * n + (n < posLouche ? idCouleeFalse : idCouleeFalse-2);\nvideoFalse = 2 * n + (n < 5 ? 28 : 26);\ntouché 4 -> video 36",
@@ -630,6 +667,7 @@
   },
   {
     "video": 37,
+    "video new": 37,
     "etape": "Coulée",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -647,6 +685,7 @@
   },
   {
     "video": 38,
+    "video new": 38,
     "etape": "Coulée",
     "nomenclature-video": "Mauvaise_outill_01.mp4",
     "ID spec.": "videoFalse = 2 * n + (n < posLouche ? idCouleeFalse : idCouleeFalse-2);\nvideoFalse = 2 * n + (n < 5 ? 28 : 26);\ntouché 6 -> video 38",
@@ -664,6 +703,7 @@
   },
   {
     "video": 39,
+    "video new": 39,
     "etape": "Coulée",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -681,6 +721,7 @@
   },
   {
     "video": 40,
+    "video new": 40,
     "etape": "Coulée",
     "nomenclature-video": "Coulee_02.mp4",
     "ID spec.": "idCouleeTrue-1",
@@ -698,6 +739,7 @@
   },
   {
     "video": 41,
+    "video new": 41,
     "etape": "Coulée",
     "nomenclature-video": "Coulee_02.mp4",
     "ID spec.": "idCouleeTrue",
@@ -715,6 +757,7 @@
   },
   {
     "video": 42,
+    "video new": 42,
     "etape": "Coulée",
     "nomenclature-video": "Coulee_03.mp4",
     "ID spec.": "idCouleeTrue+1",
@@ -732,12 +775,13 @@
   },
   {
     "video": 43,
+    "video new": 43,
     "etape": "Coulée",
     "nomenclature-video": "Coulee_04.mp4",
     "ID spec.": "",
-    "duration": 3,
+    "duration": 2,
     "timecode-start": 0,
-    "timecode-end": 3,
+    "timecode-end": 2,
     "end": "skip",
     "pause": "",
     "texte-FR": "",
@@ -749,6 +793,7 @@
   },
   {
     "video": 44,
+    "video new": 44,
     "etape": "Coulée",
     "nomenclature-video": "Coulee_05.mp4",
     "ID spec.": "idEbarbageFalse",
@@ -766,6 +811,7 @@
   },
   {
     "video": 45,
+    "video new": 45,
     "etape": "Coulée",
     "nomenclature-video": "Coulee_06.mp4",
     "ID spec.": "",
@@ -783,6 +829,7 @@
   },
   {
     "video": 46,
+    "video new": 46,
     "etape": "Ebarbage",
     "nomenclature-video": "Ebarbage_01.mp4",
     "ID spec.": "",
@@ -800,6 +847,7 @@
   },
   {
     "video": 47,
+    "video new": 47,
     "etape": "Ebarbage",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -817,6 +865,7 @@
   },
   {
     "video": 48,
+    "video new": 48,
     "etape": "Ebarbage",
     "nomenclature-video": "Mauvaise_outill_02.mp4",
     "ID spec.": "videoFalse = 2 * n + (n < posLime ? idEbarbageFalse+2 : idEbarbageFalse);\nvideoFalse = 2 * n + (n < 2 ? 46 : 44); \ntouché 1 -> videoFalse = 48",
@@ -834,6 +883,7 @@
   },
   {
     "video": 49,
+    "video new": 49,
     "etape": "Ebarbage",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -851,6 +901,7 @@
   },
   {
     "video": 50,
+    "video new": 50,
     "etape": "Ebarbage",
     "nomenclature-video": "Mauvaise_outill_06.mp4",
     "ID spec.": "videoFalse = 2 * n + (n < posLime ? idEbarbageFalse+2 : idEbarbageFalse);\nvideoFalse = 2 * n + (n < 2 ? 46 : 44); \ntouché 3 -> videoFalse = 50",
@@ -868,6 +919,7 @@
   },
   {
     "video": 51,
+    "video new": 51,
     "etape": "Ebarbage",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -885,6 +937,7 @@
   },
   {
     "video": 52,
+    "video new": 52,
     "etape": "Ebarbage",
     "nomenclature-video": "Mauvaise_outill_05.mp4",
     "ID spec.": "videoFalse = 2 * n + (n < posLime ? idEbarbageFalse+2 : idEbarbageFalse);\nvideoFalse = 2 * n + (n < 2 ? 46 : 44); \ntouché 4 -> videoFalse = 52",
@@ -902,6 +955,7 @@
   },
   {
     "video": 53,
+    "video new": 53,
     "etape": "Ebarbage",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -919,6 +973,7 @@
   },
   {
     "video": 54,
+    "video new": 54,
     "etape": "Ebarbage",
     "nomenclature-video": "Mauvaise_outill_04.mp4",
     "ID spec.": "videoFalse = 2 * n + (n < posLime ? idEbarbageFalse+2 : idEbarbageFalse);\nvideoFalse = 2 * n + (n < 2 ? 46 : 44); \ntouché 5 -> videoFalse = 54",
@@ -936,6 +991,7 @@
   },
   {
     "video": 55,
+    "video new": 55,
     "etape": "Ebarbage",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -953,6 +1009,7 @@
   },
   {
     "video": 56,
+    "video new": 56,
     "etape": "Ebarbage",
     "nomenclature-video": "Mauvaise_outill_01.mp4",
     "ID spec.": "videoFalse = 2 * n + (n < posLime ? idEbarbageFalse+2 : idEbarbageFalse);\nvideoFalse = 2 * n + (n < 2 ? 46 : 44); \ntouché 6 -> videoFalse = 56",
@@ -970,6 +1027,7 @@
   },
   {
     "video": 57,
+    "video new": 57,
     "etape": "Ebarbage",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -987,6 +1045,7 @@
   },
   {
     "video": 58,
+    "video new": 58,
     "etape": "Ebarbage",
     "nomenclature-video": "Ebarbage_02.mp4",
     "ID spec.": "idEbarbageTrue-1",
@@ -995,15 +1054,16 @@
     "timecode-end": 5,
     "end": "skip",
     "pause": "",
-    "texte-FR": "C'est une lime qu'il nous faut. Après avoir retiré les surplus à l'aide d'une pince...",
-    "texte-EN": "We need a file. After removing the excess with pliers...",
-    "texte-DE": "Wir benötigen eine Feile. Nachdem wir das Überschüssige mit einer Zange entfernt haben...",
-    "nb-car-FR": 87,
-    "nb-car-EN": 56,
-    "nb-car-DE": 89
+    "texte-FR": "C'est une lime qu'il nous faut. Après avoir retiré les surplus à l'aide d'une pince, je lime les imperfections, jusqu’à obtenir une figurine parfaite.",
+    "texte-EN": "We need a file. After removing the excess material with pliers, I file down the imperfections until I obtain a perfect figurine.",
+    "texte-DE": "Wir benötigen eine Feile. Nachdem ich das überschüssige Material mit einer Zange entfernt habe, feile ich die Unebenheiten so lange ab, bis ich eine perfekte Figur erhalte.",
+    "nb-car-FR": 151,
+    "nb-car-EN": 128,
+    "nb-car-DE": 172
   },
   {
     "video": 59,
+    "video new": 59,
     "etape": "Ebarbage",
     "nomenclature-video": "Ebarbage_02.mp4",
     "ID spec.": "idEbarbageTrue",
@@ -1012,35 +1072,19 @@
     "timecode-end": 5,
     "end": "skip",
     "pause": "",
-    "texte-FR": "Bravo et merci pour la lime !  Après avoir retiré les surplus à l'aide d'une pince...",
-    "texte-EN": "Great and thanks for the file! After removing the excess with pliers...",
-    "texte-DE": "Super, vielen Dank für die Datei! Nachdem ich den Überschuss mit einer Zange entfernt hatte...",
-    "nb-car-FR": 85,
-    "nb-car-EN": 71,
-    "nb-car-DE": 94
-  },
-  {
-    "video": 60,
-    "etape": "Ebarbage",
-    "nomenclature-video": "Ebarbage_03.mp4",
-    "ID spec.": "idEbarbageTrue+1",
-    "duration": 4,
-    "timecode-start": 0,
-    "timecode-end": 4,
-    "end": "skip",
-    "pause": "",
-    "texte-FR": "... je lime les imperfections, jusqu’à obtenir une figurine parfaite.",
-    "texte-EN": "... I file down the imperfections until I get a perfect figure.",
-    "texte-DE": "...Ich feile die Unvollkommenheiten so lange ab, bis ich eine perfekte Figur erhalte.",
-    "nb-car-FR": 69,
-    "nb-car-EN": 63,
-    "nb-car-DE": 85
+    "texte-FR": "Bravo et merci pour la lime !  Après avoir retiré les surplus à l'aide d'une pince, je lime les imperfections, jusqu’à obtenir une figurine parfaite.",
+    "texte-EN": "Well done and thank you for the file! After removing the excess with pliers, I file the imperfections until I obtain a perfect figurine.",
+    "texte-DE": "Gut gemacht und vielen Dank für die Feile! Nachdem ich das überschüssige Material mit einer Zange entfernt habe, feile ich die Unebenheiten so lange aus, bis ich eine perfekte Figur erhalte.",
+    "nb-car-FR": 149,
+    "nb-car-EN": 136,
+    "nb-car-DE": 190
   },
   {
     "video": 61,
+    "video new": 60,
     "etape": "Assemblage",
     "nomenclature-video": "Assemblage_01.mp4",
-    "ID spec.": "",
+    "ID spec.": "idEbarbageTrue+1",
     "duration": 4,
     "timecode-start": 2,
     "timecode-end": 6,
@@ -1055,6 +1099,7 @@
   },
   {
     "video": 62,
+    "video new": 61,
     "etape": "Assemblage",
     "nomenclature-video": "Assemblage_02.mp4",
     "ID spec.": "",
@@ -1072,6 +1117,7 @@
   },
   {
     "video": 63,
+    "video new": 62,
     "etape": "Assemblage",
     "nomenclature-video": "Assemblage_03.mp4",
     "ID spec.": "",
@@ -1089,6 +1135,7 @@
   },
   {
     "video": 64,
+    "video new": 63,
     "etape": "Peinture - bras 1",
     "nomenclature-video": "Peinture_05.mp4",
     "ID spec.": "idDebutPeintureBras1",
@@ -1106,12 +1153,13 @@
   },
   {
     "video": 65,
+    "video new": 64,
     "etape": "Peinture - bras 1",
-    "nomenclature-video": "Peinture_06.mp4",
+    "nomenclature-video": "Peinture_60.mp4",
     "ID spec.": "",
     "duration": 5,
     "timecode-start": 0,
-    "timecode-end": 5,
+    "timecode-end": 4,
     "end": "skip",
     "pause": "",
     "texte-FR": "Tout est prêt. Pour les couleurs, j'utilise des pinceaux très précis.",
@@ -1123,8 +1171,9 @@
   },
   {
     "video": 66,
+    "video new": 65,
     "etape": "Peinture - bras 1",
-    "nomenclature-video": "Peinture_06.mp4",
+    "nomenclature-video": "Peinture_61.mp4",
     "ID spec.": "",
     "duration": 5,
     "timecode-start": 0,
@@ -1140,12 +1189,13 @@
   },
   {
     "video": 67,
+    "video new": 66,
     "etape": "Peinture - bras 1",
-    "nomenclature-video": "Peinture_06.mp4",
+    "nomenclature-video": "Peinture_62.mp4",
     "ID spec.": "",
     "duration": 2,
     "timecode-start": 0,
-    "timecode-end": 2,
+    "timecode-end": 1,
     "end": "pause",
     "pause": "peinture",
     "texte-FR": "",
@@ -1157,6 +1207,7 @@
   },
   {
     "video": 68,
+    "video new": 67,
     "etape": "Peinture - bras 2",
     "nomenclature-video": "Peinture_03.mp4",
     "ID spec.": "idDebutPeintureBras2",
@@ -1174,12 +1225,13 @@
   },
   {
     "video": 69,
+    "video new": 68,
     "etape": "Peinture - bras 2",
-    "nomenclature-video": "Peinture_04.mp4",
+    "nomenclature-video": "Peinture_40.mp4",
     "ID spec.": "",
     "duration": 5,
     "timecode-start": 0,
-    "timecode-end": 5,
+    "timecode-end": 4,
     "end": "skip",
     "pause": "",
     "texte-FR": "Tout est prêt. Pour les couleurs, j'utilise des pinceaux très précis.",
@@ -1191,8 +1243,9 @@
   },
   {
     "video": 70,
+    "video new": 69,
     "etape": "Peinture - bras 2",
-    "nomenclature-video": "Peinture_04.mp4",
+    "nomenclature-video": "Peinture_41.mp4",
     "ID spec.": "",
     "duration": 5,
     "timecode-start": 0,
@@ -1208,12 +1261,13 @@
   },
   {
     "video": 71,
+    "video new": 70,
     "etape": "Peinture - bras 2",
-    "nomenclature-video": "Peinture_04.mp4",
+    "nomenclature-video": "Peinture_42.mp4",
     "ID spec.": "",
     "duration": 2,
     "timecode-start": 0,
-    "timecode-end": 2,
+    "timecode-end": 1,
     "end": "pause",
     "pause": "peinture",
     "texte-FR": "",
@@ -1225,6 +1279,7 @@
   },
   {
     "video": 72,
+    "video new": 71,
     "etape": "Peinture - bras 3",
     "nomenclature-video": "Peinture_01.mp4",
     "ID spec.": "idDebutPeintureBras3",
@@ -1242,12 +1297,13 @@
   },
   {
     "video": 73,
+    "video new": 72,
     "etape": "Peinture - bras 3",
-    "nomenclature-video": "Peinture_02.mp4",
+    "nomenclature-video": "Peinture_20.mp4",
     "ID spec.": "",
     "duration": 5,
     "timecode-start": 0,
-    "timecode-end": 5,
+    "timecode-end": 4,
     "end": "skip",
     "pause": "",
     "texte-FR": "Tout est prêt. Pour les couleurs, j'utilise des pinceaux très précis.",
@@ -1259,8 +1315,9 @@
   },
   {
     "video": 74,
+    "video new": 73,
     "etape": "Peinture - bras 3",
-    "nomenclature-video": "Peinture_02.mp4",
+    "nomenclature-video": "Peinture_21.mp4",
     "ID spec.": "",
     "duration": 5,
     "timecode-start": 0,
@@ -1276,12 +1333,13 @@
   },
   {
     "video": 75,
+    "video new": 74,
     "etape": "Peinture - bras 3",
-    "nomenclature-video": "Peinture_02.mp4",
+    "nomenclature-video": "Peinture_22.mp4",
     "ID spec.": "",
     "duration": 2,
     "timecode-start": 0,
-    "timecode-end": 2,
+    "timecode-end": 1,
     "end": "pause",
     "pause": "peinture",
     "texte-FR": "",
@@ -1293,6 +1351,7 @@
   },
   {
     "video": 76,
+    "video new": 75,
     "etape": "Peinture",
     "nomenclature-video": "background.mp4",
     "ID spec.": "idFinPeinture",
@@ -1310,6 +1369,7 @@
   },
   {
     "video": 77,
+    "video new": 76,
     "etape": "QR-code",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -1327,6 +1387,7 @@
   },
   {
     "video": "-",
+    "video new": "",
     "etape": "",
     "nomenclature-video": "NUMERO-VERSION",
     "ID spec.": "",
@@ -1335,7 +1396,7 @@
     "timecode-end": "-",
     "end": "-",
     "pause": "-",
-    "texte-FR": "19/11/2025 11:56:48",
+    "texte-FR": "24/11/2025 18:01:50",
     "texte-EN": "-",
     "texte-DE": "-",
     "nb-car-FR": 19,

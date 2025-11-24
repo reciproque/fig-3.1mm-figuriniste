@@ -41,7 +41,7 @@ onMounted(() => {
     <div class="qr-screen">
 
         <div class="bloc-instruction">{{ instruction }}</div>
-        <div class="combination-txt">Richard N° {{ combination }}</div>
+        <div class="debug combination-txt">Richard N° {{ combination }}</div>
 
         <div class="qr-wrapper">
             <div class="circle"></div>
