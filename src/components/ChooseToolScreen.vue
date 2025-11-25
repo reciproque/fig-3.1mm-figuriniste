@@ -21,13 +21,9 @@ const emit = defineEmits(['touchedTool'])
 // TODO : interfaçage avec Phidget !
 // Fonction qui commence à écouter les touches clavier. à remplacer par Phidget OU binder Phidget sur touches ??
 function beginChoiceListening() {
-    document.addEventListener('keydown', function (e) {
-        if (e.key === "1" || e.key === "2" || e.key === "3" || e.key === "4" || e.key === "5" || e.key === "6") document.getElementById("choix-fleche-" + e.key).style.filter = "invert()";
-    });
     document.addEventListener('keyup', function (e) {
         if (e.key === "1" || e.key === "2" || e.key === "3" || e.key === "4" || e.key === "5" || e.key === "6") 
         {
-            document.getElementById("choix-fleche-" + e.key).style.filter = "none";
             if (e.key == goodAnswer) document.querySelector(".choice-debug").innerHTML = `Utilisez 1-2-3-4-5-6 sur le clavier <br> Outil touché : ${e.key} <br> (Bonne réponse : ${goodAnswer}) -> VRAI`
             else document.querySelector(".choice-debug").innerHTML = `Utilisez 1-2-3-4-5-6 sur le clavier <br> Outil touché : ${e.key} <br> (Bonne réponse : ${goodAnswer}) -> FAUX`
 
@@ -49,12 +45,7 @@ onMounted(() => {
     <div class="choix">
         <div class="instruction">{{choiceInstruction}}</div>
         <div class="arrow-row">
-            <img src="/assets/choix-fleche.png" alt="" id="choix-fleche-1">
-            <img src="/assets/choix-fleche.png" alt="" id="choix-fleche-2">
-            <img src="/assets/choix-fleche.png" alt="" id="choix-fleche-3">
-            <img src="/assets/choix-fleche.png" alt="" id="choix-fleche-4">
-            <img src="/assets/choix-fleche.png" alt="" id="choix-fleche-5">
-            <img src="/assets/choix-fleche.png" alt="" id="choix-fleche-6">
+            <img src="/assets/main.png" alt="" class="main">
         </div>
         <div class="scrim"><img src="/assets/choix-scrim.svg" alt=""></div>
     </div>
@@ -78,12 +69,11 @@ onMounted(() => {
     margin: 0;
     vertical-align: bottom;
     margin-bottom: -10px;
+    opacity: 20%;
 }
 
 .arrow-row {
-    display: flex;
-    flex-direction: row;
-    gap: 150px;
+    animation: floating 2s infinite ;
 }
 
 
@@ -91,5 +81,45 @@ onMounted(() => {
     top:0px;
     left:0px;
 }
+
+.main {
+    animation: main-anim 10s infinite linear;
+}
+
+@keyframes main-anim {
+    0% {
+        opacity: 0;
+        transform: translateX(-500px);
+    }
+
+    10% {
+        opacity: 100%;        
+    }
+
+    90% {
+        opacity: 100%;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(500px);
+    }
+
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(80px);
+    }
+
+    50% {
+        transform: translateY(50px);
+    }
+
+    100% {
+        transform: translateY(80px);
+    }
+}
+
 
 </style>

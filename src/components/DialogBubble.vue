@@ -51,7 +51,6 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 891px;
 }
 
 .bubble-arrow {
@@ -69,10 +68,12 @@ onMounted(() => {
     color: #493C38;
     background-color: #FBF9F5;
     border-radius: 40px;
-    padding: 40px 94px;
+    padding: 40px 40px;
     line-height: 110%;
-    max-width: 703px;
+
     letter-spacing: -2%;
-    box-sizing: content-box;
+    
+    min-width: 240px;
+    max-width: 1280px;
 }
 </style>

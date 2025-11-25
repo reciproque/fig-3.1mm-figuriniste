@@ -19,6 +19,7 @@ const emit = defineEmits(['language-selected'])
 let canClick = true;
 function selectLanguage(lang) {
   if (canClick) {
+    document.getElementById(lang).style.animation = "none"
     gsap.from(document.getElementById(lang), { scale: 0.9, duration: 1, ease: "bounce.out" })
     setTimeout(() => emit('language-selected', lang), 800);
   }
@@ -70,6 +71,37 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+#FR {
+    animation: flags 8s infinite ;
+}
+
+#EN {
+    animation: flags 8s 0.4s infinite ;
+}
+
+#DE {
+    animation: flags 8s 0.8s infinite;
+}
+
+@keyframes flags {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+  
 }
 
 .flag img {

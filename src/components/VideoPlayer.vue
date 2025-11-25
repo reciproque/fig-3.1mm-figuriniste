@@ -371,8 +371,8 @@ async function playVideo(n) {
     videoToShow.oncanplaythrough = () => resolve();
   });
   videoToShow.currentTime = 0;
-  await videoToShow.play();
   currentVideoId.value = currentVideoId.value === 1 ? 2 : 1;
+  await videoToShow.play();
   //
 
   await delay(getTimecodeStart(n));
