@@ -25,6 +25,8 @@ defineProps({
 })
 
 const step = ref(0);
+const stepText = ref(0);
+const showBox = ref(true);
 
 const emit = defineEmits(['action', 'finaleCombination', 'chooseSkipPeinture'])
 let finale = '';
@@ -41,6 +43,8 @@ function selectColor(n) {
 
     if (step.value == 0){
         peau = n;
+        showBox.value = false;
+
     } 
     if (step.value == 1) {
         cheveux = n;
@@ -63,6 +67,7 @@ function selectColor(n) {
     if (step.value >0) {
         document.querySelector(".anim-wrapper").removeChild(document.getElementById(step.value-1))
     }        
+    
     gsap.to(document.querySelector(".palette-wrapper"), { x: 200, opacity: 0, rotateZ: 20, duration: 1, delay:0.5 })
 
 
@@ -85,6 +90,7 @@ function nextStep() {
     if (step.value <= 4) {
 
         gsap.to(document.querySelector(".palette-wrapper"), { x: 0, opacity: 1, rotateZ: 0, duration: 1, delay:3})
+        setTimeout(()=>{stepText.value++},3000);
 
     }
 
@@ -144,8 +150,8 @@ onMounted(() => {
     <div class="anim-wrapper"></div>
 
     <div class="peinture-screen">
-        <div class="instruction">{{ instructions[step] }}</div>
-        <div v-if="step == 0" class="randomizer-box" @click="skipPeinture()">{{ skipText[0] }}
+        <div class="instruction">{{ instructions[stepText] }}</div>
+        <div v-if="showBox" class="randomizer-box" @click="skipPeinture()">{{ skipText[0] }}
             <br>
             <em>{{ skipText[1] }}</em>
         </div>

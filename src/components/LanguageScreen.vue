@@ -46,10 +46,10 @@ onMounted(() => {
     <h2>{{ instructions[1] }}</h2>
     <h2>{{ instructions[2] }}</h2>
     <div class="flags-row">
-      <div class="flag"><img src="/assets/fr.png" id="FR" alt="" @click="selectLanguage('FR')"><br><span>{{
-        instructions[3] }}</span></div>
       <div class="flag"><img src="/assets/en.png" id="EN" alt="" @click="selectLanguage('EN')"><br><span>{{
         instructions[4] }}</span></div>
+              <div class="flag"><img src="/assets/fr.png" id="FR" alt="" @click="selectLanguage('FR')"><br><span>{{
+        instructions[3] }}</span></div>
       <div class="flag"><img src="/assets/de.png" id="DE" alt="" @click="selectLanguage('DE')"><br><span>{{
         instructions[5] }}</span></div>
     </div>
@@ -128,5 +128,10 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   font-size: 32px;
+}
+
+span {
+  font-size: 23px;
+  margin: 10px 70px;
 }
 </style>

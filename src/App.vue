@@ -44,7 +44,7 @@ function onLanguageSelected(lang) {
   selectedLanguage.value = lang
 }
 
-let displayDebug = true;
+let displayDebug = false;
 
 
 
@@ -63,7 +63,7 @@ let displayDebug = true;
       v-if="dialogs && Object.keys(dialogs).length && texts && Object.keys(texts).length"> 
       Appuyer sur D pour afficher/désafficher debug<br>
       Numéro de versions :<br>
-      Build DEV du 24.11.25 à 18h40<br>
+      Build DEV du 01.12.25 à 16h00<br>
       Interface : {{ texts[Object.keys(texts).length - 1]["texte-FR"] }} <br>
       Dialogues : {{ dialogs[Object.keys(dialogs).length - 1]["texte-FR"] }} <br>
 

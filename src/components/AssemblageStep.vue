@@ -17,14 +17,6 @@ defineProps({
 
 const emit = defineEmits(['chosenArm'])
 
-let arm1init = [-670, 350];
-let arm2init = [540, 115];
-let arm3init = [330, 640];
-
-let arm1final = [-233.5, 487.5];
-let arm2final = [-274.5, 153.5];
-let arm3final = [-268, 445];
-
 let canClick = true;
 
 function startDrag(e, n) {
@@ -78,24 +70,18 @@ function startDrag(e, n) {
         document.removeEventListener('touchend', stopDrag);
 
         let xfinal = Number(arm.style.left.replace(/px$/, ''));
+        gsap.to(document.getElementById("arms-"+1), {opacity:0,duration: 1});
+        gsap.to(document.getElementById("arms-"+2), {opacity:0,duration: 1});
+
+        gsap.to(document.getElementById("arms-"+3), {opacity:0,duration: 1});
+
+        gsap.to(document.getElementById("circle-"+1), {opacity:0,duration: 1});
+        gsap.to(document.getElementById("circle-"+2), {opacity:0,duration: 1});
+        gsap.to(document.getElementById("circle-"+3), {opacity:0,duration: 1});
+
+        emit('chosenArm', n);
 
         canClick = false;
-        if (n==1) {
-            arm.style.left = arm1final[0]+"px";
-            arm.style.top = arm1final[1]+"px";
-        }
-        if (n==2) {
-            arm.style.left = arm2final[0]+"px";
-            arm.style.top = arm2final[1]+"px";
-        }
-        if (n==3) {
-            arm.style.left = arm3final[0]+"px";
-            arm.style.top = arm3final[1]+"px";
-        }
-
-
-        setTimeout(() => emit('chosenArm', n), 50);
-        
     }
     if (canClick) {
 
