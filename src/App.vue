@@ -67,7 +67,7 @@ function reloadApp() {
 </script>
 
 <template>
-    <div v-if="selectedLanguage" class="retry" @click="reloadApp()">↺</div>
+    <div v-if="selectedLanguage" class="retry" @click="reloadApp()"><img src="/assets/home.png" alt=""></div>
 
   <div class="screen">
 
@@ -167,14 +167,12 @@ h2 {
     z-index: 100;
     position: absolute;
     font-family: 'Gotham-Bold';
-    background-color: #F5F7FB;
-    padding: 32px 40px;
     color: #0E0E0B;
     text-align: center;
     font-size: 24px;
     font-weight: 300;
-    top: 100px;
-    left: 100px;
+    top: 50px;
+    left: 50px;
     border-radius: 50px;
     cursor: pointer;
     transition: 0.4s;
