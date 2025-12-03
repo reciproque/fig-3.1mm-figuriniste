@@ -9,12 +9,12 @@
     "timecode-end": "8",
     "end": "skip",
     "pause": "",
-    "texte-FR": "Bonjour !\n\nMerci d’être venu(e) m’assister dans la réalisation de cette figurine de Richard Cœur de Lion.",
-    "texte-EN": "Hello!\n\nThank you for coming to help me create this Richard the Lionheart figurine.",
-    "texte-DE": "Hallo!\n\nVielen Dank, dass Sie mir beim Basteln dieser Richard-Löwenherz-Figur geholfen haben.",
-    "nb-car-FR": "105",
-    "nb-car-EN": "83",
-    "nb-car-DE": "93"
+    "texte-FR": "Bonjour !\n\nJe vous propose de m’assister dans la réalisation de cette figurine\nde Richard Cœur de Lion.",
+    "texte-EN": "Hello!\n\nI'd like your help in creating this figurine of Richard the Lionheart.",
+    "texte-DE": "Hallo!\n\nIch bräuchte eure Hilfe beim Anfertigen dieser Figur von Richard Löwenherz.",
+    "nb-car-FR": "103",
+    "nb-car-EN": "78",
+    "nb-car-DE": "83"
   },
   {
     "video": "1",
@@ -26,12 +26,12 @@
     "timecode-end": "6",
     "end": "skip",
     "pause": "",
-    "texte-FR": "Commençons par la première étape.\n\nNous devons dessiner la figurine  sous tous les angles afin de pouvoir en fabriquer un moule.",
-    "texte-EN": "Let's start with the first step.\n\nWe need to draw the figurine from all angles so we can make a mold of it.",
-    "texte-DE": "Beginnen wir mit dem ersten Schritt.\n\nWir müssen die Figur aus allen Blickwinkeln zeichnen, um eine Gussform davon anfertigen zu können.",
-    "nb-car-FR": "128",
-    "nb-car-EN": "107",
-    "nb-car-DE": "136"
+    "texte-FR": "Commençons par la première étape.\n\nNous devons dessiner la figurine sous tous les angles\nafin de pouvoir en fabriquer un moule.",
+    "texte-EN": "Let's start with the first step.\n\nWe need to draw the figurine from all angles\nin order to make a mold of it.",
+    "texte-DE": "Beginnen wir mit dem ersten Schritt.\n\nWir müssen die Figur aus allen Blickwinkeln zeichnen,\num eine Gussform davon herzustellen.",
+    "nb-car-FR": "127",
+    "nb-car-EN": "109",
+    "nb-car-DE": "128"
   },
   {
     "video": "2",
@@ -43,12 +43,12 @@
     "timecode-end": "3",
     "end": "pause",
     "pause": "dessin",
-    "texte-FR": "Pourriez-vous, s'il vous plaît, me passer l’outil qui nous permettra  de dessiner un modèle de la figurine ?",
-    "texte-EN": "Could you please provide me with the tool that will allow us to draw a model of the figurine?",
-    "texte-DE": "Könnten Sie mir bitte das Werkzeug zur Verfügung stellen, mit dem wir ein Modell der Figur zeichnen können?",
-    "nb-car-FR": "108",
-    "nb-car-EN": "93",
-    "nb-car-DE": "107"
+    "texte-FR": "Pourriez-vous, s'il vous plaît, me passer l’outil\nqui nous permettra de dessiner un modèle de la figurine ?",
+    "texte-EN": "Could you please send me the tool\nthat will allow us to draw a model of the figurine?",
+    "texte-DE": "Könnten Sie mir bitte das Werkzeug zusenden, mit dem wir ein Modell der Figur zeichnen können?",
+    "nb-car-FR": "107",
+    "nb-car-EN": "85",
+    "nb-car-DE": "94"
   },
   {
     "video": "3",
@@ -225,9 +225,9 @@
     "etape": "Dessin",
     "nomenclature-video": "Dessin_11.mp4",
     "ID spec.": "idDessinTrue -1",
-    "duration": "7",
+    "duration": "6",
     "timecode-start": "0",
-    "timecode-end": "7",
+    "timecode-end": "6",
     "end": "skip",
     "pause": "",
     "texte-FR": "Pour pouvoir dessiner notre figurine, c'est un critérium qu'il nous faut. \nIl nous faut également une feuille.",
@@ -247,7 +247,7 @@
     "timecode-end": "8",
     "end": "skip",
     "pause": "",
-    "texte-FR": "Parfait !  \nAvec ce critérium nous allons pouvoir dessiner notre figurine.\nIl nous faut également une feuille.",
+    "texte-FR": "Parfait ! \nAvec ce critérium nous allons pouvoir dessiner notre figurine.\nIl nous faut également une feuille.",
     "texte-EN": "Perfect!\nWith this mechanical pencil, we can draw our figurine.\n\nWe also need a sheet of paper.",
     "texte-DE": "Perfekt!\nMit diesem Druckbleistift können wir unsere Figur zeichnen.\n\nWir brauchen außerdem ein Blatt Papier.",
     "nb-car-FR": "110",
@@ -264,7 +264,7 @@
     "timecode-end": "6",
     "end": "skip",
     "pause": "",
-    "texte-FR": "Mais avant de se mettre à dessiner,  il faut s'assurer que notre figurine soit fidèle au personnage qu'elle représente !",
+    "texte-FR": "Mais avant de se mettre à dessiner, il faut s'assurer que notre figurine soit fidèle au personnage qu'elle représente !",
     "texte-EN": "But before we start drawing, we need to make sure that our figurine is true to the character it represents!",
     "texte-DE": "Bevor wir mit dem Zeichnen beginnen, müssen wir jedoch sicherstellen, dass unsere Figur dem Charakter, den sie darstellt, gerecht wird!",
     "nb-car-FR": "120",
@@ -277,8 +277,8 @@
     "nomenclature-video": "Dessin_09.mp4",
     "ID spec.": "",
     "duration": "5",
-    "timecode-start": "0",
-    "timecode-end": "5",
+    "timecode-start": "3",
+    "timecode-end": "8",
     "end": "skip",
     "pause": "",
     "texte-FR": "J’ai pour cela réuni de la documentation sur Richard Cœur de Lion.",
@@ -332,12 +332,12 @@
     "timecode-end": "6",
     "end": "skip",
     "pause": "",
-    "texte-FR": "Je modèle la figurine à la main, dans une pâte malléable, puis je sculpte les détails à l'aide des ébauchoirs.",
-    "texte-EN": "I model the figurine by hand, in a malleable clay, then I sculpt the details using modeling tools.",
-    "texte-DE": "Ich modelliere die Figur von Hand aus formbarem Ton und arbeite dann die Details mit Modellierwerkzeugen aus.",
+    "texte-FR": "Je modèle la figurine à la main, dans une pâte malléable,\npuis je sculpte les détails à l'aide des ébauchoirs.",
+    "texte-EN": "I model the figurine by hand, in a malleable clay,\n\nthen I sculpt the details using modeling tools.",
+    "texte-DE": "Ich modelliere die Figur von Hand aus formbarem Ton.\n\nAnschließend arbeite ich die Details mit Modellierwerkzeugen aus.",
     "nb-car-FR": "110",
-    "nb-car-EN": "98",
-    "nb-car-DE": "109"
+    "nb-car-EN": "99",
+    "nb-car-DE": "119"
   },
   {
     "video": "20",
@@ -379,8 +379,8 @@
     "nomenclature-video": "Modelage_05.mp4",
     "ID spec.": "",
     "duration": "2",
-    "timecode-start": "2",
-    "timecode-end": "4",
+    "timecode-start": "1",
+    "timecode-end": "3",
     "end": "skip",
     "pause": "",
     "texte-FR": "Et voilà !",
@@ -400,21 +400,21 @@
     "timecode-end": "7",
     "end": "skip",
     "pause": "",
-    "texte-FR": "Je peux ensuite envoyer le modèle de la figurine à un mouliste pour fabriquer un moule en deux parties.",
-    "texte-EN": "I can then send the model of the figurine to a mold maker to create a two-part mold.",
-    "texte-DE": "Ich kann das Modell der Figur dann an einen Formenbauer schicken, der eine zweiteilige Form herstellt.",
+    "texte-FR": "Je peux ensuite envoyer le modèle de la figurine à un mouliste\npour fabriquer un moule en deux parties.",
+    "texte-EN": "I can then send the model of the figurine to a mold maker\nto create a two-part mold.",
+    "texte-DE": "Ich kann das Modell der Figur dann an einen Formenbauer schicken,\num eine zweiteilige Form herzustellen.",
     "nb-car-FR": "103",
     "nb-car-EN": "84",
-    "nb-car-DE": "102"
+    "nb-car-DE": "104"
   },
   {
     "video": "24",
     "etape": "Moule",
     "nomenclature-video": "Moule_02.mp4",
     "ID spec.": "",
-    "duration": "2",
-    "timecode-start": "3",
-    "timecode-end": "5",
+    "duration": "5",
+    "timecode-start": "4",
+    "timecode-end": "9",
     "end": "skip",
     "pause": "",
     "texte-FR": "Le moule vient d'être livré !",
@@ -502,12 +502,12 @@
     "timecode-end": "2",
     "end": "pause",
     "pause": "coulee",
-    "texte-FR": "Pourriez-vous, s'il vous plaît, me passer l'outil qui nous aidera à prélever le mélange ?",
-    "texte-EN": "Could you please pass me the tool that will help us to collect the mixture?",
-    "texte-DE": "Könnten Sie mir bitte das Gerät aushändigen, mit dem wir die Mischung auffangen können?",
+    "texte-FR": "Pourriez-vous, s'il vous plaît, me passer\nl'outil qui nous aidera à prélever le mélange ?",
+    "texte-EN": "Could you please pass me the tool that will help us collect the mixture?",
+    "texte-DE": "Könnten Sie mir bitte das Gerät reichen, mit dem wir die Mischung auffangen können?",
     "nb-car-FR": "89",
-    "nb-car-EN": "75",
-    "nb-car-DE": "87"
+    "nb-car-EN": "72",
+    "nb-car-DE": "83"
   },
   {
     "video": "30",
@@ -622,7 +622,7 @@
     "end": "skip",
     "pause": "",
     "texte-FR": "Oh, cette palette ne nous servira pas pour couler le métal.",
-    "texte-EN": "Oh, this pallet won't be useful for pouring metal.",
+    "texte-EN": "Oh, this pallet won't be useful for casting metal.",
     "texte-DE": "Oh, diese Palette taugt nicht zum Metallgießen.",
     "nb-car-FR": "59",
     "nb-car-EN": "50",
@@ -706,12 +706,12 @@
     "timecode-end": "5",
     "end": "skip",
     "pause": "",
-    "texte-FR": "Merci !  Je remplis ma louche avec un mélange à base de plomb et d'étain, fondu à 300 °C.",
-    "texte-EN": "Thank you! I fill my ladle with a mixture of lead and tin, melted at 300°C.",
-    "texte-DE": "Vielen Dank! Ich fülle meine Schöpfkelle mit einer Mischung aus Blei und Zinn, die bei 300°C geschmolzen ist.",
+    "texte-FR": "Merci ! Je remplis ma louche avec un mélange\nà base de plomb et d'étain, fondu à 300 °C.",
+    "texte-EN": "Thank you! I fill my ladle with a mixture\nbased on lead and tin, melted at 300°C.",
+    "texte-DE": "Danke! Ich fülle meine Tochter mit einer Mischung\nauf Basis von Blei und Zinn, geschmolzen bei 300°C.",
     "nb-car-FR": "89",
-    "nb-car-EN": "75",
-    "nb-car-DE": "109"
+    "nb-car-EN": "81",
+    "nb-car-DE": "101"
   },
   {
     "video": "42",
@@ -719,8 +719,8 @@
     "nomenclature-video": "Coulee_03.mp4",
     "ID spec.": "idCouleeTrue+1",
     "duration": "2",
-    "timecode-start": "1",
-    "timecode-end": "3",
+    "timecode-start": "0",
+    "timecode-end": "2",
     "end": "skip",
     "pause": "",
     "texte-FR": "Attention, c’est très chaud !",
@@ -732,23 +732,6 @@
   },
   {
     "video": "43",
-    "etape": "Coulée",
-    "nomenclature-video": "Coulee_04.mp4",
-    "ID spec.": "",
-    "duration": "2",
-    "timecode-start": "0",
-    "timecode-end": "2",
-    "end": "skip",
-    "pause": "",
-    "texte-FR": "",
-    "texte-EN": "",
-    "texte-DE": "",
-    "nb-car-FR": "0",
-    "nb-car-EN": "0",
-    "nb-car-DE": "0"
-  },
-  {
-    "video": "44",
     "etape": "Coulée",
     "nomenclature-video": "Coulee_05.mp4",
     "ID spec.": "idEbarbageFalse",
@@ -765,7 +748,7 @@
     "nb-car-DE": "33"
   },
   {
-    "video": "45",
+    "video": "44",
     "etape": "Coulée",
     "nomenclature-video": "Coulee_06.mp4",
     "ID spec.": "",
@@ -782,7 +765,7 @@
     "nb-car-DE": "66"
   },
   {
-    "video": "46",
+    "video": "45",
     "etape": "Ebarbage",
     "nomenclature-video": "Ebarbage_01.mp4",
     "ID spec.": "",
@@ -791,7 +774,7 @@
     "timecode-end": "8",
     "end": "skip",
     "pause": "",
-    "texte-FR": "À la sortie du moule, il faut retirer les excès de métal durcis dans les canaux aménagés autour de la figurine. \n\nOn appelle cette étape l’ébarbage.",
+    "texte-FR": "À la sortie du moule, il faut retirer les excès de métal\ndurcis dans les canaux aménagés autour de la figurine. \n\nOn appelle cette étape l’ébarbage.",
     "texte-EN": "Once removed from the mold, the excess hardened metal in the channels around the figure must be removed.\n\nThis step is called deburring.",
     "texte-DE": "Nach dem Entformen muss das überschüssige, gehärtete Metall in den Kanälen um die Figur herum entfernt werden.\n\nDieser Schritt wird Entgraten genannt.",
     "nb-car-FR": "148",
@@ -799,7 +782,7 @@
     "nb-car-DE": "150"
   },
   {
-    "video": "47",
+    "video": "46",
     "etape": "Ebarbage",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -816,7 +799,7 @@
     "nb-car-DE": "54"
   },
   {
-    "video": "48",
+    "video": "47",
     "etape": "Ebarbage",
     "nomenclature-video": "Mauvaise_outill_02.mp4",
     "ID spec.": "videoFalse = 2 * n + (n < posLime ? idEbarbageFalse+2 : idEbarbageFalse);\nvideoFalse = 2 * n + (n < 2 ? 46 : 44); \ntouché 1 -> videoFalse = 48",
@@ -833,7 +816,7 @@
     "nb-car-DE": "60"
   },
   {
-    "video": "49",
+    "video": "48",
     "etape": "Ebarbage",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -850,7 +833,7 @@
     "nb-car-DE": "33"
   },
   {
-    "video": "50",
+    "video": "49",
     "etape": "Ebarbage",
     "nomenclature-video": "Mauvaise_outill_06.mp4",
     "ID spec.": "videoFalse = 2 * n + (n < posLime ? idEbarbageFalse+2 : idEbarbageFalse);\nvideoFalse = 2 * n + (n < 2 ? 46 : 44); \ntouché 3 -> videoFalse = 50",
@@ -867,7 +850,7 @@
     "nb-car-DE": "41"
   },
   {
-    "video": "51",
+    "video": "50",
     "etape": "Ebarbage",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -884,7 +867,7 @@
     "nb-car-DE": "33"
   },
   {
-    "video": "52",
+    "video": "51",
     "etape": "Ebarbage",
     "nomenclature-video": "Mauvaise_outill_05.mp4",
     "ID spec.": "videoFalse = 2 * n + (n < posLime ? idEbarbageFalse+2 : idEbarbageFalse);\nvideoFalse = 2 * n + (n < 2 ? 46 : 44); \ntouché 4 -> videoFalse = 52",
@@ -901,7 +884,7 @@
     "nb-car-DE": "51"
   },
   {
-    "video": "53",
+    "video": "52",
     "etape": "Ebarbage",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -918,7 +901,7 @@
     "nb-car-DE": "33"
   },
   {
-    "video": "54",
+    "video": "53",
     "etape": "Ebarbage",
     "nomenclature-video": "Mauvaise_outill_04.mp4",
     "ID spec.": "videoFalse = 2 * n + (n < posLime ? idEbarbageFalse+2 : idEbarbageFalse);\nvideoFalse = 2 * n + (n < 2 ? 46 : 44); \ntouché 5 -> videoFalse = 54",
@@ -935,7 +918,7 @@
     "nb-car-DE": "48"
   },
   {
-    "video": "55",
+    "video": "54",
     "etape": "Ebarbage",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -952,7 +935,7 @@
     "nb-car-DE": "33"
   },
   {
-    "video": "56",
+    "video": "55",
     "etape": "Ebarbage",
     "nomenclature-video": "Mauvaise_outill_01.mp4",
     "ID spec.": "videoFalse = 2 * n + (n < posLime ? idEbarbageFalse+2 : idEbarbageFalse);\nvideoFalse = 2 * n + (n < 2 ? 46 : 44); \ntouché 6 -> videoFalse = 56",
@@ -969,7 +952,7 @@
     "nb-car-DE": "58"
   },
   {
-    "video": "57",
+    "video": "56",
     "etape": "Ebarbage",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -986,7 +969,7 @@
     "nb-car-DE": "33"
   },
   {
-    "video": "58",
+    "video": "57",
     "etape": "Ebarbage",
     "nomenclature-video": "Ebarbage_03.mp4",
     "ID spec.": "idEbarbageTrue-1",
@@ -995,15 +978,15 @@
     "timecode-end": "8",
     "end": "skip",
     "pause": "",
-    "texte-FR": "C'est une lime qu'il nous faut. Après avoir retiré les surplus à l'aide d'une pince, je lime les imperfections, jusqu’à obtenir une figurine parfaite.",
-    "texte-EN": "We need a file. After removing the excess material with pliers, I file down the imperfections until I obtain a perfect figurine.",
-    "texte-DE": "Wir benötigen eine Feile. Nachdem ich das überschüssige Material mit einer Zange entfernt habe, feile ich die Unebenheiten so lange ab, bis ich eine perfekte Figur erhalte.",
+    "texte-FR": "C'est une lime qu'il nous faut.\nAprès avoir retiré les surplus à l'aide d'une pince, je lime les imperfections, jusqu’à obtenir une figurine parfaite.",
+    "texte-EN": "We need a file.\nAfter removing the excess material with pliers, I file down the imperfections until I get a perfect figure.",
+    "texte-DE": "Wir brauchen eine Feile.\nNachdem ich das überschüssige Material mit einer Zange entfernt habe, feile ich die Unebenheiten so lange ab, bis ich eine perfekte Form erhalte.",
     "nb-car-FR": "150",
-    "nb-car-EN": "128",
-    "nb-car-DE": "172"
+    "nb-car-EN": "123",
+    "nb-car-DE": "170"
   },
   {
-    "video": "59",
+    "video": "58",
     "etape": "Ebarbage",
     "nomenclature-video": "Ebarbage_03.mp4",
     "ID spec.": "idEbarbageTrue",
@@ -1012,15 +995,15 @@
     "timecode-end": "9",
     "end": "skip",
     "pause": "",
-    "texte-FR": "Bravo et merci pour la lime !  Après avoir retiré les surplus à l'aide d'une pince, je lime les imperfections, jusqu’à obtenir une figurine parfaite.",
-    "texte-EN": "Well done and thank you for the file! After removing the excess with pliers, I file the imperfections until I obtain a perfect figurine.",
-    "texte-DE": "Gut gemacht und vielen Dank für die Feile! Nachdem ich das überschüssige Material mit einer Zange entfernt habe, feile ich die Unebenheiten so lange aus, bis ich eine perfekte Figur erhalte.",
+    "texte-FR": "Bravo et merci pour la lime ! \nAprès avoir retiré les surplus à l'aide d'une pince, je lime les imperfections, jusqu’à obtenir une figurine parfaite.",
+    "texte-EN": "Great, and thank you for the file!\nAfter removing the excess material with pliers, I file down the imperfections until I get a perfect figure.",
+    "texte-DE": "Super, vielen Dank für die Datei! Nachdem ich das überschüssige Material mit einer Zange entfernt habe, feile ich die Unebenheiten so lange aus, bis die Figur perfekt ist.",
     "nb-car-FR": "149",
-    "nb-car-EN": "136",
-    "nb-car-DE": "190"
+    "nb-car-EN": "142",
+    "nb-car-DE": "171"
   },
   {
-    "video": "60",
+    "video": "59",
     "etape": "Assemblage",
     "nomenclature-video": "Assemblage_01.mp4",
     "ID spec.": "idEbarbageTrue+1",
@@ -1029,15 +1012,15 @@
     "timecode-end": "6",
     "end": "skip",
     "pause": "",
-    "texte-FR": "Surprise ! Il se trouve que j’avais déjà moulé la tête et plusieurs bras grâce à d'autres moules.",
-    "texte-EN": "Surprise! It turns out that I had already molded the head and several arms using other molds.",
+    "texte-FR": "Surprise ! Il se trouve que j’avais déjà moulé la tête\net plusieurs bras grâce à d'autres moules.",
+    "texte-EN": "Surprise! It turns out I had already molded the head\nand several arms using other molds.",
     "texte-DE": "Überraschung! Es stellte sich heraus, dass ich den Kopf und mehrere Arme bereits mit anderen Formen abgeformt hatte.",
     "nb-car-FR": "97",
-    "nb-car-EN": "93",
+    "nb-car-EN": "88",
     "nb-car-DE": "116"
   },
   {
-    "video": "61",
+    "video": "60",
     "etape": "Assemblage",
     "nomenclature-video": "Assemblage_02.mp4",
     "ID spec.": "",
@@ -1054,7 +1037,7 @@
     "nb-car-DE": "70"
   },
   {
-    "video": "62",
+    "video": "61",
     "etape": "Assemblage",
     "nomenclature-video": "Assemblage_03.mp4",
     "ID spec.": "",
@@ -1071,7 +1054,7 @@
     "nb-car-DE": "0"
   },
   {
-    "video": "63",
+    "video": "62",
     "etape": "Peinture - bras 1",
     "nomenclature-video": "Peinture_05.mp4",
     "ID spec.": "idDebutPeintureBras1",
@@ -1088,7 +1071,7 @@
     "nb-car-DE": "92"
   },
   {
-    "video": "64",
+    "video": "63",
     "etape": "Peinture - bras 1",
     "nomenclature-video": "Peinture_60.mp4",
     "ID spec.": "",
@@ -1105,7 +1088,7 @@
     "nb-car-DE": "66"
   },
   {
-    "video": "65",
+    "video": "64",
     "etape": "Peinture - bras 1",
     "nomenclature-video": "Peinture_61.mp4",
     "ID spec.": "",
@@ -1114,15 +1097,15 @@
     "timecode-end": "5",
     "end": "skip",
     "pause": "",
-    "texte-FR": "Je vous propose de peindre la figurine,  mais je peux m’en occuper si vous préférez.",
-    "texte-EN": "I offer to paint the figurine for you, but I can do it myself if you prefer.",
-    "texte-DE": "Ich biete Ihnen an, die Figur für Sie zu bemalen, kann es aber auch selbst tun, wenn Sie das bevorzugen.",
-    "nb-car-FR": "85",
-    "nb-car-EN": "76",
-    "nb-car-DE": "104"
+    "texte-FR": "Je vous propose de peindre la figurine,\nmais je peux m’en occuper si vous préférez.",
+    "texte-EN": "I suggest painting the figurine,\n\nbut I can do it myself if you prefer.",
+    "texte-DE": "Ich schlage vor, die Figur zu bemalen.\n\nIch kann es aber auch selbst machen, wenn Sie das bevorzugen.",
+    "nb-car-FR": "84",
+    "nb-car-EN": "71",
+    "nb-car-DE": "101"
   },
   {
-    "video": "66",
+    "video": "65",
     "etape": "Peinture - bras 1",
     "nomenclature-video": "Peinture_62.mp4",
     "ID spec.": "",
@@ -1139,7 +1122,7 @@
     "nb-car-DE": "0"
   },
   {
-    "video": "67",
+    "video": "66",
     "etape": "Peinture - bras 2",
     "nomenclature-video": "Peinture_03.mp4",
     "ID spec.": "idDebutPeintureBras2",
@@ -1148,15 +1131,15 @@
     "timecode-end": "5",
     "end": "skip",
     "pause": "",
-    "texte-FR": "Parfait, il ne reste plus qu’à la peindre. Laissez-moi d’abord passer une sous-couche que l'on appelle l’aprêt.",
-    "texte-EN": "Perfect, all that's left is to paint it. Let me first apply a base coat, which is called primer.",
-    "texte-DE": "Perfekt, jetzt muss es nur noch lackiert werden. Zuerst trage ich aber eine Grundierung auf.",
+    "texte-FR": "Parfait, il ne reste plus qu’à la peindre.\nLaissez-moi d’abord passer une sous-couche que l'on appelle l’aprêt.",
+    "texte-EN": "Perfect, all that's left is to paint it.\nFirst, let me apply a base coat, also known as primer.",
+    "texte-DE": "Perfekt, jetzt muss es nur noch lackiert werden.\nZuerst trage ich eine Grundierung auf.",
     "nb-car-FR": "111",
-    "nb-car-EN": "96",
-    "nb-car-DE": "92"
+    "nb-car-EN": "95",
+    "nb-car-DE": "87"
   },
   {
-    "video": "68",
+    "video": "67",
     "etape": "Peinture - bras 2",
     "nomenclature-video": "Peinture_40.mp4",
     "ID spec.": "",
@@ -1173,7 +1156,7 @@
     "nb-car-DE": "66"
   },
   {
-    "video": "69",
+    "video": "68",
     "etape": "Peinture - bras 2",
     "nomenclature-video": "Peinture_41.mp4",
     "ID spec.": "",
@@ -1182,15 +1165,15 @@
     "timecode-end": "5",
     "end": "skip",
     "pause": "",
-    "texte-FR": "Je vous propose de peindre la figurine,  mais je peux m’en occuper si vous préférez.",
-    "texte-EN": "I offer to paint the figurine for you, but I can do it myself if you prefer.",
-    "texte-DE": "Ich biete Ihnen an, die Figur für Sie zu bemalen, kann es aber auch selbst tun, wenn Sie das bevorzugen.",
-    "nb-car-FR": "85",
-    "nb-car-EN": "76",
-    "nb-car-DE": "104"
+    "texte-FR": "Je vous propose de peindre la figurine,\nmais je peux m’en occuper si vous préférez.",
+    "texte-EN": "I suggest painting the figurine,\n\nbut I can do it myself if you prefer.",
+    "texte-DE": "Ich schlage vor, die Figur zu bemalen.\n\nIch kann es aber auch selbst machen, wenn Sie das bevorzugen.",
+    "nb-car-FR": "84",
+    "nb-car-EN": "71",
+    "nb-car-DE": "101"
   },
   {
-    "video": "70",
+    "video": "69",
     "etape": "Peinture - bras 2",
     "nomenclature-video": "Peinture_42.mp4",
     "ID spec.": "",
@@ -1207,7 +1190,7 @@
     "nb-car-DE": "0"
   },
   {
-    "video": "71",
+    "video": "70",
     "etape": "Peinture - bras 3",
     "nomenclature-video": "Peinture_01.mp4",
     "ID spec.": "idDebutPeintureBras3",
@@ -1216,15 +1199,15 @@
     "timecode-end": "5",
     "end": "skip",
     "pause": "",
-    "texte-FR": "Parfait, il ne reste plus qu’à la peindre. Laissez-moi d’abord passer une sous-couche que l'on appelle l’aprêt.",
-    "texte-EN": "Perfect, all that's left is to paint it. Let me first apply a base coat, which is called primer.",
-    "texte-DE": "Perfekt, jetzt muss es nur noch lackiert werden. Zuerst trage ich aber eine Grundierung auf.",
+    "texte-FR": "Parfait, il ne reste plus qu’à la peindre.\nLaissez-moi d’abord passer une sous-couche que l'on appelle l’aprêt.",
+    "texte-EN": "Perfect, all that's left is to paint it.\nFirst, let me apply a base coat, also known as primer.",
+    "texte-DE": "Perfekt, jetzt muss es nur noch lackiert werden.\nZuerst trage ich eine Grundierung auf.",
     "nb-car-FR": "111",
-    "nb-car-EN": "96",
-    "nb-car-DE": "92"
+    "nb-car-EN": "95",
+    "nb-car-DE": "87"
   },
   {
-    "video": "72",
+    "video": "71",
     "etape": "Peinture - bras 3",
     "nomenclature-video": "Peinture_20.mp4",
     "ID spec.": "",
@@ -1241,7 +1224,7 @@
     "nb-car-DE": "66"
   },
   {
-    "video": "73",
+    "video": "72",
     "etape": "Peinture - bras 3",
     "nomenclature-video": "Peinture_21.mp4",
     "ID spec.": "",
@@ -1250,15 +1233,15 @@
     "timecode-end": "5",
     "end": "skip",
     "pause": "",
-    "texte-FR": "Je vous propose de peindre la figurine,  mais je peux m’en occuper si vous préférez.",
-    "texte-EN": "I offer to paint the figurine for you, but I can do it myself if you prefer.",
-    "texte-DE": "Ich biete Ihnen an, die Figur für Sie zu bemalen, kann es aber auch selbst tun, wenn Sie das bevorzugen.",
-    "nb-car-FR": "85",
-    "nb-car-EN": "76",
-    "nb-car-DE": "104"
+    "texte-FR": "Je vous propose de peindre la figurine,\nmais je peux m’en occuper si vous préférez.",
+    "texte-EN": "I suggest painting the figurine,\n\nbut I can do it myself if you prefer.",
+    "texte-DE": "Ich schlage vor, die Figur zu bemalen.\n\nIch kann es aber auch selbst machen, wenn Sie das bevorzugen.",
+    "nb-car-FR": "83",
+    "nb-car-EN": "71",
+    "nb-car-DE": "101"
   },
   {
-    "video": "74",
+    "video": "73",
     "etape": "Peinture - bras 3",
     "nomenclature-video": "Peinture_22.mp4",
     "ID spec.": "",
@@ -1275,7 +1258,7 @@
     "nb-car-DE": "0"
   },
   {
-    "video": "75",
+    "video": "74",
     "etape": "Peinture",
     "nomenclature-video": "background.mp4",
     "ID spec.": "idFinPeinture",
@@ -1284,15 +1267,15 @@
     "timecode-end": "5",
     "end": "skip",
     "pause": "",
-    "texte-FR": "Voilà c’est fait, merci pour votre aide précieuse !  J’espère que notre figurine vous plaît.",
-    "texte-EN": "There you go, it's done, thank you for your invaluable help! I hope you like our figurine.",
-    "texte-DE": "So, das war's, vielen Dank für Ihre unschätzbare Hilfe! Ich hoffe, Ihnen gefällt unsere Figur.",
+    "texte-FR": "Voilà c’est fait, merci pour votre aide précieuse !\nJ’espère que notre figurine vous plaît.",
+    "texte-EN": "There you go, it's done! Thank you for your invaluable help!\n\nI hope you like our figurine.",
+    "texte-DE": "So, fertig! Vielen Dank für Ihre wertvolle Hilfe!\n\nIch hoffe, Ihnen gefällt unsere Figur.",
     "nb-car-FR": "92",
-    "nb-car-EN": "90",
-    "nb-car-DE": "94"
+    "nb-car-EN": "91",
+    "nb-car-DE": "89"
   },
   {
-    "video": "76",
+    "video": "75",
     "etape": "QR-code",
     "nomenclature-video": "background.mp4",
     "ID spec.": "",
@@ -1318,7 +1301,7 @@
     "timecode-end": "-",
     "end": "-",
     "pause": "-",
-    "texte-FR": "25/11/2025 15:48:42",
+    "texte-FR": "03/12/2025 10:53:42",
     "texte-EN": "-",
     "texte-DE": "-",
     "nb-car-FR": "19",

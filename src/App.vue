@@ -12,6 +12,15 @@ const texts = ref({});
 
 let selectedStartId = 0;
 
+let displayDebug = false;
+
+function toggleDisplayDebug() {
+
+  displayDebug ? (document.querySelectorAll(".debug").forEach(element => {element.style.display = "block";})) : document.querySelectorAll(".debug").forEach(element => {element.style.display = "none";})
+
+}
+
+
 onMounted(async () => {
   try {
     const dialogsRes = await fetch('texts/dialogs.json');
@@ -23,12 +32,12 @@ onMounted(async () => {
   } catch (error) {
     console.error('Erreur lors du chargement des fichiers JSON : ', error);
   }
+    toggleDisplayDebug();
 
   document.addEventListener('keydown', function (e) {
     if (e.key === "d" || e.key === "D") {
-      console.log("d")
-      displayDebug ? ( document.querySelectorAll(".debug").forEach(element => {element.style.display = "none";})) : document.querySelectorAll(".debug").forEach(element => {element.style.display = "block";})
       displayDebug = !displayDebug;
+      toggleDisplayDebug();
     }
 });
 
@@ -41,11 +50,16 @@ onMounted(async () => {
 const selectedLanguage = ref(null)
 
 function onLanguageSelected(lang) {
-  selectedLanguage.value = lang
+  selectedLanguage.value = lang;
+
+  toggleDisplayDebug();
+
+
 }
 
-let displayDebug = false;
-
+function reloadApp() {
+    location.reload();
+}
 
 
 //
@@ -53,6 +67,8 @@ let displayDebug = false;
 </script>
 
 <template>
+    <div v-if="selectedLanguage" class="retry" @click="reloadApp()">↺</div>
+
   <div class="screen">
 
     <LanguageScreen v-if="!selectedLanguage" @language-selected="onLanguageSelected"
@@ -138,6 +154,7 @@ h2 {
   padding: 10px;
   background-color: #3242f74d;
   z-index: 1000;
+  display: none;
 
 }
 
@@ -145,4 +162,29 @@ h2 {
   bottom: 0px;
   left: 0px;
 }
+
+.retry {
+    z-index: 100;
+    position: absolute;
+    font-family: 'Gotham-Bold';
+    background-color: #F5F7FB;
+    padding: 32px 40px;
+    color: #0E0E0B;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 300;
+    top: 100px;
+    left: 100px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.4s;
+    z-index: 1000;
+
+}
+
+.retry:hover {
+    scale: 1.1;
+    transition: 0.4s;
+}
+
 </style>

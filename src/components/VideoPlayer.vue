@@ -149,15 +149,15 @@ const idDessinTrue = 14;
 const idCouleeFalse = 28;
 const idCouleeTrue = 41;
 
-const idEbarbageFalse = 44;
-const idEbarbageTrue = 59;
+const idEbarbageFalse = 43;
+const idEbarbageTrue = 58;
 
 
-const idDebutPeintureBras1 = 63;
-const idDebutPeintureBras2 = 67;
-const idDebutPeintureBras3 = 71;
+const idDebutPeintureBras1 = 62;
+const idDebutPeintureBras2 = 66;
+const idDebutPeintureBras3 = 70;
 
-const idFinPeinture = 75;
+const idFinPeinture = 74;
 
 let nbErrorDessin = 0;
 let nbErrorEbarbage = 0;

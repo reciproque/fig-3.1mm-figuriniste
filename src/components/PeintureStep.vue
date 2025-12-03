@@ -90,7 +90,7 @@ function nextStep() {
     if (step.value <= 4) {
 
         gsap.to(document.querySelector(".palette-wrapper"), { x: 0, opacity: 1, rotateZ: 0, duration: 1, delay:3})
-        setTimeout(()=>{stepText.value++},3000);
+        setTimeout(()=>{stepText.value++},3500);
 
     }
 

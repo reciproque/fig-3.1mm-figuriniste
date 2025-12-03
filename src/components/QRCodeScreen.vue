@@ -16,10 +16,6 @@ defineProps({
     }
 })
 
-function reloadApp() {
-    location.reload();
-}
-
 onMounted(() => {
     gsap.from(document.querySelector(".star"), { opacity: 0, delay: 0, scale: 0.95, duration: 1 })
     gsap.from(document.querySelector(".shadow"), { opacity: 0, delay: 0.1, scale: 0.95, duration: 1 })
@@ -36,8 +32,6 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="retry" @click="reloadApp()">↺ Recommencer</div>
-
     <div class="qr-screen">
 
         <div class="bloc-instruction">{{ instruction }}</div>
@@ -59,28 +53,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.retry {
-    z-index: 100;
-    position: absolute;
-    font-family: 'Gotham-Bold';
-    background-color: #F5F7FB;
-    padding: 32px 40px;
-    color: #0E0E0B;
-    text-align: center;
-    font-size: 24px;
-    font-weight: 300;
-    top: 400px;
-    left: 100px;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: 0.4s;
-
-}
-
-.retry:hover {
-    scale: 1.1;
-    transition: 0.4s;
-}
 
 .qr-screen {
     z-index: 20;
@@ -103,6 +75,7 @@ onMounted(() => {
 }
 
 .combination-txt {
+    display: none;
     position: absolute;
     top: 300px;
     font-family: 'Gotham-Bold';

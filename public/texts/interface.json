@@ -1,183 +1,176 @@
 [
   {
     "étape": "Intro",
-    "no": 0,
+    "no": "0",
     "texte-FR": "Les gestes du figuriniste",
     "texte-EN": "-",
     "texte-DE": "-"
   },
   {
     "étape": "Intro",
-    "no": 1,
+    "no": "1",
     "texte-FR": "The gestures of the figurine maker",
     "texte-EN": "-",
     "texte-DE": "-"
   },
   {
     "étape": "Intro",
-    "no": 2,
+    "no": "2",
     "texte-FR": "Die Gesten des Figurenmachers",
     "texte-EN": "-",
     "texte-DE": "-"
   },
   {
     "étape": "Intro",
-    "no": 3,
+    "no": "3",
     "texte-FR": "Choisissez votre langue",
     "texte-EN": "-",
     "texte-DE": "-"
   },
   {
     "étape": "Intro",
-    "no": 4,
+    "no": "4",
     "texte-FR": "Choose your language",
     "texte-EN": "-",
     "texte-DE": "-"
   },
   {
     "étape": "Intro",
-    "no": 5,
+    "no": "5",
     "texte-FR": "Wählen Sie Ihre Sprache",
     "texte-EN": "-",
     "texte-DE": "-"
   },
   {
     "étape": "Dessin",
-    "no": 6,
+    "no": "6",
     "texte-FR": "Touchez l’outil permettant de dessiner",
     "texte-EN": "Tap the drawing tool",
     "texte-DE": "Tippen Sie auf das Zeichenwerkzeug"
   },
   {
     "étape": "Coulée",
-    "no": 7,
+    "no": "7",
     "texte-FR": "Touchez l’outil permettant de faire la coulée",
     "texte-EN": "Tap the tool that allows you to perform the pouring",
     "texte-DE": "Tippen Sie auf das Werkzeug, mit dem Sie das Ausgießen durchführen können."
   },
   {
     "étape": "Ebarbage",
-    "no": 8,
+    "no": "8",
     "texte-FR": "Touchez l’outil permettant d'ébarber",
     "texte-EN": "Tap the deburring tool",
     "texte-DE": "Tippen Sie auf das Entgratungswerkzeug"
   },
   {
     "étape": "Assemblage",
-    "no": 9,
+    "no": "9",
     "texte-FR": "Placez le bras de votre choix sur la figurine et soudons le tout",
     "texte-EN": "Place the arm of your choice onto the figurine and solder it all together.",
     "texte-DE": "Setzen Sie den gewünschten Arm auf die Figur und verlöten Sie alles miteinander."
   },
   {
     "étape": "Assemblage",
-    "no": 10,
+    "no": "10",
     "texte-FR": "Non merci, je préfère que vous vous en occupiez",
     "texte-EN": "No thank you, I'd prefer you handle it.",
     "texte-DE": "Nein danke, ich überlasse das lieber Ihnen."
   },
   {
     "étape": "Assemblage",
-    "no": 11,
+    "no": "11",
     "texte-FR": "PASSER L’ÉTAPE",
     "texte-EN": "PASS THE STEP",
     "texte-DE": "BESTEHEN SIE DIE SCHRITT"
   },
   {
     "étape": "Peinture",
-    "no": 12,
+    "no": "12",
     "texte-FR": "Non merci, pouvez-vous vous occuper de la peinture ?",
     "texte-EN": "No thanks, can you take care of the painting?",
     "texte-DE": "Nein danke, könnten Sie sich bitte um das Gemälde kümmern?"
   },
   {
     "étape": "Peinture",
-    "no": 13,
+    "no": "13",
     "texte-FR": "PASSER L’ÉTAPE",
     "texte-EN": "PASS THE STEP",
     "texte-DE": "BESTEHEN SIE DIE SCHRITT"
   },
   {
     "étape": "Peinture",
-    "no": 14,
+    "no": "14",
     "texte-FR": "Choisissez la couleur de la peau",
     "texte-EN": "Choose the skin color",
     "texte-DE": "Wählen Sie die Hautfarbe"
   },
   {
     "étape": "Peinture",
-    "no": 15,
+    "no": "15",
     "texte-FR": "Choisissez la couleur des cheveux",
     "texte-EN": "Choose your hair color",
     "texte-DE": "Wähle deine Haarfarbe"
   },
   {
     "étape": "Peinture",
-    "no": 16,
+    "no": "16",
     "texte-FR": "Choisissez la couleur de la robe",
     "texte-EN": "Choose the color of the dress",
     "texte-DE": "Wähle die Farbe des Kleides"
   },
   {
     "étape": "Peinture",
-    "no": 17,
+    "no": "17",
     "texte-FR": "Choisissez la couleur de la cotte de maille et des armoiries",
     "texte-EN": "Choose the color of the chainmail and the coat of arms",
     "texte-DE": "Wähle die Farbe des Kettenhemdes und des Wappens"
   },
   {
     "étape": "QR-code",
-    "no": 18,
-    "texte-FR": "À l'aide de votre téléphone portable, scannez le QR-code.",
-    "texte-EN": "Using your mobile phone, scan the QR code.",
-    "texte-DE": "Scannen Sie den QR-Code mit Ihrem Mobiltelefon."
+    "no": "18",
+    "texte-FR": "À l'aide de votre téléphone, scannez le QR-code.",
+    "texte-EN": "Using your phone, scan the QR code.",
+    "texte-DE": "Scannen Sie den QR-Code mit Ihrem Smartphone."
   },
   {
     "étape": "Timeout",
-    "no": 19,
+    "no": "19",
     "texte-FR": "Êtes-vous toujours là ?",
     "texte-EN": "Are you still there?",
     "texte-DE": "Bist du noch da?"
   },
   {
     "étape": "Timeout",
-    "no": 20,
+    "no": "20",
     "texte-FR": "Oui, continuer",
     "texte-EN": "Yes, continue",
     "texte-DE": "Ja, weiter."
   },
   {
     "étape": "Timeout 1 (déclenchement, en secondes)",
-    "no": 21,
-    "texte-FR": 30,
-    "texte-EN": 10,
-    "texte-DE": 10
+    "no": "21",
+    "texte-FR": "30",
+    "texte-EN": "10",
+    "texte-DE": "10"
   },
   {
     "étape": "Timeout 2 (timer, en secondes)",
-    "no": 22,
-    "texte-FR": 10,
-    "texte-EN": 10,
-    "texte-DE": 10
+    "no": "22",
+    "texte-FR": "10",
+    "texte-EN": "10",
+    "texte-DE": "10"
   },
   {
     "étape": "Numéro de version dans modale",
-    "no": 23,
+    "no": "23",
     "texte-FR": "Version dev (FR)",
     "texte-EN": "Version dev (EN)",
     "texte-DE": "Version dev (DE)"
   },
   {
-    "étape": "DEBUG",
-    "no": 24,
-    "texte-FR": "TRUE",
-    "texte-EN": "TRUE",
-    "texte-DE": "TRUE"
-  },
-  {
     "étape": "NUMERO-VERSION",
     "no": "-",
-    "texte-FR": "24/11/2025 17:33:33",
+    "texte-FR": "03/12/2025 11:00:35",
     "texte-EN": "-",
     "texte-DE": "-"
   }
