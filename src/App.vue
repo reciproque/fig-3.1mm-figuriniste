@@ -79,7 +79,7 @@ function reloadApp() {
       v-if="dialogs && Object.keys(dialogs).length && texts && Object.keys(texts).length"> 
       Appuyer sur D pour afficher/désafficher debug<br>
       Numéro de versions :<br>
-      Build DEV du 01.12.25 à 16h00<br>
+      Build DEV du 04.12.25 à 12h00<br>
       Interface : {{ texts[Object.keys(texts).length - 1]["texte-FR"] }} <br>
       Dialogues : {{ dialogs[Object.keys(dialogs).length - 1]["texte-FR"] }} <br>
 

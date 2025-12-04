@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 
 import { onMounted } from 'vue';
 
-import { defineEmits } from 'vue'
+import { defineEmits, ref } from 'vue'
 
 
 const { instructions } = defineProps({
@@ -18,11 +18,15 @@ const emit = defineEmits(['language-selected'])
 
 let canClick = true;
 function selectLanguage(lang) {
+  showVoile.value = false;
+  clearTimeout(TOvoile);
+
   if (canClick) {
     document.getElementById(lang).style.animation = "none"
     gsap.from(document.getElementById(lang), { scale: 0.9, duration: 1, ease: "bounce.out" })
     setTimeout(() => emit('language-selected', lang), 800);
   }
+  
   canClick = false;
 }
 
@@ -37,10 +41,23 @@ onMounted(() => {
 
 })
 
+const showVoile = ref(false);
+
+let TOvoile = setTimeout(()=>{showVoile.value=true}, 600*1000);
+
+function clickOnVoile() {
+  showVoile.value = false;
+  clearTimeout(TOvoile);
+  TOvoile = setTimeout(()=>{showVoile.value=true}, 600*1000);
+}
+
+
 </script>
 
 <template>
-
+  <div v-if="showVoile" class="voile" @mousedown="clickOnVoile">
+    <img src="/assets/main-touch.png" alt="">
+  </div>
   <div class="language-screen">
     <h1>{{ instructions[0] }}</h1>
     <h2>{{ instructions[1] }}</h2>
@@ -133,5 +150,35 @@ onMounted(() => {
 span {
   font-size: 23px;
   margin: 10px 70px;
+}
+
+.voile {
+  cursor: pointer;
+  position: absolute;
+  z-index: 100;
+  width: 1920px;
+  height: 1080px;
+  background-color: #0e0e0b9c;
+}
+
+.voile img {
+  width: 300px;
+  position: absolute;
+  right: 500px;
+  bottom: -40px;
+  animation: main 5s infinite;
+  filter: invert();
+}
+
+@keyframes main {
+  0% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
 }
 </style>
