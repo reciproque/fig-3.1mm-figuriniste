@@ -1,5 +1,4 @@
 # fig-3.1mm-figuriniste
-![alt text](richards/resultats/12111.png)
 
 Cette application a été développée avec le framework **Vue.js** + **Vite**.
 
