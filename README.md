@@ -36,7 +36,21 @@ Cette commande sera utilisée en prod pour démarrer automatiquement l'applicati
 
 ## Lancement automatique
 
-TODO // Démarrage automatique avec ``start-figuriniste.bat`` dans dossier Windows + planificateur de tâches Windows + mode kiosque
+Dans le dossier ``windows``, deux fichiers Batch serviront au démarrage automatique de l’application.
+
+``start-figuriniste-serv.bat``  
+**Argument** : chemin où se trouve le dossier   
+**Action** : Lance le serveur (``npm run dev``)
+
+``start-figuriniste-app.bat``  
+**Argument** : N/A  
+**Action** : Passe Windows en mode kiosque et désactive l’explorateur Windows puis démarre Google Chrome sur l’URL du dispositif, http://localhost:5173/figuriniste
+
+Les deux batch sont à utiliser dans le Planificateur de tâches Windows (raccourci : Win + R > “taskschd.msc”)
+
+Utiliser Ctrl + Alt + Suppr pour ouvrir le Gestionnaire des tâches et neutraliser le mode kiosque.
+
+Voir le DOE pour plus d'informations sur la mise en place du démarrage automatique sous Windows.
 
 # Hébergement en ligne de l'application
 
@@ -107,7 +121,9 @@ Ceux-si sont fetch depuis le dossier public, il est donc possible de les remplac
 Le dossier ``richards`` contient également les assets et scripts Python permettant la génération des images et QRCodes de l'étape Peinture. 
 Les scripts nécessiteront l'installation (dans un environnement virtuel) des librairies ``pillow`` et ``qrcode``.
 
-- ``generate-all-richards.py`` permet de générer toutes les combinaisons de couleur de Richard (243 combinaisons possibles) ;
+- ``generate-all-richards.py`` permet de générer toutes les combinaisons de couleur de Richard (243 combinaisons possibles), horizontal sur fond transparent (utilisables dans le programme) ;
+
+- ``generate-richards-logo-server.py`` permet de générer tous les Richard, à partir des 243 résultats du script précédent, en vertical sur fond noir + logos Compiègne (à placer sur le FTP de Compiègne dans le dossier ``/figuriniste`` — utilisables lors du scan du QRCode).
 
 - ``generate-qrcodes.py`` permet de générer tous les QRCodes correspondant à toutes ces combinaisons, renseignés dans le fichier ``url-qrcodes.csv`` sous la forme d'un nom (colonne ``nom``) et URL associée (colonne ``url``).
 
