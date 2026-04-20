@@ -426,7 +426,7 @@ async function playVideo(n) {
     <TimeoutModal v-if="isInactive"
     @click="stillHere"
 
-    :interface="[getText(19, language), getText(20, language), getText(22, language)]" 
+    :interface="[getText(19, language), getText(20, language), getText(23, language)]" 
     :timer2="getText(22, language)"/>
 
 

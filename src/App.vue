@@ -79,7 +79,7 @@ function reloadApp() {
       v-if="dialogs && Object.keys(dialogs).length && texts && Object.keys(texts).length"> 
       Appuyer sur D pour afficher/désafficher debug<br>
       Numéro de versions :<br>
-      Build DEV du 04.12.25 à 12h00<br>
+      Build DEV du 19.12.25 à 14h30<br>
       Interface : {{ texts[Object.keys(texts).length - 1]["texte-FR"] }} <br>
       Dialogues : {{ dialogs[Object.keys(dialogs).length - 1]["texte-FR"] }} <br>
 
@@ -152,7 +152,7 @@ h2 {
   color: white;
   position: absolute;
   padding: 10px;
-  background-color: #3242f74d;
+  background-color: #32f73f4d;
   z-index: 1000;
   display: none;
 
