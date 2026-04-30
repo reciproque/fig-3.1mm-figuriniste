@@ -167,7 +167,7 @@ function onDessinChoice(n) { resume(n, "dessin"); }
 function onCouleeChoice(n) { resume(n, "coulee"); }
 function onEbarbageChoice(n) { resume(n, "ebarbage"); }
 function onAssemblageChoice(n) { resume(n, "assemblage"); }
-function endPeinture(n) { resume(n, "peinture"); } // TODO : 1 bulle avant QRCODE ??
+function endPeinture(n) { resume(n, "peinture"); }
 function onSkipPeintureChoice(n) { resume(n, "skipPeinture"); }
 
 // Reprendre la timeline après une séquence interactive. 

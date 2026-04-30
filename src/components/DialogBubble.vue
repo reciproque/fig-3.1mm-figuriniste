@@ -58,8 +58,6 @@ onMounted(() => {
     margin-bottom: -20px;
 }
 
-/* TODO : taille de la bulle adaptée au texte */
-
 .bubble-box {
     font-size: 30px;
     font-weight: 700;

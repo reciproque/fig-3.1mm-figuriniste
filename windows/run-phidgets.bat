@@ -2,7 +2,7 @@
 
 cd /d "%~dp0"
 
-call phidgets_env\Scripts\activate.bat
+call phidgets\env\Scripts\activate.bat
 
 python phidgets-keyboard.py
 

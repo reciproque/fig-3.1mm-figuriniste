@@ -18,8 +18,6 @@ const { choiceInstruction, goodAnswer} = defineProps({
 
 const emit = defineEmits(['touchedTool']) 
 
-// TODO : interfaçage avec Phidget !
-// Fonction qui commence à écouter les touches clavier. à remplacer par Phidget OU binder Phidget sur touches ??
 function beginChoiceListening() {
     document.addEventListener('keyup', function (e) {
         if (e.key === "1" || e.key === "2" || e.key === "3" || e.key === "4" || e.key === "5" || e.key === "6") 

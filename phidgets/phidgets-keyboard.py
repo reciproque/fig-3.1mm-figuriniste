@@ -3,6 +3,7 @@ from threading import Thread
 
 # Import Phidget22 modules at the top level
 # https://www.phidgets.com/docs/OS_-_Getting_Started
+
 try:
     from Phidget22.Phidget import *
     from Phidget22.Devices.CapacitiveTouch import *

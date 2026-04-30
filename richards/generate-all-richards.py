@@ -42,13 +42,5 @@ for bras in range(1,4):
             if overlay.size != base.size:
                 overlay = overlay.resize(base.size)
             base = Image.alpha_composite(base, overlay)
-            
-            # TODO : crop and add overlay Compiègne / background etc
-            # left = 155
-            # top = 1920
-            # right = 360
-            # bottom = 0
-
-            # cropped = base.crop((left, top, right, bottom))
-
+    
         base.save(output_path)

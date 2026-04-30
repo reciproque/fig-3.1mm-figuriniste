@@ -24,7 +24,7 @@ Pour lancer l'application (équivalent à la commande ``vite``)
 npm run app
 ```
 
-L'application est alors disponible à l'adresse : http://localhost:5173//figuriniste/
+L'application est alors disponible à l'adresse : http://localhost:5173/figuriniste/
 
 Le chemin ```/figuriniste/``` est renseigné dans le fichier ``vite.config.js`` :
 
@@ -36,7 +36,7 @@ Cette commande sera utilisée en prod pour démarrer automatiquement l'applicati
 
 ## Lancement automatique
 
-Dans le dossier ``windows``, deux fichiers Batch serviront au démarrage automatique de l’application.
+Dans le dossier ``windows``, des fichiers Batch serviront au démarrage automatique de l’application.
 
 ``start-figuriniste-serv.bat``  
 **Argument** : chemin où se trouve le dossier   
@@ -46,7 +46,11 @@ Dans le dossier ``windows``, deux fichiers Batch serviront au démarrage automat
 **Argument** : N/A  
 **Action** : Passe Windows en mode kiosque et désactive l’explorateur Windows puis démarre Google Chrome sur l’URL du dispositif, http://localhost:5173/figuriniste
 
-Les deux batch sont à utiliser dans le Planificateur de tâches Windows (raccourci : Win + R > “taskschd.msc”)
+``run-phidgets.bat``  
+**Argument** : N/A  
+**Action** : Lance l'environnement virtuel et le script Python run-phidgets.py pemrettant d'écouter les input de l'interface Phidgets (objets capacitifs).
+
+Les batch sont à placer dans le dossier de démarrage Windows
 
 Utiliser Ctrl + Alt + Suppr pour ouvrir le Gestionnaire des tâches et neutraliser le mode kiosque.
 
@@ -130,5 +134,39 @@ Les scripts nécessiteront l'installation (dans un environnement virtuel) des li
 
 ## Interfaçage Phidget
 
-TODO // Interfaçage Phidget & doc
+Dans le programme principal, les choix d’objets aux étapes 2 (Dessin), 29 (Coulée) et 46 (Ébarbage), sont déclenchés par l’appui sur les touches 1 à 6 du clavier, tels que :  
+  
+1 = Ébauchoir  
+2 = Lime  
+3 = Moule  
+4 = Palette  
+5 = Louche  
+6 = Critérium  
+  
+L’interface Phidgets reliée aux 6 objets capacitifs est contrôlée par un script Python, ``phidgets-keyboard.py``, qui permet d’interpréter les contacts tactiles des objets comme si les touches du clavier avaient été appuyées (1 à 6).  
+
+Créer l'environnement virtuel :
+
+```
+python -m venv env
+
+```
+
+L'activer : 
+```
+.\env\Scripts\activate
+```
+
+Installer les dépendances :
+```
+pip install pyautogui pyinput Phidget22
+```
+
+Et le driver **Phidget Runtime**.
+
+Si ``use_mock = False``, le script est en mode Phidgets, c'est le toucher des 6 entrées ananlogiques qui provoque la simulation des touches 1 à 6.  
+
+Si ``use_mock = True``, le script est en mode Mockup (sans Phidgets). Une interface graphique permet de simuler l'appui sur des boutons et de binder le clavier : la touche a sur 1, la touche b sur 2... la touche f sur 6.
+
+Le batch ``run-phidgets.bat`` permet de lancer ce script Python au démarrage.    
 

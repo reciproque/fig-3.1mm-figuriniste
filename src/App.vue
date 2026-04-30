@@ -89,8 +89,6 @@ function reloadApp() {
 
   </div>
 
-  <!-- TODO : modale inactivité et reload -->
-
 </template>
 
 <style>
