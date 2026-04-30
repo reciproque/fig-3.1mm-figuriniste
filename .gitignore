@@ -4,3 +4,5 @@ dist
 .vite
 python/resultats
 
+richards/resultats-poster
+phidgets/phidgets_env
